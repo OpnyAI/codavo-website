@@ -2,9 +2,9 @@ import Link from "next/link";
 
 export default function Contact() {
   // ====== KONFIG (bitte anpassen) ======
-  const PHONE_DISPLAY = "+49 173 1234567";
-  const PHONE_TEL = "+491731234567";
-  const WHATSAPP = "+491731234567";
+  const PHONE_DISPLAY = "+49 1511 195 64 79";
+  const PHONE_TEL = "+4915111956479";
+  const WHATSAPP = "+4915111956479";
   const EMAIL = "kontakt@codavo-webstudio.de";
   // ====================================
 
