@@ -1,26 +1,216 @@
 @import "tailwindcss";
 
+/* ===== Base Theme (Dark + Vivid Gradients) ===== */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: dark;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html,
+body {
+  height: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  color: #e5e7eb; /* slate-200 */
+  background: radial-gradient(
+      1200px 800px at 50% 0%,
+      rgba(99, 102, 241, 0.18) 0%,
+      rgba(15, 23, 42, 0) 70%
+    ),
+    linear-gradient(180deg, #0f172a 0%, #111827 100%); /* dark → darker */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "ss02" on, "ss03" on, "cv11" on;
+}
+
+/* Links neutral halten */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+
+/* ===== Layout Helpers (ohne @apply für v4-Kompatibilität) ===== */
+.container {
+  max-width: 72rem; /* 1152px */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem; /* 24px */
+  padding-right: 1.5rem;
+}
+.section {
+  padding-top: 6rem; /* 96px */
+  padding-bottom: 6rem;
+}
+.section-sm {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+/* ===== UI Primitives ===== */
+.card {
+  border-radius: 1rem; /* 16px */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(17, 24, 39, 0.6); /* near #111827 with alpha */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 2rem; /* 32px */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), background-color 0.35s ease;
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+  background: rgba(17, 24, 39, 0.72);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  padding: 0.75rem 1.25rem; /* 12px 20px */
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1;
+  transition: transform 0.2s ease, opacity 0.2s ease, background-color 0.2s ease;
+  cursor: pointer;
+}
+.btn:active {
+  transform: translateY(1px) scale(0.99);
+}
+
+.btn-primary {
+  color: #fff;
+  background: linear-gradient(90deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+  box-shadow: 0 6px 18px rgba(99, 102, 241, 0.35);
+}
+.btn-primary:hover {
+  opacity: 0.92;
+}
+
+.btn-ghost {
+  color: #cbd5e1; /* slate-300 */
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.btn-ghost:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.input {
+  width: 100%;
+  border-radius: 0.75rem; /* 12px */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  color: #e5e7eb;
+  padding: 0.75rem 1rem; /* 12px 16px */
+  font-size: 0.95rem;
+  outline: none;
+  box-shadow: inset 0 0 0 0 rgba(99, 102, 241, 0);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+.input::placeholder {
+  color: #94a3b8;
+}
+.input:focus {
+  border-color: rgba(99, 102, 241, 0.7);
+  box-shadow: 0 0 0 6px rgba(99, 102, 241, 0.15);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #e5e7eb;
+}
+
+/* ===== Subtile Glows für Sections ===== */
+.section-glow-top {
+  position: relative;
+}
+.section-glow-top::before {
+  content: "";
+  position: absolute;
+  inset: -1px -1px auto -1px;
+  height: 40%;
+  background: radial-gradient(
+    900px 500px at 50% 0%,
+    rgba(99, 102, 241, 0.22),
+    transparent 70%
+  );
+  pointer-events: none;
+}
+.section-glow-bottom {
+  position: relative;
+}
+.section-glow-bottom::after {
+  content: "";
+  position: absolute;
+  inset: auto -1px -1px -1px;
+  height: 45%;
+  background: radial-gradient(
+    900px 550px at 50% 100%,
+    rgba(99, 102, 241, 0.18),
+    transparent 70%
+  );
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .fade-up {
+    animation: fadeUp 0.7s ease-out both;
+  }
+  .fade-up.delay-1 {
+    animation-delay: 0.08s;
+  }
+  .fade-up.delay-2 {
+    animation-delay: 0.16s;
+  }
+}
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(1.02);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+/* ===== Testimonials Marquee ===== */
+.testimonial-track {
+  display: inline-flex;
+  gap: 1.5rem; /* Abstand zwischen den Karten */
+  animation: testimonial-marquee 40s linear infinite;
+  will-change: transform;
+}
+/* ===== Testimonials Marquee ===== */
+.testimonial-track {
+  display: inline-flex;
+  gap: 1.5rem;
+  animation: testimonial-marquee 40s linear infinite;
+  will-change: transform;
+}
+
+@keyframes testimonial-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }

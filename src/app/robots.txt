@@ -1,0 +1,11 @@
+// app/robots.txt/route.ts (Next 14) ODER einfach public/robots.txt
+import { NextResponse } from "next/server";
+
+export function GET() {
+  return new NextResponse(`User-agent: *
+Allow: /
+Sitemap: https://www.deine-domain.de/sitemap.xml
+`, {
+    headers: { "Content-Type": "text/plain" },
+  });
+}
