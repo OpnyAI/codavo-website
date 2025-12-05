@@ -7,8 +7,8 @@ export default function MobileCTA() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const SHOW_SCROLL_Y = 200; // ab hier grundsätzlich einblenden
-    const FOOTER_THRESHOLD = 160; // Abstand zum Seitenende, ab dem wir ausblenden
+    const SHOW_SCROLL_Y = 200;
+    const FOOTER_THRESHOLD = 160;
 
     let contactInView = false;
 
@@ -35,13 +35,11 @@ export default function MobileCTA() {
       setVisible(shouldShow);
     };
 
-    // Scroll / Resize
     const onScroll = () => sync();
     const onResize = () => sync();
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onResize);
 
-    // Kontakt-Bereich beobachten (falls vorhanden)
     const el = document.querySelector("#kontakt");
     const io = el
       ? new IntersectionObserver(
@@ -55,7 +53,6 @@ export default function MobileCTA() {
 
     if (el && io) io.observe(el);
 
-    // Initial
     sync();
 
     return () => {
@@ -77,15 +74,18 @@ export default function MobileCTA() {
       ].join(" ")}
     >
       <div className="pointer-events-auto mx-auto max-w-sm rounded-2xl bg-white/8 backdrop-blur-md border border-white/10 shadow-[0_8px_28px_-6px_rgba(0,0,0,.45)] p-2 flex gap-2 justify-center">
+        {/* 📞 Telefon */}
         <a
-          href="tel:+491234567890" /* <-- deine Nummer */
+          href="tel:+4915111956479"
           className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl px-3 py-2 bg-white/10 hover:bg-white/15 active:bg-white/20 text-white text-sm font-medium"
         >
           <Phone className="w-4 h-4" />
           Anrufen
         </a>
+
+        {/* 💬 WhatsApp */}
         <a
-          href="https://wa.me/491234567890" /* <-- intl. Format ohne + */
+          href="https://wa.me/4915111956479"
           target="_blank"
           rel="noopener noreferrer"
           className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl px-3 py-2 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:opacity-95 active:opacity-90 text-white text-sm font-medium"
