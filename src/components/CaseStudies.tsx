@@ -1,4 +1,5 @@
 "use client";
+
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
@@ -15,61 +16,52 @@ type CaseItem = {
 
 const cases: CaseItem[] = [
   {
-    title: "Pioneer Solution – Energieberatung",
-    problem:
-      "Die bisherige Website wirkte technisch veraltet, der Nutzen war nicht klar erkennbar und es kamen nur wenige Anfragen.",
+    title: "Pioneer Solution — Energieberatung",
+    problem: "Wenige Anfragen trotz starkem Angebot.",
     solution:
-      "Relaunch mit klarer Struktur, verständlicher Nutzen-Kommunikation, fokussierter Startseite und schlankem Anfrage-Prozess.",
-    result:
-      "Mehr qualifizierte Anfragen pro Monat, professionellerer Auftritt und bessere Sichtbarkeit im relevanten Umfeld.",
+      "Startseite klarer aufgebaut, Nutzen deutlich gemacht, Anfrage-Buttons sichtbar platziert.",
+    result: "Mehr qualifizierte Anfragen pro Monat und bessere Sichtbarkeit.",
     img: "/cases/projekt1.webp",
-    alt: "Relaunch Pioneer Solution Website",
+    alt: "Hero-Screenshot Pioneer Solution",
     href: "https://pioneer-solution.de",
   },
   {
-    title: "IB Bauwerksprüfung – Ingenieurbüro",
-    problem:
-      "Die alte Seite hatte keine klare Struktur, war aus SEO-Sicht kaum vorbereitet und wirkte nicht auf dem Niveau der erbrachten Leistungen.",
+    title: "Opny AI — KI-Tools für Unternehmen",
+    problem: "Unklare Produktdarstellung, wenig Demo-Anfragen.",
     solution:
-      "Neue Website mit klarer Leistungsübersicht, moderner Gestaltung, technischer Optimierung und besserer Präsentation der Referenzen.",
-    result:
-      "Deutlich professioneller Markenauftritt, bessere Grundlage für Sichtbarkeit und mehr Sicherheit für Interessenten bei der Kontaktaufnahme.",
-    img: "/cases/ib-bauwerkspruefung.webp",
-    alt: "Website für IB Bauwerksprüfung",
-    href: "https://ib-bauwerkspruefung.de",
-  },
-  {
-    title: "Taner Care – Ambulanter Pflegedienst",
-    problem:
-      "Onlinepräsenz praktisch nicht vorhanden, wenig Vertrauen bei neuen Anfragen und keine klare Anlaufstelle für Bewerber.",
-    solution:
-      "Entwicklung einer freundlichen, barrierearmen Website mit klarer Ansprache für Patienten und Bewerber – inklusive Kontakt- und Bewerbungswegen.",
-    result:
-      "Mehr Anfragen für Pflegeleistungen, höheres Vertrauen durch professionellen Auftritt und spürbar mehr qualifizierte Bewerbungen.",
-    img: "/cases/taner-care.webp",
-    alt: "Webprojekt Taner Care Pflegedienst",
-    href: "https://taner-care.de",
-  },
-  {
-    title: "Opny AI – KI-Tools für Unternehmen",
-    problem:
-      "Die Produktidee war stark, aber die Website erklärte den Nutzen nicht klar genug und führte zu wenigen Demo-Anfragen.",
-    solution:
-      "Story-basierte Darstellung der Vorteile, saubere Struktur der Module, Performance-Optimierung und klarer Fokus auf Demo-Anfrage.",
-    result:
-      "Mehr Demo-Anfragen, höhere Verweildauer und ein deutlich besseres Verständnis dafür, was das Produkt leistet.",
+      "Nutzen in einer klaren Story erklärt, Produktabschnitte strukturiert, Ladezeiten reduziert.",
+    result: "Mehr Demo-Anfragen und längere Verweildauer auf der Seite.",
     img: "/cases/projekt2.webp",
     alt: "Hero-Screenshot Opny AI",
     href: "https://opny.ai",
   },
   {
-    title: "Gartenwelt Schmitz – Garten- & Landschaftsbau",
-    problem:
-      "Leistungen waren online schwer erkennbar, die Seite wirkte unruhig und Kontaktmöglichkeiten waren zu versteckt.",
+    title: "IB Bauwerksprüfung — Ingenieurbüro",
+    problem: "Leistungen technisch stark, online aber schwer greifbar.",
     solution:
-      "Klare Leistungsseiten mit starken Bildern, Einbindung von Bewertungen und sehr präsente Kontakt- und Anfrageoptionen.",
+      "Strukturierte Darstellung der Kernleistungen, Referenzen hervorgehoben, klare Kontaktwege.",
     result:
-      "Mehr qualifizierte Anfragen, besseres Verständnis für das Angebot und stärkere lokale Sichtbarkeit.",
+      "Mehr qualifizierte Anfragen und professionellerer Außenauftritt für Ausschreibungen.",
+    img: "/cases/projekt4.webp",
+    alt: "Hero-Screenshot IB Bauwerksprüfung",
+    href: "https://ib-bauwerkspruefung.de",
+  },
+  {
+    title: "Taner Care — Gebäudereinigung & Services",
+    problem: "Breites Leistungsspektrum, aber wenig Differenzierung im Web.",
+    solution:
+      "Klarer Aufbau nach Zielgruppen, Leistungen sauber gegliedert, Vertrauen durch Referenzen und Bilder.",
+    result: "Höhere Sichtbarkeit lokal und mehr Anfragen über die Website.",
+    img: "/cases/projekt5.webp",
+    alt: "Hero-Screenshot Taner Care",
+    href: "https://taner-care.de",
+  },
+  {
+    title: "Gartenwelt Schmitz — Landschaftsbau",
+    problem: "Leistungen zu versteckt, wenig Kontaktaufnahmen.",
+    solution:
+      "Leistungen mit Bildern greifbar gemacht, Bewertungen eingebunden, Kontaktmöglichkeiten sehr sichtbar platziert.",
+    result: "Mehr Anfragen und messbar bessere lokale Sichtbarkeit.",
     img: "/cases/projekt3.webp",
     alt: "Hero-Screenshot Gartenwelt Schmitz",
     href: "https://gartenwelt-schmitz.de",
@@ -79,8 +71,8 @@ const cases: CaseItem[] = [
 const INTERVAL_S = 4;
 
 export default function CaseStudies() {
-  const scrollerRef = useRef<HTMLDivElement>(null);
-  const cardRefs = useRef<HTMLDivElement[]>([]);
+  const scrollerRef = useRef<HTMLDivElement | null>(null);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [active, setActive] = useState(0);
   const count = cases.length;
 
@@ -88,12 +80,19 @@ export default function CaseStudies() {
     const scroller = scrollerRef.current;
     const card = cardRefs.current[idx];
     if (!scroller || !card) return;
+
+    const paddingLeft = parseInt(
+      getComputedStyle(scroller).paddingLeft || "0",
+      10
+    );
+
     scroller.scrollTo({
-      left: card.offsetLeft - parseInt(getComputedStyle(scroller).paddingLeft),
+      left: card.offsetLeft - paddingLeft,
       behavior: "smooth",
     });
   };
 
+  // aktiven Slide anhand der Scrollposition bestimmen
   useEffect(() => {
     const scroller = scrollerRef.current;
     if (!scroller) return;
@@ -105,7 +104,9 @@ export default function CaseStudies() {
         const mid = scroller.scrollLeft + scroller.clientWidth / 2;
         let nearest = 0;
         let min = Infinity;
+
         cardRefs.current.forEach((el, i) => {
+          if (!el) return;
           const center = el.offsetLeft + el.clientWidth / 2;
           const d = Math.abs(center - mid);
           if (d < min) {
@@ -113,22 +114,29 @@ export default function CaseStudies() {
             nearest = i;
           }
         });
+
         setActive(nearest);
       });
     };
 
     scroller.addEventListener("scroll", onScroll, { passive: true });
-    return () => scroller.removeEventListener("scroll", onScroll);
+    return () => {
+      scroller.removeEventListener("scroll", onScroll);
+      cancelAnimationFrame(rAF);
+    };
   }, []);
 
+  // Auto-Advance mit Pause bei Hover/Touch
   useEffect(() => {
     const scroller = scrollerRef.current;
     if (!scroller) return;
 
     let paused = false;
+
     const pause = () => {
       paused = true;
     };
+
     const resume = () => {
       paused = false;
     };
@@ -164,10 +172,10 @@ export default function CaseStudies() {
               Case Studies
             </h2>
             <p className="mt-4 text-slate-300 max-w-2xl mx-auto">
-              Ausgewählte Projekte aus unterschiedlichen Branchen – jeweils mit
-              einem klaren Ausgangspunkt, einer konkreten Lösung und einem
-              sichtbaren Ergebnis. Die Websites kannst du dir auf Wunsch direkt
-              live ansehen.
+              Beispiele aus echten Projekten – unterschiedliche Branchen,
+              unterschiedliche Ziele, aber immer mit einem klaren Problem, einer
+              sauberen Lösung und einem sichtbaren Ergebnis. Die Seiten kannst
+              du dir auf Wunsch direkt live ansehen.
             </p>
           </div>
         </Reveal>
@@ -186,8 +194,8 @@ export default function CaseStudies() {
           {cases.map((c, i) => (
             <article
               key={c.title}
-              ref={(el) => {
-                if (el) cardRefs.current[i] = el;
+              ref={(el: HTMLDivElement | null) => {
+                cardRefs.current[i] = el;
               }}
               className="snap-start shrink-0 w-[88%] sm:w-[520px] md:w-[720px] lg:w-[860px] 2xl:w-[980px]"
             >
@@ -273,7 +281,7 @@ export default function CaseStudies() {
           {cases.map((_, i) => (
             <button
               key={i}
-              aria-label={`Slide ${i + 1}`}
+              aria-label={`Slide {i + 1}`}
               onClick={() => goTo(i)}
               className={`h-2.5 rounded-full transition-all ${
                 active === i
