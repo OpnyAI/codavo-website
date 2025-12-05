@@ -42,7 +42,7 @@ const cases: CaseItem[] = [
       "Strukturierte Darstellung der Kernleistungen, Referenzen hervorgehoben, klare Kontaktwege.",
     result:
       "Mehr qualifizierte Anfragen und professionellerer Außenauftritt für Ausschreibungen.",
-    img: "/cases/projekt4.webp",
+    img: "/cases/ib-bauwerkspruefung.webp",
     alt: "Hero-Screenshot IB Bauwerksprüfung",
     href: "https://ib-bauwerkspruefung.de",
   },
@@ -52,7 +52,7 @@ const cases: CaseItem[] = [
     solution:
       "Klarer Aufbau nach Zielgruppen, Leistungen sauber gegliedert, Vertrauen durch Referenzen und Bilder.",
     result: "Höhere Sichtbarkeit lokal und mehr Anfragen über die Website.",
-    img: "/cases/projekt5.webp",
+    img: "/cases/taner-care.webp",
     alt: "Hero-Screenshot Taner Care",
     href: "https://taner-care.de",
   },
