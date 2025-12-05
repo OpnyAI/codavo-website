@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import FAQAccordion from "@/components/FAQAccordion";
 
 export const metadata: Metadata = {
-  title: "FAQ – Häufige Fragen | Lunova",
+  title: "FAQ – Häufige Fragen | Codavo Webstudio",
   description:
-    "Antworten zu Kosten, Ablauf, CMS und SEO – alles, was du über Webdesign & Webentwicklung bei Lunova wissen musst.",
+    "Antworten zu Kosten, Ablauf, CMS und SEO – alles, was du über Webdesign & Webentwicklung bei Codavo Webstudio wissen musst.",
 };
 
 const faqs = [
   {
-    q: "Was kostet eine Website bei Lunova?",
+    q: "Was kostet eine Website bei Codavo Webstudio?",
     a: "Das hängt vom Umfang und der Komplexität ab. Kleine Websites beginnen ab etwa 1.500 €, während umfangreiche Projekte oder Web-Apps individuell kalkuliert werden. Nach einem kurzen Kennenlerngespräch erhältst du ein transparentes, verbindliches Angebot.",
   },
   {
@@ -53,7 +53,7 @@ const faqs = [
     a: "Natürlich. Viele unserer Kunden betreuen wir über Jahre hinweg – mit regelmäßigen Optimierungen, neuen Landingpages, SEO oder Marketing-Integrationen.",
   },
   {
-    q: "Was unterscheidet Lunova von anderen Webdesign-Agenturen?",
+    q: "Was unterscheidet Codavo Webstudio von anderen Webdesign-Agenturen?",
     a: "Wir kombinieren strategisches Denken, ästhetisches Design und technische Exzellenz. Keine Baukastenseiten, sondern individuelle, performante Lösungen – entwickelt mit Liebe zum Detail.",
   },
 ];
@@ -84,7 +84,6 @@ export default function Page() {
       {/* Rich Snippets für Google */}
       <script
         type="application/ld+json"
-        // @ts-ignore
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
     </main>
