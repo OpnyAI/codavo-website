@@ -1,6 +1,6 @@
 import "./globals.css";
 import Header from "@/components/Header";
-import MobileQuickActions from "@/components/MobileQuickActions";
+import MobileCTA from "@/components/MobileCTA";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -46,13 +46,13 @@ export default function RootLayout({
     "@type": "Organization",
     name: "Codavo Webstudio",
     url: "https://www.codavo-webstudio.de",
-    telephone: "+49-0000-000000",
+    telephone: "+49 1511 1956479",
     image: "https://www.codavo-webstudio.de/og.jpg",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Musterstraße 1",
-      addressLocality: "Stuttgart",
-      postalCode: "70173",
+      streetAddress: "Naumannstr. 3",
+      addressLocality: "Berglen",
+      postalCode: "73663",
       addressCountry: "DE",
     },
     areaServed: "DE",
@@ -65,13 +65,12 @@ export default function RootLayout({
         <Header />
         {children}
 
-        {/* Floating CTA für Mobile */}
-        <MobileQuickActions />
+        {/* Floating CTA nur für Mobile */}
+        <MobileCTA />
 
-        {/* Organization / ProfessionalService */}
+        {/* Organization / ProfessionalService JSON-LD */}
         <script
           type="application/ld+json"
-          // bewusstes JSON-LD-Inject
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
         />
       </body>
