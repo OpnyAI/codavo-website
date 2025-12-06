@@ -5,7 +5,7 @@ import Reveal from "@/components/Reveal";
 type Testimonial = {
   name: string;
   role: string;
-  rating: string;
+  rating: string; // Anzeige, kein echter Bewertungsnachweis
   short: string; // Kurztext für Mobile
   full: string; // Volltext ab sm
 };
@@ -73,8 +73,8 @@ export default function Testimonials() {
                 <span>★</span>
               </div>
               <p className="text-slate-300 text-sm">
-                Ø 4,9 von 5 Sternen · fiktive Bewertungen, angelehnt an typische
-                Kundenrückmeldungen
+                Stimmen von Kund:innen, mit denen wir Websites & Web-Apps in
+                Deutschland und der DACH-Region umgesetzt haben.
               </p>
             </div>
           </div>
@@ -85,9 +85,9 @@ export default function Testimonials() {
             {loopedTestimonials.map((t, i) => (
               <article
                 key={`${t.name}-${i}`}
-                className="w-[85%] sm:w-[360px] md:w-[420px] lg:w-[460px]"
+                // Breite: mobil ~95 % des Viewports, max. 720px auf Desktop
+                style={{ width: "min(75vw, 720px)", flex: "0 0 auto" }}
               >
-                {/* feste, einheitliche Höhe + Flex-Layout */}
                 <div className="card h-full min-h-[240px] sm:min-h-[230px] md:min-h-[220px] flex flex-col justify-between py-4 sm:py-6">
                   <div>
                     <div className="flex items-center gap-2 text-yellow-300 text-sm mb-2">

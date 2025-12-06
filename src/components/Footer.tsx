@@ -14,9 +14,9 @@ export default function Footer() {
             <Image
               src="/images/logo/codavo-logo-light.png"
               alt="Codavo Logo"
-              width={110} // ← gleiche Größe wie im Header
-              height={28}
-              className="opacity-95"
+              width={140}
+              height={32}
+              className="opacity-95 h-7 w-auto"
             />
           </div>
 
@@ -27,7 +27,8 @@ export default function Footer() {
           <p className="text-slate-400 leading-relaxed">
             Wir entwickeln moderne Websites & Web-Apps mit klarer UX,
             performanter Technik und Fokus auf Ergebnisse – für
-            Solo-Selbstständige, Unternehmen und Teams.
+            Solo-Selbstständige, Unternehmen und Teams in der gesamten
+            DACH-Region.
           </p>
         </div>
 
@@ -36,28 +37,38 @@ export default function Footer() {
           <h4 className="text-white font-medium mb-3">Navigation</h4>
           <ul className="space-y-2">
             <li>
-              <Link href="#leistungen" className="hover:text-white">
+              <Link href="/#leistungen" className="hover:text-white">
                 Leistungen
               </Link>
             </li>
             <li>
-              <Link href="#prozess" className="hover:text-white">
+              <Link href="/#prozess" className="hover:text-white">
                 Prozess
               </Link>
             </li>
             <li>
-              <Link href="#cases" className="hover:text-white">
+              <Link href="/#cases" className="hover:text-white">
                 Case Studies
               </Link>
             </li>
             <li>
-              <Link href="#faq" className="hover:text-white">
+              <Link href="/faq" className="hover:text-white">
                 FAQ
               </Link>
             </li>
             <li>
-              <Link href="#kontakt" className="hover:text-white">
+              <Link href="/kontakt" className="hover:text-white">
                 Kontakt
+              </Link>
+            </li>
+            <li>
+              <Link href="/impressum" className="hover:text-white">
+                Impressum
+              </Link>
+            </li>
+            <li>
+              <Link href="/datenschutz" className="hover:text-white">
+                Datenschutz
               </Link>
             </li>
           </ul>

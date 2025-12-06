@@ -92,7 +92,6 @@ export default function CaseStudies() {
     });
   };
 
-  // aktiven Slide anhand der Scrollposition bestimmen
   useEffect(() => {
     const scroller = scrollerRef.current;
     if (!scroller) return;
@@ -126,7 +125,6 @@ export default function CaseStudies() {
     };
   }, []);
 
-  // Auto-Advance mit Pause bei Hover/Touch
   useEffect(() => {
     const scroller = scrollerRef.current;
     if (!scroller) return;
@@ -197,7 +195,9 @@ export default function CaseStudies() {
               ref={(el: HTMLDivElement | null) => {
                 cardRefs.current[i] = el;
               }}
-              className="snap-start shrink-0 w-[88%] sm:w-[520px] md:w-[720px] lg:w-[860px] 2xl:w-[980px]"
+              // HIER anpassen:
+              style={{ width: "min(88vw, 980px)", flex: "0 0 auto" }}
+              className="snap-start shrink-0"
             >
               <div className="card p-0 overflow-hidden">
                 <div className="relative aspect-[16/9]">
@@ -207,7 +207,7 @@ export default function CaseStudies() {
                         src={c.img}
                         alt={c.alt ?? c.title}
                         fill
-                        sizes="(max-width: 640px) 88vw, (max-width: 1280px) 720px, 860px"
+                        sizes="(max-width: 768px) 96vw, 860px"
                         className="
                           object-cover
                           object-[center_18%]
@@ -281,7 +281,7 @@ export default function CaseStudies() {
           {cases.map((_, i) => (
             <button
               key={i}
-              aria-label={`Slide {i + 1}`}
+              aria-label={`Slide ${i + 1}`}
               onClick={() => goTo(i)}
               className={`h-2.5 rounded-full transition-all ${
                 active === i

@@ -38,32 +38,31 @@ export default function Header() {
               priority
               className="h-6 w-auto md:h-7"
             />
-            {/* Für Screenreader, aber visuell ausgeblendet */}
             <span className="sr-only">Codavo Webstudio</span>
           </Link>
 
           {/* Desktop-Navigation */}
           <nav className="hidden md:flex items-center gap-6 text-sm text-slate-200">
-            <Link href="#leistungen" className="hover:text-white">
+            <Link href="/#leistungen" className="hover:text-white">
               Leistungen
             </Link>
-            <Link href="#prozess" className="hover:text-white">
+            <Link href="/#prozess" className="hover:text-white">
               Prozess
             </Link>
-            <Link href="#cases" className="hover:text-white">
+            <Link href="/#cases" className="hover:text-white">
               Case Studies
             </Link>
-            <Link href="#faq" className="hover:text-white">
+            <Link href="/faq" className="hover:text-white">
               FAQ
             </Link>
-            <Link href="#kontakt" className="hover:text-white">
+            <Link href="/kontakt" className="hover:text-white">
               Kontakt
             </Link>
           </nav>
 
-          {/* CTA rechts – gleich wie „Projekt starten“ im Hero */}
+          {/* CTA rechts – führt auf Kontakt-Unterseite */}
           <Link
-            href="#kontakt"
+            href="/kontakt"
             className="
               rounded-full
               bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500
@@ -82,28 +81,34 @@ export default function Header() {
       <div className="md:hidden border-b border-white/5 bg-[#0a0f1a]">
         <nav className="flex items-center gap-2 overflow-x-auto px-3 py-2 no-scrollbar">
           <Link
-            href="#leistungen"
+            href="/#leistungen"
             className="shrink-0 rounded-full border border-white/10 px-3 py-1.5 text-xs text-slate-200 hover:bg-white/10"
           >
             Leistungen
           </Link>
           <Link
-            href="#prozess"
+            href="/#prozess"
             className="shrink-0 rounded-full border border-white/10 px-3 py-1.5 text-xs text-slate-200 hover:bg-white/10"
           >
             Prozess
           </Link>
           <Link
-            href="#cases"
+            href="/#cases"
             className="shrink-0 rounded-full border border-white/10 px-3 py-1.5 text-xs text-slate-200 hover:bg-white/10"
           >
             Case Studies
           </Link>
           <Link
-            href="#faq"
+            href="/faq"
             className="shrink-0 rounded-full border border-white/10 px-3 py-1.5 text-xs text-slate-200 hover:bg-white/10"
           >
             FAQ
+          </Link>
+          <Link
+            href="/kontakt"
+            className="shrink-0 rounded-full border border-white/10 px-3 py-1.5 text-xs text-slate-200 hover:bg-white/10"
+          >
+            Kontakt
           </Link>
         </nav>
       </div>
