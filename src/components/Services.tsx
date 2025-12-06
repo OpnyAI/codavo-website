@@ -83,9 +83,10 @@ export default function Services() {
               Leistungen
             </h2>
             <p className="mt-4 text-slate-300 max-w-2xl mx-auto">
-              Im Kern entwickelt Codavo Webstudio Websites und Web-Apps. Alles
-              andere – Design, SEO, Performance, Wartung – bauen wir modular
-              darum herum, damit dein Projekt wirklich funktioniert.
+              Wir bündeln Webdesign, Entwicklung und laufende Betreuung in einem
+              Setup: moderne Websites, Web-Apps und Landingpages – ergänzt um
+              SEO, Performance, Barrierefreiheit und Wartung, damit dein
+              Auftritt langfristig funktioniert.
             </p>
           </div>
         </Reveal>

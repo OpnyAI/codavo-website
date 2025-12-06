@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import FAQAccordion from "@/components/FAQAccordion";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "FAQ – Häufige Fragen | Codavo Webstudio",
+  title: "FAQ Webdesign & Websites – Häufige Fragen | Codavo Webstudio",
   description:
-    "Antworten zu Kosten, Ablauf, Dauer (1–4 Wochen) und SEO – alles Wichtige zu Websites & Web-Apps mit Codavo Webstudio für Kund:innen in Deutschland und der DACH-Region.",
+    "Antworten auf die häufigsten Fragen zu Webdesign, Kosten, Ablauf, Dauer (1–4 Wochen) und SEO. FAQ zu Websites & Web-Apps mit Codavo Webstudio für Kund:innen in Deutschland und der DACH-Region.",
 };
 
 const faqs = [
@@ -70,27 +71,31 @@ export default function Page() {
   };
 
   return (
-    <main className="min-h-screen pt-28 md:pt-32 lg:pt-36 pb-20">
-      <div className="container mt-10 md:mt-6 lg:mt-4">
-        <h1 className="text-3xl md:text-5xl font-semibold tracking-tight text-white">
-          FAQ – Häufige Fragen
-        </h1>
-        <p className="mt-4 text-slate-300 max-w-2xl">
-          Hier findest du Antworten auf die häufigsten Fragen rund um unsere
-          Webdesign- und Web-App-Projekte für Kund:innen in Deutschland und der
-          DACH-Region.
-        </p>
+    <>
+      <main className="min-h-screen pt-28 md:pt-32 lg:pt-36 pb-20">
+        <div className="container mt-10 md:mt-6 lg:mt-4">
+          <h1 className="text-3xl md:text-5xl font-semibold tracking-tight text-white">
+            FAQ Webdesign & Websites – Häufige Fragen
+          </h1>
+          <p className="mt-4 text-slate-300 max-w-2xl">
+            Hier findest du Antworten auf die häufigsten Fragen rund um unsere
+            Webdesign- und Web-App-Projekte für Kund:innen in Deutschland und
+            der DACH-Region.
+          </p>
 
-        <div className="mt-10">
-          <FAQAccordion items={faqs} />
+          <div className="mt-10">
+            <FAQAccordion items={faqs} />
+          </div>
         </div>
-      </div>
 
-      {/* Rich Snippets für Google */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-    </main>
+        {/* Rich Snippets für Google */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </main>
+
+      <Footer />
+    </>
   );
 }

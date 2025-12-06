@@ -37,6 +37,11 @@ export default function Footer() {
           <h4 className="text-white font-medium mb-3">Navigation</h4>
           <ul className="space-y-2">
             <li>
+              <Link href="/webdesign" className="hover:text-white">
+                Webdesign
+              </Link>
+            </li>
+            <li>
               <Link href="/#leistungen" className="hover:text-white">
                 Leistungen
               </Link>

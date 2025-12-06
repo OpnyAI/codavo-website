@@ -5,35 +5,42 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.codavo-webstudio.de"),
+
   title: {
-    default: "Codavo Webstudio – Websites & Web-Apps",
+    default: "Codavo Webstudio – Webdesign Agentur für moderne Websites",
     template: "%s | Codavo Webstudio",
   },
+
   description:
-    "Codavo Webstudio entwickelt moderne Websites und Web-Apps mit klarer UX, performanter Technik und Fokus auf Ergebnisse – für Solo-Selbstständige, Unternehmen und Teams jeder Größe.",
+    "Codavo Webstudio ist deine Webdesign Agentur für moderne, schnelle Websites & Web-Apps. Wir realisieren Projekte in 1–4 Wochen für Kund:innen in Stuttgart, ganz Deutschland und der DACH-Region.",
+
   openGraph: {
     type: "website",
-    title: "Codavo Webstudio – Websites & Web-Apps",
-    description:
-      "Moderne Websites & Web-Apps, die für dich arbeiten: klare UX, schneller Stack, messbare Ergebnisse.",
     url: "https://www.codavo-webstudio.de",
+    title: "Codavo Webstudio – Webdesign Agentur für moderne Websites",
+    description:
+      "Moderne Websites & Web-Apps mit klarer UX, schnellem Tech-Stack und Fokus auf Ergebnisse – für Unternehmen, Dienstleister und Solo-Selbstständige in Stuttgart und der gesamten DACH-Region.",
     images: [
       {
         url: "/og.jpg",
         width: 1200,
         height: 630,
-        alt: "Codavo Webstudio – Websites & Web-Apps",
+        alt: "Codavo Webstudio – Webdesign Agentur für moderne Websites & Web-Apps",
       },
     ],
   },
+
   twitter: {
     card: "summary_large_image",
-    title: "Codavo Webstudio – Websites & Web-Apps",
+    title: "Codavo Webstudio – Webdesign Agentur",
     description:
-      "Codavo Webstudio entwickelt Websites & Web-Apps, die für dich arbeiten – statt nur gut auszusehen.",
+      "Wir entwickeln Websites & Web-Apps, die für dich arbeiten – statt nur gut auszusehen. Moderne UX, schnelle Technik, klare Ergebnisse.",
     images: ["/og.jpg"],
   },
-  alternates: { canonical: "https://www.codavo-webstudio.de" },
+
+  alternates: {
+    canonical: "https://www.codavo-webstudio.de",
+  },
 };
 
 export default function RootLayout({
@@ -68,7 +75,7 @@ export default function RootLayout({
         {/* Floating CTA nur für Mobile */}
         <MobileCTA />
 
-        {/* Organization / ProfessionalService JSON-LD */}
+        {/* Schema.org: Organisation + lokales Business */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}

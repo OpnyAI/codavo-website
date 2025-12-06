@@ -1,3 +1,4 @@
+// src/app/page.tsx
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import Process from "@/components/Process";
@@ -12,6 +13,24 @@ export default function Home() {
     <main>
       {/* Hero */}
       <Hero />
+
+      {/* Kurz-Intro – ohne Wiederholung des Hero-Claim */}
+      <section className="section">
+        <div className="container max-w-2xl text-center">
+          <h2 className="text-2xl md:text-3xl font-semibold text-white">
+            Für wen wir arbeiten.
+          </h2>
+          <p className="mt-4 text-slate-300 text-sm md:text-base">
+            Wir unterstützen Selbstständige, Dienstleister und Unternehmen
+            dabei, moderne Websites, Landingpages und Web-Apps effizient
+            umzusetzen. Die Zusammenarbeit läuft in der Regel remote – mit
+            klaren Prozessen, schnellen Ladezeiten und Projektlaufzeiten von
+            meist <span className="font-semibold text-white">1–4 Wochen</span>,
+            egal ob du in Stuttgart, irgendwo in Deutschland oder in der
+            DACH-Region sitzt.
+          </p>
+        </div>
+      </section>
 
       {/* Services → Teaser, Details auf eigener Seite */}
       <Services />
