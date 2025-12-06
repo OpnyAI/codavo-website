@@ -70,34 +70,48 @@ export default function MobileCTA() {
     <div
       className={[
         "md:hidden fixed inset-x-4 z-50",
-        // etwas näher an den unteren Rand gesetzt (8px statt 16px)
-        "bottom-[calc(env(safe-area-inset-bottom)_+_8px)]",
+        "bottom-[calc(env(safe-area-inset-bottom)_+_10px)]",
         "transition-all duration-300",
         visible
           ? "opacity-100 translate-y-0"
           : "opacity-0 translate-y-3 pointer-events-none",
       ].join(" ")}
     >
-      <div className="pointer-events-auto mx-auto max-w-sm rounded-2xl bg-white/8 backdrop-blur-md border border-white/10 shadow-[0_8px_28px_-6px_rgba(0,0,0,.45)] p-2 flex gap-2 justify-center">
-        {/* 📞 Telefon */}
-        <a
-          href={`tel:${PHONE_TEL}`}
-          className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl px-3 py-2 bg-white/10 hover:bg-white/15 active:bg-white/20 text-white text-sm font-medium"
-        >
-          <Phone className="w-4 h-4" />
-          Anrufen
-        </a>
+      <div className="pointer-events-auto mx-auto max-w-md rounded-3xl bg-slate-950/80 backdrop-blur-xl border border-white/12 shadow-[0_18px_40px_-18px_rgba(0,0,0,0.85)] px-2 py-2 flex items-center gap-2">
+        {/* Label links – optional, gibt Kontext */}
+        <div className="hidden xs:flex flex-col flex-[0.9] pl-1">
+          <span className="text-[10px] uppercase tracking-[0.14em] text-slate-400">
+            Direktkontakt
+          </span>
+          <span className="text-[11px] text-slate-300">
+            Rückmeldung meist in 24–48&nbsp;Std.
+          </span>
+        </div>
 
-        {/* 💬 WhatsApp */}
-        <a
-          href={`https://wa.me/${WHATSAPP_INTL}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl px-3 py-2 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:opacity-95 active:opacity-90 text-white text-sm font-medium"
-        >
-          <MessageCircle className="w-4 h-4" />
-          WhatsApp
-        </a>
+        {/* Button-Gruppe */}
+        <div className="flex flex-1 xs:flex-[1.1] gap-2">
+          {/* 📞 Telefon */}
+          <a
+            href={`tel:${PHONE_TEL}`}
+            aria-label="Anrufen"
+            className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-2xl px-3 py-2 bg-white/6 hover:bg-white/10 active:bg-white/15 text-white text-[13px] font-medium transition-colors"
+          >
+            <Phone className="w-4 h-4" />
+            <span>Anrufen</span>
+          </a>
+
+          {/* 💬 WhatsApp */}
+          <a
+            href={`https://wa.me/${WHATSAPP_INTL}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Per WhatsApp schreiben"
+            className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-2xl px-3 py-2 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:brightness-110 active:brightness-95 text-white text-[13px] font-medium shadow-[0_0_0_1px_rgba(255,255,255,0.05)] transition-all"
+          >
+            <MessageCircle className="w-4 h-4" />
+            <span>WhatsApp</span>
+          </a>
+        </div>
       </div>
     </div>
   );
