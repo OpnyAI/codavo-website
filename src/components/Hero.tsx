@@ -64,7 +64,7 @@ export default function Hero() {
           </Link>
           <Link
             href="#leistungen"
-            className="rounded-full border border-white/30 text-white/90 px-5 py-2.5 font-medium hover:bgWHITE/10 hover:bg-white/10 transition"
+            className="rounded-full border border-white/30 text-white/90 px-5 py-2.5 font-medium hover:bg-white/10 transition"
           >
             Leistungen ansehen
           </Link>
