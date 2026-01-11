@@ -1,10 +1,42 @@
+// src/app/leistungen/page.tsx
 import type { Metadata } from "next";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Leistungen – Webdesign, Websites & Web-Apps | Codavo Webstudio",
+  title: "Leistungen – Webdesign, Landingpages, Websites & Web-Apps",
   description:
-    "Unsere Leistungen im Webdesign: moderne Websites, Landingpages und Web-Apps. Codavo Webstudio entwickelt schnelle, saubere Auftritte für Kund:innen in Stuttgart, ganz Deutschland und der DACH-Region – mit Fokus auf 1–4 Wochen Umsetzungszeit, Performance und klare UX.",
+    "Leistungen von Codavo Webstudio: modernes Webdesign, schnelle Websites, conversion-starke Landingpages und individuelle Web-Apps. Projekte in 1–4 Wochen – für Kund:innen in Stuttgart, Deutschland und der DACH-Region.",
+  alternates: {
+    canonical: "https://www.codavo-webstudio.de/leistungen",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    type: "website",
+    locale: "de_DE",
+    url: "https://www.codavo-webstudio.de/leistungen",
+    siteName: "Codavo Webstudio",
+    title: "Leistungen – Webdesign, Landingpages, Websites & Web-Apps",
+    description:
+      "Webdesign, Websites, Landingpages und Web-Apps – klarer Prozess, kurze Laufzeiten (1–4 Wochen) und saubere Technik für Kund:innen im DACH-Raum.",
+    images: [
+      {
+        url: "/og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Codavo Webstudio – Leistungen",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Leistungen – Codavo Webstudio",
+    description:
+      "Webdesign, Landingpages, Websites & Web-Apps. Klarer Prozess, schnelle Umsetzung (1–4 Wochen) – DACH-weit.",
+    images: ["/og.jpg"],
+  },
 };
 
 export default function LeistungenPage() {

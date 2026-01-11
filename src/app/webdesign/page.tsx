@@ -4,10 +4,40 @@ import Link from "next/link";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title:
-    "Webdesign Agentur – Moderne Websites für Stuttgart & DACH | Codavo Webstudio",
+  title: "Webdesign Agentur – Moderne Websites & Web-Apps für DACH",
   description:
-    "Codavo Webstudio ist deine Webdesign Agentur für moderne, schnelle Websites und Web-Apps. Wir erstellen individuelle Websites für Kund:innen in Stuttgart, ganz Deutschland und der DACH-Region – in 1–4 Wochen.",
+    "Codavo Webstudio ist deine Webdesign Agentur für moderne, schnelle Websites, Landingpages und Web-Apps. Projekte in 1–4 Wochen – für Kund:innen in Stuttgart und der DACH-Region.",
+  alternates: {
+    canonical: "https://www.codavo-webstudio.de/webdesign",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    type: "website",
+    locale: "de_DE",
+    url: "https://www.codavo-webstudio.de/webdesign",
+    siteName: "Codavo Webstudio",
+    title: "Webdesign Agentur – Moderne Websites & Web-Apps für DACH",
+    description:
+      "Moderne Websites, Landingpages & Web-Apps mit klarer UX, schnellem Tech-Stack und Fokus auf Ergebnisse. Projekte in 1–4 Wochen – DACH-weit.",
+    images: [
+      {
+        url: "/og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Codavo Webstudio – Webdesign & Webentwicklung",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Webdesign Agentur – Codavo Webstudio",
+    description:
+      "Websites, Landingpages & Web-Apps, die für dich arbeiten. Klare UX, schnelle Technik, messbare Ergebnisse – DACH-weit.",
+    images: ["/og.jpg"],
+  },
 };
 
 export default function WebdesignPage() {

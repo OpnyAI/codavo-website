@@ -4,10 +4,40 @@ import Link from "next/link";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title:
-    "Webdesign Stuttgart – Moderne Websites & Webdesigner | Codavo Webstudio",
+  title: "Webdesign Stuttgart – Moderne Websites & Landingpages",
   description:
-    "Webdesign in Stuttgart: Codavo Webstudio entwickelt moderne, schnelle Websites für Selbstständige & Unternehmen. Fokus auf Anfragen, Performance und klare UX – in 1–4 Wochen online.",
+    "Webdesign in Stuttgart: Codavo Webstudio entwickelt moderne, schnelle Websites und Landingpages für Selbstständige & Unternehmen. Fokus auf Anfragen, Performance und klare UX – in 1–4 Wochen online.",
+  alternates: {
+    canonical: "https://www.codavo-webstudio.de/webdesign-stuttgart",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    type: "website",
+    locale: "de_DE",
+    url: "https://www.codavo-webstudio.de/webdesign-stuttgart",
+    siteName: "Codavo Webstudio",
+    title: "Webdesign Stuttgart – Moderne Websites & Landingpages",
+    description:
+      "Webdesign für Stuttgart & Region: moderne Websites und Landingpages mit Fokus auf Anfragen, Performance und klare UX. In 1–4 Wochen online.",
+    images: [
+      {
+        url: "/og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Codavo Webstudio – Webdesign Stuttgart",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Webdesign Stuttgart – Codavo Webstudio",
+    description:
+      "Moderne Websites & Landingpages für Stuttgart. Fokus auf Anfragen, Performance und klare UX – in 1–4 Wochen online.",
+    images: ["/og.jpg"],
+  },
 };
 
 export default function WebdesignStuttgartPage() {
@@ -30,7 +60,6 @@ export default function WebdesignStuttgartPage() {
     description:
       "Webdesign in Stuttgart – moderne, schnelle Websites & Landingpages mit Fokus auf Anfragen und Performance.",
     sameAs: ["https://www.linkedin.com/company/codavo-webstudio"],
-    // optionale Service-Beschreibung
     makesOffer: [
       {
         "@type": "Offer",
