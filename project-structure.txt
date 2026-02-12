@@ -1,0 +1,100 @@
+.
+├── .DS_Store
+├── .gitignore
+├── components.json
+├── eslint.config.mjs
+├── next-env.d.ts
+├── next.config.ts
+├── package-lock.json
+├── package.json
+├── pnpm-lock.yaml
+├── postcss.config.mjs
+├── project-structure.txt
+├── public
+│   ├── .DS_Store
+│   ├── agency-collage.svg
+│   ├── apple-touch-icon.png
+│   ├── cases
+│   │   ├── ib-bauwerkspruefung.webp
+│   │   ├── projekt1.png
+│   │   ├── projekt1.webp
+│   │   ├── projekt2.webp
+│   │   ├── projekt3.webp
+│   │   └── taner-care.webp
+│   ├── favicon-96x96.png
+│   ├── favicon.ico
+│   ├── favicon.svg
+│   ├── file.svg
+│   ├── globe.svg
+│   ├── images
+│   │   ├── agency-collage.avif
+│   │   ├── hero
+│   │   │   └── codavo-studio-hero-v2.webp
+│   │   └── logo
+│   │       └── codavo-logo-light.png
+│   ├── next.svg
+│   ├── og.jpg
+│   ├── site.webmanifest
+│   ├── vercel.svg
+│   ├── web-app-manifest-192x192.png
+│   ├── web-app-manifest-512x512.png
+│   └── window.svg
+├── README.md
+├── src
+│   ├── .DS_Store
+│   ├── app
+│   │   ├── .DS_Store
+│   │   ├── cases
+│   │   │   └── page.tsx
+│   │   ├── datenschutz
+│   │   │   └── page.tsx
+│   │   ├── faq
+│   │   │   └── page.tsx
+│   │   ├── globals.css
+│   │   ├── impressum
+│   │   │   └── page.tsx
+│   │   ├── kontakt
+│   │   │   └── page.tsx
+│   │   ├── layout.tsx
+│   │   ├── leistungen
+│   │   │   └── page.tsx
+│   │   ├── page.tsx
+│   │   ├── robots.ts
+│   │   ├── robots.txt
+│   │   ├── sitemap.ts
+│   │   ├── webdesign
+│   │   │   └── page.tsx
+│   │   └── webdesign-stuttgart
+│   │       └── page.tsx
+│   ├── components
+│   │   ├── About.tsx
+│   │   ├── CaseStudies.tsx
+│   │   ├── Contact.tsx
+│   │   ├── FAQAccordion.tsx
+│   │   ├── FaqHome.tsx
+│   │   ├── Footer.tsx
+│   │   ├── Header.tsx
+│   │   ├── Hero.tsx
+│   │   ├── MobileCTA.tsx
+│   │   ├── MobileQuickActions.tsx
+│   │   ├── Process.tsx
+│   │   ├── Reveal.tsx
+│   │   ├── Services.tsx
+│   │   ├── SmoothScroll.tsx
+│   │   ├── Testimonials.tsx
+│   │   ├── Trust.tsx
+│   │   ├── ui
+│   │   │   ├── button.tsx
+│   │   │   ├── card.tsx
+│   │   │   ├── input.tsx
+│   │   │   ├── label.tsx
+│   │   │   ├── navigation-menu.tsx
+│   │   │   ├── separator.tsx
+│   │   │   └── textarea.tsx
+│   │   └── USP.tsx
+│   └── lib
+│       └── utils.ts
+├── tailwind.config.ts
+└── tsconfig.json
+
+19 directories, 79 files

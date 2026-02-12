@@ -1,5 +1,6 @@
 // src/app/leistungen/page.tsx
 import type { Metadata } from "next";
+import Link from "next/link";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
@@ -98,6 +99,14 @@ export default function LeistungenPage() {
             <p className="mt-3 text-sm text-slate-300">
               Individuelle, browserbasierte Anwendungen – z. B. Portale,
               Dashboards oder Tools, die genau zu deinen Prozessen passen.
+            </p>
+            <p className="mt-3">
+              <Link
+                href="/web-app-entwicklung"
+                className="text-xs text-indigo-300 hover:text-white underline-offset-2 hover:underline"
+              >
+                Mehr zur Web-App Entwicklung →
+              </Link>
             </p>
             <ul className="mt-4 space-y-2 text-sm text-slate-300">
               <li>• Moderne Stacks (z. B. React / Next.js)</li>

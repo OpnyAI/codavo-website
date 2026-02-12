@@ -34,12 +34,18 @@ export default function Home() {
 
       {/* Services → Teaser, Details auf eigener Seite */}
       <Services />
-      <div className="text-center mt-6">
+      <div className="text-center mt-6 flex items-center justify-center gap-4">
         <Link
           href="/leistungen"
           className="text-indigo-300 hover:text-white underline-offset-2 hover:underline text-sm"
         >
           Alle Leistungen ansehen →
+        </Link>
+        <Link
+          href="/web-app-entwicklung"
+          className="text-indigo-300 hover:text-white underline-offset-2 hover:underline text-sm"
+        >
+          Web-App Entwicklung →
         </Link>
       </div>
 

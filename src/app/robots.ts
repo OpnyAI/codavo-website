@@ -2,14 +2,16 @@
 import type { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = "https://www.codavo-webstudio.de";
+  const SITE_URL = (
+    process.env.NEXT_PUBLIC_SITE_URL || "https://www.codavo-webstudio.de"
+  ).replace(/\/+$/, "");
 
   return {
     rules: {
       userAgent: "*",
       allow: "/", // Erlaubt allen Bots, die Seite vollständig zu crawlen
     },
-    sitemap: `${baseUrl}/sitemap.xml`,
-    host: baseUrl,
+    sitemap: `${SITE_URL}/sitemap.xml`,
+    host: SITE_URL,
   };
 }

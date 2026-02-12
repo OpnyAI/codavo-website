@@ -2,61 +2,69 @@
 import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://www.codavo-webstudio.de";
+  const SITE_URL = (
+    process.env.NEXT_PUBLIC_SITE_URL || "https://www.codavo-webstudio.de"
+  ).replace(/\/+$/, "");
   const lastModified = new Date();
 
   return [
     {
-      url: `${baseUrl}/`,
+      url: `${SITE_URL}/`,
       lastModified,
       changeFrequency: "monthly",
       priority: 1.0,
     },
     {
-      url: `${baseUrl}/leistungen`,
+      url: `${SITE_URL}/leistungen`,
       lastModified,
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/webdesign`,
+      url: `${SITE_URL}/webdesign`,
       lastModified,
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/webdesign-stuttgart`,
+      url: `${SITE_URL}/web-app-entwicklung`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${SITE_URL}/webdesign-stuttgart`,
       lastModified,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/cases`,
+      url: `${SITE_URL}/cases`,
       lastModified,
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/faq`,
+      url: `${SITE_URL}/faq`,
       lastModified,
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/kontakt`,
+      url: `${SITE_URL}/kontakt`,
       lastModified,
       changeFrequency: "monthly",
       priority: 0.7,
     },
     // Rechtliche Seiten – niedrige Priorität, aber nicht geblockt
     {
-      url: `${baseUrl}/impressum`,
+      url: `${SITE_URL}/impressum`,
       lastModified,
       changeFrequency: "yearly",
       priority: 0.2,
     },
     {
-      url: `${baseUrl}/datenschutz`,
+      url: `${SITE_URL}/datenschutz`,
       lastModified,
       changeFrequency: "yearly",
       priority: 0.2,
