@@ -81,6 +81,7 @@ export default function Header() {
           {/* Logo */}
           <Link
             href="/"
+            scroll={true}
             aria-label="Codavo Webstudio – Startseite"
             className="flex items-center gap-2"
           >
@@ -99,6 +100,7 @@ export default function Header() {
           <nav className="hidden items-center gap-6 text-sm text-slate-200 md:flex">
             {navLinks.map((link) => {
               const baseHref = link.href.replace(/#.*/, "");
+              const isAnchorLink = link.href.includes("#");
               const isActive =
                 (baseHref === "/" && pathname === "/") ||
                 (baseHref !== "/" && pathname.startsWith(baseHref));
@@ -107,6 +109,7 @@ export default function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
+                  {...(!isAnchorLink ? { scroll: true } : {})}
                   className={[
                     "transition hover:text-white",
                     isActive ? "text-white" : "text-slate-200",
@@ -121,6 +124,7 @@ export default function Header() {
           {/* Desktop-CTA */}
           <Link
             href="/kontakt"
+            scroll={true}
             className="hidden md:inline-flex rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 px-4 py-2 text-xs md:text-sm font-medium text-white shadow hover:shadow-lg transition"
           >
             Projekt anfragen
@@ -159,6 +163,7 @@ export default function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
+                  {...(!link.href.includes("#") ? { scroll: true } : {})}
                   className="rounded-lg px-3 py-2 text-slate-100 hover:bg-white/10"
                 >
                   {link.label}

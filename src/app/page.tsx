@@ -11,10 +11,8 @@ import Link from "next/link";
 export default function Home() {
   return (
     <main className="overflow-x-hidden">
-      {/* Hero */}
       <Hero />
 
-      {/* Kurz-Intro – ohne Wiederholung des Hero-Claim */}
       <section className="section">
         <div className="container max-w-2xl text-center">
           <h2 className="text-2xl md:text-3xl font-semibold text-white">
@@ -32,7 +30,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Services → Teaser, Details auf eigener Seite */}
       <Services />
       <div className="text-center mt-6 flex items-center justify-center gap-4">
         <Link
@@ -49,10 +46,8 @@ export default function Home() {
         </Link>
       </div>
 
-      {/* Prozess */}
       <Process />
 
-      {/* Case Studies mit Link zur Unterseite */}
       <CaseStudies />
       <div className="text-center mt-6">
         <Link
@@ -63,13 +58,10 @@ export default function Home() {
         </Link>
       </div>
 
-      {/* Testimonials */}
       <Testimonials />
 
-      {/* Kontakt */}
       <Contact />
 
-      {/* Footer */}
       <Footer />
     </main>
   );

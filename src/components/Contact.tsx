@@ -1,3 +1,6 @@
+// src/components/Contact.tsx
+"use client";
+
 import Link from "next/link";
 
 export default function Contact() {
@@ -9,22 +12,22 @@ export default function Contact() {
   // ====================================
 
   const mailto = `mailto:${EMAIL}?subject=${encodeURIComponent(
-    "Anfrage Website / Web-App / Webentwicklung"
+    "Anfrage Website / Web-App / Webentwicklung",
   )}&body=${encodeURIComponent(
-    "Hallo Codavo Webstudio,\n\nich interessiere mich für eine neue Website oder Web-App bzw. einen Relaunch. Bitte melde dich bei mir.\n\nViele Grüße\n"
+    "Hallo Codavo Webstudio,\n\nich interessiere mich für eine neue Website oder Web-App bzw. einen Relaunch. Bitte melde dich bei mir.\n\nViele Grüße\n",
   )}`;
 
   const wa = `https://wa.me/${WHATSAPP.replace(
     /\D/g,
-    ""
+    "",
   )}?text=${encodeURIComponent(
-    "Hallo! Ich habe Interesse an einer Website oder Web-App bzw. einem Relaunch."
+    "Hallo! Ich habe Interesse an einer Website oder Web-App bzw. einem Relaunch.",
   )}`;
 
   const tel = `tel:${PHONE_TEL}`;
 
   return (
-    <section id="kontakt" className="section section-glow-bottom scroll-mt-24">
+    <section id="kontakt" className="section section--alt scroll-mt-24">
       <div className="container">
         <div className="text-center">
           <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-white">

@@ -162,7 +162,7 @@ export default function CaseStudies() {
   }, [active, count]);
 
   return (
-    <section id="cases" className="section section-glow-top scroll-mt-24">
+    <section id="cases" className="section scroll-mt-24">
       <div className="container">
         <Reveal>
           <div className="text-center mb-10">
@@ -195,7 +195,6 @@ export default function CaseStudies() {
               ref={(el: HTMLDivElement | null) => {
                 cardRefs.current[i] = el;
               }}
-              // HIER anpassen:
               style={{ width: "min(88vw, 980px)", flex: "0 0 auto" }}
               className="snap-start shrink-0"
             >
@@ -266,8 +265,7 @@ export default function CaseStudies() {
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-1 text-sm text-indigo-300 hover:text-white underline-offset-2 hover:underline"
                       >
-                        Website ansehen
-                        <span aria-hidden>↗</span>
+                        Website ansehen <span aria-hidden>↗</span>
                       </a>
                     </div>
                   )}
@@ -284,9 +282,7 @@ export default function CaseStudies() {
               aria-label={`Slide ${i + 1}`}
               onClick={() => goTo(i)}
               className={`h-2.5 rounded-full transition-all ${
-                active === i
-                  ? "w-6 bg-white"
-                  : "w-2.5 bg-white/40 hover:bg-white/70"
+                active === i ? "w-6 bg-white" : "w-2.5 bg-white/40 hover:bg-white/70"
               }`}
             />
           ))}

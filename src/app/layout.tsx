@@ -2,6 +2,8 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import MobileCTA from "@/components/MobileCTA";
+import GlobalBackground from "@/components/GlobalBackground";
+import ScrollToTop from "@/components/ScrollToTop";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -57,7 +59,6 @@ export const metadata: Metadata = {
     images: ["/og.jpg"],
   },
 
-  // ✅ Favicons + Manifest (public/*)
   icons: {
     icon: [
       { url: "/favicon.ico" },
@@ -69,7 +70,6 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
 
-  // Du hast aktuell site.webmanifest im public Root
   manifest: "/site.webmanifest",
 };
 
@@ -106,22 +106,26 @@ export default function RootLayout({
 
   return (
     <html lang="de">
-      <body className="bg-[#0a0f1a] text-slate-200">
-        <Header />
-        {children}
+      <body className="relative min-h-screen bg-[#070C18] text-slate-200 antialiased">
+        <GlobalBackground />
+        <div className="relative z-10">
+          <Header />
+          <ScrollToTop />
+          {children}
 
-        {/* Floating CTA nur für Mobile */}
-        <MobileCTA />
+          {/* Floating CTA nur für Mobile */}
+          <MobileCTA />
 
-        {/* Schema.org: Organisation + Website */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
-        />
+          {/* Schema.org: Organisation + Website */}
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
+          />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+          />
+        </div>
       </body>
     </html>
   );

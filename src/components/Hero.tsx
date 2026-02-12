@@ -1,42 +1,19 @@
 "use client";
 import Link from "next/link";
-import Image from "next/image";
 
 export default function Hero() {
   return (
     <section
       className="
-        relative isolate overflow-hidden
+        relative isolate
         min-h-[100svh]
         flex flex-col justify-center items-center text-center
         pt-24 md:pt-28
-        bg-[#050814]
       "
     >
-      {/* Hintergrundbild */}
-      <div className="absolute inset-0 -z-20">
-        <Image
-          src="/images/hero/codavo-studio-hero-v2.webp"
-          alt="Modernes Webstudio in dunkler, hochwertiger Lichtstimmung"
-          fill
-          priority
-          className="
-            object-cover
-            object-[50%_50%]
-            md:object-[50%_45%]
-            lg:object-[50%_40%]
-          "
-        />
-      </div>
-
-      {/* Grund-Overlay für Lesbarkeit */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#02030a]/95 via-[#050816]/82 to-[#020309]/96" />
-
-      {/* Leichter Glow in der Mitte (Hero-Fokus) */}
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(1100px_650px_at_center,rgba(129,140,248,0.18),transparent_70%)]" />
-
-      {/* Vignette */}
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.65)_72%)]" />
+      <div className="pointer-events-none absolute inset-0 -z-20 bg-[radial-gradient(1200px_700px_at_50%_22%,rgba(99,102,241,0.2),rgba(139,92,246,0.1)_38%,transparent_72%)]" />
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-[#070d1a]/45 via-[#070c18]/22 to-[#070C18]/5" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-24 bg-gradient-to-b from-transparent to-[#070C18] md:h-32" />
 
       {/* Inhalt */}
       <div className="max-w-4xl mx-auto px-4">

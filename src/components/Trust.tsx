@@ -1,8 +1,9 @@
+// src/components/Trust.tsx
 "use client";
+
 import Reveal from "@/components/Reveal";
 
 function Logo({ label }: { label: string }) {
-  // Abstraktes, neutrales „Logo“ (inline SVG), wirkt clean
   return (
     <div className="flex items-center justify-center h-10 rounded-md bg-white/5 border border-white/10">
       <svg width="90" height="18" viewBox="0 0 90 18" className="opacity-80">
@@ -17,7 +18,7 @@ function Logo({ label }: { label: string }) {
 
 export default function Trust() {
   return (
-    <section id="trust" className="section section-glow-bottom">
+    <section id="trust" className="section section--alt">
       <div className="container">
         <Reveal>
           <div className="text-center">
@@ -31,7 +32,6 @@ export default function Trust() {
           </div>
         </Reveal>
 
-        {/* Logos */}
         <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
           <Logo label="Kunde 1" />
           <Logo label="Kunde 2" />
@@ -41,7 +41,6 @@ export default function Trust() {
           <Logo label="Kunde 6" />
         </div>
 
-        {/* Zitate */}
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           <Reveal delay={0.05}>
             <blockquote className="card">

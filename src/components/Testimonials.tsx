@@ -57,7 +57,7 @@ const loopedTestimonials = [...testimonials, ...testimonials];
 
 export default function Testimonials() {
   return (
-    <section className="section section-glow-top">
+    <section className="section">
       <div className="container">
         <Reveal>
           <div className="text-center">
@@ -85,7 +85,6 @@ export default function Testimonials() {
             {loopedTestimonials.map((t, i) => (
               <article
                 key={`${t.name}-${i}`}
-                // Breite: mobil ~95 % des Viewports, max. 720px auf Desktop
                 style={{ width: "min(75vw, 720px)", flex: "0 0 auto" }}
               >
                 <div className="card h-full min-h-[240px] sm:min-h-[230px] md:min-h-[220px] flex flex-col justify-between py-4 sm:py-6">
@@ -99,7 +98,6 @@ export default function Testimonials() {
                     </div>
 
                     <p className="text-slate-300 text-sm md:text-base">
-                      {/* Kurztext auf Mobile, Volltext ab sm */}
                       <span className="sm:hidden">„{t.short}“</span>
                       <span className="hidden sm:inline">„{t.full}“</span>
                     </p>
