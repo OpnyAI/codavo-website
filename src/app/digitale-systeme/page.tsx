@@ -206,7 +206,6 @@ export default function DigitaleSystemePage() {
                 <p className="mt-2 text-sm text-slate-200">
                   Konkretes Ergebnis: 31 % schnellere Auftragsabwicklung.
                 </p>
-                <p className="mt-2 text-xs text-slate-400">Testimonial-Platzhalter</p>
               </article>
               <article className="card">
                 <p className="text-white font-semibold">Projektname - B2B-Dienstleister</p>
