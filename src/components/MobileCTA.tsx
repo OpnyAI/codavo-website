@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Phone, MessageCircle } from "lucide-react";
 
 const PHONE_TEL = "+4915111956479";
-const WHATSAPP_INTL = "4915111956479"; // ohne + für wa.me
+const WHATSAPP_INTL = "4915111956479";
 
 export default function MobileCTA() {
   const [visible, setVisible] = useState(false);
@@ -26,7 +26,7 @@ export default function MobileCTA() {
         body.offsetHeight,
         doc.offsetHeight,
         body.clientHeight,
-        doc.clientHeight
+        doc.clientHeight,
       );
       return fullHeight - (scrollTop + viewport);
     };
@@ -51,7 +51,7 @@ export default function MobileCTA() {
             contactInView = entries.some((e) => e.isIntersecting);
             sync();
           },
-          { rootMargin: "0px 0px -40% 0px", threshold: 0.01 }
+          { rootMargin: "0px 0px -40% 0px", threshold: 0.01 },
         )
       : null;
 
@@ -78,21 +78,20 @@ export default function MobileCTA() {
       ].join(" ")}
     >
       <div className="pointer-events-auto mx-auto max-w-md rounded-3xl bg-slate-950/80 backdrop-blur-xl border border-white/12 shadow-[0_18px_40px_-18px_rgba(0,0,0,0.85)] px-2 py-2 flex items-center gap-2">
-        {/* Label links – optional, gibt Kontext */}
         <div className="hidden xs:flex flex-col flex-[0.9] pl-1">
           <span className="text-[10px] uppercase tracking-[0.14em] text-slate-400">
-            Direktkontakt
+            Strategiekontakt
           </span>
           <span className="text-[11px] text-slate-300">
-            Rückmeldung meist in 24–48&nbsp;Std.
+            Rückmeldung meist in 24-48 Std.
           </span>
         </div>
 
-        {/* Button-Gruppe */}
         <div className="flex flex-1 xs:flex-[1.1] gap-2">
-          {/* 📞 Telefon */}
           <a
             href={`tel:${PHONE_TEL}`}
+            data-track-event="contact_submit"
+            data-track-label="Mobile Telefon"
             aria-label="Anrufen"
             className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-2xl px-3 py-2 bg-white/6 hover:bg-white/10 active:bg-white/15 text-white text-[13px] font-medium transition-colors"
           >
@@ -100,11 +99,12 @@ export default function MobileCTA() {
             <span>Anrufen</span>
           </a>
 
-          {/* 💬 WhatsApp */}
           <a
             href={`https://wa.me/${WHATSAPP_INTL}`}
             target="_blank"
             rel="noopener noreferrer"
+            data-track-event="contact_submit"
+            data-track-label="Mobile WhatsApp"
             aria-label="Per WhatsApp schreiben"
             className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-2xl px-3 py-2 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:brightness-110 active:brightness-95 text-white text-[13px] font-medium shadow-[0_0_0_1px_rgba(255,255,255,0.05)] transition-all"
           >

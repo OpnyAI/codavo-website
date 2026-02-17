@@ -1,7 +1,304 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FAQAccordion from "@/components/FAQAccordion";
-import Footer from "@/components/Footer"; export const metadata: Metadata = { title: "Web App Entwicklung – Kundenportale & Dashboards | Codavo Webstudio", description: "Web App Entwicklung für Unternehmen: Wir bauen Kundenportale, Dashboards und interne Tools mit klarem Prozess, modernem Stack und Fokus auf Performance, Sicherheit und Skalierbarkeit.", alternates: { canonical: "https://www.codavo-webstudio.de/web-app-entwicklung", }, robots: { index: true, follow: true, }, openGraph: { type: "website", locale: "de_DE", url: "https://www.codavo-webstudio.de/web-app-entwicklung", siteName: "Codavo Webstudio", title: "Web App Entwicklung – Kundenportale & Dashboards | Codavo Webstudio", description: "Individuelle Web App Entwicklung für Unternehmen: Kundenportale, Dashboards, interne Tools und SaaS MVPs mit React, Next.js und API-Anbindungen.", images: [ { url: "/og.jpg", width: 1200, height: 630, alt: "Codavo Webstudio – Web App Entwicklung", }, ], }, twitter: { card: "summary_large_image", title: "Web App Entwicklung – Codavo Webstudio", description: "Kundenportale, Dashboards und Web-Apps mit klarem Ablauf, sauberer Technik und schneller Umsetzung.", images: ["/og.jpg"], },
-}; const faqs = [ { question: "Was ist der Unterschied zwischen Website und Web-App?", answer: "Eine Website informiert und präsentiert Inhalte. Eine Web-App bildet Prozesse ab und bietet Funktionen wie Logins, Rollen, Datenverarbeitung und individuelle Workflows.", }, { question: "Für wen lohnt sich Web App Entwicklung?", answer: "Für Unternehmen, die Abläufe digitalisieren, Daten zentral nutzbar machen oder Kund:innen und Teams ein eigenes Portal bereitstellen möchten.", }, { question: "Welche Technologien nutzt ihr für Web-Apps?", answer: "Wir arbeiten vor allem mit React und Next.js, ergänzen API-Anbindungen, Datenbanken und Authentifizierung je nach Projektanforderung.", }, { question: "Könnt ihr bestehende Systeme anbinden?", answer: "Ja. Wir integrieren bestehende APIs, CRM- oder ERP-Systeme und bauen bei Bedarf saubere Schnittstellen für den Datenaustausch.", }, { question: "Wie lange dauert ein Web-App-Projekt?", answer: "Das hängt vom Umfang ab. MVPs starten oft in wenigen Wochen, größere Portale und Tools werden in klaren Etappen umgesetzt.", }, { question: "Ist Performance und Sicherheit Teil der Umsetzung?", answer: "Ja. Wir berücksichtigen Performance, saubere Zugriffslogik, sichere API-Kommunikation und robuste Architektur von Anfang an.", }, { question: "Kann die Web-App später erweitert werden?", answer: "Genau dafür bauen wir sie. Features, Nutzerrollen und Module können schrittweise ergänzt werden, ohne das gesamte System neu aufzusetzen.", }, { question: "Unterstützt ihr auch nach dem Launch?", answer: "Ja. Nach dem Go-live begleiten wir Monitoring, Optimierungen und die Weiterentwicklung auf Basis echter Nutzungsdaten.", },
-]; export default function WebAppEntwicklungPage() { const faqJsonLd = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer, }, })), }; const professionalServiceJsonLd = { "@context": "https://schema.org", "@type": "ProfessionalService", name: "Codavo Webstudio", url: "https://www.codavo-webstudio.de", telephone: "+49 1511 1956479", address: { "@type": "PostalAddress", streetAddress: "Naumannstr. 3", addressLocality: "Berglen", postalCode: "73663", addressCountry: "DE", }, sameAs: ["https://www.linkedin.com/company/codavo-webstudio"], }; return ( <> <main className="min-h-[calc(100vh-4rem)] pt-28 md:pt-32 pb-20"> <div className="container max-w-4xl"> <header className="mb-10"> <p className="text-xs font-semibold uppercase tracking-[0.2em] text-indigo-300"> Web App Entwicklung · Unternehmen · DACH-weit </p> <h1 className="mt-3 text-3xl md:text-5xl font-semibold tracking-tight text-white"> Web App Entwicklung für Unternehmen </h1> <p className="mt-4 text-slate-300 text-sm md:text-base"> Wir entwickeln individuelle Web-Apps, die Prozesse vereinfachen und Teams produktiver machen. Ob Kundenportal, Dashboard oder internes Tool: Die Lösung richtet sich nach deinem Alltag, nicht nach einem Standard-Template. </p> </header> <section className="mt-10 space-y-4 section"> <h2 className="text-xl md:text-2xl font-semibold text-white"> Website vs. Web-App </h2> <p className="text-slate-300 text-sm md:text-base"> Eine Website präsentiert Inhalte und Leistungen. Eine Web-App geht weiter: Nutzer melden sich an, bearbeiten Daten, nutzen Rollen und Workflows und steuern Prozesse direkt im Browser. </p> <div className="grid gap-4 md:grid-cols-2"> <div className="rounded-2xl border border-white/10 bg-white/5 p-4"> <h3 className="text-sm font-semibold text-white">Website</h3> <p className="mt-2 text-xs md:text-sm text-slate-300"> Fokus auf Information, Sichtbarkeit und Kontaktanfragen. </p> </div> <div className="rounded-2xl border border-white/10 bg-white/5 p-4"> <h3 className="text-sm font-semibold text-white">Web-App</h3> <p className="mt-2 text-xs md:text-sm text-slate-300"> Fokus auf Funktionen, Nutzerlogik und digitale Abläufe. </p> </div> </div> </section> <section className="mt-12 section section--alt"> <h2 className="text-xl md:text-2xl font-semibold text-white"> Typische Use Cases </h2> <div className="mt-6 grid gap-4 md:grid-cols-2"> <div className="rounded-2xl border border-white/10 bg-white/5 p-4"> <h3 className="text-sm font-semibold text-white"> Kundenportal </h3> <p className="mt-2 text-xs md:text-sm text-slate-300"> Dokumente, Status und Kommunikation an einem zentralen Ort. </p> </div> <div className="rounded-2xl border border-white/10 bg-white/5 p-4"> <h3 className="text-sm font-semibold text-white">Dashboard</h3> <p className="mt-2 text-xs md:text-sm text-slate-300"> Relevante KPIs und operative Daten in Echtzeit verfügbar. </p> </div> <div className="rounded-2xl border border-white/10 bg-white/5 p-4"> <h3 className="text-sm font-semibold text-white"> Internes Tool </h3> <p className="mt-2 text-xs md:text-sm text-slate-300"> Manuelle Aufgaben reduzieren und Teamprozesse strukturieren. </p> </div> <div className="rounded-2xl border border-white/10 bg-white/5 p-4"> <h3 className="text-sm font-semibold text-white">SaaS MVP</h3> <p className="mt-2 text-xs md:text-sm text-slate-300"> Schneller Produktstart mit klarem Fokus auf Kernfunktionen. </p> </div> <div className="rounded-2xl border border-white/10 bg-white/5 p-4 md:col-span-2"> <h3 className="text-sm font-semibold text-white"> Prozessdigitalisierung </h3> <p className="mt-2 text-xs md:text-sm text-slate-300"> Bestehende Abläufe digital abbilden und sauber mit vorhandenen Systemen verbinden. </p> </div> </div> </section> <section className="mt-12 section"> <h2 className="text-xl md:text-2xl font-semibold text-white"> Tech & Qualität </h2> <div className="mt-4 grid gap-4 md:grid-cols-3"> <div className="rounded-2xl border border-white/10 bg-white/5 p-4"> <h3 className="text-sm font-semibold text-white"> React & Next.js </h3> <p className="mt-2 text-xs md:text-sm text-slate-300"> Moderne Frontends mit hoher Wartbarkeit und sauberer Struktur. </p> </div> <div className="rounded-2xl border border-white/10 bg-white/5 p-4"> <h3 className="text-sm font-semibold text-white"> API & Integrationen </h3> <p className="mt-2 text-xs md:text-sm text-slate-300"> Anbindung von Drittservices und internen Systemen ohne Insellösungen. </p> </div> <div className="rounded-2xl border border-white/10 bg-white/5 p-4"> <h3 className="text-sm font-semibold text-white"> Performance & Sicherheit </h3> <p className="mt-2 text-xs md:text-sm text-slate-300"> Kurze Ladezeiten, klare Zugriffslogik und skalierbare Architektur als Grundlage. </p> </div> </div> </section> <section className="mt-12 section section--alt"> <h2 className="text-xl md:text-2xl font-semibold text-white"> Ablauf </h2> <ol className="mt-4 space-y-3 text-sm md:text-base text-slate-300"> <li> <span className="font-semibold text-white">1. Kick-off</span> - Ziele, Prozesse, Nutzergruppen und technische Anforderungen. </li> <li> <span className="font-semibold text-white"> 2. Scope & UX </span>{" "} - Funktionen priorisieren, Nutzerflüsse planen, Struktur definieren. </li> <li> <span className="font-semibold text-white">3. Build</span> - Umsetzung der Web-App mit iterativem Feedback. </li> <li> <span className="font-semibold text-white">4. Testing</span> - Funktion, Performance und Stabilität prüfen. </li> <li> <span className="font-semibold text-white">5. Launch</span> - Go-live, Monitoring und nächste Ausbaustufen. </li> </ol> </section> <section className="mt-12 section"> <h2 className="text-xl md:text-2xl font-semibold text-white"> FAQ zur Web App Entwicklung </h2> <div className="mt-10"> <FAQAccordion items={faqs.map((faq) => ({ q: faq.question, a: faq.answer }))} /> </div> </section> <section className="mt-12 section section--alt rounded-2xl border border-indigo-500/40 bg-indigo-500/10 p-6 md:p-8"> <h2 className="text-xl md:text-2xl font-semibold text-white"> Web-App Projekt starten </h2> <p className="mt-3 text-sm md:text-base text-slate-200"> Wenn du ein Kundenportal, Dashboard oder internes Tool umsetzen willst, lass uns kurz sprechen. Wir klären Scope, Timeline und den passenden technischen Weg für dein Projekt. </p> <div className="mt-5 flex flex-wrap gap-3"> <Link href="/kontakt" className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 px-5 py-2.5 text-sm font-medium text-white shadow hover:shadow-lg transition" > Projekt anfragen </Link> <Link href="/cases" className="inline-flex items-center justify-center rounded-full border border-white/15 px-4 py-2 text-xs md:text-sm font-medium text-slate-200 hover:bg-white/5 transition" > Case Studies ansehen </Link> </div> </section> </div> </main> <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} /> <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(professionalServiceJsonLd), }} /> <Footer /> </> );
+import Footer from "@/components/Footer";
+
+export const metadata: Metadata = {
+  title: "Web-App Entwicklung für Unternehmen | Codavo",
+  description:
+    "Webbasierte Tools, Portale und interne Systeme: stabil, skalierbar und exakt auf Prozesse zugeschnitten - von MVP bis Systemausbau.",
+  alternates: {
+    canonical: "/web-app-entwicklung",
+  },
+  openGraph: {
+    url: "/web-app-entwicklung",
+    title: "Web-App Entwicklung für Unternehmen | Codavo",
+    description:
+      "Webbasierte Tools, Portale und interne Systeme: stabil, skalierbar und exakt auf Prozesse zugeschnitten - von MVP bis Systemausbau.",
+  },
+  twitter: {
+    title: "Web-App Entwicklung für Unternehmen | Codavo",
+    description:
+      "Webbasierte Tools, Portale und interne Systeme: stabil, skalierbar und exakt auf Prozesse zugeschnitten - von MVP bis Systemausbau.",
+  },
+};
+
+const faqs = [
+  {
+    question: "Was ist der Unterschied zwischen Website und Web-App?",
+    answer:
+      "Eine Website informiert und präsentiert Inhalte. Eine Web-App bildet Prozesse ab und bietet Funktionen wie Logins, Rollen, Datenverarbeitung und individuelle Workflows.",
+  },
+  {
+    question: "Für wen lohnt sich Web App Entwicklung?",
+    answer:
+      "Für Unternehmen, die Abläufe digitalisieren, Daten zentral nutzbar machen oder Kund:innen und Teams ein eigenes Portal bereitstellen möchten.",
+  },
+  {
+    question: "Welche Technologien nutzt ihr für Web-Apps?",
+    answer:
+      "Wir arbeiten vor allem mit React und Next.js, ergänzen API-Anbindungen, Datenbanken und Authentifizierung je nach Projektanforderung.",
+  },
+  {
+    question: "Könnt ihr bestehende Systeme anbinden?",
+    answer:
+      "Ja. Wir integrieren bestehende APIs, CRM- oder ERP-Systeme und bauen bei Bedarf saubere Schnittstellen für den Datenaustausch.",
+  },
+  {
+    question: "Wie lange dauert ein Web-App-Projekt?",
+    answer:
+      "Das hängt vom Umfang ab. MVPs starten oft in wenigen Wochen, größere Portale und Tools werden in klaren Etappen umgesetzt.",
+  },
+  {
+    question: "Ist Performance und Sicherheit Teil der Umsetzung?",
+    answer:
+      "Ja. Wir berücksichtigen Performance, saubere Zugriffslogik, sichere API-Kommunikation und robuste Architektur von Anfang an.",
+  },
+  {
+    question: "Kann die Web-App später erweitert werden?",
+    answer:
+      "Genau dafür bauen wir sie. Features, Nutzerrollen und Module können schrittweise ergänzt werden, ohne das gesamte System neu aufzusetzen.",
+  },
+  {
+    question: "Unterstützt ihr auch nach dem Launch?",
+    answer:
+      "Ja. Nach dem Go-live begleiten wir Monitoring, Optimierungen und die Weiterentwicklung auf Basis echter Nutzungsdaten.",
+  },
+];
+
+export default function WebAppEntwicklungPage() {
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+
+  const professionalServiceJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    name: "Codavo Webstudio",
+    url: "https://www.codavo-webstudio.de",
+    telephone: "+49 1511 1956479",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Naumannstr. 3",
+      addressLocality: "Berglen",
+      postalCode: "73663",
+      addressCountry: "DE",
+    },
+    sameAs: ["https://www.linkedin.com/company/codavo-webstudio"],
+  };
+
+  return (
+    <>
+      <main className="min-h-[calc(100vh-4rem)] pt-28 md:pt-32 pb-20">
+        <div className="container max-w-4xl">
+          <header className="mb-10">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-indigo-300">
+              Web-App Entwicklung · Webbasierte Software · Unternehmen
+            </p>
+            <h1 className="mt-3 text-3xl md:text-5xl font-semibold tracking-tight text-white">
+              Webbasierte Softwarelösungen (Web-Apps)
+            </h1>
+            <p className="mt-4 text-slate-300 text-sm md:text-base">
+              Individuelle Web-Apps sind ein zentraler Teil unserer
+              Softwarelösungen für KMU. Ob Kundenportal, Dashboard oder internes
+              Tool: Die Lösung richtet sich nach deinem Alltag, nicht nach einem
+              Standard-Template.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Link
+                href="/softwareloesungen-fuer-kmu"
+                className="inline-flex items-center justify-center rounded-full border border-white/20 px-4 py-2 text-xs md:text-sm font-medium text-slate-200 hover:bg-white/5 transition"
+              >
+                Zu Softwarelösungen für KMU
+              </Link>
+              <Link
+                href="/kontakt"
+                className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 px-5 py-2.5 text-sm font-medium text-white shadow hover:shadow-lg transition"
+              >
+                Strategie-Call buchen
+              </Link>
+            </div>
+          </header>
+
+          <section className="mt-10 space-y-4 section">
+            <h2 className="text-xl md:text-2xl font-semibold text-white">
+              Website vs. Web-App
+            </h2>
+            <p className="text-slate-300 text-sm md:text-base">
+              Eine Website präsentiert Inhalte und Leistungen. Eine Web-App geht
+              weiter: Nutzer melden sich an, bearbeiten Daten, nutzen Rollen und
+              Workflows und steuern Prozesse direkt im Browser.
+            </p>
+            <div className="grid gap-4 md:grid-cols-2">
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                <h3 className="text-sm font-semibold text-white">Website</h3>
+                <p className="mt-2 text-xs md:text-sm text-slate-300">
+                  Fokus auf Information, Sichtbarkeit und Kontaktanfragen.
+                </p>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                <h3 className="text-sm font-semibold text-white">Web-App</h3>
+                <p className="mt-2 text-xs md:text-sm text-slate-300">
+                  Fokus auf Funktionen, Nutzerlogik und digitale Abläufe.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section className="mt-12 section section--alt">
+            <h2 className="text-xl md:text-2xl font-semibold text-white">
+              Typische Use Cases
+            </h2>
+            <div className="mt-6 grid gap-4 md:grid-cols-2">
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                <h3 className="text-sm font-semibold text-white">Kundenportal</h3>
+                <p className="mt-2 text-xs md:text-sm text-slate-300">
+                  Dokumente, Status und Kommunikation an einem zentralen Ort.
+                </p>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                <h3 className="text-sm font-semibold text-white">Dashboard</h3>
+                <p className="mt-2 text-xs md:text-sm text-slate-300">
+                  Relevante KPIs und operative Daten in Echtzeit verfügbar.
+                </p>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                <h3 className="text-sm font-semibold text-white">Internes Tool</h3>
+                <p className="mt-2 text-xs md:text-sm text-slate-300">
+                  Manuelle Aufgaben reduzieren und Teamprozesse strukturieren.
+                </p>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                <h3 className="text-sm font-semibold text-white">SaaS MVP</h3>
+                <p className="mt-2 text-xs md:text-sm text-slate-300">
+                  Schneller Produktstart mit klarem Fokus auf Kernfunktionen.
+                </p>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4 md:col-span-2">
+                <h3 className="text-sm font-semibold text-white">
+                  Prozessdigitalisierung
+                </h3>
+                <p className="mt-2 text-xs md:text-sm text-slate-300">
+                  Bestehende Abläufe digital abbilden und sauber mit vorhandenen
+                  Systemen verbinden.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section className="mt-12 section">
+            <h2 className="text-xl md:text-2xl font-semibold text-white">
+              Tech & Qualität
+            </h2>
+            <div className="mt-4 grid gap-4 md:grid-cols-3">
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                <h3 className="text-sm font-semibold text-white">React & Next.js</h3>
+                <p className="mt-2 text-xs md:text-sm text-slate-300">
+                  Moderne Frontends mit hoher Wartbarkeit und sauberer Struktur.
+                </p>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                <h3 className="text-sm font-semibold text-white">API & Integrationen</h3>
+                <p className="mt-2 text-xs md:text-sm text-slate-300">
+                  Anbindung von Drittservices und internen Systemen ohne
+                  Insellösungen.
+                </p>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                <h3 className="text-sm font-semibold text-white">
+                  Performance & Sicherheit
+                </h3>
+                <p className="mt-2 text-xs md:text-sm text-slate-300">
+                  Kurze Ladezeiten, klare Zugriffslogik und skalierbare Architektur
+                  als Grundlage.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section className="mt-12 section section--alt">
+            <h2 className="text-xl md:text-2xl font-semibold text-white">Ablauf</h2>
+            <ol className="mt-4 space-y-3 text-sm md:text-base text-slate-300">
+              <li>
+                <span className="font-semibold text-white">1. Kick-off</span> -
+                Ziele, Prozesse, Nutzergruppen und technische Anforderungen.
+              </li>
+              <li>
+                <span className="font-semibold text-white">2. Scope & UX</span> -
+                Funktionen priorisieren, Nutzerflüsse planen, Struktur definieren.
+              </li>
+              <li>
+                <span className="font-semibold text-white">3. Build</span> -
+                Umsetzung der Web-App mit iterativem Feedback.
+              </li>
+              <li>
+                <span className="font-semibold text-white">4. Testing</span> -
+                Funktion, Performance und Stabilität prüfen.
+              </li>
+              <li>
+                <span className="font-semibold text-white">5. Launch</span> -
+                Go-live, Monitoring und nächste Ausbaustufen.
+              </li>
+            </ol>
+          </section>
+
+          <section className="mt-12 section">
+            <h2 className="text-xl md:text-2xl font-semibold text-white">
+              FAQ zur Web App Entwicklung
+            </h2>
+            <div className="mt-10">
+              <FAQAccordion
+                items={faqs.map((faq) => ({ q: faq.question, a: faq.answer }))}
+              />
+            </div>
+          </section>
+
+          <section className="mt-12 section section--alt rounded-2xl border border-indigo-500/40 bg-indigo-500/10 p-6 md:p-8">
+            <h2 className="text-xl md:text-2xl font-semibold text-white">
+              Web-App Projekt starten
+            </h2>
+            <p className="mt-3 text-sm md:text-base text-slate-200">
+              Wenn du ein Kundenportal, Dashboard oder internes Tool umsetzen
+              willst, lass uns kurz sprechen. Wir klären Scope, Timeline und den
+              passenden technischen Weg für dein Projekt.
+            </p>
+            <div className="mt-5 flex flex-wrap gap-3">
+              <Link
+                href="/kontakt"
+                className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 px-5 py-2.5 text-sm font-medium text-white shadow hover:shadow-lg transition"
+              >
+                Projekt anfragen
+              </Link>
+              <Link
+                href="/softwareloesungen-fuer-kmu"
+                className="inline-flex items-center justify-center rounded-full border border-white/15 px-4 py-2 text-xs md:text-sm font-medium text-slate-200 hover:bg-white/5 transition"
+              >
+                Zu Softwarelösungen
+              </Link>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(professionalServiceJsonLd) }}
+      />
+
+      <Footer />
+    </>
+  );
 }

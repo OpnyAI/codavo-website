@@ -1,27 +1,24 @@
-// src/components/Contact.tsx
 "use client";
 
 import Link from "next/link";
 
 export default function Contact() {
-  // ====== KONFIG (bitte anpassen) ======
   const PHONE_DISPLAY = "+49 1511 195 64 79";
   const PHONE_TEL = "+4915111956479";
   const WHATSAPP = "+4915111956479";
   const EMAIL = "kontakt@codavo-webstudio.de";
-  // ====================================
 
   const mailto = `mailto:${EMAIL}?subject=${encodeURIComponent(
-    "Anfrage Website / Web-App / Webentwicklung",
+    "Anfrage Strategie-Call: Website / Softwarelösung / digitales System",
   )}&body=${encodeURIComponent(
-    "Hallo Codavo Webstudio,\n\nich interessiere mich für eine neue Website oder Web-App bzw. einen Relaunch. Bitte melde dich bei mir.\n\nViele Grüße\n",
+    "Hallo Codavo,\n\nich möchte ein Strategiegespräch für ein digitales System buchen.\n\nViele Grüße\n",
   )}`;
 
   const wa = `https://wa.me/${WHATSAPP.replace(
     /\D/g,
     "",
   )}?text=${encodeURIComponent(
-    "Hallo! Ich habe Interesse an einer Website oder Web-App bzw. einem Relaunch.",
+    "Hallo! Ich möchte ein Strategiegespräch zu einer Website- und Softwarelösung buchen.",
   )}`;
 
   const tel = `tel:${PHONE_TEL}`;
@@ -31,18 +28,19 @@ export default function Contact() {
       <div className="container">
         <div className="text-center">
           <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-white">
-            Lass uns dein Projekt starten
+            Strategiegespräch vereinbaren
           </h2>
           <p className="mt-4 text-slate-300 max-w-2xl mx-auto">
-            Am liebsten direkt und unkompliziert: Ruf an, schreib eine
-            WhatsApp-Nachricht oder eine E-Mail – und wir klären in Ruhe, was du
-            brauchst und wie wir dir helfen können.
+            Sprechen wir über Ihre Ziele, Engpässe und den effizientesten Weg zu
+            einem skalierbaren digitalen System.
           </p>
         </div>
 
         <div className="mt-10 grid gap-4 sm:grid-cols-3">
           <a
             href={tel}
+            data-track-event="contact_submit"
+            data-track-label="Kontakt Telefon"
             className="card group hover:-translate-y-1 transition"
             aria-label="Anrufen"
           >
@@ -51,7 +49,7 @@ export default function Contact() {
               {PHONE_DISPLAY}
             </div>
             <div className="mt-3 text-slate-300 text-sm">
-              Direkt sprechen – ideal für klare, schnelle Abstimmung.
+              Direkt sprechen und erste Prioritäten in wenigen Minuten klären.
             </div>
           </a>
 
@@ -59,6 +57,8 @@ export default function Contact() {
             href={wa}
             target="_blank"
             rel="noopener noreferrer"
+            data-track-event="contact_submit"
+            data-track-label="Kontakt WhatsApp"
             className="card group hover:-translate-y-1 transition"
             aria-label="WhatsApp Chat"
           >
@@ -67,21 +67,21 @@ export default function Contact() {
               Chat starten
             </div>
             <div className="mt-3 text-slate-300 text-sm">
-              Perfekt für erste Fragen, Sprachnachrichten oder Links zu
-              Beispielen.
+              Schnell Rückfragen klären oder Use-Cases per Nachricht teilen.
             </div>
           </a>
 
           <a
             href={mailto}
+            data-track-event="contact_submit"
+            data-track-label="Kontakt E-Mail"
             className="card group hover:-translate-y-1 transition"
             aria-label="E-Mail senden"
           >
             <div className="text-sm text-slate-400">E-Mail</div>
             <div className="mt-1 text-white text-lg font-medium">{EMAIL}</div>
             <div className="mt-3 text-slate-300 text-sm">
-              Schick uns kurz Eckdaten, Wünsche und ggf. Seiten, die dir
-              gefallen.
+              Ideal für strukturierte Anforderungen und kurze Projektkontexte.
             </div>
           </a>
         </div>

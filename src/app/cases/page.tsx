@@ -2,9 +2,23 @@ import type { Metadata } from "next";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Case Studies – Beispiele aus Projekten | Codavo Webstudio",
+  title: "Case Studies | Codavo",
   description:
-    "Ausgewählte Web-Projekte von Codavo Webstudio – von Energieberatung über Ingenieurbüro bis Gebäudereinigung. Beispiele aus Deutschland und der DACH-Region.",
+    "Ausgewählte Projekte und Ergebnisse: Websites, Softwarelösungen und Systeme, die Prozesse automatisieren und Wachstum messbar machen.",
+  alternates: {
+    canonical: "/cases",
+  },
+  openGraph: {
+    url: "/cases",
+    title: "Case Studies | Codavo",
+    description:
+      "Ausgewählte Projekte und Ergebnisse: Websites, Softwarelösungen und Systeme, die Prozesse automatisieren und Wachstum messbar machen.",
+  },
+  twitter: {
+    title: "Case Studies | Codavo",
+    description:
+      "Ausgewählte Projekte und Ergebnisse: Websites, Softwarelösungen und Systeme, die Prozesse automatisieren und Wachstum messbar machen.",
+  },
 };
 
 type CaseItem = {

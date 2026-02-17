@@ -8,7 +8,6 @@ export default function Footer() {
       className="border-t border-white/10 bg-[#090e19] py-12 mt-20 text-sm text-slate-400"
     >
       <div className="container mx-auto px-5 grid gap-12 md:grid-cols-3">
-        {/* SPALTE 1 – Logo + Text */}
         <div>
           <div className="flex items-center gap-3 mb-4">
             <Image
@@ -25,17 +24,30 @@ export default function Footer() {
           </h3>
 
           <p className="text-slate-400 leading-relaxed">
-            Wir entwickeln moderne Websites & Web-Apps mit klarer UX,
-            performanter Technik und Fokus auf Ergebnisse – für
-            Solo-Selbstständige, Unternehmen und Teams in der gesamten
-            DACH-Region.
+            Wir entwickeln Webdesign, Webentwicklung und individuelle
+            Softwarelösungen für KMU mit Fokus auf ROI, Effizienz und
+            skalierbare digitale Systeme.
           </p>
         </div>
 
-        {/* SPALTE 2 – Navigation */}
         <div>
           <h4 className="text-white font-medium mb-3">Navigation</h4>
           <ul className="space-y-2">
+            <li>
+              <Link href="/" className="hover:text-white">
+                Startseite
+              </Link>
+            </li>
+            <li>
+              <Link href="/softwareloesungen-fuer-kmu" className="hover:text-white">
+                Softwarelösungen für KMU
+              </Link>
+            </li>
+            <li>
+              <Link href="/digitale-systeme" className="hover:text-white">
+                Digitale Systeme
+              </Link>
+            </li>
             <li>
               <Link href="/webdesign" className="hover:text-white">
                 Webdesign
@@ -43,21 +55,11 @@ export default function Footer() {
             </li>
             <li>
               <Link href="/web-app-entwicklung" className="hover:text-white">
-                Web-Apps
+                Web App Entwicklung
               </Link>
             </li>
             <li>
-              <Link href="/#leistungen" className="hover:text-white">
-                Leistungen
-              </Link>
-            </li>
-            <li>
-              <Link href="/#prozess" className="hover:text-white">
-                Prozess
-              </Link>
-            </li>
-            <li>
-              <Link href="/#cases" className="hover:text-white">
+              <Link href="/cases" className="hover:text-white">
                 Case Studies
               </Link>
             </li>
@@ -84,18 +86,24 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* SPALTE 3 – Kontakt */}
         <div>
           <h4 className="text-white font-medium mb-3">Kontakt</h4>
           <ul className="space-y-2">
             <li>
-              <a href="tel:+4915111956479" className="hover:text-white">
+              <a
+                href="tel:+4915111956479"
+                data-track-event="contact_submit"
+                data-track-label="Footer Telefon"
+                className="hover:text-white"
+              >
                 +49 1511 195 64 79
               </a>
             </li>
             <li>
               <a
                 href="mailto:kontakt@codavo-webstudio.de"
+                data-track-event="contact_submit"
+                data-track-label="Footer E-Mail"
                 className="hover:text-white"
               >
                 kontakt@codavo-webstudio.de
@@ -117,7 +125,6 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Footer Bottom */}
       <div className="mt-12 border-t border-white/10 pt-6 text-center text-xs text-slate-500">
         © {new Date().getFullYear()} Codavo Webstudio. Alle Rechte vorbehalten.
       </div>

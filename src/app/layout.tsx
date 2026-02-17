@@ -1,71 +1,51 @@
-// src/app/layout.tsx
 import type { Metadata } from "next";
+import Script from "next/script";
 import Header from "@/components/Header";
 import MobileCTA from "@/components/MobileCTA";
 import GlobalBackground from "@/components/GlobalBackground";
 import ScrollToTop from "@/components/ScrollToTop";
+import TrackingEvents from "@/components/TrackingEvents";
 import "./globals.css";
+
+const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.codavo-webstudio.de"),
-
-  title: {
-    default: "Codavo Webstudio – Webdesign & Webentwicklung für Unternehmen",
-    template: "%s | Codavo Webstudio",
-  },
+  applicationName: "Codavo Webstudio",
+  title: "Codavo Webstudio",
 
   description:
-    "Codavo Webstudio ist deine Agentur für modernes Webdesign, Webentwicklung und Web-Apps. Wir realisieren Projekte in 1–4 Wochen für Kund:innen in Stuttgart, ganz Deutschland und der DACH-Region.",
-
-  alternates: {
-    canonical: "https://www.codavo-webstudio.de",
-  },
+    "Webdesign, individuelle Softwarelösungen und digitale Systeme für KMU mit Fokus auf Effizienz, Automatisierung und skalierbares Wachstum.",
 
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1,
-    },
   },
 
   openGraph: {
+    siteName: "Codavo",
     type: "website",
     locale: "de_DE",
-    url: "https://www.codavo-webstudio.de",
-    siteName: "Codavo Webstudio",
-    title: "Codavo Webstudio – Webdesign & Webentwicklung für Unternehmen",
-    description:
-      "Moderne Websites, Landingpages & Web-Apps mit klarer UX, schnellem Tech-Stack und Fokus auf Ergebnisse – für Unternehmen, Dienstleister und Solo-Selbstständige in Stuttgart und der DACH-Region.",
     images: [
       {
-        url: "/og.jpg",
+        url: "/og.png",
         width: 1200,
         height: 630,
-        alt: "Codavo Webstudio – Webdesign & Webentwicklung",
+        alt: "Codavo Webstudio",
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "Codavo Webstudio – Webdesign & Webentwicklung",
-    description:
-      "Wir entwickeln Websites, Landingpages & Web-Apps, die für dich arbeiten – statt nur gut auszusehen. Moderne UX, schnelle Technik, klare Ergebnisse.",
-    images: ["/og.jpg"],
+    images: ["/og.png"],
   },
 
   icons: {
     icon: [
       { url: "/favicon.ico" },
       { url: "/favicon.svg", type: "image/svg+xml" },
-      // optional, falls du sie später noch ergänzt:
-      // { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      // { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
     ],
     apple: "/apple-touch-icon.png",
   },
@@ -84,7 +64,7 @@ export default function RootLayout({
     name: "Codavo Webstudio",
     url: "https://www.codavo-webstudio.de",
     telephone: "+49 1511 1956479",
-    image: "https://www.codavo-webstudio.de/og.jpg",
+    image: "https://www.codavo-webstudio.de/og.png",
     address: {
       "@type": "PostalAddress",
       streetAddress: "Naumannstr. 3",
@@ -106,17 +86,40 @@ export default function RootLayout({
 
   return (
     <html lang="de">
+      <head>
+        <meta
+          property="og:image"
+          content="https://www.codavo-webstudio.de/og.png"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta
+          name="twitter:image"
+          content="https://www.codavo-webstudio.de/og.png"
+        />
+      </head>
       <body className="relative min-h-screen bg-[#070C18] text-slate-200 antialiased">
+        {GTM_ID ? (
+          <noscript>
+            <iframe
+              src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+              height="0"
+              width="0"
+              style={{ display: "none", visibility: "hidden" }}
+              title="Google Tag Manager"
+            />
+          </noscript>
+        ) : null}
+
         <GlobalBackground />
         <div className="relative z-10">
           <Header />
           <ScrollToTop />
+          <TrackingEvents />
           {children}
 
-          {/* Floating CTA nur für Mobile */}
           <MobileCTA />
 
-          {/* Schema.org: Organisation + Website */}
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
@@ -126,6 +129,32 @@ export default function RootLayout({
             dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
           />
         </div>
+
+        {GTM_ID ? (
+          <Script id="gtm-script" strategy="afterInteractive">
+            {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','${GTM_ID}');`}
+          </Script>
+        ) : null}
+
+        {GA_ID ? (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga4-script" strategy="afterInteractive">
+              {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+window.gtag = gtag;
+gtag('js', new Date());
+gtag('config', '${GA_ID}');`}
+            </Script>
+          </>
+        ) : null}
       </body>
     </html>
   );

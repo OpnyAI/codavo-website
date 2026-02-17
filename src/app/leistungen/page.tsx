@@ -4,39 +4,22 @@ import Link from "next/link";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Leistungen – Webdesign, Landingpages, Websites & Web-Apps",
+  title: "Leistungen: Webdesign, Software & Systeme | Codavo",
   description:
-    "Leistungen von Codavo Webstudio: modernes Webdesign, schnelle Websites, conversion-starke Landingpages und individuelle Web-Apps. Projekte in 1–4 Wochen – für Kund:innen in Stuttgart, Deutschland und der DACH-Region.",
+    "Unser Setup für Wachstum: Webdesign, Softwarelösungen, Systemarchitektur und Weiterentwicklung - mit Fokus auf ROI, Effizienz und Skalierung.",
   alternates: {
-    canonical: "https://www.codavo-webstudio.de/leistungen",
-  },
-  robots: {
-    index: true,
-    follow: true,
+    canonical: "/leistungen",
   },
   openGraph: {
-    type: "website",
-    locale: "de_DE",
-    url: "https://www.codavo-webstudio.de/leistungen",
-    siteName: "Codavo Webstudio",
-    title: "Leistungen – Webdesign, Landingpages, Websites & Web-Apps",
+    url: "/leistungen",
+    title: "Leistungen: Webdesign, Software & Systeme | Codavo",
     description:
-      "Webdesign, Websites, Landingpages und Web-Apps – klarer Prozess, kurze Laufzeiten (1–4 Wochen) und saubere Technik für Kund:innen im DACH-Raum.",
-    images: [
-      {
-        url: "/og.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Codavo Webstudio – Leistungen",
-      },
-    ],
+      "Unser Setup für Wachstum: Webdesign, Softwarelösungen, Systemarchitektur und Weiterentwicklung - mit Fokus auf ROI, Effizienz und Skalierung.",
   },
   twitter: {
-    card: "summary_large_image",
-    title: "Leistungen – Codavo Webstudio",
+    title: "Leistungen: Webdesign, Software & Systeme | Codavo",
     description:
-      "Webdesign, Landingpages, Websites & Web-Apps. Klarer Prozess, schnelle Umsetzung (1–4 Wochen) – DACH-weit.",
-    images: ["/og.jpg"],
+      "Unser Setup für Wachstum: Webdesign, Softwarelösungen, Systemarchitektur und Weiterentwicklung - mit Fokus auf ROI, Effizienz und Skalierung.",
   },
 };
 

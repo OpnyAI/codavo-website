@@ -8,9 +8,9 @@ import { Menu, X } from "lucide-react";
 
 const navLinks = [
   { href: "/webdesign", label: "Webdesign" },
-  { href: "/web-app-entwicklung", label: "Web-Apps" },
+  { href: "/softwareloesungen-fuer-kmu", label: "Softwarelösungen" },
+  { href: "/digitale-systeme", label: "Digitale Systeme" },
   { href: "/#leistungen", label: "Leistungen" },
-  { href: "/#prozess", label: "Prozess" },
   { href: "/cases", label: "Case Studies" },
   { href: "/faq", label: "FAQ" },
   { href: "/kontakt", label: "Kontakt" },
@@ -24,7 +24,6 @@ export default function Header() {
   const menuRef = useRef<HTMLDivElement | null>(null);
   const buttonRef = useRef<HTMLButtonElement | null>(null);
 
-  // Scroll-Hintergrund
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
@@ -32,12 +31,10 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Beim Routenwechsel Mobile-Menü schließen
   useEffect(() => {
     setOpen(false);
   }, [pathname]);
 
-  // Click outside: überall tippen -> Menü zu (außer auf Button / Panel)
   useEffect(() => {
     if (!open) return;
 
@@ -67,7 +64,6 @@ export default function Header() {
 
   return (
     <>
-      {/* fixierter Header */}
       <header
         className={[
           "fixed inset-x-0 top-0 z-50 border-b border-white/5",
@@ -78,11 +74,10 @@ export default function Header() {
         ].join(" ")}
       >
         <div className="mx-auto flex h-14 md:h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-          {/* Logo */}
           <Link
             href="/"
-            scroll={true}
-            aria-label="Codavo Webstudio – Startseite"
+            scroll
+            aria-label="Codavo Webstudio - Startseite"
             className="flex items-center gap-2"
           >
             <Image
@@ -96,7 +91,6 @@ export default function Header() {
             <span className="sr-only">Codavo Webstudio</span>
           </Link>
 
-          {/* Desktop-Navigation */}
           <nav className="hidden items-center gap-6 text-sm text-slate-200 md:flex">
             {navLinks.map((link) => {
               const baseHref = link.href.replace(/#.*/, "");
@@ -121,16 +115,16 @@ export default function Header() {
             })}
           </nav>
 
-          {/* Desktop-CTA */}
           <Link
             href="/kontakt"
-            scroll={true}
+            scroll
+            data-track-event="strategy_call_click,cta_primary_click"
+            data-track-label="Header Strategie Call"
             className="hidden md:inline-flex rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 px-4 py-2 text-xs md:text-sm font-medium text-white shadow hover:shadow-lg transition"
           >
-            Projekt anfragen
+            Strategie-Call
           </Link>
 
-          {/* Mobile: Burger */}
           <button
             type="button"
             ref={buttonRef}
@@ -147,13 +141,10 @@ export default function Header() {
         </div>
       </header>
 
-      {/* Mobile-Menü + Overlay */}
       {open && (
         <div className="fixed inset-0 z-40 md:hidden">
-          {/* Dimmer */}
           <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" />
 
-          {/* Panel – hängt am ref für Click-Outside */}
           <div
             ref={menuRef}
             className="absolute inset-x-0 top-14 border-b border-white/10 bg-[#050816]/98 backdrop-blur-xl"
@@ -173,9 +164,11 @@ export default function Header() {
               <div className="mt-3 border-t border-white/10 pt-3">
                 <Link
                   href="/kontakt"
+                  data-track-event="strategy_call_click,cta_primary_click"
+                  data-track-label="Mobile Header Strategie Call"
                   className="inline-flex w-full items-center justify-center rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 px-4 py-2 text-sm font-medium text-white shadow hover:shadow-lg transition"
                 >
-                  Projekt anfragen
+                  Strategie-Call
                 </Link>
               </div>
             </nav>
