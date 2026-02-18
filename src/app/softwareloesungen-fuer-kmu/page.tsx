@@ -200,7 +200,6 @@ export default function SoftwareloesungenPage() {
                 <p className="mt-2 text-sm text-slate-200">
                   Konkretes Ergebnis: 38 % schnellere Angebotserstellung.
                 </p>
-                <p className="mt-2 text-xs text-slate-400">Testimonial-Platzhalter</p>
               </article>
               <article className="card">
                 <p className="text-white font-semibold">Projektname - Service-Steuerung</p>
@@ -213,7 +212,6 @@ export default function SoftwareloesungenPage() {
                 <p className="mt-2 text-sm text-slate-200">
                   Konkretes Ergebnis: 9 Stunden Zeitersparnis pro Woche.
                 </p>
-                <p className="mt-2 text-xs text-slate-400">Testimonial-Platzhalter</p>
               </article>
             </div>
           </section>
