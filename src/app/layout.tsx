@@ -5,24 +5,21 @@ import MobileCTA from "@/components/MobileCTA";
 import GlobalBackground from "@/components/GlobalBackground";
 import ScrollToTop from "@/components/ScrollToTop";
 import TrackingEvents from "@/components/TrackingEvents";
+import ConsentBanner from "@/components/ConsentBanner";
 import "./globals.css";
 
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
-const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.codavo-webstudio.de"),
   applicationName: "Codavo Webstudio",
   title: "Codavo Webstudio",
-
   description:
     "Webdesign, individuelle Softwarelösungen und digitale Systeme für KMU mit Fokus auf Effizienz, Automatisierung und skalierbares Wachstum.",
-
   robots: {
     index: true,
     follow: true,
   },
-
   openGraph: {
     siteName: "Codavo",
     type: "website",
@@ -36,12 +33,10 @@ export const metadata: Metadata = {
       },
     ],
   },
-
   twitter: {
     card: "summary_large_image",
     images: ["/og.png"],
   },
-
   icons: {
     icon: [
       { url: "/favicon.ico" },
@@ -49,7 +44,6 @@ export const metadata: Metadata = {
     ],
     apple: "/apple-touch-icon.png",
   },
-
   manifest: "/site.webmanifest",
 };
 
@@ -97,7 +91,42 @@ export default function RootLayout({
           name="twitter:image"
           content="https://www.codavo-webstudio.de/og.png"
         />
+
+        {/* Consent Mode v2 defaults (MUST run BEFORE GTM loads) */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+(function() {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){window.dataLayer.push(arguments);}
+  window.gtag = window.gtag || gtag;
+
+  // Default: deny until user consents
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    analytics_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    wait_for_update: 500
+  });
+
+  // Extra privacy hardening
+  gtag('set', 'ads_data_redaction', true);
+
+  // Apply stored consent if present
+  try {
+    var raw = window.localStorage.getItem('codavo_consent_v1');
+    if (raw) {
+      var c = JSON.parse(raw);
+      gtag('consent', 'update', c);
+      window.dataLayer.push(Object.assign({event: 'consent_loaded'}, c));
+    }
+  } catch(e) {}
+})();`,
+          }}
+        />
       </head>
+
       <body className="relative min-h-screen bg-[#070C18] text-slate-200 antialiased">
         {GTM_ID ? (
           <noscript>
@@ -112,6 +141,7 @@ export default function RootLayout({
         ) : null}
 
         <GlobalBackground />
+
         <div className="relative z-10">
           <Header />
           <ScrollToTop />
@@ -119,6 +149,9 @@ export default function RootLayout({
           {children}
 
           <MobileCTA />
+
+          {/* Cookie / Consent Banner */}
+          <ConsentBanner />
 
           <script
             type="application/ld+json"
@@ -138,22 +171,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','${GTM_ID}');`}
           </Script>
-        ) : null}
-
-        {GA_ID ? (
-          <>
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-              strategy="afterInteractive"
-            />
-            <Script id="ga4-script" strategy="afterInteractive">
-              {`window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-window.gtag = gtag;
-gtag('js', new Date());
-gtag('config', '${GA_ID}');`}
-            </Script>
-          </>
         ) : null}
       </body>
     </html>
