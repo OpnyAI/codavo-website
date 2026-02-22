@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import SocialLinks from "@/components/SocialLinks";
 
 export default function Footer() {
   return (
@@ -28,6 +29,13 @@ export default function Footer() {
             Softwarelösungen für KMU mit Fokus auf ROI, Effizienz und
             skalierbare digitale Systeme.
           </p>
+
+          <div className="mt-6 flex flex-col items-center gap-3 md:items-start">
+            <h4 className="mb-4 text-sm font-medium tracking-normal text-white">
+              Social
+            </h4>
+            <SocialLinks size="md" variant="footer" />
+          </div>
         </div>
 
         <div>

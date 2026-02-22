@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
+import SocialLinks from "@/components/SocialLinks";
 
 const navLinks = [
   { href: "/webdesign", label: "Webdesign" },
@@ -115,15 +116,22 @@ export default function Header() {
             })}
           </nav>
 
-          <Link
-            href="/kontakt"
-            scroll
-            data-track-event="strategy_call_click,cta_primary_click"
-            data-track-label="Header Strategie Call"
-            className="hidden md:inline-flex rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 px-4 py-2 text-xs md:text-sm font-medium text-white shadow hover:shadow-lg transition"
-          >
-            Strategie-Call
-          </Link>
+          <div className="hidden items-center gap-3 md:flex">
+            <SocialLinks
+              variant="header"
+              size="sm"
+              className="hidden lg:flex"
+            />
+            <Link
+              href="/kontakt"
+              scroll
+              data-track-event="strategy_call_click,cta_primary_click"
+              data-track-label="Header Strategie Call"
+              className="inline-flex rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 px-4 py-2 text-xs md:text-sm font-medium text-white shadow hover:shadow-lg transition"
+            >
+              Strategie-Call
+            </Link>
+          </div>
 
           <button
             type="button"
