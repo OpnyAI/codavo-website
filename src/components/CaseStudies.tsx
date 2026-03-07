@@ -57,14 +57,27 @@ const cases: CaseItem[] = [
     href: "https://taner-care.de",
   },
   {
-    title: "Gartenwelt Schmitz — Landschaftsbau",
-    problem: "Leistungen zu versteckt, wenig Kontaktaufnahmen.",
+    title: "HWK Sanierung — Sanierung & Modernisierung",
+    problem: "Leistungen und Kompetenz online nicht klar genug transportiert.",
     solution:
-      "Leistungen mit Bildern greifbar gemacht, Bewertungen eingebunden, Kontaktmöglichkeiten sehr sichtbar platziert.",
-    result: "Mehr Anfragen und messbar bessere lokale Sichtbarkeit.",
-    img: "/cases/projekt3.webp",
-    alt: "Hero-Screenshot Gartenwelt Schmitz",
-    href: "https://gartenwelt-schmitz.de",
+      "Website strukturiert aufgebaut, Leistungen verständlich gegliedert und klare Kontaktwege für Anfragen geschaffen.",
+    result:
+      "Professionellerer Außenauftritt, mehr Vertrauen bei Interessenten und bessere Grundlage für qualifizierte Anfragen.",
+    img: "/cases/hwk.webp",
+    alt: "Hero-Screenshot HWK Sanierung",
+    href: "https://www.hwksanierung.de/",
+  },
+  {
+    title: "Kreuz Fahrservice — Personenbeförderung",
+    problem:
+      "Digitaler Auftritt wirkte nicht modern genug und wichtige Kontaktwege waren nicht optimal hervorgehoben.",
+    solution:
+      "Website modernisiert, mobile Nutzerführung verbessert und Termin- bzw. Kontaktmöglichkeiten sichtbar integriert.",
+    result:
+      "Besserer professioneller Eindruck, stärkere mobile Usability und mehr direkte Kontaktaufnahmen über die Website.",
+    img: "/cases/fahrservice.webp",
+    alt: "Hero-Screenshot Kreuz Fahrservice",
+    href: "https://www.kreuz-fahrservice.de/",
   },
 ];
 
@@ -83,7 +96,7 @@ export default function CaseStudies() {
 
     const paddingLeft = parseInt(
       getComputedStyle(scroller).paddingLeft || "0",
-      10
+      10,
     );
 
     scroller.scrollTo({
@@ -282,7 +295,9 @@ export default function CaseStudies() {
               aria-label={`Slide ${i + 1}`}
               onClick={() => goTo(i)}
               className={`h-2.5 rounded-full transition-all ${
-                active === i ? "w-6 bg-white" : "w-2.5 bg-white/40 hover:bg-white/70"
+                active === i
+                  ? "w-6 bg-white"
+                  : "w-2.5 bg-white/40 hover:bg-white/70"
               }`}
             />
           ))}
