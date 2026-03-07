@@ -83,7 +83,7 @@ export default function Header() {
           >
             <Image
               src="/images/logo/codavo-logo-light.png"
-              alt="Codavo Webstudio Logo"
+              alt="Codavo Webstudio"
               width={140}
               height={32}
               priority
