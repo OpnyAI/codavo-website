@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import HeroChips from "@/components/hero/HeroChips";
 
 export const metadata: Metadata = {
-  title: "Individuelle Softwarelösungen für KMU | Codavo",
+  title: "Individuelle Softwarelösungen für KMU | Codavo Webstudio",
   description:
     "Maßgeschneiderte Business-Software statt Standard-Tools: Automatisierung, Portale, Angebotsprozesse und KI-Integration - datenbasiert und skalierbar.",
   alternates: {
@@ -13,14 +13,24 @@ export const metadata: Metadata = {
   },
   openGraph: {
     url: "/softwareloesungen-fuer-kmu",
-    title: "Individuelle Softwarelösungen für KMU | Codavo",
+    siteName: "Codavo Webstudio",
+    title: "Individuelle Softwarelösungen für KMU | Codavo Webstudio",
     description:
       "Maßgeschneiderte Business-Software statt Standard-Tools: Automatisierung, Portale, Angebotsprozesse und KI-Integration - datenbasiert und skalierbar.",
+    images: [
+      {
+        url: "/og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Codavo Webstudio",
+      },
+    ],
   },
   twitter: {
-    title: "Individuelle Softwarelösungen für KMU | Codavo",
+    title: "Individuelle Softwarelösungen für KMU | Codavo Webstudio",
     description:
       "Maßgeschneiderte Business-Software statt Standard-Tools: Automatisierung, Portale, Angebotsprozesse und KI-Integration - datenbasiert und skalierbar.",
+    images: ["/og.jpg"],
   },
 };
 

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Datenschutz | Codavo",
+  title: "Datenschutz | Codavo Webstudio",
   description:
     "Datenschutzhinweise zur Nutzung dieser Website und zu den eingesetzten Diensten.",
   alternates: {
@@ -14,14 +14,24 @@ export const metadata: Metadata = {
   },
   openGraph: {
     url: "/datenschutz",
-    title: "Datenschutz | Codavo",
+    siteName: "Codavo Webstudio",
+    title: "Datenschutz | Codavo Webstudio",
     description:
       "Datenschutzhinweise zur Nutzung dieser Website und zu den eingesetzten Diensten.",
+    images: [
+      {
+        url: "/og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Codavo Webstudio",
+      },
+    ],
   },
   twitter: {
-    title: "Datenschutz | Codavo",
+    title: "Datenschutz | Codavo Webstudio",
     description:
       "Datenschutzhinweise zur Nutzung dieser Website und zu den eingesetzten Diensten.",
+    images: ["/og.jpg"],
   },
 };
 

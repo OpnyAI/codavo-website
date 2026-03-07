@@ -4,7 +4,7 @@ import FAQAccordion from "@/components/FAQAccordion";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Web-App Entwicklung für Unternehmen | Codavo",
+  title: "Web-App Entwicklung für Unternehmen | Codavo Webstudio",
   description:
     "Webbasierte Tools, Portale und interne Systeme: stabil, skalierbar und exakt auf Prozesse zugeschnitten - von MVP bis Systemausbau.",
   alternates: {
@@ -12,14 +12,24 @@ export const metadata: Metadata = {
   },
   openGraph: {
     url: "/web-app-entwicklung",
-    title: "Web-App Entwicklung für Unternehmen | Codavo",
+    siteName: "Codavo Webstudio",
+    title: "Web-App Entwicklung für Unternehmen | Codavo Webstudio",
     description:
       "Webbasierte Tools, Portale und interne Systeme: stabil, skalierbar und exakt auf Prozesse zugeschnitten - von MVP bis Systemausbau.",
+    images: [
+      {
+        url: "/og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Codavo Webstudio",
+      },
+    ],
   },
   twitter: {
-    title: "Web-App Entwicklung für Unternehmen | Codavo",
+    title: "Web-App Entwicklung für Unternehmen | Codavo Webstudio",
     description:
       "Webbasierte Tools, Portale und interne Systeme: stabil, skalierbar und exakt auf Prozesse zugeschnitten - von MVP bis Systemausbau.",
+    images: ["/og.jpg"],
   },
 };
 

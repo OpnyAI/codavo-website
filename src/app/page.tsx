@@ -10,22 +10,34 @@ import Footer from "@/components/Footer";
 import FAQAccordion from "@/components/FAQAccordion";
 
 export const metadata: Metadata = {
-  title: "Webdesign & individuelle Softwarelösungen für KMU | Codavo",
+  title: "Webdesign, Software & digitale Systeme für Unternehmen | Codavo Webstudio",
   description:
-    "Webdesign, Softwarelösungen und digitale Systeme für KMU. Wir automatisieren Prozesse, steigern Conversion und bauen skalierbare Systemarchitekturen.",
+    "Codavo Webstudio entwickelt moderne Websites, individuelle Softwarelösungen und digitale Systeme für Unternehmen. Schnell, technisch sauber und auf Performance sowie Anfragen optimiert.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
     url: "/",
-    title: "Webdesign & individuelle Softwarelösungen für KMU | Codavo",
+    siteName: "Codavo Webstudio",
+    title:
+      "Webdesign, Software & digitale Systeme für Unternehmen | Codavo Webstudio",
     description:
-      "Webdesign, Softwarelösungen und digitale Systeme für KMU. Wir automatisieren Prozesse, steigern Conversion und bauen skalierbare Systemarchitekturen.",
+      "Codavo Webstudio entwickelt moderne Websites, individuelle Softwarelösungen und digitale Systeme für Unternehmen. Schnell, technisch sauber und auf Performance sowie Anfragen optimiert.",
+    images: [
+      {
+        url: "/og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Codavo Webstudio",
+      },
+    ],
   },
   twitter: {
-    title: "Webdesign & individuelle Softwarelösungen für KMU | Codavo",
+    title:
+      "Webdesign, Software & digitale Systeme für Unternehmen | Codavo Webstudio",
     description:
-      "Webdesign, Softwarelösungen und digitale Systeme für KMU. Wir automatisieren Prozesse, steigern Conversion und bauen skalierbare Systemarchitekturen.",
+      "Codavo Webstudio entwickelt moderne Websites, individuelle Softwarelösungen und digitale Systeme für Unternehmen. Schnell, technisch sauber und auf Performance sowie Anfragen optimiert.",
+    images: ["/og.jpg"],
   },
 };
 
@@ -64,6 +76,15 @@ export default function Home() {
         text: faq.a,
       },
     })),
+  };
+
+  const organizationJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Codavo Webstudio",
+    url: "https://www.codavo-webstudio.de",
+    logo: "https://www.codavo-webstudio.de/images/logo/codavo-logo-light.png",
+    sameAs: ["https://www.linkedin.com/company/codavo-webstudio"],
   };
 
   return (
@@ -256,6 +277,10 @@ export default function Home() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
       />
     </>
   );

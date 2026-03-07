@@ -3,7 +3,7 @@ import Link from "next/link";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Kontakt & Strategie-Call | Codavo",
+  title: "Kontakt & Strategie-Call | Codavo Webstudio",
   description:
     "Projektanfrage oder Strategie-Call: Wir klären Ziel, Scope und Hebel für Webdesign, Software und digitale Systeme - strukturiert und effizient.",
   alternates: {
@@ -11,14 +11,24 @@ export const metadata: Metadata = {
   },
   openGraph: {
     url: "/kontakt",
-    title: "Kontakt & Strategie-Call | Codavo",
+    siteName: "Codavo Webstudio",
+    title: "Kontakt & Strategie-Call | Codavo Webstudio",
     description:
       "Projektanfrage oder Strategie-Call: Wir klären Ziel, Scope und Hebel für Webdesign, Software und digitale Systeme - strukturiert und effizient.",
+    images: [
+      {
+        url: "/og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Codavo Webstudio",
+      },
+    ],
   },
   twitter: {
-    title: "Kontakt & Strategie-Call | Codavo",
+    title: "Kontakt & Strategie-Call | Codavo Webstudio",
     description:
       "Projektanfrage oder Strategie-Call: Wir klären Ziel, Scope und Hebel für Webdesign, Software und digitale Systeme - strukturiert und effizient.",
+    images: ["/og.jpg"],
   },
 };
 

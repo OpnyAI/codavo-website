@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import HeroChips from "@/components/hero/HeroChips";
 
 export const metadata: Metadata = {
-  title: "Digitale Systeme für skalierbares Wachstum | Codavo",
+  title: "Digitale Systeme für skalierbares Wachstum | Codavo Webstudio",
   description:
     "Integrierte Systemarchitektur aus Website, Software und Automatisierung. Weniger manuell, schnellere Prozesse, mehr Conversion und klare Daten.",
   alternates: {
@@ -13,14 +13,24 @@ export const metadata: Metadata = {
   },
   openGraph: {
     url: "/digitale-systeme",
-    title: "Digitale Systeme für skalierbares Wachstum | Codavo",
+    siteName: "Codavo Webstudio",
+    title: "Digitale Systeme für skalierbares Wachstum | Codavo Webstudio",
     description:
       "Integrierte Systemarchitektur aus Website, Software und Automatisierung. Weniger manuell, schnellere Prozesse, mehr Conversion und klare Daten.",
+    images: [
+      {
+        url: "/og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Codavo Webstudio",
+      },
+    ],
   },
   twitter: {
-    title: "Digitale Systeme für skalierbares Wachstum | Codavo",
+    title: "Digitale Systeme für skalierbares Wachstum | Codavo Webstudio",
     description:
       "Integrierte Systemarchitektur aus Website, Software und Automatisierung. Weniger manuell, schnellere Prozesse, mehr Conversion und klare Daten.",
+    images: ["/og.jpg"],
   },
 };
 

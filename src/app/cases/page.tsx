@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Case Studies | Codavo",
+  title: "Case Studies | Codavo Webstudio",
   description:
     "Ausgewählte Projekte und Ergebnisse: Websites, Softwarelösungen und Systeme, die Prozesse automatisieren und Wachstum messbar machen.",
   alternates: {
@@ -10,14 +10,24 @@ export const metadata: Metadata = {
   },
   openGraph: {
     url: "/cases",
-    title: "Case Studies | Codavo",
+    siteName: "Codavo Webstudio",
+    title: "Case Studies | Codavo Webstudio",
     description:
       "Ausgewählte Projekte und Ergebnisse: Websites, Softwarelösungen und Systeme, die Prozesse automatisieren und Wachstum messbar machen.",
+    images: [
+      {
+        url: "/og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Codavo Webstudio",
+      },
+    ],
   },
   twitter: {
-    title: "Case Studies | Codavo",
+    title: "Case Studies | Codavo Webstudio",
     description:
       "Ausgewählte Projekte und Ergebnisse: Websites, Softwarelösungen und Systeme, die Prozesse automatisieren und Wachstum messbar machen.",
+    images: ["/og.jpg"],
   },
 };
 

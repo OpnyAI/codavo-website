@@ -4,7 +4,7 @@ import Link from "next/link";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Leistungen: Webdesign, Software & Systeme | Codavo",
+  title: "Leistungen: Webdesign, Software & Systeme | Codavo Webstudio",
   description:
     "Unser Setup für Wachstum: Webdesign, Softwarelösungen, Systemarchitektur und Weiterentwicklung - mit Fokus auf ROI, Effizienz und Skalierung.",
   alternates: {
@@ -12,14 +12,24 @@ export const metadata: Metadata = {
   },
   openGraph: {
     url: "/leistungen",
-    title: "Leistungen: Webdesign, Software & Systeme | Codavo",
+    siteName: "Codavo Webstudio",
+    title: "Leistungen: Webdesign, Software & Systeme | Codavo Webstudio",
     description:
       "Unser Setup für Wachstum: Webdesign, Softwarelösungen, Systemarchitektur und Weiterentwicklung - mit Fokus auf ROI, Effizienz und Skalierung.",
+    images: [
+      {
+        url: "/og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Codavo Webstudio",
+      },
+    ],
   },
   twitter: {
-    title: "Leistungen: Webdesign, Software & Systeme | Codavo",
+    title: "Leistungen: Webdesign, Software & Systeme | Codavo Webstudio",
     description:
       "Unser Setup für Wachstum: Webdesign, Softwarelösungen, Systemarchitektur und Weiterentwicklung - mit Fokus auf ROI, Effizienz und Skalierung.",
+    images: ["/og.jpg"],
   },
 };
 
