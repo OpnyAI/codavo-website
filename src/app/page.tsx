@@ -193,9 +193,6 @@ export default function Home() {
                 <p className="mt-2 text-sm text-slate-200 font-medium">
                   Ergebnis: 42 % schnellere Angebotsdurchlaufzeit in 90 Tagen.
                 </p>
-                <p className="mt-2 text-xs text-slate-400">
-                  Testimonial: Platzhalter für Kundenstimme.
-                </p>
               </article>
               <article className="card">
                 <h4 className="text-lg font-semibold text-white">
@@ -210,9 +207,6 @@ export default function Home() {
                 </p>
                 <p className="mt-2 text-sm text-slate-200 font-medium">
                   Ergebnis: 11 Stunden Zeitersparnis pro Woche im Team.
-                </p>
-                <p className="mt-2 text-xs text-slate-400">
-                  Testimonial: Platzhalter für Kundenstimme.
                 </p>
               </article>
             </div>
