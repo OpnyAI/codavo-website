@@ -64,6 +64,7 @@ export default function KontaktPage() {
                 href="tel:+4915111956479"
                 data-track-event="contact_submit"
                 data-track-label="Kontaktseite Telefon"
+                data-google-ads-conversion="contact_phone"
                 className="mt-4 inline-flex text-sm text-indigo-300 hover:text-white underline-offset-2 hover:underline"
               >
                 +49 1511 195 64 79
@@ -82,6 +83,7 @@ export default function KontaktPage() {
                 rel="noopener noreferrer"
                 data-track-event="contact_submit"
                 data-track-label="Kontaktseite WhatsApp"
+                data-google-ads-conversion="contact_whatsapp"
                 className="mt-4 inline-flex text-sm text-indigo-300 hover:text-white underline-offset-2 hover:underline"
               >
                 WhatsApp-Chat starten ↗
@@ -98,6 +100,7 @@ export default function KontaktPage() {
                 href="mailto:kontakt@codavo-webstudio.de"
                 data-track-event="contact_submit"
                 data-track-label="Kontaktseite E-Mail"
+                data-google-ads-conversion="contact"
                 className="mt-4 inline-flex text-sm text-indigo-300 hover:text-white underline-offset-2 hover:underline"
               >
                 kontakt@codavo-webstudio.de

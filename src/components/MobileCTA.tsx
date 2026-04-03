@@ -92,6 +92,7 @@ export default function MobileCTA() {
             href={`tel:${PHONE_TEL}`}
             data-track-event="contact_submit"
             data-track-label="Mobile Telefon"
+            data-google-ads-conversion="contact_phone"
             aria-label="Anrufen"
             className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-2xl px-3 py-2 bg-white/6 hover:bg-white/10 active:bg-white/15 text-white text-[13px] font-medium transition-colors"
           >
@@ -105,6 +106,7 @@ export default function MobileCTA() {
             rel="noopener noreferrer"
             data-track-event="contact_submit"
             data-track-label="Mobile WhatsApp"
+            data-google-ads-conversion="contact_whatsapp"
             aria-label="Per WhatsApp schreiben"
             className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-2xl px-3 py-2 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:brightness-110 active:brightness-95 text-white text-[13px] font-medium shadow-[0_0_0_1px_rgba(255,255,255,0.05)] transition-all"
           >

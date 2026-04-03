@@ -102,6 +102,7 @@ export default function Footer() {
                 href="tel:+4915111956479"
                 data-track-event="contact_submit"
                 data-track-label="Footer Telefon"
+                data-google-ads-conversion="contact_phone"
                 className="hover:text-white"
               >
                 +49 1511 195 64 79
@@ -112,6 +113,7 @@ export default function Footer() {
                 href="mailto:kontakt@codavo-webstudio.de"
                 data-track-event="contact_submit"
                 data-track-label="Footer E-Mail"
+                data-google-ads-conversion="contact"
                 className="hover:text-white"
               >
                 kontakt@codavo-webstudio.de

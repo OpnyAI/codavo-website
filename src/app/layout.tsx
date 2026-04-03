@@ -5,10 +5,19 @@ import MobileCTA from "@/components/MobileCTA";
 import GlobalBackground from "@/components/GlobalBackground";
 import ScrollToTop from "@/components/ScrollToTop";
 import TrackingEvents from "@/components/TrackingEvents";
+<<<<<<< HEAD
 import ConsentBanner from "@/components/ConsentBanner";
 import "./globals.css";
 
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
+=======
+import { GOOGLE_ADS_ID } from "@/lib/google-ads";
+import "./globals.css";
+
+const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+const GTAG_PRIMARY_ID = GA_ID || GOOGLE_ADS_ID;
+>>>>>>> b355d44 (refine google ads contact conversion tracking)
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.codavo-webstudio.de"),
@@ -172,6 +181,26 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','${GTM_ID}');`}
           </Script>
         ) : null}
+<<<<<<< HEAD
+=======
+
+        {GTAG_PRIMARY_ID ? (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GTAG_PRIMARY_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga4-script" strategy="afterInteractive">
+              {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+window.gtag = gtag;
+gtag('js', new Date());
+${GA_ID ? `gtag('config', '${GA_ID}');` : ""}
+gtag('config', '${GOOGLE_ADS_ID}');`}
+            </Script>
+          </>
+        ) : null}
+>>>>>>> b355d44 (refine google ads contact conversion tracking)
       </body>
     </html>
   );

@@ -184,12 +184,14 @@ export default function LeistungenPage() {
               <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
                 <a
                   href="tel:+4915111956479"
+                  data-google-ads-conversion="contact_phone"
                   className="rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white px-5 py-2.5 font-medium shadow hover:shadow-lg transition"
                 >
                   Direkt anrufen
                 </a>
                 <a
                   href="mailto:kontakt@codavo-webstudio.de"
+                  data-google-ads-conversion="contact"
                   className="rounded-full border border-white/30 text-white/90 px-5 py-2.5 font-medium hover:bg-white/10 transition"
                 >
                   Projekt anfragen

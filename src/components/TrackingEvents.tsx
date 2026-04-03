@@ -2,15 +2,12 @@
 
 import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
+import {
+  isGoogleAdsConversionName,
+  trackGoogleAdsConversion,
+} from "@/lib/google-ads";
 
 type EventParams = Record<string, string | number | boolean>;
-
-declare global {
-  interface Window {
-    dataLayer: Array<Record<string, unknown>>;
-    gtag?: (...args: unknown[]) => void;
-  }
-}
 
 const pushEvent = (eventName: string, params: EventParams = {}) => {
   if (typeof window === "undefined") return;
@@ -28,30 +25,48 @@ export default function TrackingEvents() {
   const hasTrackedScrollRef = useRef(false);
 
   useEffect(() => {
+    const handleGoogleAdsConversion = (trigger: HTMLElement, label: string) => {
+      const conversionName = trigger.getAttribute("data-google-ads-conversion");
+
+      if (!isGoogleAdsConversionName(conversionName)) return;
+
+      trackGoogleAdsConversion(conversionName, {
+        pagePath: pathname,
+        ctaLabel: label,
+      });
+    };
+
     const handleClick = (event: MouseEvent) => {
       const target = event.target as HTMLElement | null;
-      const trigger = target?.closest<HTMLElement>("[data-track-event]");
+      const analyticsTrigger = target?.closest<HTMLElement>("[data-track-event]");
+      const googleAdsTrigger = target?.closest<HTMLElement>("[data-google-ads-conversion]");
+
+      if (!analyticsTrigger && !googleAdsTrigger) return;
+
+      const trigger = analyticsTrigger ?? googleAdsTrigger;
       if (!trigger) return;
 
-      const raw = trigger.getAttribute("data-track-event") || "";
+      const raw = analyticsTrigger?.getAttribute("data-track-event") || "";
       const events = raw
         .split(",")
         .map((name) => name.trim())
         .filter(Boolean);
-
-      if (!events.length) return;
 
       const label =
         trigger.getAttribute("data-track-label") ||
         trigger.textContent?.trim().slice(0, 80) ||
         "cta";
 
-      events.forEach((eventName) => {
-        pushEvent(eventName, {
-          page_path: pathname,
-          cta_label: label,
+      if (events.length) {
+        events.forEach((eventName) => {
+          pushEvent(eventName, {
+            page_path: pathname,
+            cta_label: label,
+          });
         });
-      });
+      }
+
+      handleGoogleAdsConversion(trigger, label);
     };
 
     document.addEventListener("click", handleClick);

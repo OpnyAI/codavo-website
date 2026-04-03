@@ -41,6 +41,7 @@ export default function Contact() {
             href={tel}
             data-track-event="contact_submit"
             data-track-label="Kontakt Telefon"
+            data-google-ads-conversion="contact_phone"
             className="card group hover:-translate-y-1 transition"
             aria-label="Anrufen"
           >
@@ -59,6 +60,7 @@ export default function Contact() {
             rel="noopener noreferrer"
             data-track-event="contact_submit"
             data-track-label="Kontakt WhatsApp"
+            data-google-ads-conversion="contact_whatsapp"
             className="card group hover:-translate-y-1 transition"
             aria-label="WhatsApp Chat"
           >
@@ -75,6 +77,7 @@ export default function Contact() {
             href={mailto}
             data-track-event="contact_submit"
             data-track-label="Kontakt E-Mail"
+            data-google-ads-conversion="contact"
             className="card group hover:-translate-y-1 transition"
             aria-label="E-Mail senden"
           >
