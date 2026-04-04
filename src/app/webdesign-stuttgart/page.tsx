@@ -1,14 +1,9 @@
 // src/app/webdesign-stuttgart/page.tsx
 import type { Metadata } from "next";
 import Link from "next/link";
-<<<<<<< HEAD
-import Footer from "@/components/Footer"; export const metadata: Metadata = {
-  title: "Webdesign Stuttgart für Unternehmen | Codavo Webstudio",
-=======
 import Footer from "@/components/Footer";
 export const metadata: Metadata = {
-  title: "Webdesign Stuttgart für Unternehmen | Codavo",
->>>>>>> b355d44 (refine google ads contact conversion tracking)
+  title: "Webdesign Stuttgart für Unternehmen | Codavo Webstudio",
   description:
     "Webdesign in Stuttgart für KMU: performante Websites mit klarer Positionierung, SEO-Fundament und Conversion-Fokus.",
   alternates: {

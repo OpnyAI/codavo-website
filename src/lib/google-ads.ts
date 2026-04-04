@@ -1,5 +1,3 @@
-"use client";
-
 export const GOOGLE_ADS_ID = "AW-18059484807";
 
 const GOOGLE_ADS_CONTACT_CONVERSION = "AW-18059484807/bZjUCLuPwJQcEIe9t6ND";
