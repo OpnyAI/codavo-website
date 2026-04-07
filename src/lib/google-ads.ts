@@ -153,31 +153,24 @@ export const trackGoogleAdsConversion = (
   }
 };
 
-type ConversionRedirectParams = {
-  ctaLabel?: string;
-  pagePath?: string;
-  contactMethod?: "whatsapp" | "phone" | "email";
-  eventTimeout?: number;
-};
-
 export const handleConversionRedirect = (
   url: string,
-  {
-    ctaLabel,
-    pagePath,
-    contactMethod,
-    eventTimeout = 2000,
-  }: ConversionRedirectParams = {},
+  eventTimeout = 900,
 ) => {
-  if (!isBrowser()) return;
+  if (typeof window === "undefined") return;
 
-  const resolvedPagePath = getPagePath(pagePath);
+  const isWhatsApp = url.startsWith("https://wa.me/");
   let hasNavigated = false;
 
   const navigate = () => {
     if (hasNavigated) return;
     hasNavigated = true;
-    window.location.href = url;
+
+    if (isWhatsApp) {
+      window.location.assign(url);
+    } else {
+      window.location.href = url;
+    }
   };
 
   if (typeof window.gtag !== "function") {
@@ -186,10 +179,7 @@ export const handleConversionRedirect = (
   }
 
   window.gtag("event", "conversion", {
-    send_to: GOOGLE_ADS_CONTACT_CONVERSION,
-    ...(resolvedPagePath ? { page_path: resolvedPagePath } : {}),
-    ...(ctaLabel ? { cta_label: ctaLabel } : {}),
-    ...(contactMethod ? { contact_method: contactMethod } : {}),
+    send_to: "AW-18059484807/bZjUCLuPwJQcEIe9t6ND",
     event_callback: navigate,
     event_timeout: eventTimeout,
   });

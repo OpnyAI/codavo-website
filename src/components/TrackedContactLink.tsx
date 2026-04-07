@@ -1,7 +1,6 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { usePathname } from "next/navigation";
 import { handleConversionRedirect } from "@/lib/google-ads";
 
 type TrackedContactLinkProps = {
@@ -22,21 +21,12 @@ export default function TrackedContactLink({
   ariaLabel,
   dataTrackEvent,
   dataTrackLabel,
-  contactMethod,
   type = "button",
 }: TrackedContactLinkProps) {
-  const pathname = usePathname();
-
   return (
     <button
       type={type}
-      onClick={() =>
-        handleConversionRedirect(url, {
-          pagePath: pathname,
-          ctaLabel: dataTrackLabel,
-          contactMethod,
-        })
-      }
+      onClick={() => handleConversionRedirect(url)}
       className={className}
       aria-label={ariaLabel}
       {...(dataTrackEvent ? { "data-track-event": dataTrackEvent } : {})}
