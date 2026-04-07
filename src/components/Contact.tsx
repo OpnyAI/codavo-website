@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import TrackedContactLink from "@/components/TrackedContactLink";
 
 export default function Contact() {
   const PHONE_DISPLAY = "+49 1511 195 64 79";
@@ -37,13 +38,13 @@ export default function Contact() {
         </div>
 
         <div className="mt-10 grid gap-4 sm:grid-cols-3">
-          <a
-            href={tel}
+          <TrackedContactLink
+            url={tel}
             data-track-event="contact_submit"
             data-track-label="Kontakt Telefon"
-            data-google-ads-conversion="contact_phone"
             className="card group hover:-translate-y-1 transition"
             aria-label="Anrufen"
+            contactMethod="phone"
           >
             <div className="text-sm text-slate-400">Telefon</div>
             <div className="mt-1 text-white text-lg font-medium">
@@ -52,17 +53,15 @@ export default function Contact() {
             <div className="mt-3 text-slate-300 text-sm">
               Direkt sprechen und erste Prioritäten in wenigen Minuten klären.
             </div>
-          </a>
+          </TrackedContactLink>
 
-          <a
-            href={wa}
-            target="_blank"
-            rel="noopener noreferrer"
+          <TrackedContactLink
+            url={wa}
             data-track-event="contact_submit"
             data-track-label="Kontakt WhatsApp"
-            data-google-ads-conversion="contact_whatsapp"
             className="card group hover:-translate-y-1 transition"
             aria-label="WhatsApp Chat"
+            contactMethod="whatsapp"
           >
             <div className="text-sm text-slate-400">WhatsApp</div>
             <div className="mt-1 text-white text-lg font-medium">
@@ -71,22 +70,22 @@ export default function Contact() {
             <div className="mt-3 text-slate-300 text-sm">
               Schnell Rückfragen klären oder Use-Cases per Nachricht teilen.
             </div>
-          </a>
+          </TrackedContactLink>
 
-          <a
-            href={mailto}
+          <TrackedContactLink
+            url={mailto}
             data-track-event="contact_submit"
             data-track-label="Kontakt E-Mail"
-            data-google-ads-conversion="contact"
             className="card group hover:-translate-y-1 transition"
             aria-label="E-Mail senden"
+            contactMethod="email"
           >
             <div className="text-sm text-slate-400">E-Mail</div>
             <div className="mt-1 text-white text-lg font-medium">{EMAIL}</div>
             <div className="mt-3 text-slate-300 text-sm">
               Ideal für strukturierte Anforderungen und kurze Projektkontexte.
             </div>
-          </a>
+          </TrackedContactLink>
         </div>
 
         <p className="mt-6 text-xs text-slate-400 text-center">

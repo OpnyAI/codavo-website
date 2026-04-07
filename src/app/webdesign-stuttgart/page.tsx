@@ -2,6 +2,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Footer from "@/components/Footer";
+import TrackedContactLink from "@/components/TrackedContactLink";
 export const metadata: Metadata = {
   title: "Webdesign Stuttgart für Unternehmen | Codavo Webstudio",
   description:
@@ -369,14 +370,16 @@ export default function WebdesignStuttgartPage() {
                 {" "}
                 Unverbindliches Erstgespräch vereinbaren{" "}
               </Link>{" "}
-              <a
-                href="tel:+4915111956479"
-                data-google-ads-conversion="contact_phone"
+              <TrackedContactLink
+                url="tel:+4915111956479"
                 className="inline-flex items-center justify-center rounded-full border border-white/20 px-4 py-2 text-xs md:text-sm font-medium text-slate-200 hover:bg-white/5 transition"
+                dataTrackEvent="contact_submit"
+                dataTrackLabel="Webdesign Stuttgart Telefon"
+                contactMethod="phone"
               >
                 {" "}
                 Direkt anrufen: +49 1511 195 64 79{" "}
-              </a>{" "}
+              </TrackedContactLink>{" "}
             </div>{" "}
           </section>{" "}
         </div>{" "}

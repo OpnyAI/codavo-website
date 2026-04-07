@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import SocialLinks from "@/components/SocialLinks";
+import TrackedContactLink from "@/components/TrackedContactLink";
 
 export default function Footer() {
   return (
@@ -98,26 +99,26 @@ export default function Footer() {
           <h4 className="text-white font-medium mb-3">Kontakt</h4>
           <ul className="space-y-2">
             <li>
-              <a
-                href="tel:+4915111956479"
+              <TrackedContactLink
+                url="tel:+4915111956479"
                 data-track-event="contact_submit"
                 data-track-label="Footer Telefon"
-                data-google-ads-conversion="contact_phone"
                 className="hover:text-white"
+                contactMethod="phone"
               >
                 +49 1511 195 64 79
-              </a>
+              </TrackedContactLink>
             </li>
             <li>
-              <a
-                href="mailto:kontakt@codavo-webstudio.de"
+              <TrackedContactLink
+                url="mailto:kontakt@codavo-webstudio.de"
                 data-track-event="contact_submit"
                 data-track-label="Footer E-Mail"
-                data-google-ads-conversion="contact"
                 className="hover:text-white"
+                contactMethod="email"
               >
                 kontakt@codavo-webstudio.de
-              </a>
+              </TrackedContactLink>
             </li>
             <li>
               <a

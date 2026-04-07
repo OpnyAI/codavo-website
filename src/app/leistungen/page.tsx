@@ -2,6 +2,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Footer from "@/components/Footer";
+import TrackedContactLink from "@/components/TrackedContactLink";
 
 export const metadata: Metadata = {
   title: "Leistungen: Webdesign, Software & Systeme | Codavo Webstudio",
@@ -182,20 +183,24 @@ export default function LeistungenPage() {
                 Einschätzung und einem Vorschlag für das weitere Vorgehen.
               </p>
               <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-                <a
-                  href="tel:+4915111956479"
-                  data-google-ads-conversion="contact_phone"
+                <TrackedContactLink
+                  url="tel:+4915111956479"
                   className="rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white px-5 py-2.5 font-medium shadow hover:shadow-lg transition"
+                  dataTrackEvent="contact_submit"
+                  dataTrackLabel="Leistungen Telefon"
+                  contactMethod="phone"
                 >
                   Direkt anrufen
-                </a>
-                <a
-                  href="mailto:kontakt@codavo-webstudio.de"
-                  data-google-ads-conversion="contact"
+                </TrackedContactLink>
+                <TrackedContactLink
+                  url="mailto:kontakt@codavo-webstudio.de"
                   className="rounded-full border border-white/30 text-white/90 px-5 py-2.5 font-medium hover:bg-white/10 transition"
+                  dataTrackEvent="contact_submit"
+                  dataTrackLabel="Leistungen E-Mail"
+                  contactMethod="email"
                 >
                   Projekt anfragen
-                </a>
+                </TrackedContactLink>
               </div>
             </div>
           </div>

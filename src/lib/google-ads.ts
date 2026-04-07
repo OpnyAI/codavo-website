@@ -19,6 +19,7 @@ type GtagEventParams = {
   cta_label?: string;
   contact_method?: "whatsapp" | "phone" | "email";
   event_callback?: () => void;
+  event_timeout?: number;
 };
 
 type GtagFn = {
@@ -150,6 +151,50 @@ export const trackGoogleAdsConversion = (
     default:
       return false;
   }
+};
+
+type ConversionRedirectParams = {
+  ctaLabel?: string;
+  pagePath?: string;
+  contactMethod?: "whatsapp" | "phone" | "email";
+  eventTimeout?: number;
+};
+
+export const handleConversionRedirect = (
+  url: string,
+  {
+    ctaLabel,
+    pagePath,
+    contactMethod,
+    eventTimeout = 2000,
+  }: ConversionRedirectParams = {},
+) => {
+  if (!isBrowser()) return;
+
+  const resolvedPagePath = getPagePath(pagePath);
+  let hasNavigated = false;
+
+  const navigate = () => {
+    if (hasNavigated) return;
+    hasNavigated = true;
+    window.location.href = url;
+  };
+
+  if (typeof window.gtag !== "function") {
+    navigate();
+    return;
+  }
+
+  window.gtag("event", "conversion", {
+    send_to: GOOGLE_ADS_CONTACT_CONVERSION,
+    ...(resolvedPagePath ? { page_path: resolvedPagePath } : {}),
+    ...(ctaLabel ? { cta_label: ctaLabel } : {}),
+    ...(contactMethod ? { contact_method: contactMethod } : {}),
+    event_callback: navigate,
+    event_timeout: eventTimeout,
+  });
+
+  window.setTimeout(navigate, eventTimeout);
 };
 
 export const isGoogleAdsConversionName = (

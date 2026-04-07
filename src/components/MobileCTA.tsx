@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Phone, MessageCircle } from "lucide-react";
+import TrackedContactLink from "@/components/TrackedContactLink";
 
 const PHONE_TEL = "+4915111956479";
 const WHATSAPP_INTL = "4915111956479";
@@ -88,31 +89,29 @@ export default function MobileCTA() {
         </div>
 
         <div className="flex flex-1 xs:flex-[1.1] gap-2">
-          <a
-            href={`tel:${PHONE_TEL}`}
+          <TrackedContactLink
+            url={`tel:${PHONE_TEL}`}
             data-track-event="contact_submit"
             data-track-label="Mobile Telefon"
-            data-google-ads-conversion="contact_phone"
             aria-label="Anrufen"
             className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-2xl px-3 py-2 bg-white/6 hover:bg-white/10 active:bg-white/15 text-white text-[13px] font-medium transition-colors"
+            contactMethod="phone"
           >
             <Phone className="w-4 h-4" />
             <span>Anrufen</span>
-          </a>
+          </TrackedContactLink>
 
-          <a
-            href={`https://wa.me/${WHATSAPP_INTL}`}
-            target="_blank"
-            rel="noopener noreferrer"
+          <TrackedContactLink
+            url={`https://wa.me/${WHATSAPP_INTL}`}
             data-track-event="contact_submit"
             data-track-label="Mobile WhatsApp"
-            data-google-ads-conversion="contact_whatsapp"
             aria-label="Per WhatsApp schreiben"
             className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-2xl px-3 py-2 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:brightness-110 active:brightness-95 text-white text-[13px] font-medium shadow-[0_0_0_1px_rgba(255,255,255,0.05)] transition-all"
+            contactMethod="whatsapp"
           >
             <MessageCircle className="w-4 h-4" />
             <span>WhatsApp</span>
-          </a>
+          </TrackedContactLink>
         </div>
       </div>
     </div>

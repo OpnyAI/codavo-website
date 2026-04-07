@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Footer from "@/components/Footer";
+import TrackedContactLink from "@/components/TrackedContactLink";
 
 export const metadata: Metadata = {
   title: "Kontakt & Strategie-Call | Codavo Webstudio",
@@ -60,15 +61,15 @@ export default function KontaktPage() {
                 Direkt und persönlich - ideal für ein kurzes erstes Kennenlernen
                 oder Rückfragen zum Projekt.
               </p>
-              <a
-                href="tel:+4915111956479"
+              <TrackedContactLink
+                url="tel:+4915111956479"
                 data-track-event="contact_submit"
                 data-track-label="Kontaktseite Telefon"
-                data-google-ads-conversion="contact_phone"
                 className="mt-4 inline-flex text-sm text-indigo-300 hover:text-white underline-offset-2 hover:underline"
+                contactMethod="phone"
               >
                 +49 1511 195 64 79
-              </a>
+              </TrackedContactLink>
             </div>
 
             <div className="card">
@@ -77,17 +78,15 @@ export default function KontaktPage() {
                 Schnelle Projektanfrage, Sprachnachricht oder ein Link zur
                 bestehenden Website - alles bequem per Chat.
               </p>
-              <a
-                href="https://wa.me/4915111956479"
-                target="_blank"
-                rel="noopener noreferrer"
+              <TrackedContactLink
+                url="https://wa.me/4915111956479"
                 data-track-event="contact_submit"
                 data-track-label="Kontaktseite WhatsApp"
-                data-google-ads-conversion="contact_whatsapp"
                 className="mt-4 inline-flex text-sm text-indigo-300 hover:text-white underline-offset-2 hover:underline"
+                contactMethod="whatsapp"
               >
                 WhatsApp-Chat starten ↗
-              </a>
+              </TrackedContactLink>
             </div>
 
             <div className="card">
@@ -96,15 +95,15 @@ export default function KontaktPage() {
                 Ideal, wenn du bereits ein Briefing, ein PDF oder konkrete
                 Anforderungen teilen möchtest.
               </p>
-              <a
-                href="mailto:kontakt@codavo-webstudio.de"
+              <TrackedContactLink
+                url="mailto:kontakt@codavo-webstudio.de"
                 data-track-event="contact_submit"
                 data-track-label="Kontaktseite E-Mail"
-                data-google-ads-conversion="contact"
                 className="mt-4 inline-flex text-sm text-indigo-300 hover:text-white underline-offset-2 hover:underline"
+                contactMethod="email"
               >
                 kontakt@codavo-webstudio.de
-              </a>
+              </TrackedContactLink>
             </div>
           </div>
 

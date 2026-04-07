@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { Phone, MessageCircle } from "lucide-react";
+import TrackedContactLink from "@/components/TrackedContactLink";
 
 const PHONE_HREF = "tel:+4915111956479";
 const WHATSAPP_HREF = "https://wa.me/4915111956479";
@@ -98,24 +99,28 @@ export default function MobileQuickActions() {
     >
       <div className="pointer-events-auto mx-auto max-w-md rounded-full bg-black/80 backdrop-blur-md border border-white/15 shadow-[0_10px_30px_-10px_rgba(0,0,0,.9)] p-1 flex gap-1">
         {/* 📞 Telefon – schwarzer Button */}
-        <a
-          href={PHONE_HREF}
+        <TrackedContactLink
+          url={PHONE_HREF}
           className="flex-1 inline-flex items-center justify-center gap-2 rounded-full px-3 py-2 bg-black text-white text-sm font-medium border border-white/15 active:scale-[0.98] transition-transform"
+          dataTrackEvent="contact_submit"
+          dataTrackLabel="Mobile Quick Telefon"
+          contactMethod="phone"
         >
           <Phone className="w-4 h-4" />
           Anrufen
-        </a>
+        </TrackedContactLink>
 
         {/* 💬 WhatsApp – Magenta-Gradient */}
-        <a
-          href={WHATSAPP_HREF}
-          target="_blank"
-          rel="noopener noreferrer"
+        <TrackedContactLink
+          url={WHATSAPP_HREF}
           className="flex-1 inline-flex items-center justify-center gap-2 rounded-full px-3 py-2 bg-gradient-to-r from-pink-500 via-fuchsia-500 to-violet-500 text-white text-sm font-medium shadow-sm active:scale-[0.98] transition-transform"
+          dataTrackEvent="contact_submit"
+          dataTrackLabel="Mobile Quick WhatsApp"
+          contactMethod="whatsapp"
         >
           <MessageCircle className="w-4 h-4" />
           WhatsApp
-        </a>
+        </TrackedContactLink>
       </div>
     </div>
   );
