@@ -159,25 +159,25 @@ export default function WebsiteCheckPage() {
 
   return (
     <>
-      <main className="overflow-x-hidden pt-24 md:pt-28">
-        <section className="section pb-14 pt-8 md:pb-20 md:pt-10">
+      <main className="overflow-x-hidden pt-14 md:pt-14">
+        <section className="section pb-14 pt-0 md:pb-20 md:pt-0">
           <div className="container">
-            <div className="grid items-start gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:gap-12">
+            <div className="grid items-start gap-8 md:gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-start lg:gap-12">
               <div className="max-w-3xl">
                 <p className="text-xs uppercase tracking-[0.24em] text-white/60">
                   KOSTENLOSER WEBSITE-QUICK-CHECK FÜR KMU
                 </p>
-                <h1 className="mt-4 max-w-4xl text-4xl font-semibold leading-[1.05] tracking-tight text-white md:mt-5 md:text-5xl lg:text-[3.65rem]">
+                <h1 className="mt-3 max-w-4xl text-[2.2rem] font-semibold leading-[1.02] tracking-tight text-white md:mt-5 md:text-5xl md:leading-[1.05] lg:text-[3.65rem]">
                   Warum viele Unternehmenswebsites veraltet wirken und zu
                   wenige Anfragen bringen
                 </h1>
-                <p className="mt-5 max-w-2xl text-base leading-7 text-slate-300 md:mt-6 md:text-lg md:leading-8">
+                <p className="mt-4 max-w-2xl text-sm leading-6 text-slate-300 md:mt-6 md:text-lg md:leading-8">
                   Sichern Sie sich einen kostenlosen Website-Quick-Check und
                   erfahren Sie, wo Vertrauen verloren geht, Nutzerführung
                   bremst und Anfragen liegen bleiben.
                 </p>
 
-                <ul className="mt-6 grid gap-3 text-sm text-slate-200 sm:grid-cols-3">
+                <ul className="mt-5 grid gap-2 text-xs text-slate-200 sm:grid-cols-3 sm:gap-3 sm:text-sm">
                   {[
                     "Kompakte Ersteinschätzung",
                     "Konkrete Optimierungspunkte",
@@ -185,7 +185,7 @@ export default function WebsiteCheckPage() {
                   ].map((item) => (
                     <li
                       key={item}
-                      className="flex min-h-11 items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-3"
+                      className="flex min-h-10 items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-2.5 sm:min-h-11 sm:px-4 sm:py-3"
                     >
                       <Check className="h-4 w-4 text-indigo-300" />
                       <span>{item}</span>
@@ -193,7 +193,7 @@ export default function WebsiteCheckPage() {
                   ))}
                 </ul>
 
-                <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+                <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:items-center">
                   <ScrollToFormButton
                     className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 px-5 py-3 text-sm font-medium text-white shadow transition hover:shadow-lg"
                     dataTrackEvent="website_check_hero_cta_click"
@@ -204,7 +204,7 @@ export default function WebsiteCheckPage() {
                   </ScrollToFormButton>
                 </div>
 
-                <ul className="mt-4 flex flex-col gap-2 text-xs text-slate-400 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3">
+                <ul className="mt-3 flex flex-col gap-2 text-xs text-slate-400 sm:mt-4 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3">
                   {heroMicroTrust.map((item) => (
                     <li key={item} className="flex items-center gap-2">
                       <span className="h-1.5 w-1.5 rounded-full bg-indigo-300" />
@@ -298,7 +298,7 @@ export default function WebsiteCheckPage() {
               {problemPoints.map((point) => (
                 <article key={point} className="card p-6">
                   <div className="flex items-start gap-3">
-                    <CircleAlert className="mt-0.5 h-5 w-5 text-indigo-300" />
+                    <CircleAlert className="mt-0.5 h-5 w-5 shrink-0 text-indigo-300" />
                     <p className="text-sm leading-7 text-slate-200">{point}</p>
                   </div>
                 </article>
