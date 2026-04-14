@@ -21,6 +21,7 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const isWebsiteCheckPage = pathname.startsWith("/website-check");
 
   const menuRef = useRef<HTMLDivElement | null>(null);
   const buttonRef = useRef<HTMLButtonElement | null>(null);
@@ -62,6 +63,54 @@ export default function Header() {
       document.removeEventListener("touchstart", handleClick);
     };
   }, [open]);
+
+  if (isWebsiteCheckPage) {
+    return (
+      <header
+        className={[
+          "fixed inset-x-0 top-0 z-50 border-b border-white/8",
+          "transition-colors duration-300",
+          scrolled
+            ? "bg-[#050816]/95 backdrop-blur-md"
+            : "bg-gradient-to-b from-[#050816]/95 via-[#050816]/82 to-transparent",
+        ].join(" ")}
+      >
+        <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-4 sm:px-6 lg:h-16 lg:px-8">
+          <Link
+            href="/"
+            scroll
+            aria-label="Codavo Webstudio - Startseite"
+            className="flex items-center gap-2"
+          >
+            <Image
+              src="/images/logo/codavo-logo-light.png"
+              alt="Codavo Webstudio"
+              width={140}
+              height={32}
+              priority
+              className="h-6 w-auto md:h-7"
+            />
+            <span className="sr-only">Codavo Webstudio</span>
+          </Link>
+
+          <div className="flex items-center gap-4">
+            <Link
+              href="/"
+              className="text-sm text-slate-300 transition hover:text-white"
+            >
+              Zur Hauptseite
+            </Link>
+            <Link
+              href="#website-check-form"
+              className="hidden rounded-full border border-white/14 px-4 py-2 text-sm font-medium text-white/90 transition hover:bg-white/10 sm:inline-flex"
+            >
+              Zum Formular
+            </Link>
+          </div>
+        </div>
+      </header>
+    );
+  }
 
   return (
     <>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { Phone, MessageCircle } from "lucide-react";
 import TrackedContactLink from "@/components/TrackedContactLink";
 
@@ -9,8 +10,15 @@ const WHATSAPP_INTL = "4915111956479";
 
 export default function MobileCTA() {
   const [visible, setVisible] = useState(false);
+  const pathname = usePathname();
+  const isWebsiteCheckPage = pathname.startsWith("/website-check");
 
   useEffect(() => {
+    if (isWebsiteCheckPage) {
+      setVisible(false);
+      return;
+    }
+
     const SHOW_SCROLL_Y = 200;
     const FOOTER_THRESHOLD = 160;
 
@@ -65,7 +73,11 @@ export default function MobileCTA() {
       window.removeEventListener("resize", onResize);
       io?.disconnect();
     };
-  }, []);
+  }, [isWebsiteCheckPage]);
+
+  if (isWebsiteCheckPage) {
+    return null;
+  }
 
   return (
     <div
