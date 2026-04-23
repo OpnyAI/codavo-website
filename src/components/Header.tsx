@@ -93,16 +93,10 @@ export default function Header() {
             <span className="sr-only">Codavo Webstudio</span>
           </Link>
 
-          <div className="flex items-center gap-4">
-            <Link
-              href="/"
-              className="text-sm text-slate-300 transition hover:text-white"
-            >
-              Zur Hauptseite
-            </Link>
+          <div className="flex items-center">
             <Link
               href="#website-check-form"
-              className="hidden rounded-full border border-white/14 px-4 py-2 text-sm font-medium text-white/90 transition hover:bg-white/10 sm:inline-flex"
+              className="inline-flex rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-sm font-medium text-slate-300 transition hover:bg-white/10 hover:text-white sm:px-4 sm:py-2"
             >
               Zum Formular
             </Link>

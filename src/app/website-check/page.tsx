@@ -99,6 +99,12 @@ const heroMicroTrust = [
   "Kein automatisierter Standardreport",
 ];
 
+const industryTrustChips = [
+  "Energieberatung",
+  "Ingenieurbüro",
+  "Sanierung & Modernisierung",
+];
+
 const faqItems = [
   {
     q: "Ist der Check wirklich kostenlos?",
@@ -122,7 +128,26 @@ const faqItems = [
   },
 ];
 
-const featuredReferences = [caseStudies[0], caseStudies[2], caseStudies[4]];
+const featuredReferenceSummaries = [
+  {
+    ...caseStudies[0],
+    problem: "Starkes Angebot, aber zu wenige passende Anfragen.",
+    solution: "Nutzen, Struktur und Anfragewege klarer gemacht.",
+    result: "Mehr qualifizierte Anfragen pro Monat.",
+  },
+  {
+    ...caseStudies[2],
+    problem: "Technische Leistungen waren online schwer greifbar.",
+    solution: "Kernleistungen, Referenzen und Kontaktwege geschärft.",
+    result: "Professionellerer Außenauftritt für Ausschreibungen.",
+  },
+  {
+    ...caseStudies[4],
+    problem: "Kompetenz wurde online nicht klar genug vermittelt.",
+    solution: "Leistungen verständlich gegliedert und Anfragewege geklärt.",
+    result: "Mehr Vertrauen und bessere Grundlage für Anfragen.",
+  },
+];
 
 export default function WebsiteCheckPage() {
   const faqJsonLd = {
@@ -204,7 +229,7 @@ export default function WebsiteCheckPage() {
                   </ScrollToFormButton>
                 </div>
 
-                <ul className="mt-3 flex flex-col gap-2 text-xs text-slate-400 sm:mt-4 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3">
+                <ul className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-[11px] leading-5 text-slate-400 sm:mt-4 sm:gap-3 sm:text-xs">
                   {heroMicroTrust.map((item) => (
                     <li key={item} className="flex items-center gap-2">
                       <span className="h-1.5 w-1.5 rounded-full bg-indigo-300" />
@@ -212,6 +237,18 @@ export default function WebsiteCheckPage() {
                     </li>
                   ))}
                 </ul>
+
+                <div className="mt-3 flex flex-wrap items-center gap-1.5 text-[11px] leading-5 text-slate-300 sm:mt-4 sm:gap-2 sm:text-xs">
+                  <span className="text-slate-500">Erfahrung aus</span>
+                  {industryTrustChips.map((item) => (
+                    <span
+                      key={item}
+                      className="rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-1 sm:px-3 sm:py-1.5"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
               </div>
 
               <div className="card overflow-hidden p-0">
@@ -335,46 +372,6 @@ export default function WebsiteCheckPage() {
 
         <section className="section section--alt">
           <div className="container max-w-5xl">
-            <div className="mx-auto max-w-3xl text-center">
-              <h2 className="text-3xl font-semibold tracking-tight text-white md:text-4xl">
-                Für wen dieser Check sinnvoll ist
-              </h2>
-            </div>
-
-            <div className="mt-10 grid gap-4 md:grid-cols-2">
-              <article className="card p-7">
-                <p className="text-xs uppercase tracking-[0.2em] text-emerald-200/80">
-                  Geeignet für
-                </p>
-                <ul className="mt-5 space-y-4 text-sm text-slate-200">
-                  {suitableFor.map((item) => (
-                    <li key={item} className="flex items-start gap-3">
-                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-300" />
-                      <span className="leading-7">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </article>
-
-              <article className="card p-7">
-                <p className="text-xs uppercase tracking-[0.2em] text-amber-200/80">
-                  Weniger geeignet für
-                </p>
-                <ul className="mt-5 space-y-4 text-sm text-slate-200">
-                  {lessSuitableFor.map((item) => (
-                    <li key={item} className="flex items-start gap-3">
-                      <CircleAlert className="mt-0.5 h-4 w-4 shrink-0 text-amber-300" />
-                      <span className="leading-7">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <section className="section">
-          <div className="container max-w-5xl">
             <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
               <div>
                 <h2 className="text-3xl font-semibold tracking-tight text-white md:text-4xl">
@@ -400,7 +397,7 @@ export default function WebsiteCheckPage() {
           </div>
         </section>
 
-        <section className="section section--alt">
+        <section className="section">
           <div className="container">
             <div className="mx-auto max-w-3xl text-center">
               <h2 className="text-3xl font-semibold tracking-tight text-white md:text-4xl">
@@ -413,10 +410,10 @@ export default function WebsiteCheckPage() {
             </div>
 
             <div className="mt-10 grid gap-5 lg:grid-cols-3">
-              {featuredReferences.map((reference) => (
+              {featuredReferenceSummaries.map((reference) => (
                 <article
                   key={reference.title}
-                  className="card overflow-hidden p-0"
+                  className="card flex h-full flex-col overflow-hidden p-0"
                 >
                   <div className="relative aspect-[16/10] border-b border-white/10">
                     <Image
@@ -428,17 +425,17 @@ export default function WebsiteCheckPage() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#050816] via-[#050816]/25 to-transparent" />
                   </div>
-                  <div className="p-6">
+                  <div className="flex flex-1 flex-col p-6">
                     <h3 className="text-xl font-semibold text-white">
                       {reference.title}
                     </h3>
 
-                    <div className="mt-5 space-y-4">
+                    <div className="mt-5 flex flex-1 flex-col gap-3">
                       <div>
                         <p className="text-[11px] uppercase tracking-[0.2em] text-slate-500">
                           Ausgangslage
                         </p>
-                        <p className="mt-2 text-sm leading-6 text-slate-300">
+                        <p className="mt-1.5 text-sm leading-6 text-slate-300">
                           {reference.problem}
                         </p>
                       </div>
@@ -447,16 +444,16 @@ export default function WebsiteCheckPage() {
                         <p className="text-[11px] uppercase tracking-[0.2em] text-slate-500">
                           Verbessert
                         </p>
-                        <p className="mt-2 text-sm leading-6 text-slate-300">
+                        <p className="mt-1.5 text-sm leading-6 text-slate-300">
                           {reference.solution}
                         </p>
                       </div>
 
-                      <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
+                      <div className="mt-auto rounded-2xl border border-indigo-400/20 bg-indigo-500/10 p-4">
                         <p className="text-[11px] uppercase tracking-[0.2em] text-indigo-200/80">
                           Wirkung
                         </p>
-                        <p className="mt-2 text-sm font-medium leading-6 text-slate-100">
+                        <p className="mt-2 text-base font-semibold leading-6 text-white">
                           {reference.result}
                         </p>
                       </div>
@@ -555,6 +552,42 @@ export default function WebsiteCheckPage() {
               </h2>
             </div>
             <FAQAccordion items={faqItems} />
+
+            <div className="mt-10">
+              <h3 className="text-center text-lg font-semibold text-white">
+                Für wen dieser Check sinnvoll ist
+              </h3>
+
+              <div className="mt-5 grid gap-3 md:grid-cols-2">
+                <article className="card p-5">
+                  <p className="text-[11px] uppercase tracking-[0.2em] text-emerald-200/80">
+                    Geeignet für
+                  </p>
+                  <ul className="mt-4 space-y-2.5 text-sm text-slate-200">
+                    {suitableFor.map((item) => (
+                      <li key={item} className="flex items-start gap-2.5">
+                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-300" />
+                        <span className="leading-6">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+
+                <article className="card p-5">
+                  <p className="text-[11px] uppercase tracking-[0.2em] text-amber-200/80">
+                    Weniger geeignet für
+                  </p>
+                  <ul className="mt-4 space-y-2.5 text-sm text-slate-200">
+                    {lessSuitableFor.map((item) => (
+                      <li key={item} className="flex items-start gap-2.5">
+                        <CircleAlert className="mt-0.5 h-4 w-4 shrink-0 text-amber-300" />
+                        <span className="leading-6">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -604,9 +637,6 @@ export default function WebsiteCheckPage() {
           </div>
 
           <div className="flex flex-wrap items-center gap-4 text-sm">
-            <Link href="/" className="transition hover:text-white">
-              Hauptseite
-            </Link>
             <Link href="/impressum" className="transition hover:text-white">
               Impressum
             </Link>
