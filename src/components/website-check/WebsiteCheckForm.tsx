@@ -21,6 +21,13 @@ type FormValues = {
   industry: string;
   biggestProblem: string;
   fax: string;
+  utm_source: string;
+  utm_medium: string;
+  utm_campaign: string;
+  utm_content: string;
+  utm_term: string;
+  utm_id: string;
+  fbclid: string;
 };
 
 type FormErrors = Partial<Record<keyof FormValues, string>>;
@@ -35,6 +42,13 @@ const initialValues: FormValues = {
   industry: "",
   biggestProblem: "",
   fax: "",
+  utm_source: "",
+  utm_medium: "",
+  utm_campaign: "",
+  utm_content: "",
+  utm_term: "",
+  utm_id: "",
+  fbclid: "",
 };
 
 const biggestProblemOptions = [
@@ -191,6 +205,21 @@ export default function WebsiteCheckForm() {
     if (!isSuccess) return;
     successRef.current?.focus();
   }, [isSuccess]);
+
+  useEffect(() => {
+    const searchParams = new URLSearchParams(window.location.search);
+
+    setValues((current) => ({
+      ...current,
+      utm_source: searchParams.get("utm_source") || "",
+      utm_medium: searchParams.get("utm_medium") || "",
+      utm_campaign: searchParams.get("utm_campaign") || "",
+      utm_content: searchParams.get("utm_content") || "",
+      utm_term: searchParams.get("utm_term") || "",
+      utm_id: searchParams.get("utm_id") || "",
+      fbclid: searchParams.get("fbclid") || "",
+    }));
+  }, []);
 
   if (isSuccess) {
     return (
@@ -423,6 +452,14 @@ export default function WebsiteCheckForm() {
           onChange={handleChange("fax")}
         />
       </div>
+
+      <input type="hidden" name="utm_source" value={values.utm_source} />
+      <input type="hidden" name="utm_medium" value={values.utm_medium} />
+      <input type="hidden" name="utm_campaign" value={values.utm_campaign} />
+      <input type="hidden" name="utm_content" value={values.utm_content} />
+      <input type="hidden" name="utm_term" value={values.utm_term} />
+      <input type="hidden" name="utm_id" value={values.utm_id} />
+      <input type="hidden" name="fbclid" value={values.fbclid} />
 
       {serverError ? (
         <div

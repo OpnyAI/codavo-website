@@ -10,6 +10,13 @@ type WebsiteCheckPayload = {
   industry?: string;
   biggestProblem?: string;
   fax?: string;
+  utm_source?: string;
+  utm_medium?: string;
+  utm_campaign?: string;
+  utm_content?: string;
+  utm_term?: string;
+  utm_id?: string;
+  fbclid?: string;
 };
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -87,6 +94,15 @@ export async function POST(request: Request) {
   const biggestProblem = toSafeString(body.biggestProblem);
   const honeypot = toSafeString(body.fax);
   const websiteValue = toSafeString(body.websiteUrl);
+  const tracking = {
+    utm_source: toSafeString(body.utm_source),
+    utm_medium: toSafeString(body.utm_medium),
+    utm_campaign: toSafeString(body.utm_campaign),
+    utm_content: toSafeString(body.utm_content),
+    utm_term: toSafeString(body.utm_term),
+    utm_id: toSafeString(body.utm_id),
+    fbclid: toSafeString(body.fbclid),
+  };
   const ipAddress = getClientIp(request);
 
   if (honeypot) {
@@ -136,7 +152,14 @@ export async function POST(request: Request) {
     phone.length > 50 ||
     industry.length > 80 ||
     biggestProblem.length > 120 ||
-    websiteValue.length > 2083
+    websiteValue.length > 2083 ||
+    tracking.utm_source.length > 200 ||
+    tracking.utm_medium.length > 200 ||
+    tracking.utm_campaign.length > 200 ||
+    tracking.utm_content.length > 200 ||
+    tracking.utm_term.length > 200 ||
+    tracking.utm_id.length > 200 ||
+    tracking.fbclid.length > 500
   ) {
     return NextResponse.json(
       { error: "Einige Angaben sind ungültig." },
@@ -174,6 +197,15 @@ export async function POST(request: Request) {
     phone: escapeHtml(phone || "Nicht angegeben"),
     industry: escapeHtml(industry || "Nicht angegeben"),
     biggestProblem: escapeHtml(biggestProblem),
+    tracking: {
+      utm_source: escapeHtml(tracking.utm_source || "-"),
+      utm_medium: escapeHtml(tracking.utm_medium || "-"),
+      utm_campaign: escapeHtml(tracking.utm_campaign || "-"),
+      utm_content: escapeHtml(tracking.utm_content || "-"),
+      utm_term: escapeHtml(tracking.utm_term || "-"),
+      utm_id: escapeHtml(tracking.utm_id || "-"),
+      fbclid: escapeHtml(tracking.fbclid || "-"),
+    },
   };
 
   const subject = `Neuer Website-Quick-Check: ${companyName}`;
@@ -188,6 +220,16 @@ export async function POST(request: Request) {
     `Telefon / WhatsApp: ${phone || "Nicht angegeben"}`,
     `Branche: ${industry || "Nicht angegeben"}`,
     `Größtes Problem: ${biggestProblem}`,
+    "",
+    "Tracking / Herkunft",
+    "",
+    `UTM Source: ${tracking.utm_source || "-"}`,
+    `UTM Medium: ${tracking.utm_medium || "-"}`,
+    `UTM Campaign: ${tracking.utm_campaign || "-"}`,
+    `UTM Content: ${tracking.utm_content || "-"}`,
+    `UTM Term: ${tracking.utm_term || "-"}`,
+    `UTM ID: ${tracking.utm_id || "-"}`,
+    `FBCLID: ${tracking.fbclid || "-"}`,
   ].join("\n");
 
   const html = `
@@ -203,6 +245,19 @@ export async function POST(request: Request) {
           <tr><td style="padding:8px 0;font-weight:700;">Telefon / WhatsApp</td><td style="padding:8px 0;">${safe.phone}</td></tr>
           <tr><td style="padding:8px 0;font-weight:700;">Branche</td><td style="padding:8px 0;">${safe.industry}</td></tr>
           <tr><td style="padding:8px 0;font-weight:700;">Größtes Problem</td><td style="padding:8px 0;">${safe.biggestProblem}</td></tr>
+        </tbody>
+      </table>
+
+      <h3 style="margin:24px 0 8px;">Tracking / Herkunft</h3>
+      <table cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:640px;border-collapse:collapse;">
+        <tbody>
+          <tr><td style="padding:8px 0;font-weight:700;">UTM Source</td><td style="padding:8px 0;">${safe.tracking.utm_source}</td></tr>
+          <tr><td style="padding:8px 0;font-weight:700;">UTM Medium</td><td style="padding:8px 0;">${safe.tracking.utm_medium}</td></tr>
+          <tr><td style="padding:8px 0;font-weight:700;">UTM Campaign</td><td style="padding:8px 0;">${safe.tracking.utm_campaign}</td></tr>
+          <tr><td style="padding:8px 0;font-weight:700;">UTM Content</td><td style="padding:8px 0;">${safe.tracking.utm_content}</td></tr>
+          <tr><td style="padding:8px 0;font-weight:700;">UTM Term</td><td style="padding:8px 0;">${safe.tracking.utm_term}</td></tr>
+          <tr><td style="padding:8px 0;font-weight:700;">UTM ID</td><td style="padding:8px 0;">${safe.tracking.utm_id}</td></tr>
+          <tr><td style="padding:8px 0;font-weight:700;">FBCLID</td><td style="padding:8px 0;">${safe.tracking.fbclid}</td></tr>
         </tbody>
       </table>
     </div>
