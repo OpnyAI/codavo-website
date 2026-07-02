@@ -57,7 +57,7 @@ export default function Services() {
   const spans = ["lg:col-span-7", "lg:col-span-5", "lg:col-span-4", "lg:col-span-4", "lg:col-span-4"];
 
   return (
-    <section id="leistungen" className="section section--quiet section--services-flow scroll-mt-24">
+    <section id="leistungen" className="section section--quiet section--compact scroll-mt-24">
       <div className="container max-w-6xl">
         <div className="grid items-end gap-6 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
           <div>
@@ -71,7 +71,7 @@ export default function Services() {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-5 md:grid-cols-2 lg:mt-16 lg:grid-cols-12 lg:gap-6">
+        <div className="mt-10 grid gap-5 md:grid-cols-2 lg:mt-12 lg:grid-cols-12 lg:gap-6">
           {services.map((service, index) => (
             <article key={service.title} className={`card group flex h-full flex-col md:col-span-1 ${spans[index]}`}>
               <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-indigo-300/15 bg-indigo-400/[0.08] shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">

@@ -33,7 +33,7 @@ const steps = [
 
 export default function Process() {
   return (
-    <section id="prozess" className="section section--quiet scroll-mt-24">
+    <section id="prozess" className="section section--quiet section--compact scroll-mt-24">
       <div className="container max-w-6xl">
         <div className="max-w-4xl">
           <h2 className="section-title text-white">
@@ -45,9 +45,9 @@ export default function Process() {
           </p>
         </div>
 
-        <ol className="relative mt-14 grid gap-0 border-l border-white/10 pl-8 md:mt-20 lg:grid-cols-6 lg:border-l-0 lg:border-t lg:pl-0">
+        <ol className="relative mt-10 grid gap-0 border-l border-white/10 pl-8 md:mt-12 lg:grid-cols-6 lg:border-l-0 lg:border-t lg:pl-0">
           {steps.map((step, index) => (
-            <li key={step.title} className="relative pb-10 last:pb-0 lg:px-4 lg:pb-0 lg:pt-10 first:lg:pl-0 last:lg:pr-0">
+            <li key={step.title} className="relative pb-7 last:pb-0 lg:px-4 lg:pb-0 lg:pt-8 first:lg:pl-0 last:lg:pr-0">
               <span className="absolute -left-[3.05rem] top-0 flex h-8 w-8 items-center justify-center rounded-full border border-indigo-300/25 bg-[#0b1324] text-xs font-semibold text-indigo-200 shadow-[0_0_0_6px_#070c18] lg:-top-4 lg:left-4 first:lg:left-0">
                   {index + 1}
               </span>

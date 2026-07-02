@@ -365,13 +365,10 @@ select:focus-visible {
   }
 }
 
-/* Keep adjacent homepage sections in normal flow without a doubled spacer. */
-.section--codavo-flow {
-  padding-bottom: clamp(4rem, 6vw, 6rem);
-}
-
-.section--services-flow {
-  padding-top: clamp(4rem, 6vw, 6rem);
+/* Compact rhythm for dense homepage sections while preserving clear boundaries. */
+.section--compact {
+  padding-top: clamp(4.5rem, 7vw, 6rem);
+  padding-bottom: clamp(4.5rem, 7vw, 6rem);
 }
 .no-scrollbar::-webkit-scrollbar {
   display: none;

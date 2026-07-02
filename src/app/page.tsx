@@ -5,7 +5,10 @@ import Process from "@/components/Process";
 import CaseStudies from "@/components/CaseStudies";
 import Footer from "@/components/Footer";
 import FAQAccordion from "@/components/FAQAccordion";
-import HomeExpansion from "@/components/HomeExpansion";
+import {
+  KnowledgeSection,
+  PackagesSection,
+} from "@/components/HomeExpansion";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
@@ -44,6 +47,8 @@ const solutions = [
       "Jede Website wird individuell mit moderner Webtechnologie entwickelt. Design, Performance, Struktur und Erweiterbarkeit bleiben kontrollierbar.",
     example:
       "React und Next.js schaffen eine saubere Grundlage für Leistungsseiten, Landingpages, Funnel und spätere Funktionen.",
+    detail:
+      "Baukastensysteme können für einfache Anforderungen sinnvoll sein. Individueller Code bietet mehr Kontrolle über eigenständiges Design, Performance und langfristige Erweiterungen.",
     href: "/webdesign",
     linkLabel: "Webdesign ansehen",
   },
@@ -53,6 +58,7 @@ const solutions = [
       "Inhalte, Metadaten, FAQ, interne Verlinkung und strukturierte Daten werden für Suchmaschinen und KI-Systeme verständlich aufgebaut.",
     example:
       "Das unterstützt die Einordnung durch Google, AI Overviews, ChatGPT, Gemini, Claude und Perplexity, ohne Rankings zu versprechen.",
+    detail: null,
     href: "/wissen/seo-aeo-llmo",
     linkLabel: "SEO, AEO und LLMO verstehen",
   },
@@ -62,6 +68,7 @@ const solutions = [
       "Die Website soll Vertrauen aufbauen, Leistungen verständlich erklären und Besucher gezielt zur passenden Anfrage führen.",
     example:
       "Klare Botschaften, Belege und CTAs werden zu einem nachvollziehbaren Nutzerweg verbunden.",
+    detail: null,
     href: "/landingpage-erstellen-lassen",
     linkLabel: "Landingpages ansehen",
   },
@@ -71,6 +78,7 @@ const solutions = [
       "Nach dem Launch kann Codavo Hosting, Wartung, Updates, technische Erweiterungen und laufende Optimierung übernehmen.",
     example:
       "Der Betreuungsumfang richtet sich transparent nach Betrieb, Änderungsbedarf und technischen Anforderungen.",
+    detail: null,
     href: "/hosting-wartung",
     linkLabel: "Hosting und Wartung ansehen",
   },
@@ -109,6 +117,13 @@ const homeFaqs = [
   { q: "Wie läuft ein Website-Projekt mit Codavo ab?", a: "Ein Projekt beginnt mit Analyse und Zielklärung. Danach folgen Strategie, Seitenstruktur, UX/UI, Entwicklung, Launch und auf Wunsch laufende Betreuung. Inhalte, Funktionen und Verantwortlichkeiten werden früh transparent festgelegt." },
 ];
 
+const argumentPairs = [
+  { problem: problems[0], solution: solutions[1] },
+  { problem: problems[1], solution: solutions[2] },
+  { problem: problems[2], solution: solutions[0] },
+  { problem: problems[3], solution: solutions[3] },
+] as const;
+
 export default function Home() {
   const faqJsonLd = {
     "@context": "https://schema.org",
@@ -127,88 +142,74 @@ export default function Home() {
     <>
       <main className="overflow-x-hidden">
         <Hero />
+        <Services />
 
-        <section className="section section--quiet">
+        <section className="section section--feature section--compact">
           <div className="container max-w-6xl">
-            <div className="max-w-4xl">
+            <div className="max-w-5xl">
               <h2 className="section-title text-white">
-                Warum viele Unternehmenswebsites keine Kunden gewinnen
+                Warum viele Websites scheitern – und was Codavo anders macht
               </h2>
-              <p className="lede mt-5 max-w-2xl">
+              <p className="lede mt-5 max-w-3xl">
                 Gute Gestaltung allein reicht nicht. Entscheidend ist, ob Ihr
                 Angebot verständlich wird, Vertrauen entsteht und Besucher den
-                nächsten Schritt ohne Umwege finden.
+                nächsten Schritt ohne Umwege finden. Codavo plant Strategie,
+                Inhalte, UX/UI und Entwicklung deshalb gemeinsam und schafft
+                eine Grundlage, die heute funktioniert und später erweiterbar bleibt.
               </p>
             </div>
 
-            <div className="mt-12 grid gap-5 md:grid-cols-12 lg:mt-16 lg:gap-6">
-              {problems.map((problem, index) => (
-                <article
-                  key={problem.title}
-                  className={`card h-full md:col-span-6 ${index === 0 || index === 3 ? "lg:col-span-7" : "lg:col-span-5"}`}
-                >
-                  <span className="text-xs font-semibold tabular-nums text-indigo-300/70">
-                    0{index + 1}
-                  </span>
-                  <h3 className="mt-8 max-w-md text-xl font-semibold tracking-tight text-white md:text-2xl">
-                    {problem.title}
-                  </h3>
-                  <p className="mt-4 max-w-xl text-sm leading-7 text-slate-300 md:text-base">
-                    {problem.description}
-                  </p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="section section--feature section--codavo-flow">
-          <div className="container max-w-6xl">
-            <div className="grid items-start gap-12 lg:grid-cols-[0.78fr_1.22fr] lg:gap-20">
-              <div className="lg:self-start">
-                <h2 className="section-title text-white">
-                  Warum Codavo anders entwickelt
-                </h2>
-                <p className="lede mt-5 max-w-xl">
-                  Strategie, Inhalte, UX/UI und Entwicklung werden gemeinsam
-                  geplant. So entsteht eine Website, die heute funktioniert und
-                  bei neuen Anforderungen weiterentwickelt werden kann.
-                </p>
-              </div>
-
-              <div className="min-w-0 space-y-5">
-                {solutions.map((solution, index) => (
-                  <article key={solution.title} className="card group flex flex-col md:flex-row md:gap-8">
+            <div className="mt-10 grid gap-5 lg:mt-12 lg:grid-cols-2 lg:gap-6">
+              {argumentPairs.map(({ problem, solution }, index) => (
+                <article key={problem.title} className="card group flex h-full flex-col">
+                  <div className="flex items-start gap-4">
                     <span className="text-sm font-semibold tabular-nums text-indigo-300/70">
                       0{index + 1}
                     </span>
-                    <div className="mt-5 flex-1 md:mt-0">
-                      <h3 className="text-xl font-semibold leading-snug tracking-tight text-white md:text-2xl">
-                        {solution.title}
+                    <div>
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-slate-500">
+                        Herausforderung
+                      </p>
+                      <h3 className="mt-2 text-xl font-semibold tracking-tight text-white md:text-2xl">
+                        {problem.title}
                       </h3>
-                      <p className="mt-4 text-sm leading-7 text-slate-300 md:text-base">
-                        {solution.benefit}
-                      </p>
-                      <p className="mt-3 text-sm leading-7 text-slate-400">
-                        {solution.example}
-                      </p>
-                      <Link
-                        href={solution.href}
-                        className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-indigo-300 transition group-hover:text-indigo-200"
-                      >
-                        {solution.linkLabel} <span aria-hidden>→</span>
-                      </Link>
                     </div>
+                  </div>
+                  <p className="mt-4 text-sm leading-7 text-slate-400">
+                    {problem.description}
+                  </p>
+
+                  <div className="my-6 h-px bg-white/8" />
+
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-indigo-300/75">
+                    Codavo-Ansatz
+                  </p>
+                  <h3 className="mt-2 text-lg font-semibold tracking-tight text-white">
+                    {solution.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-7 text-slate-300">
+                    {solution.benefit} {solution.example}
+                  </p>
+                  {solution.detail ? (
+                    <p className="mt-3 text-sm leading-7 text-slate-400">
+                      {solution.detail}
+                    </p>
+                  ) : null}
+                  <Link
+                    href={solution.href}
+                    className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-indigo-300 transition group-hover:text-indigo-200"
+                  >
+                    {solution.linkLabel} <span aria-hidden>→</span>
+                  </Link>
                   </article>
                 ))}
-              </div>
             </div>
           </div>
         </section>
 
-        <Services />
-        <HomeExpansion />
+        <PackagesSection />
         <CaseStudies />
+        <KnowledgeSection />
         <Process />
 
         <section className="section section--quiet">
