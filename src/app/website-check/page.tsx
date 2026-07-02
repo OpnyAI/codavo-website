@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -13,36 +12,15 @@ import FAQAccordion from "@/components/FAQAccordion";
 import WebsiteCheckForm from "@/components/website-check/WebsiteCheckForm";
 import ScrollToFormButton from "@/components/website-check/ScrollToFormButton";
 import { caseStudies } from "@/components/case-studies-data";
+import { createPageMetadata, ORGANIZATION_ID } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Kostenloser Website-Quick-Check für KMU | Codavo",
+export const metadata = createPageMetadata({
+  path: "/website-check",
+  title: "Website-Check für Sichtbarkeit, Vertrauen und Anfragen | Codavo",
   description:
-    "Lassen Sie Ihre Website professionell prüfen und erhalten Sie 3 konkrete Hinweise zu Vertrauen, Nutzerführung und Anfragen.",
-  alternates: {
-    canonical: "/website-check",
-  },
-  openGraph: {
-    url: "/website-check",
-    siteName: "Codavo Webstudio",
-    title: "Kostenloser Website-Quick-Check für KMU | Codavo",
-    description:
-      "Lassen Sie Ihre Website professionell prüfen und erhalten Sie 3 konkrete Hinweise zu Vertrauen, Nutzerführung und Anfragen.",
-    images: [
-      {
-        url: "/og.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Kostenloser Website-Quick-Check für KMU | Codavo",
-      },
-    ],
-  },
-  twitter: {
-    title: "Kostenloser Website-Quick-Check für KMU | Codavo",
-    description:
-      "Lassen Sie Ihre Website professionell prüfen und erhalten Sie 3 konkrete Hinweise zu Vertrauen, Nutzerführung und Anfragen.",
-    images: ["/og.jpg"],
-  },
-};
+    "Website-Check für Nutzerführung, Technik, Inhalte, Conversion sowie Sichtbarkeit bei Suchmaschinen und KI-Systemen.",
+  imageAlt: "Website-Check für Unternehmen | Codavo",
+});
 
 const problemPoints = [
   "Die Website wirkt ordentlich, aber nicht wirklich überzeugend",
@@ -71,6 +49,15 @@ const whatYouGet = [
     text: "Keine Checkliste, sondern eine kurze Einschätzung Ihrer konkreten Website.",
   },
 ];
+
+const checkAreas = [
+  { title: "Sichtbarkeit", text: "Wir betrachten Metadaten, Seitenstruktur, interne Verlinkung und die Verständlichkeit für Suchmaschinen sowie KI-Systeme." },
+  { title: "Nutzerführung", text: "Wir prüfen, ob Besucher Angebot, Nutzen und nächsten Schritt schnell erfassen können." },
+  { title: "Technik", text: "Wir ordnen mobile Darstellung, Ladeverhalten und auffällige technische Grundlagen ein." },
+  { title: "Inhalte", text: "Wir prüfen, ob Leistungen präzise erklärt werden und wichtige Fragen direkt beantwortet sind." },
+  { title: "Conversion", text: "Wir betrachten CTAs, Vertrauenssignale, Formulare und mögliche Hürden auf dem Weg zur Anfrage." },
+  { title: "Nächste Schritte", text: "Sie erhalten eine Priorisierung, ob Optimierung, Relaunch oder eine gezielte Ergänzung sinnvoll erscheint." },
+] as const;
 
 const suitableFor = [
   "KMU mit bestehender Website",
@@ -107,24 +94,28 @@ const industryTrustChips = [
 
 const faqItems = [
   {
-    q: "Ist der Check wirklich kostenlos?",
-    a: "Ja. Der Website-Quick-Check ist kostenlos und unverbindlich.",
+    q: "Was prüft der Website-Check?",
+    a: "Der Website-Check betrachtet Sichtbarkeit, Nutzerführung, Technik, Inhalte, Conversion und die Struktur für Suchmaschinen sowie KI-Systeme.",
   },
   {
-    q: "Wie läuft der Check ab?",
-    a: "Sie senden uns Ihre Website. Wir prüfen den Auftritt kompakt und melden uns mit einer ersten Einschätzung zurück.",
+    q: "Ist der Website-Check kostenlos?",
+    a: "Ja. Der Website-Check dient als kostenlose erste Orientierung. Eine tiefere Analyse oder Strategie wird bei Bedarf separat vereinbart.",
   },
   {
-    q: "Für wen ist der Check gedacht?",
-    a: "Für KMU mit bestehender Website, die Wirkung, Vertrauen und Anfragen verbessern möchten.",
+    q: "Kann der Check zeigen, warum meine Website keine Anfragen bringt?",
+    a: "Er kann typische Schwachstellen wie unklare Nutzerführung, fehlende CTAs, schwache Inhalte oder technische Probleme sichtbar machen. Eine vollständige Strategie benötigt zusätzlichen Unternehmens- und Wettbewerbskontext.",
   },
   {
-    q: "Erhalte ich einen automatisierten Bericht?",
-    a: "Nein. Sie erhalten keine generische Standardauswertung, sondern eine individuelle Ersteinschätzung.",
+    q: "Wird geprüft, ob KI-Systeme meine Website verstehen?",
+    a: "Ja. Wir betrachten, ob Leistungen verständlich beschrieben, Inhalte klar strukturiert und FAQ, interne Verlinkung sowie technische Signale vorhanden sind.",
   },
   {
-    q: "Muss ich danach etwas buchen?",
-    a: "Nein. Der Check ist unverbindlich.",
+    q: "Brauche ich technische Vorkenntnisse?",
+    a: "Nein. Die Einschätzung wird verständlich formuliert und auf die geschäftliche Wirkung Ihrer Website bezogen.",
+  },
+  {
+    q: "Was passiert nach dem Website-Check?",
+    a: "Die wichtigsten Schwachstellen werden eingeordnet. Wenn eine Zusammenarbeit sinnvoll ist, kann Codavo ein Paket oder individuelles Vorgehen empfehlen.",
   },
 ];
 
@@ -133,19 +124,19 @@ const featuredReferenceSummaries = [
     ...caseStudies[0],
     problem: "Starkes Angebot, aber zu wenige passende Anfragen.",
     solution: "Nutzen, Struktur und Anfragewege klarer gemacht.",
-    result: "Mehr qualifizierte Anfragen pro Monat.",
+    result: "Klarere Nutzerführung und eine bessere Grundlage für Anfragen.",
   },
   {
     ...caseStudies[2],
     problem: "Technische Leistungen waren online schwer greifbar.",
     solution: "Kernleistungen, Referenzen und Kontaktwege geschärft.",
-    result: "Professionellerer Außenauftritt für Ausschreibungen.",
+    result: "Professionellerer Auftritt und klarere Leistungsdarstellung.",
   },
   {
     ...caseStudies[4],
     problem: "Kompetenz wurde online nicht klar genug vermittelt.",
     solution: "Leistungen verständlich gegliedert und Anfragewege geklärt.",
-    result: "Mehr Vertrauen und bessere Grundlage für Anfragen.",
+    result: "Klarere Struktur und eine technische Grundlage für Weiterentwicklung.",
   },
 ];
 
@@ -167,11 +158,7 @@ export default function WebsiteCheckPage() {
     "@context": "https://schema.org",
     "@type": "Service",
     name: "Kostenloser Website-Quick-Check für KMU",
-    provider: {
-      "@type": "Organization",
-      name: "Codavo Webstudio",
-      url: "https://www.codavo-webstudio.de",
-    },
+    provider: { "@id": ORGANIZATION_ID },
     areaServed: "DE",
     offers: {
       "@type": "Offer",
@@ -193,8 +180,7 @@ export default function WebsiteCheckPage() {
                   KOSTENLOSER WEBSITE-QUICK-CHECK FÜR KMU
                 </p>
                 <h1 className="mt-3 max-w-4xl text-[2.2rem] font-semibold leading-[1.02] tracking-tight text-white md:mt-5 md:text-5xl md:leading-[1.05] lg:text-[3.65rem]">
-                  Warum viele Unternehmenswebsites veraltet wirken und zu
-                  wenige Anfragen bringen
+                  Website-Check für Sichtbarkeit, Vertrauen und mehr Anfragen
                 </h1>
                 <p className="mt-4 max-w-2xl text-sm leading-6 text-slate-300 md:mt-6 md:text-lg md:leading-8">
                   Sichern Sie sich einen kostenlosen Website-Quick-Check und
@@ -221,7 +207,7 @@ export default function WebsiteCheckPage() {
                 <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:items-center">
                   <ScrollToFormButton
                     className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 px-5 py-3 text-sm font-medium text-white shadow transition hover:shadow-lg"
-                    dataTrackEvent="website_check_hero_cta_click"
+                    dataTrackEvent="cta_website_check_click"
                     dataTrackLabel="Website-Check Hero CTA"
                   >
                     Kostenlosen Check anfordern
@@ -338,6 +324,28 @@ export default function WebsiteCheckPage() {
                     <CircleAlert className="mt-0.5 h-5 w-5 shrink-0 text-indigo-300" />
                     <p className="text-sm leading-7 text-slate-200">{point}</p>
                   </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="section">
+          <div className="container max-w-6xl">
+            <div className="mx-auto max-w-3xl text-center">
+              <h2 className="text-3xl font-semibold tracking-tight text-white md:text-4xl">
+                Was wird im Website-Check geprüft?
+              </h2>
+              <p className="mt-4 text-sm leading-7 text-slate-300 md:text-base">
+                Der Check verbindet geschäftliche Wirkung, Inhalte und technische
+                Grundlagen zu einer kompakten Ersteinschätzung.
+              </p>
+            </div>
+            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {checkAreas.map((area) => (
+                <article key={area.title} className="card p-6">
+                  <h3 className="text-xl font-semibold text-white">{area.title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-slate-300">{area.text}</p>
                 </article>
               ))}
             </div>
@@ -477,6 +485,8 @@ export default function WebsiteCheckPage() {
             <div className="mt-6 text-center">
               <Link
                 href="/cases"
+                data-track-event="cta_cases_click"
+                data-track-label="Website Check Cases"
                 className="text-sm text-slate-300 underline underline-offset-4 transition hover:text-white"
               >
                 Weitere Projekte auf der Hauptseite ansehen
@@ -605,7 +615,7 @@ export default function WebsiteCheckPage() {
               <div className="mt-8">
                 <ScrollToFormButton
                   className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 px-5 py-3 text-sm font-medium text-white shadow transition hover:shadow-lg"
-                  dataTrackEvent="website_check_final_cta_click"
+                  dataTrackEvent="cta_website_check_click"
                   dataTrackLabel="Website-Check Final CTA"
                 >
                   Kostenlosen Check anfordern

@@ -1,37 +1,14 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import Footer from "@/components/Footer";
 import TrackedContactLink from "@/components/TrackedContactLink";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
+  path: "/kontakt",
   title: "Kontakt & Strategie-Call | Codavo Webstudio",
   description:
     "Projektanfrage oder Strategie-Call: Wir klären Ziel, Scope und Hebel für Webdesign, Software und digitale Systeme - strukturiert und effizient.",
-  alternates: {
-    canonical: "/kontakt",
-  },
-  openGraph: {
-    url: "/kontakt",
-    siteName: "Codavo Webstudio",
-    title: "Kontakt & Strategie-Call | Codavo Webstudio",
-    description:
-      "Projektanfrage oder Strategie-Call: Wir klären Ziel, Scope und Hebel für Webdesign, Software und digitale Systeme - strukturiert und effizient.",
-    images: [
-      {
-        url: "/og.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Codavo Webstudio",
-      },
-    ],
-  },
-  twitter: {
-    title: "Kontakt & Strategie-Call | Codavo Webstudio",
-    description:
-      "Projektanfrage oder Strategie-Call: Wir klären Ziel, Scope und Hebel für Webdesign, Software und digitale Systeme - strukturiert und effizient.",
-    images: ["/og.jpg"],
-  },
-};
+});
 
 export default function KontaktPage() {
   return (
@@ -63,8 +40,8 @@ export default function KontaktPage() {
               </p>
               <TrackedContactLink
                 url="tel:+4915111956479"
-                data-track-event="contact_submit"
-                data-track-label="Kontaktseite Telefon"
+                dataTrackEvent="cta_contact_click"
+                dataTrackLabel="Kontaktseite Telefon"
                 className="mt-4 inline-flex text-sm text-indigo-300 hover:text-white underline-offset-2 hover:underline"
                 contactMethod="phone"
               >
@@ -80,8 +57,8 @@ export default function KontaktPage() {
               </p>
               <TrackedContactLink
                 url="https://wa.me/4915111956479"
-                data-track-event="contact_submit"
-                data-track-label="Kontaktseite WhatsApp"
+                dataTrackEvent="cta_contact_click"
+                dataTrackLabel="Kontaktseite WhatsApp"
                 className="mt-4 inline-flex text-sm text-indigo-300 hover:text-white underline-offset-2 hover:underline"
                 contactMethod="whatsapp"
               >
@@ -97,8 +74,8 @@ export default function KontaktPage() {
               </p>
               <TrackedContactLink
                 url="mailto:kontakt@codavo-webstudio.de"
-                data-track-event="contact_submit"
-                data-track-label="Kontaktseite E-Mail"
+                dataTrackEvent="cta_contact_click"
+                dataTrackLabel="Kontaktseite E-Mail"
                 className="mt-4 inline-flex text-sm text-indigo-300 hover:text-white underline-offset-2 hover:underline"
                 contactMethod="email"
               >

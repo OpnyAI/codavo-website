@@ -1,10 +1,12 @@
 "use client";
 
+import type { TrackingEventName } from "@/lib/tracking";
+
 type ScrollToFormButtonProps = {
   className: string;
   children: React.ReactNode;
   targetId?: string;
-  dataTrackEvent?: string;
+  dataTrackEvent?: TrackingEventName;
   dataTrackLabel?: string;
   dataGoogleAdsConversion?: string;
 };

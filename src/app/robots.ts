@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { SEO_CONFIG } from "@/lib/seo";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -7,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/api/"],
     },
-    sitemap: "https://www.codavo-webstudio.de/sitemap.xml",
+    sitemap: `${SEO_CONFIG.domain}/sitemap.xml`,
   };
 }

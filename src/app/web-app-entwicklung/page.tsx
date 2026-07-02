@@ -1,314 +1,50 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-import FAQAccordion from "@/components/FAQAccordion";
-import Footer from "@/components/Footer";
+import ServiceLandingPage from "@/components/content/ServiceLandingPage";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Web-App Entwicklung für Unternehmen | Codavo Webstudio",
+export const metadata = createPageMetadata({
+  path: "/web-app-entwicklung",
+  title: "Individuelle Web-App Entwicklung | Codavo Webstudio",
   description:
-    "Webbasierte Tools, Portale und interne Systeme: stabil, skalierbar und exakt auf Prozesse zugeschnitten - von MVP bis Systemausbau.",
-  alternates: {
-    canonical: "/web-app-entwicklung",
-  },
-  openGraph: {
-    url: "/web-app-entwicklung",
-    siteName: "Codavo Webstudio",
-    title: "Web-App Entwicklung für Unternehmen | Codavo Webstudio",
-    description:
-      "Webbasierte Tools, Portale und interne Systeme: stabil, skalierbar und exakt auf Prozesse zugeschnitten - von MVP bis Systemausbau.",
-    images: [
-      {
-        url: "/og.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Codavo Webstudio",
-      },
-    ],
-  },
-  twitter: {
-    title: "Web-App Entwicklung für Unternehmen | Codavo Webstudio",
-    description:
-      "Webbasierte Tools, Portale und interne Systeme: stabil, skalierbar und exakt auf Prozesse zugeschnitten - von MVP bis Systemausbau.",
-    images: ["/og.jpg"],
-  },
-};
+    "Individuelle Web-Apps, Kundenportale, Dashboards und interne Tools für Unternehmen – verständlich geplant, sicher entwickelt und langfristig erweiterbar.",
+});
 
 const faqs = [
-  {
-    question: "Was ist der Unterschied zwischen Website und Web-App?",
-    answer:
-      "Eine Website informiert und präsentiert Inhalte. Eine Web-App bildet Prozesse ab und bietet Funktionen wie Logins, Rollen, Datenverarbeitung und individuelle Workflows.",
-  },
-  {
-    question: "Für wen lohnt sich Web App Entwicklung?",
-    answer:
-      "Für Unternehmen, die Abläufe digitalisieren, Daten zentral nutzbar machen oder Kund:innen und Teams ein eigenes Portal bereitstellen möchten.",
-  },
-  {
-    question: "Welche Technologien nutzt ihr für Web-Apps?",
-    answer:
-      "Wir arbeiten vor allem mit React und Next.js, ergänzen API-Anbindungen, Datenbanken und Authentifizierung je nach Projektanforderung.",
-  },
-  {
-    question: "Könnt ihr bestehende Systeme anbinden?",
-    answer:
-      "Ja. Wir integrieren bestehende APIs, CRM- oder ERP-Systeme und bauen bei Bedarf saubere Schnittstellen für den Datenaustausch.",
-  },
-  {
-    question: "Wie lange dauert ein Web-App-Projekt?",
-    answer:
-      "Das hängt vom Umfang ab. MVPs starten oft in wenigen Wochen, größere Portale und Tools werden in klaren Etappen umgesetzt.",
-  },
-  {
-    question: "Ist Performance und Sicherheit Teil der Umsetzung?",
-    answer:
-      "Ja. Wir berücksichtigen Performance, saubere Zugriffslogik, sichere API-Kommunikation und robuste Architektur von Anfang an.",
-  },
-  {
-    question: "Kann die Web-App später erweitert werden?",
-    answer:
-      "Genau dafür bauen wir sie. Features, Nutzerrollen und Module können schrittweise ergänzt werden, ohne das gesamte System neu aufzusetzen.",
-  },
-  {
-    question: "Unterstützt ihr auch nach dem Launch?",
-    answer:
-      "Ja. Nach dem Go-live begleiten wir Monitoring, Optimierungen und die Weiterentwicklung auf Basis echter Nutzungsdaten.",
-  },
+  { q: "Was ist eine Web-App?", a: "Eine Web-App ist eine browserbasierte Anwendung, in der Nutzer Daten bearbeiten und konkrete Aufgaben erledigen. Typische Beispiele sind Portale, Dashboards, Konfiguratoren und interne Tools." },
+  { q: "Wann braucht ein Unternehmen eine Web-App?", a: "Eine Web-App ist sinnvoll, wenn Nutzer sich anmelden, Daten bearbeiten oder einen wiederkehrenden Prozess zentral ausführen sollen und eine klassische Website dafür nicht ausreicht." },
+  { q: "Was ist der Unterschied zwischen Website und Web-App?", a: "Eine Website informiert und führt zur Kontaktaufnahme. Eine Web-App ergänzt Anmeldungen, Rollen, Datenverarbeitung, Workflows oder Schnittstellen." },
+  { q: "Was kostet Web-App-Entwicklung?", a: "Die Kosten hängen von Nutzerrollen, Funktionen, Datenmodellen, Schnittstellen und Sicherheitsanforderungen ab. Nach der Analyse erhalten Sie einen priorisierten Umfang und einen transparenten Budgetrahmen." },
+  { q: "Welche Beispiele gibt es für Web-Apps?", a: "Typische Beispiele sind Kundenportale, interne Dashboards, Konfiguratoren, Buchungs- und Service-Systeme sowie klar abgegrenzte SaaS-Anwendungen." },
+  { q: "Kann eine Web-App mit einer Website verbunden werden?", a: "Ja. Website und Anwendung können technisch und gestalterisch verbunden werden, während öffentliche Inhalte und geschützte Funktionen sauber getrennt bleiben." },
+  { q: "Welche Systeme können angebunden werden?", a: "Technisch geeignete CRM-, ERP-, Buchhaltungs-, Kalender- oder Drittsysteme können über vorhandene Schnittstellen angebunden werden." },
+  { q: "Wie läuft ein Web-App-Projekt ab?", a: "Nach Analyse und Priorisierung folgen UX/UI, technische Architektur, iterative Entwicklung, Tests und Launch. Weitere Funktionen werden anschließend anhand realer Nutzung geplant." },
 ];
 
-export default function WebAppEntwicklungPage() {
-  const faqJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.answer,
-      },
-    })),
-  };
-
-  const professionalServiceJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    name: "Codavo Webstudio",
-    url: "https://www.codavo-webstudio.de",
-    telephone: "+49 1511 1956479",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "Naumannstr. 3",
-      addressLocality: "Berglen",
-      postalCode: "73663",
-      addressCountry: "DE",
-    },
-    sameAs: ["https://www.linkedin.com/company/codavo-webstudio"],
-  };
-
+export default function WebAppPage() {
   return (
-    <>
-      <main className="min-h-[calc(100vh-4rem)] pt-28 md:pt-32 pb-20">
-        <div className="container max-w-4xl">
-          <header className="mb-10">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-indigo-300">
-              Web-App Entwicklung · Webbasierte Software · Unternehmen
-            </p>
-            <h1 className="mt-3 text-3xl md:text-5xl font-semibold tracking-tight text-white">
-              Webbasierte Softwarelösungen (Web-Apps)
-            </h1>
-            <p className="mt-4 text-slate-300 text-sm md:text-base">
-              Individuelle Web-Apps sind ein zentraler Teil unserer
-              Softwarelösungen für KMU. Ob Kundenportal, Dashboard oder internes
-              Tool: Die Lösung richtet sich nach deinem Alltag, nicht nach einem
-              Standard-Template.
-            </p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <Link
-                href="/softwareloesungen-fuer-kmu"
-                className="inline-flex items-center justify-center rounded-full border border-white/20 px-4 py-2 text-xs md:text-sm font-medium text-slate-200 hover:bg-white/5 transition"
-              >
-                Zu Softwarelösungen für KMU
-              </Link>
-              <Link
-                href="/kontakt"
-                className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 px-5 py-2.5 text-sm font-medium text-white shadow hover:shadow-lg transition"
-              >
-                Strategie-Call buchen
-              </Link>
-            </div>
-          </header>
-
-          <section className="mt-10 space-y-4 section">
-            <h2 className="text-xl md:text-2xl font-semibold text-white">
-              Website vs. Web-App
-            </h2>
-            <p className="text-slate-300 text-sm md:text-base">
-              Eine Website präsentiert Inhalte und Leistungen. Eine Web-App geht
-              weiter: Nutzer melden sich an, bearbeiten Daten, nutzen Rollen und
-              Workflows und steuern Prozesse direkt im Browser.
-            </p>
-            <div className="grid gap-4 md:grid-cols-2">
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                <h3 className="text-sm font-semibold text-white">Website</h3>
-                <p className="mt-2 text-xs md:text-sm text-slate-300">
-                  Fokus auf Information, Sichtbarkeit und Kontaktanfragen.
-                </p>
-              </div>
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                <h3 className="text-sm font-semibold text-white">Web-App</h3>
-                <p className="mt-2 text-xs md:text-sm text-slate-300">
-                  Fokus auf Funktionen, Nutzerlogik und digitale Abläufe.
-                </p>
-              </div>
-            </div>
-          </section>
-
-          <section className="mt-12 section section--alt">
-            <h2 className="text-xl md:text-2xl font-semibold text-white">
-              Typische Use Cases
-            </h2>
-            <div className="mt-6 grid gap-4 md:grid-cols-2">
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                <h3 className="text-sm font-semibold text-white">Kundenportal</h3>
-                <p className="mt-2 text-xs md:text-sm text-slate-300">
-                  Dokumente, Status und Kommunikation an einem zentralen Ort.
-                </p>
-              </div>
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                <h3 className="text-sm font-semibold text-white">Dashboard</h3>
-                <p className="mt-2 text-xs md:text-sm text-slate-300">
-                  Relevante KPIs und operative Daten in Echtzeit verfügbar.
-                </p>
-              </div>
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                <h3 className="text-sm font-semibold text-white">Internes Tool</h3>
-                <p className="mt-2 text-xs md:text-sm text-slate-300">
-                  Manuelle Aufgaben reduzieren und Teamprozesse strukturieren.
-                </p>
-              </div>
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                <h3 className="text-sm font-semibold text-white">SaaS MVP</h3>
-                <p className="mt-2 text-xs md:text-sm text-slate-300">
-                  Schneller Produktstart mit klarem Fokus auf Kernfunktionen.
-                </p>
-              </div>
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-4 md:col-span-2">
-                <h3 className="text-sm font-semibold text-white">
-                  Prozessdigitalisierung
-                </h3>
-                <p className="mt-2 text-xs md:text-sm text-slate-300">
-                  Bestehende Abläufe digital abbilden und sauber mit vorhandenen
-                  Systemen verbinden.
-                </p>
-              </div>
-            </div>
-          </section>
-
-          <section className="mt-12 section">
-            <h2 className="text-xl md:text-2xl font-semibold text-white">
-              Tech & Qualität
-            </h2>
-            <div className="mt-4 grid gap-4 md:grid-cols-3">
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                <h3 className="text-sm font-semibold text-white">React & Next.js</h3>
-                <p className="mt-2 text-xs md:text-sm text-slate-300">
-                  Moderne Frontends mit hoher Wartbarkeit und sauberer Struktur.
-                </p>
-              </div>
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                <h3 className="text-sm font-semibold text-white">API & Integrationen</h3>
-                <p className="mt-2 text-xs md:text-sm text-slate-300">
-                  Anbindung von Drittservices und internen Systemen ohne
-                  Insellösungen.
-                </p>
-              </div>
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                <h3 className="text-sm font-semibold text-white">
-                  Performance & Sicherheit
-                </h3>
-                <p className="mt-2 text-xs md:text-sm text-slate-300">
-                  Kurze Ladezeiten, klare Zugriffslogik und skalierbare Architektur
-                  als Grundlage.
-                </p>
-              </div>
-            </div>
-          </section>
-
-          <section className="mt-12 section section--alt">
-            <h2 className="text-xl md:text-2xl font-semibold text-white">Ablauf</h2>
-            <ol className="mt-4 space-y-3 text-sm md:text-base text-slate-300">
-              <li>
-                <span className="font-semibold text-white">1. Kick-off</span> -
-                Ziele, Prozesse, Nutzergruppen und technische Anforderungen.
-              </li>
-              <li>
-                <span className="font-semibold text-white">2. Scope & UX</span> -
-                Funktionen priorisieren, Nutzerflüsse planen, Struktur definieren.
-              </li>
-              <li>
-                <span className="font-semibold text-white">3. Build</span> -
-                Umsetzung der Web-App mit iterativem Feedback.
-              </li>
-              <li>
-                <span className="font-semibold text-white">4. Testing</span> -
-                Funktion, Performance und Stabilität prüfen.
-              </li>
-              <li>
-                <span className="font-semibold text-white">5. Launch</span> -
-                Go-live, Monitoring und nächste Ausbaustufen.
-              </li>
-            </ol>
-          </section>
-
-          <section className="mt-12 section">
-            <h2 className="text-xl md:text-2xl font-semibold text-white">
-              FAQ zur Web App Entwicklung
-            </h2>
-            <div className="mt-10">
-              <FAQAccordion
-                items={faqs.map((faq) => ({ q: faq.question, a: faq.answer }))}
-              />
-            </div>
-          </section>
-
-          <section className="mt-12 section section--alt rounded-2xl border border-indigo-500/40 bg-indigo-500/10 p-6 md:p-8">
-            <h2 className="text-xl md:text-2xl font-semibold text-white">
-              Web-App Projekt starten
-            </h2>
-            <p className="mt-3 text-sm md:text-base text-slate-200">
-              Wenn du ein Kundenportal, Dashboard oder internes Tool umsetzen
-              willst, lass uns kurz sprechen. Wir klären Scope, Timeline und den
-              passenden technischen Weg für dein Projekt.
-            </p>
-            <div className="mt-5 flex flex-wrap gap-3">
-              <Link
-                href="/kontakt"
-                className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 px-5 py-2.5 text-sm font-medium text-white shadow hover:shadow-lg transition"
-              >
-                Projekt anfragen
-              </Link>
-              <Link
-                href="/softwareloesungen-fuer-kmu"
-                className="inline-flex items-center justify-center rounded-full border border-white/15 px-4 py-2 text-xs md:text-sm font-medium text-slate-200 hover:bg-white/5 transition"
-              >
-                Zu Softwarelösungen
-              </Link>
-            </div>
-          </section>
-        </div>
-      </main>
-
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(professionalServiceJsonLd) }}
-      />
-
-      <Footer />
-    </>
+    <ServiceLandingPage
+      path="/web-app-entwicklung"
+      eyebrow="Portale · Dashboards · interne Tools"
+      h1="Web-App Entwicklung für individuelle digitale Abläufe"
+      intro="Codavo entwickelt browserbasierte Anwendungen, die Kunden, Teams und Daten in klaren Prozessen zusammenbringen – passend zu Ihren Rollen, Systemen und Zielen."
+      directAnswer="Eine individuelle Web-App ist sinnvoll, wenn Standardsoftware einen wichtigen Ablauf nicht sauber abbildet oder Informationen über Tabellen, E-Mails und Einzellösungen verteilt sind."
+      serviceName="Web-App Entwicklung"
+      serviceDescription="Individuelle Web-Apps, Portale, Dashboards und interne Tools für Unternehmen."
+      sections={[
+        { title: "Wann eine Web-App sinnvoll ist", text: "Wenn Nutzer sich anmelden, Daten bearbeiten, Status verfolgen oder wiederkehrende Aufgaben in einem zentralen System erledigen sollen." },
+        { title: "Typische Anwendungen", text: "Kundenportale, interne Dashboards, Konfiguratoren, Angebotsstrecken, Service-Systeme und klar abgegrenzte SaaS-Produkte." },
+        { title: "Vom Prozess zum Funktionsumfang", text: "Zuerst werden Ziele, Nutzergruppen und Engpässe verstanden. Daraus entsteht ein priorisierter Umfang statt einer langen, unklaren Wunschliste." },
+        { title: "Schnittstellen und Daten", text: "Bestehende Systeme werden dort angebunden, wo Schnittstellen verfügbar sind und die Integration einen belastbaren Nutzen bietet." },
+        { title: "Technische Qualität", text: "React und Next.js, klare Zugriffslogik, wartbare Komponenten und ein passendes Datenmodell schaffen eine erweiterbare Grundlage." },
+        { title: "Iterative Weiterentwicklung", text: "Ein sinnvoll abgegrenzter erster Stand wird geprüft und anschließend anhand realer Nutzung und neuer Prioritäten ausgebaut." },
+      ]}
+      relatedLinks={[
+        { href: "/softwareloesungen-fuer-kmu", label: "Software für KMU", description: "Individuelle Systeme im Unternehmenskontext." },
+        { href: "/hosting-wartung", label: "Hosting und Wartung", description: "Betrieb und Weiterentwicklung einplanen." },
+        { href: "/wissen/website-landingpage-funnel", label: "Website, Landingpage oder Funnel", description: "Die passende digitale Form einordnen." },
+      ]}
+      faqs={faqs}
+      ctaTitle="Sie möchten einen konkreten Prozess digital abbilden?"
+      ctaText="Im Erstgespräch klären wir Nutzer, Kernfunktionen und ob eine individuelle Web-App der wirtschaftlich sinnvolle Weg ist."
+    />
   );
 }

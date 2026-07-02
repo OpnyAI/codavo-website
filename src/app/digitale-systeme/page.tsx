@@ -1,38 +1,15 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import FAQAccordion from "@/components/FAQAccordion";
 import Footer from "@/components/Footer";
 import HeroChips from "@/components/hero/HeroChips";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
+  path: "/digitale-systeme",
   title: "Digitale Systeme für skalierbares Wachstum | Codavo Webstudio",
   description:
     "Integrierte Systemarchitektur aus Website, Software und Automatisierung. Weniger manuell, schnellere Prozesse, mehr Conversion und klare Daten.",
-  alternates: {
-    canonical: "/digitale-systeme",
-  },
-  openGraph: {
-    url: "/digitale-systeme",
-    siteName: "Codavo Webstudio",
-    title: "Digitale Systeme für skalierbares Wachstum | Codavo Webstudio",
-    description:
-      "Integrierte Systemarchitektur aus Website, Software und Automatisierung. Weniger manuell, schnellere Prozesse, mehr Conversion und klare Daten.",
-    images: [
-      {
-        url: "/og.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Codavo Webstudio",
-      },
-    ],
-  },
-  twitter: {
-    title: "Digitale Systeme für skalierbares Wachstum | Codavo Webstudio",
-    description:
-      "Integrierte Systemarchitektur aus Website, Software und Automatisierung. Weniger manuell, schnellere Prozesse, mehr Conversion und klare Daten.",
-    images: ["/og.jpg"],
-  },
-};
+});
 
 const faqs = [
   {
@@ -112,7 +89,7 @@ export default function DigitaleSystemePage() {
             <div className="mt-10 md:mt-12 flex flex-col md:flex-row items-stretch md:items-center justify-center gap-4 w-full md:w-auto max-w-md md:max-w-none mx-auto">
               <Link
                 href="/kontakt"
-                data-track-event="strategy_call_click,cta_primary_click"
+                data-track-event="cta_contact_click"
                 data-track-label="Digitale Systeme Hero Strategie"
                 className="inline-flex w-full md:w-auto items-center justify-center rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 px-5 py-2.5 text-sm font-medium text-white shadow hover:shadow-lg transition"
               >
@@ -120,7 +97,7 @@ export default function DigitaleSystemePage() {
               </Link>
               <Link
                 href="/cases"
-                data-track-event="cta_primary_click"
+                data-track-event="cta_cases_click"
                 data-track-label="Digitale Systeme Hero Case"
                 className="inline-flex w-full md:w-auto items-center justify-center rounded-full border border-white/20 px-4 py-2 text-xs md:text-sm font-medium text-slate-200 hover:bg-white/5 transition"
               >
@@ -260,7 +237,7 @@ export default function DigitaleSystemePage() {
               <div className="mt-6 flex flex-wrap gap-3">
                 <Link
                   href="/kontakt"
-                  data-track-event="strategy_call_click,cta_primary_click"
+                  data-track-event="cta_contact_click"
                   data-track-label="Digitale Systeme Bottom Strategie"
                   className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 px-5 py-2.5 text-sm font-medium text-white shadow hover:shadow-lg transition"
                 >

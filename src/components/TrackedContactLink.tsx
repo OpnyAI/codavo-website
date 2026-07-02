@@ -2,13 +2,14 @@
 
 import type { ReactNode } from "react";
 import { handleConversionRedirect } from "@/lib/google-ads";
+import type { TrackingEventName } from "@/lib/tracking";
 
 type TrackedContactLinkProps = {
   url: string;
   className: string;
   children: ReactNode;
   ariaLabel?: string;
-  dataTrackEvent?: string;
+  dataTrackEvent: TrackingEventName;
   dataTrackLabel?: string;
   contactMethod: "whatsapp" | "phone" | "email";
   type?: "button" | "submit" | "reset";
@@ -21,6 +22,7 @@ export default function TrackedContactLink({
   ariaLabel,
   dataTrackEvent,
   dataTrackLabel,
+  contactMethod,
   type = "button",
 }: TrackedContactLinkProps) {
   return (
@@ -29,8 +31,9 @@ export default function TrackedContactLink({
       onClick={() => handleConversionRedirect(url)}
       className={className}
       aria-label={ariaLabel}
-      {...(dataTrackEvent ? { "data-track-event": dataTrackEvent } : {})}
+      data-track-event={dataTrackEvent}
       {...(dataTrackLabel ? { "data-track-label": dataTrackLabel } : {})}
+      data-contact-method={contactMethod}
     >
       {children}
     </button>

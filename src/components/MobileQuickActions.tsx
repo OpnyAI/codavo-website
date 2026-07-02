@@ -102,7 +102,7 @@ export default function MobileQuickActions() {
         <TrackedContactLink
           url={PHONE_HREF}
           className="flex-1 inline-flex items-center justify-center gap-2 rounded-full px-3 py-2 bg-black text-white text-sm font-medium border border-white/15 active:scale-[0.98] transition-transform"
-          dataTrackEvent="contact_submit"
+          dataTrackEvent="mobile_cta_click"
           dataTrackLabel="Mobile Quick Telefon"
           contactMethod="phone"
         >
@@ -114,7 +114,7 @@ export default function MobileQuickActions() {
         <TrackedContactLink
           url={WHATSAPP_HREF}
           className="flex-1 inline-flex items-center justify-center gap-2 rounded-full px-3 py-2 bg-gradient-to-r from-pink-500 via-fuchsia-500 to-violet-500 text-white text-sm font-medium shadow-sm active:scale-[0.98] transition-transform"
-          dataTrackEvent="contact_submit"
+          dataTrackEvent="mobile_cta_click"
           dataTrackLabel="Mobile Quick WhatsApp"
           contactMethod="whatsapp"
         >

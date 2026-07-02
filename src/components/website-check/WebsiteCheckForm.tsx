@@ -10,6 +10,7 @@ import {
 import Link from "next/link";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { TRACKING_EVENTS, trackAnalyticsEvent } from "@/lib/tracking";
 
 type FormValues = {
   firstName: string;
@@ -68,26 +69,6 @@ function isValidUrl(value: string) {
     return Boolean(url.hostname);
   } catch {
     return false;
-  }
-}
-
-function pushTrackingEvent(eventName: string, params: Record<string, string>) {
-  if (typeof window === "undefined") return;
-
-  const trackedWindow = window as Window & {
-    dataLayer?: unknown[];
-    gtag?: (
-      command: "event",
-      eventName: string,
-      params?: Record<string, string>,
-    ) => void;
-  };
-
-  trackedWindow.dataLayer = trackedWindow.dataLayer || [];
-  trackedWindow.dataLayer.push({ event: eventName, ...params });
-
-  if (typeof trackedWindow.gtag === "function") {
-    trackedWindow.gtag("event", eventName, params);
   }
 }
 
@@ -159,10 +140,6 @@ export default function WebsiteCheckForm() {
       return;
     }
 
-    pushTrackingEvent("website_check_submit_attempt", {
-      page_path: "/website-check",
-      cta_label: "Website-Check Formular",
-    });
     setIsSubmitting(true);
     setServerError(null);
 
@@ -185,7 +162,7 @@ export default function WebsiteCheckForm() {
         return;
       }
 
-      pushTrackingEvent("website_check_submit_success", {
+      trackAnalyticsEvent(TRACKING_EVENTS.websiteCheckSubmit, {
         page_path: "/website-check",
         cta_label: "Website-Check Formular",
       });

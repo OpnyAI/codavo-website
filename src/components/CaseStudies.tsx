@@ -2,16 +2,16 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import Reveal from "@/components/Reveal";
+import Link from "next/link";
 import { caseStudies } from "@/components/case-studies-data";
 
-const INTERVAL_S = 4;
+const neutralProjectGoal =
+  "Ziel war ein professionellerer Auftritt, klarere Nutzerführung und eine technische Basis für weiteres Wachstum.";
 
 export default function CaseStudies() {
   const scrollerRef = useRef<HTMLDivElement | null>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [active, setActive] = useState(0);
-  const count = caseStudies.length;
 
   const goTo = (idx: number) => {
     const scroller = scrollerRef.current;
@@ -62,58 +62,18 @@ export default function CaseStudies() {
     };
   }, []);
 
-  useEffect(() => {
-    const scroller = scrollerRef.current;
-    if (!scroller) return;
-
-    let paused = false;
-
-    const pause = () => {
-      paused = true;
-    };
-
-    const resume = () => {
-      paused = false;
-    };
-
-    const id = setInterval(() => {
-      if (paused) return;
-      const next = (active + 1) % count;
-      goTo(next);
-    }, INTERVAL_S * 1000);
-
-    scroller.addEventListener("mouseenter", pause);
-    scroller.addEventListener("mouseleave", resume);
-    scroller.addEventListener("touchstart", pause, { passive: true });
-    scroller.addEventListener("touchend", resume, { passive: true });
-    scroller.addEventListener("touchcancel", resume, { passive: true });
-
-    return () => {
-      clearInterval(id);
-      scroller.removeEventListener("mouseenter", pause);
-      scroller.removeEventListener("mouseleave", resume);
-      scroller.removeEventListener("touchstart", pause);
-      scroller.removeEventListener("touchend", resume);
-      scroller.removeEventListener("touchcancel", resume);
-    };
-  }, [active, count]);
-
   return (
     <section id="cases" className="section scroll-mt-24">
       <div className="container">
-        <Reveal>
-          <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-white">
-              Case Studies
-            </h2>
-            <p className="mt-4 text-slate-300 max-w-2xl mx-auto">
-              Beispiele aus echten Projekten – unterschiedliche Branchen,
-              unterschiedliche Ziele, aber immer mit einem klaren Problem, einer
-              sauberen Lösung und einem sichtbaren Ergebnis. Die Seiten kannst
-              du dir auf Wunsch direkt live ansehen.
-            </p>
-          </div>
-        </Reveal>
+        <div className="mb-10 text-center">
+          <h2 className="text-3xl font-semibold tracking-tight text-white md:text-5xl">
+            Digitale Projekte mit klarem Anspruch
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-sm leading-6 text-slate-300 md:text-base">
+            Die Beispiele zeigen reale Ausgangslagen, den jeweils gewählten
+            Lösungsweg und das Ziel des Projekts.
+          </p>
+        </div>
 
         <div
           ref={scrollerRef}
@@ -188,9 +148,9 @@ export default function CaseStudies() {
                     </div>
                     <div>
                       <div className="text-slate-400 text-xs uppercase tracking-wider">
-                        Ergebnis
+                        Ziel
                       </div>
-                      <p className="mt-1">{c.result}</p>
+                      <p className="mt-1">{neutralProjectGoal}</p>
                     </div>
                   </div>
 
@@ -202,7 +162,7 @@ export default function CaseStudies() {
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-1 text-sm text-indigo-300 hover:text-white underline-offset-2 hover:underline"
                       >
-                        Website ansehen <span aria-hidden>↗</span>
+                        Projekt live ansehen <span aria-hidden>↗</span>
                       </a>
                     </div>
                   )}
@@ -217,6 +177,7 @@ export default function CaseStudies() {
             <button
               key={i}
               aria-label={`Slide ${i + 1}`}
+              aria-current={active === i ? "true" : undefined}
               onClick={() => goTo(i)}
               className={`h-2.5 rounded-full transition-all ${
                 active === i
@@ -225,6 +186,17 @@ export default function CaseStudies() {
               }`}
             />
           ))}
+        </div>
+
+        <div className="mt-8 text-center">
+          <Link
+            href="/cases"
+            data-track-event="cta_cases_click"
+            data-track-label="Home Cases Uebersicht"
+            className="inline-flex items-center justify-center rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-slate-200 transition hover:bg-white/10 hover:text-white"
+          >
+            Alle Cases ansehen
+          </Link>
         </div>
       </div>
     </section>

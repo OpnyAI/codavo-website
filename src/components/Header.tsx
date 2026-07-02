@@ -11,9 +11,9 @@ const navLinks = [
   { href: "/webdesign", label: "Webdesign" },
   { href: "/softwareloesungen-fuer-kmu", label: "Softwarelösungen" },
   { href: "/digitale-systeme", label: "Digitale Systeme" },
-  { href: "/#leistungen", label: "Leistungen" },
+  { href: "/leistungen", label: "Leistungen" },
   { href: "/cases", label: "Case Studies" },
-  { href: "/faq", label: "FAQ" },
+  { href: "/wissen", label: "Wissen" },
   { href: "/kontakt", label: "Kontakt" },
 ];
 
@@ -147,6 +147,14 @@ export default function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
+                  data-track-event={
+                    link.href === "/kontakt" ? "nav_contact_click" : undefined
+                  }
+                  data-track-label={
+                    link.href === "/kontakt"
+                      ? "Desktop Navigation Kontakt"
+                      : undefined
+                  }
                   {...(!isAnchorLink ? { scroll: true } : {})}
                   className={[
                     "transition hover:text-white",
@@ -163,12 +171,21 @@ export default function Header() {
             <SocialLinks
               variant="header"
               size="sm"
-              className="hidden lg:flex"
+              className="hidden 2xl:flex"
             />
+            <Link
+              href="/website-check"
+              scroll
+              data-track-event="cta_website_check_click"
+              data-track-label="Header Website Check"
+              className="hidden rounded-full border border-white/15 px-3 py-2 text-xs font-medium text-slate-200 transition hover:bg-white/10 hover:text-white xl:inline-flex"
+            >
+              Website-Check
+            </Link>
             <Link
               href="/kontakt"
               scroll
-              data-track-event="strategy_call_click,cta_primary_click"
+              data-track-event="nav_contact_click"
               data-track-label="Header Strategie Call"
               className="inline-flex rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 px-4 py-2 text-xs md:text-sm font-medium text-white shadow hover:shadow-lg transition"
             >
@@ -205,6 +222,14 @@ export default function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
+                  data-track-event={
+                    link.href === "/kontakt" ? "nav_contact_click" : undefined
+                  }
+                  data-track-label={
+                    link.href === "/kontakt"
+                      ? "Mobile Navigation Kontakt"
+                      : undefined
+                  }
                   {...(!link.href.includes("#") ? { scroll: true } : {})}
                   className="rounded-lg px-3 py-2 text-slate-100 hover:bg-white/10"
                 >
@@ -214,8 +239,16 @@ export default function Header() {
 
               <div className="mt-3 border-t border-white/10 pt-3">
                 <Link
+                  href="/website-check"
+                  data-track-event="cta_website_check_click"
+                  data-track-label="Mobile Header Website Check"
+                  className="mb-2 inline-flex w-full items-center justify-center rounded-full border border-white/15 px-4 py-2 text-sm font-medium text-slate-100 transition hover:bg-white/10"
+                >
+                  Kostenloser Website-Check
+                </Link>
+                <Link
                   href="/kontakt"
-                  data-track-event="strategy_call_click,cta_primary_click"
+                  data-track-event="nav_contact_click"
                   data-track-label="Mobile Header Strategie Call"
                   className="inline-flex w-full items-center justify-center rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 px-4 py-2 text-sm font-medium text-white shadow hover:shadow-lg transition"
                 >

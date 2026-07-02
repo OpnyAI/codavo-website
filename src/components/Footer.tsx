@@ -26,9 +26,9 @@ export default function Footer() {
           </h3>
 
           <p className="text-slate-400 leading-relaxed">
-            Wir entwickeln Webdesign, Webentwicklung und individuelle
-            Softwarelösungen für KMU mit Fokus auf ROI, Effizienz und
-            skalierbare digitale Systeme.
+            Codavo entwickelt individuelle Unternehmenswebsites, Landingpages,
+            Funnel und webbasierte Software mit klarer Nutzerführung und einer
+            sauberen technischen Grundlage.
           </p>
 
           <div className="mt-6 flex flex-col items-center gap-3 md:items-start">
@@ -48,6 +48,41 @@ export default function Footer() {
               </Link>
             </li>
             <li>
+              <Link href="/leistungen" className="hover:text-white">
+                Leistungen
+              </Link>
+            </li>
+            <li>
+              <Link href="/webdesign" className="hover:text-white">
+                Webdesign
+              </Link>
+            </li>
+            <li className="pl-3 text-xs text-slate-500">
+              <Link href="/webdesign-stuttgart" className="hover:text-white">
+                Webdesign Stuttgart
+              </Link>
+            </li>
+            <li>
+              <Link href="/web-app-entwicklung" className="hover:text-white">
+                Web App Entwicklung
+              </Link>
+            </li>
+            <li>
+              <Link href="/landingpage-erstellen-lassen" className="hover:text-white">
+                Landingpage erstellen lassen
+              </Link>
+            </li>
+            <li>
+              <Link href="/funnel-erstellen-lassen" className="hover:text-white">
+                Funnel erstellen lassen
+              </Link>
+            </li>
+            <li>
+              <Link href="/hosting-wartung" className="hover:text-white">
+                Hosting &amp; Wartung
+              </Link>
+            </li>
+            <li>
               <Link href="/softwareloesungen-fuer-kmu" className="hover:text-white">
                 Softwarelösungen für KMU
               </Link>
@@ -58,18 +93,18 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/webdesign" className="hover:text-white">
-                Webdesign
-              </Link>
-            </li>
-            <li>
-              <Link href="/web-app-entwicklung" className="hover:text-white">
-                Web App Entwicklung
+              <Link
+                href="/website-check"
+                data-track-event="cta_website_check_click"
+                data-track-label="Footer Website Check"
+                className="hover:text-white"
+              >
+                Kostenloser Website-Check
               </Link>
             </li>
             <li>
               <Link href="/cases" className="hover:text-white">
-                Case Studies
+                Cases
               </Link>
             </li>
             <li>
@@ -78,7 +113,17 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/kontakt" className="hover:text-white">
+              <Link href="/wissen" className="hover:text-white">
+                Wissen
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/kontakt"
+                data-track-event="nav_contact_click"
+                data-track-label="Footer Navigation Kontakt"
+                className="hover:text-white"
+              >
                 Kontakt
               </Link>
             </li>
@@ -101,8 +146,8 @@ export default function Footer() {
             <li>
               <TrackedContactLink
                 url="tel:+4915111956479"
-                data-track-event="contact_submit"
-                data-track-label="Footer Telefon"
+                dataTrackEvent="cta_contact_click"
+                dataTrackLabel="Footer Telefon"
                 className="hover:text-white"
                 contactMethod="phone"
               >
@@ -112,8 +157,8 @@ export default function Footer() {
             <li>
               <TrackedContactLink
                 url="mailto:kontakt@codavo-webstudio.de"
-                data-track-event="contact_submit"
-                data-track-label="Footer E-Mail"
+                dataTrackEvent="cta_contact_click"
+                dataTrackLabel="Footer E-Mail"
                 className="hover:text-white"
                 contactMethod="email"
               >

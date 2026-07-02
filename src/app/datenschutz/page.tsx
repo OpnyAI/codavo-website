@@ -1,39 +1,13 @@
-import type { Metadata } from "next";
 import Footer from "@/components/Footer";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
+  path: "/datenschutz",
   title: "Datenschutz | Codavo Webstudio",
   description:
     "Datenschutzhinweise zur Nutzung dieser Website und zu den eingesetzten Diensten.",
-  alternates: {
-    canonical: "/datenschutz",
-  },
-  robots: {
-    index: false,
-    follow: true,
-  },
-  openGraph: {
-    url: "/datenschutz",
-    siteName: "Codavo Webstudio",
-    title: "Datenschutz | Codavo Webstudio",
-    description:
-      "Datenschutzhinweise zur Nutzung dieser Website und zu den eingesetzten Diensten.",
-    images: [
-      {
-        url: "/og.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Codavo Webstudio",
-      },
-    ],
-  },
-  twitter: {
-    title: "Datenschutz | Codavo Webstudio",
-    description:
-      "Datenschutzhinweise zur Nutzung dieser Website und zu den eingesetzten Diensten.",
-    images: ["/og.jpg"],
-  },
-};
+  noIndex: true,
+});
 
 export default function DatenschutzPage() {
   return (

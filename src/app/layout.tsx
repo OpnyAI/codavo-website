@@ -7,6 +7,11 @@ import ScrollToTop from "@/components/ScrollToTop";
 import TrackingEvents from "@/components/TrackingEvents";
 import ConsentBanner from "@/components/ConsentBanner";
 import { GOOGLE_ADS_ID } from "@/lib/google-ads";
+import {
+  createPageMetadata,
+  globalStructuredData,
+  SEO_CONFIG,
+} from "@/lib/seo";
 import "./globals.css";
 
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
@@ -14,32 +19,9 @@ const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 const GTAG_PRIMARY_ID = GA_ID || GOOGLE_ADS_ID;
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.codavo-webstudio.de"),
-  applicationName: "Codavo Webstudio",
-  title: "Codavo Webstudio",
-  description:
-    "Webdesign, individuelle Softwarelösungen und digitale Systeme für KMU mit Fokus auf Effizienz, Automatisierung und skalierbares Wachstum.",
-  robots: {
-    index: true,
-    follow: true,
-  },
-  openGraph: {
-    siteName: "Codavo",
-    type: "website",
-    locale: "de_DE",
-    images: [
-      {
-        url: "/og.png",
-        width: 1200,
-        height: 630,
-        alt: "Codavo Webstudio",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    images: ["/og.png"],
-  },
+  ...createPageMetadata(),
+  metadataBase: new URL(SEO_CONFIG.domain),
+  applicationName: SEO_CONFIG.companyName,
   icons: {
     icon: [
       { url: "/favicon.ico" },
@@ -55,46 +37,9 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const orgJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "Codavo Webstudio",
-    url: "https://www.codavo-webstudio.de",
-    telephone: "+49 1511 1956479",
-    image: "https://www.codavo-webstudio.de/og.png",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "Naumannstr. 3",
-      addressLocality: "Berglen",
-      postalCode: "73663",
-      addressCountry: "DE",
-    },
-    areaServed: ["DE", "AT", "CH"],
-    sameAs: ["https://www.linkedin.com/company/codavo-webstudio"],
-  };
-
-  const websiteJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: "Codavo Webstudio",
-    url: "https://www.codavo-webstudio.de",
-    inLanguage: "de-DE",
-  };
-
   return (
     <html lang="de">
       <head>
-        <meta
-          property="og:image"
-          content="https://www.codavo-webstudio.de/og.png"
-        />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta
-          name="twitter:image"
-          content="https://www.codavo-webstudio.de/og.png"
-        />
-
         {/* Consent Mode v2 defaults (MUST run BEFORE GTM loads) */}
         <script
           dangerouslySetInnerHTML={{
@@ -158,11 +103,9 @@ export default function RootLayout({
 
           <script
             type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
-          />
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(globalStructuredData),
+            }}
           />
         </div>
 

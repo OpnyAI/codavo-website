@@ -1,37 +1,14 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import Footer from "@/components/Footer";
 import { caseStudies } from "@/components/case-studies-data";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
+  path: "/cases",
   title: "Case Studies | Codavo Webstudio",
   description:
     "Ausgewählte Projekte und Ergebnisse: Websites, Softwarelösungen und Systeme, die Prozesse automatisieren und Wachstum messbar machen.",
-  alternates: {
-    canonical: "/cases",
-  },
-  openGraph: {
-    url: "/cases",
-    siteName: "Codavo Webstudio",
-    title: "Case Studies | Codavo Webstudio",
-    description:
-      "Ausgewählte Projekte und Ergebnisse: Websites, Softwarelösungen und Systeme, die Prozesse automatisieren und Wachstum messbar machen.",
-    images: [
-      {
-        url: "/og.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Codavo Webstudio",
-      },
-    ],
-  },
-  twitter: {
-    title: "Case Studies | Codavo Webstudio",
-    description:
-      "Ausgewählte Projekte und Ergebnisse: Websites, Softwarelösungen und Systeme, die Prozesse automatisieren und Wachstum messbar machen.",
-    images: ["/og.jpg"],
-  },
-};
+});
 
 export default function CasesPage() {
   return (

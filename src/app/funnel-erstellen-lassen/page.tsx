@@ -1,0 +1,21 @@
+import ServiceLandingPage from "@/components/content/ServiceLandingPage";
+import { createPageMetadata } from "@/lib/seo";
+export const metadata = createPageMetadata({ path: "/funnel-erstellen-lassen", title: "Funnel erstellen lassen für digitale Kundengewinnung | Codavo", description: "Funnel-Systeme aus Landingpage, Formular, Tracking und Integrationen für strukturierte digitale Anfrageprozesse." });
+const faqs = [
+  { q: "Was ist ein Funnel?", a: "Ein Funnel ist ein digitaler Prozess, der Besucher schrittweise zu Anfrage, Buchung, Bewerbung oder Registrierung führt." },
+  { q: "Was kostet ein Funnel bei Codavo?", a: "Die Kosten hängen von Seiten, Formularlogik, Tracking und Integrationen ab. Ein einfacher Funnel kann eine Landingpage erweitern; komplexe Systeme werden individuell geplant." },
+  { q: "Was ist der Unterschied zwischen Funnel und Website?", a: "Eine Website informiert umfassend. Ein Funnel verfolgt ein konkretes Ziel und führt Besucher durch wenige definierte Schritte." },
+  { q: "Was gehört zu einem Funnel-System?", a: "Möglich sind Landingpage, Formular, Terminbuchung, Danke-Seite, Tracking, E-Mail- und CRM-Anbindung." },
+  { q: "Für wen lohnt sich ein Funnel?", a: "Für Unternehmen mit klaren Angeboten, Kampagnen oder einem wiederkehrenden Prozess für Leads, Termine oder Bewerbungen." },
+  { q: "Kann ein Funnel bei Google und KI-Systemen sichtbar werden?", a: "Öffentliche Funnel-Seiten können klar strukturiert und auffindbar aufgebaut werden. Tracking ergänzt die Sichtbarkeit um messbare Prozessdaten." },
+  { q: "Ist ein Funnel besser als eine Website?", a: "Nicht grundsätzlich. Die Website baut Marke und Vertrauen auf; der Funnel fokussiert eine konkrete Handlung. Häufig ergänzt sich beides." },
+  { q: "Kann Codavo bestehende Systeme anbinden?", a: "Ja. Formulare, Kalender, E-Mail- und CRM-Systeme können je nach Schnittstelle integriert werden." },
+];
+export default function Page() { return <ServiceLandingPage path="/funnel-erstellen-lassen" eyebrow="Funnel · Leadgenerierung · Tracking" h1="Funnel erstellen lassen für planbare Anfragen und digitale Kundengewinnung" intro="Ein Funnel führt Besucher Schritt für Schritt zu einer Entscheidung. Codavo verbindet Kampagnen, Landingpages und klare Nutzerpfade zu einem nachvollziehbaren System." directAnswer="Ein Funnel verbindet mehrere Schritte zu einem klaren Anfrageprozess – vom ersten Kampagnenkontakt bis zu Formular, Termin oder qualifiziertem Lead." serviceName="Funnel erstellen lassen" serviceDescription="Individuelle Funnel-Systeme für Anfragen, Termine und digitale Kundengewinnung." sections={[
+  { title: "Was ist ein Funnel?", text: "Ein Funnel reduziert einen komplexen Entscheidungsweg auf sinnvolle Schritte und beantwortet in jeder Phase die wichtigsten Fragen." },
+  { title: "Website, Landingpage und Funnel", text: "Die Website vermittelt das Gesamtbild, die Landingpage fokussiert ein Angebot und der Funnel verbindet mehrere Schritte und Systeme." },
+  { title: "Typische Elemente", text: "Landingpage, Formular, Terminbuchung, Bestätigungsseite, Tracking und Folgekommunikation bilden je nach Ziel das System." },
+  { title: "Einsatzbereiche", text: "Beratung, Dienstleistung, Recruiting und konkrete Angebote profitieren von klaren Zielgruppen und definierten Folgeprozessen." },
+  { title: "Tracking und Conversion", text: "Einheitliche Events und klar definierte Schritte zeigen, an welcher Stelle Nutzer weitergehen oder abbrechen." },
+  { title: "Technische Integrationen", text: "Kalender, CRM, E-Mail und interne Systeme können angebunden werden, wenn Schnittstellen und Datenschutz dies sinnvoll erlauben." },
+]} relatedLinks={[{ href: "/landingpage-erstellen-lassen", label: "Landingpages", description: "Der fokussierte Einstieg in Kampagnen." },{ href: "/webdesign", label: "Unternehmenswebsite", description: "Vertrauen und Marke als Grundlage." },{ href: "/softwareloesungen-fuer-kmu", label: "Individuelle Software", description: "Weiterführende Prozesse und Systeme." }]} faqs={faqs} />; }

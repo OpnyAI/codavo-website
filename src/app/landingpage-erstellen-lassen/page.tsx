@@ -1,0 +1,21 @@
+import ServiceLandingPage from "@/components/content/ServiceLandingPage";
+import { createPageMetadata } from "@/lib/seo";
+export const metadata = createPageMetadata({ path: "/landingpage-erstellen-lassen", title: "Landingpage erstellen lassen für mehr Anfragen | Codavo", description: "Individuelle Landingpages für Kampagnen und Angebote – klar strukturiert, schnell und auf qualifizierte Anfragen ausgerichtet." });
+const faqs = [
+  { q: "Was ist eine Landingpage?", a: "Eine Landingpage ist eine fokussierte Seite mit einem klaren Ziel. Sie führt Besucher beispielsweise zu einer Anfrage, Terminbuchung oder Anmeldung." },
+  { q: "Was kostet eine Landingpage bei Codavo?", a: "Landingpages starten bei Codavo ab 2.900 €. Der finale Preis hängt von Text, Design, Tracking, Formularlogik und technischer Einbindung ab." },
+  { q: "Wann ist eine Landingpage sinnvoll?", a: "Eine Landingpage ist sinnvoll für konkrete Angebote, Kampagnen oder einzelne Dienstleistungen. Sie eignet sich besonders für Google Ads, Social Media und lokale Aktionen." },
+  { q: "Was ist der Unterschied zwischen Landingpage und Website?", a: "Eine Website stellt das gesamte Unternehmen dar. Eine Landingpage konzentriert sich auf ein Angebot und eine konkrete Handlung." },
+  { q: "Kann eine Landingpage für Google und KI-Systeme optimiert werden?", a: "Ja. Klare Überschriften, präzise Antworten, strukturierte Daten und ein eindeutiges Thema helfen Suchmaschinen und KI-Systemen bei der Einordnung." },
+  { q: "Kann eine Landingpage Teil eines Funnels sein?", a: "Ja. Sie ist häufig der Einstieg in einen Funnel und führt anschließend zu Formular, Terminbuchung oder weiteren Schritten." },
+  { q: "Brauche ich zusätzlich eine Website?", a: "Für mehrere Leistungen und langfristige Markenbildung ist eine Website sinnvoll. Für eine einzelne Kampagne kann eine Landingpage ausreichen." },
+  { q: "Unterstützt Codavo bei Text und Struktur?", a: "Ja. Codavo entwickelt Inhaltslogik, Nutzerführung, Gestaltung und technische Umsetzung gemeinsam." },
+];
+export default function Page() { return <ServiceLandingPage path="/landingpage-erstellen-lassen" eyebrow="Landingpages · Kampagnen · Conversion" h1="Landingpage erstellen lassen für mehr qualifizierte Anfragen" intro="Eine Landingpage konzentriert sich auf ein Ziel: Besucher zu einer konkreten Handlung führen. Codavo entwickelt Landingpages für Kampagnen, Angebote und Leistungen." directAnswer="Eine professionelle Landingpage erklärt ein Angebot schnell, reduziert Ablenkung und führt mit klarer Nutzerführung zu Anfrage, Buchung oder Anmeldung." serviceName="Landingpage erstellen lassen" serviceDescription="Individuelle Landingpages für Kampagnen, Angebote und qualifizierte Anfragen." sections={[
+  { title: "Was ist eine Landingpage?", text: "Eine Landingpage ist eine eigenständige, fokussierte Seite. Inhalt, Belege und CTA sind auf eine klar definierte Zielgruppe und Handlung ausgerichtet." },
+  { title: "Wann ist sie sinnvoll?", text: "Bei Kampagnen, neuen Angeboten, lokalen Aktionen oder erklärungsbedürftigen Leistungen schafft sie einen direkten Weg vom Interesse zur Anfrage." },
+  { title: "Landingpage statt vollständiger Website?", text: "Die Landingpage ersetzt nicht automatisch eine Unternehmenswebsite. Sie ergänzt sie häufig als gezielter Einstieg für einen bestimmten Kanal oder ein Angebot." },
+  { title: "Sichtbarkeit und Technik", text: "Semantische Inhalte, schnelle Ladezeiten, Metadaten und strukturierte Antworten schaffen eine Grundlage für Suchmaschinen und KI-Systeme." },
+  { title: "Preisorientierung", text: "Landingpages starten bei Codavo ab 2.900 €. Umfang, Inhalte, Formulare, Tracking und Integrationen bestimmen den finalen Preis." },
+  { title: "Als Teil eines Funnels", text: "Formular, Danke-Seite, Terminbuchung, CRM oder E-Mail-Prozess können zu einem nachvollziehbaren Funnel verbunden werden." },
+]} relatedLinks={[{ href: "/funnel-erstellen-lassen", label: "Funnel-Systeme", description: "Mehrstufige Nutzerwege und Integrationen." },{ href: "/webdesign", label: "Unternehmenswebsite", description: "Der vollständige professionelle Auftritt." },{ href: "/wissen/website-landingpage-funnel", label: "Website, Landingpage oder Funnel?", description: "Die Unterschiede verständlich erklärt." }]} faqs={faqs} />; }

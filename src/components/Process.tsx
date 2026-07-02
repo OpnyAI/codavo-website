@@ -1,4 +1,68 @@
-"use client";
-import Reveal from "@/components/Reveal"; const steps = [ { k: "1. Kennenlernen & Ziele", d: "Wir sprechen darüber, wo du hinmöchtest und was deine Website oder Web-App leisten soll. Daraus entsteht ein klarer Plan.", }, { k: "2. Struktur & Design", d: "Wir ordnen Inhalte, definieren Use-Cases und erstellen Layouts sowie Klick-Prototypen. So siehst du früh, wie sich alles später anfühlt.", }, { k: "3. Entwicklung", d: "Wir bauen deine Website oder Web-App sauber und performant – inklusive Technik, Tracking, SEO-Grundlagen und CMS bzw. Admin-Bereich.", }, { k: "4. Go-Live & Wachstum", d: "Launch mit Monitoring. Danach Feinschliff und Optimierungen anhand echter Nutzungsdaten – für mehr Anfragen, Leads oder aktive Nutzer.", },
-]; export default function Process() { return ( <section id="prozess" className="section section--alt scroll-mt-24"> <div className="container"> <Reveal> <div className="text-center"> <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-white"> Prozess </h2> <p className="mt-4 text-slate-300 max-w-2xl mx-auto"> Transparent und schlank – vom ersten Gespräch bis zur performanten Website oder Web-App. </p> </div> </Reveal> <ol className="relative mt-12 space-y-6"> <div className="absolute left-5 top-0 bottom-0 w-[2px] bg-gradient-to-b from-indigo-500 via-purple-500 to-pink-500 opacity-40" /> {steps.map((s, i) => ( <li key={s.k} className="relative pl-14"> <div className="absolute left-0 top-0 h-10 w-10 rounded-full bg-black/40 border border-white/15 flex items-center justify-center text-white font-semibold"> {i + 1} </div> <div className="card"> <h3 className="text-xl font-semibold text-white">{s.k}</h3> <p className="mt-2 text-slate-300">{s.d}</p> </div> </li> ))} </ol> </div> </section> );
+const steps = [
+  {
+    title: "Analyse",
+    description:
+      "Wir prüfen Zielgruppe, aktuelles Auftreten, Wettbewerb, Suchintentionen und wirtschaftliches Ziel.",
+  },
+  {
+    title: "Strategie",
+    description:
+      "Aus den Erkenntnissen entsteht eine klare Seitenstruktur mit Botschaften, Nutzerführung und Sichtbarkeitslogik.",
+  },
+  {
+    title: "UX/UI",
+    description:
+      "Das Design wird hochwertig, verständlich und auf Vertrauen, Lesbarkeit und Anfragegewinnung ausgerichtet.",
+  },
+  {
+    title: "Entwicklung",
+    description:
+      "Die Website wird mit moderner Webtechnologie umgesetzt – schnell, responsiv, sauber strukturiert und erweiterbar.",
+  },
+  {
+    title: "Launch",
+    description:
+      "Vor Veröffentlichung werden Inhalte, Darstellung, Tracking, SEO-/AEO-/LLMO-Grundlagen und technische Funktion geprüft.",
+  },
+  {
+    title: "Betreuung",
+    description:
+      "Auf Wunsch übernimmt Codavo Hosting, Wartung, Updates und spätere Erweiterungen.",
+  },
+] as const;
+
+export default function Process() {
+  return (
+    <section id="prozess" className="section section--alt scroll-mt-24">
+      <div className="container">
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className="text-3xl font-semibold tracking-tight text-white md:text-5xl">
+            So läuft ein Projekt mit Codavo ab
+          </h2>
+          <p className="mt-4 text-sm leading-6 text-slate-300 md:text-base">
+            Sechs nachvollziehbare Schritte sorgen dafür, dass Ziele,
+            Entscheidungen und Verantwortlichkeiten transparent bleiben.
+          </p>
+        </div>
+
+        <ol className="mt-10 grid gap-4 sm:grid-cols-2 lg:mt-12 lg:grid-cols-3 lg:gap-6">
+          {steps.map((step, index) => (
+            <li key={step.title} className="card h-full">
+              <div className="flex items-center gap-3">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/15 bg-white/5 text-sm font-semibold text-white">
+                  {index + 1}
+                </span>
+                <h3 className="text-xl font-semibold text-white">
+                  {step.title}
+                </h3>
+              </div>
+              <p className="mt-4 text-sm leading-6 text-slate-300 md:text-base">
+                {step.description}
+              </p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+  );
 }

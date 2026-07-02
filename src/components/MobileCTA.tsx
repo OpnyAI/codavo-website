@@ -103,9 +103,9 @@ export default function MobileCTA() {
         <div className="flex flex-1 xs:flex-[1.1] gap-2">
           <TrackedContactLink
             url={`tel:${PHONE_TEL}`}
-            data-track-event="contact_submit"
-            data-track-label="Mobile Telefon"
-            aria-label="Anrufen"
+            dataTrackEvent="mobile_cta_click"
+            dataTrackLabel="Mobile Telefon"
+            ariaLabel="Anrufen"
             className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-2xl px-3 py-2 bg-white/6 hover:bg-white/10 active:bg-white/15 text-white text-[13px] font-medium transition-colors"
             contactMethod="phone"
           >
@@ -115,9 +115,9 @@ export default function MobileCTA() {
 
           <TrackedContactLink
             url={`https://wa.me/${WHATSAPP_INTL}`}
-            data-track-event="contact_submit"
-            data-track-label="Mobile WhatsApp"
-            aria-label="Per WhatsApp schreiben"
+            dataTrackEvent="mobile_cta_click"
+            dataTrackLabel="Mobile WhatsApp"
+            ariaLabel="Per WhatsApp schreiben"
             className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-2xl px-3 py-2 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:brightness-110 active:brightness-95 text-white text-[13px] font-medium shadow-[0_0_0_1px_rgba(255,255,255,0.05)] transition-all"
             contactMethod="whatsapp"
           >

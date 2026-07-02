@@ -1,87 +1,109 @@
 import type { MetadataRoute } from "next";
+import { SEO_CONFIG } from "@/lib/seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const SITE_URL = "https://www.codavo-webstudio.de";
-  const lastModified = new Date();
-
   return [
     {
-      url: `${SITE_URL}/`,
-      lastModified,
+      url: `${SEO_CONFIG.domain}/`,
+      lastModified: "2026-07-02",
       changeFrequency: "weekly",
       priority: 1.0,
     },
     {
-      url: `${SITE_URL}/digitale-systeme`,
-      lastModified,
+      url: `${SEO_CONFIG.domain}/digitale-systeme`,
+      lastModified: "2026-07-02",
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
-      url: `${SITE_URL}/softwareloesungen-fuer-kmu`,
-      lastModified,
+      url: `${SEO_CONFIG.domain}/softwareloesungen-fuer-kmu`,
+      lastModified: "2026-07-02",
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
-      url: `${SITE_URL}/webdesign`,
-      lastModified,
+      url: `${SEO_CONFIG.domain}/webdesign`,
+      lastModified: "2026-07-02",
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: `${SITE_URL}/webdesign-stuttgart`,
-      lastModified,
+      url: `${SEO_CONFIG.domain}/webdesign-stuttgart`,
+      lastModified: "2026-07-02",
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
-      url: `${SITE_URL}/web-app-entwicklung`,
-      lastModified,
+      url: `${SEO_CONFIG.domain}/web-app-entwicklung`,
+      lastModified: "2026-07-02",
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
-      url: `${SITE_URL}/leistungen`,
-      lastModified,
+      url: `${SEO_CONFIG.domain}/leistungen`,
+      lastModified: "2026-07-02",
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
-      url: `${SITE_URL}/cases`,
-      lastModified,
+      url: `${SEO_CONFIG.domain}/cases`,
+      lastModified: "2026-07-02",
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
-      url: `${SITE_URL}/faq`,
-      lastModified,
+      url: `${SEO_CONFIG.domain}/faq`,
+      lastModified: "2026-03-07",
       changeFrequency: "monthly",
       priority: 0.6,
     },
     {
-      url: `${SITE_URL}/kontakt`,
-      lastModified,
+      url: `${SEO_CONFIG.domain}/kontakt`,
+      lastModified: "2026-04-07",
       changeFrequency: "monthly",
       priority: 0.6,
     },
     {
-      url: `${SITE_URL}/website-check`,
-      lastModified,
+      url: `${SEO_CONFIG.domain}/website-check`,
+      lastModified: "2026-07-02",
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: `${SITE_URL}/impressum`,
-      lastModified,
-      changeFrequency: "yearly",
-      priority: 0.3,
+      url: `${SEO_CONFIG.domain}/landingpage-erstellen-lassen`,
+      lastModified: "2026-07-02",
+      changeFrequency: "monthly",
+      priority: 0.8,
     },
     {
-      url: `${SITE_URL}/datenschutz`,
-      lastModified,
-      changeFrequency: "yearly",
-      priority: 0.3,
+      url: `${SEO_CONFIG.domain}/funnel-erstellen-lassen`,
+      lastModified: "2026-07-02",
+      changeFrequency: "monthly",
+      priority: 0.8,
     },
+    {
+      url: `${SEO_CONFIG.domain}/hosting-wartung`,
+      lastModified: "2026-07-02",
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${SEO_CONFIG.domain}/wissen`,
+      lastModified: "2026-07-02",
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    ...[
+      "was-kostet-eine-website",
+      "seo-aeo-llmo",
+      "website-landingpage-funnel",
+      "individuelle-website-vs-baukasten",
+      "ki-systeme-website-verstehen",
+    ].map((slug) => ({
+      url: `${SEO_CONFIG.domain}/wissen/${slug}`,
+      lastModified: "2026-07-02",
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
   ];
 }

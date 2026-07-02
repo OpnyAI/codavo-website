@@ -40,10 +40,10 @@ export default function Contact() {
         <div className="mt-10 grid gap-4 sm:grid-cols-3">
           <TrackedContactLink
             url={tel}
-            data-track-event="contact_submit"
-            data-track-label="Kontakt Telefon"
+            dataTrackEvent="cta_contact_click"
+            dataTrackLabel="Kontakt Telefon"
             className="card group hover:-translate-y-1 transition"
-            aria-label="Anrufen"
+            ariaLabel="Anrufen"
             contactMethod="phone"
           >
             <div className="text-sm text-slate-400">Telefon</div>
@@ -57,10 +57,10 @@ export default function Contact() {
 
           <TrackedContactLink
             url={wa}
-            data-track-event="contact_submit"
-            data-track-label="Kontakt WhatsApp"
+            dataTrackEvent="cta_contact_click"
+            dataTrackLabel="Kontakt WhatsApp"
             className="card group hover:-translate-y-1 transition"
-            aria-label="WhatsApp Chat"
+            ariaLabel="WhatsApp Chat"
             contactMethod="whatsapp"
           >
             <div className="text-sm text-slate-400">WhatsApp</div>
@@ -74,10 +74,10 @@ export default function Contact() {
 
           <TrackedContactLink
             url={mailto}
-            data-track-event="contact_submit"
-            data-track-label="Kontakt E-Mail"
+            dataTrackEvent="cta_contact_click"
+            dataTrackLabel="Kontakt E-Mail"
             className="card group hover:-translate-y-1 transition"
-            aria-label="E-Mail senden"
+            ariaLabel="E-Mail senden"
             contactMethod="email"
           >
             <div className="text-sm text-slate-400">E-Mail</div>
@@ -100,27 +100,6 @@ export default function Contact() {
           .
         </p>
       </div>
-
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            name: "Codavo Webstudio",
-            url: "https://www.codavo-webstudio.de",
-            contactPoint: [
-              {
-                "@type": "ContactPoint",
-                contactType: "sales",
-                telephone: PHONE_TEL,
-                email: EMAIL,
-                availableLanguage: ["de"],
-              },
-            ],
-          }),
-        }}
-      />
     </section>
   );
 }

@@ -1,72 +1,19 @@
 // src/app/webdesign-stuttgart/page.tsx
-import type { Metadata } from "next";
 import Link from "next/link";
 import Footer from "@/components/Footer";
 import TrackedContactLink from "@/components/TrackedContactLink";
-export const metadata: Metadata = {
+import {
+  createPageMetadata,
+  webdesignStuttgartServiceJsonLd,
+} from "@/lib/seo";
+
+export const metadata = createPageMetadata({
+  path: "/webdesign-stuttgart",
   title: "Webdesign Stuttgart für Unternehmen | Codavo Webstudio",
   description:
     "Webdesign in Stuttgart für KMU: performante Websites mit klarer Positionierung, SEO-Fundament und Conversion-Fokus.",
-  alternates: {
-    canonical: "/webdesign-stuttgart",
-  },
-  openGraph: {
-    url: "/webdesign-stuttgart",
-    siteName: "Codavo Webstudio",
-    title: "Webdesign Stuttgart für Unternehmen | Codavo Webstudio",
-    description:
-      "Webdesign in Stuttgart für KMU: performante Websites mit klarer Positionierung, SEO-Fundament und Conversion-Fokus.",
-    images: [
-      {
-        url: "/og.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Codavo Webstudio",
-      },
-    ],
-  },
-  twitter: {
-    title: "Webdesign Stuttgart für Unternehmen | Codavo Webstudio",
-    description:
-      "Webdesign in Stuttgart für KMU: performante Websites mit klarer Positionierung, SEO-Fundament und Conversion-Fokus.",
-    images: ["/og.jpg"],
-  },
-};
+});
 export default function WebdesignStuttgartPage() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    name: "Codavo Webstudio – Webdesign Stuttgart",
-    url: "https://www.codavo-webstudio.de/webdesign-stuttgart",
-    telephone: "+49 1511 1956479",
-    image: "https://www.codavo-webstudio.de/og.jpg",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "Naumannstr. 3",
-      addressLocality: "Berglen",
-      postalCode: "73663",
-      addressRegion: "Baden-Württemberg",
-      addressCountry: "DE",
-    },
-    areaServed: ["Stuttgart", "Ludwigsburg", "Esslingen", "Rems-Murr-Kreis"],
-    description:
-      "Webdesign in Stuttgart – moderne, schnelle Websites & Landingpages mit Fokus auf Anfragen und Performance.",
-    sameAs: ["https://www.linkedin.com/company/codavo-webstudio"],
-    makesOffer: [
-      {
-        "@type": "Offer",
-        name: "Webdesign Stuttgart – neue Website",
-        description:
-          "Erstellung einer modernen, performanten Website für Unternehmen und Selbstständige im Raum Stuttgart.",
-      },
-      {
-        "@type": "Offer",
-        name: "Webdesign Stuttgart – Website-Relaunch",
-        description:
-          "Relaunch bestehender Websites mit Fokus auf Struktur, UX und Performance.",
-      },
-    ],
-  };
   return (
     <>
       {" "}
@@ -101,6 +48,8 @@ export default function WebdesignStuttgartPage() {
               {" "}
               <Link
                 href="/kontakt"
+                data-track-event="cta_contact_click"
+                data-track-label="Webdesign Stuttgart Hero Kontakt"
                 className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 px-5 py-2.5 text-sm font-medium text-white shadow hover:shadow-lg transition"
               >
                 {" "}
@@ -108,6 +57,8 @@ export default function WebdesignStuttgartPage() {
               </Link>{" "}
               <Link
                 href="/cases"
+                data-track-event="cta_cases_click"
+                data-track-label="Webdesign Stuttgart Hero Cases"
                 className="inline-flex items-center justify-center rounded-full border border-white/20 px-4 py-2 text-xs md:text-sm font-medium text-slate-200 hover:bg-white/5 transition"
               >
                 {" "}
@@ -365,6 +316,8 @@ export default function WebdesignStuttgartPage() {
               {" "}
               <Link
                 href="/kontakt"
+                data-track-event="cta_contact_click"
+                data-track-label="Webdesign Stuttgart Bottom Kontakt"
                 className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 px-5 py-2.5 text-sm font-medium text-white shadow hover:shadow-lg transition"
               >
                 {" "}
@@ -373,7 +326,7 @@ export default function WebdesignStuttgartPage() {
               <TrackedContactLink
                 url="tel:+4915111956479"
                 className="inline-flex items-center justify-center rounded-full border border-white/20 px-4 py-2 text-xs md:text-sm font-medium text-slate-200 hover:bg-white/5 transition"
-                dataTrackEvent="contact_submit"
+                dataTrackEvent="cta_contact_click"
                 dataTrackLabel="Webdesign Stuttgart Telefon"
                 contactMethod="phone"
               >
@@ -383,10 +336,12 @@ export default function WebdesignStuttgartPage() {
             </div>{" "}
           </section>{" "}
         </div>{" "}
-        {/* Local SEO JSON-LD nur auf dieser Seite */}{" "}
+        {/* Stuttgart ist Leistungsgebiet; der Geschäftssitz bleibt Berglen. */}{" "}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(webdesignStuttgartServiceJsonLd),
+          }}
         />{" "}
       </main>{" "}
       <Footer />{" "}
