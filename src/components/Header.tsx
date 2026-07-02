@@ -110,14 +110,14 @@ export default function Header() {
     <>
       <header
         className={[
-          "fixed inset-x-0 top-0 z-50 border-b border-white/5",
-          "transition-colors duration-300",
+          "fixed inset-x-0 top-0 z-50 border-b",
+          "transition-all duration-300",
           scrolled
-            ? "bg-[#050816]/95 backdrop-blur-md"
-            : "bg-gradient-to-b from-[#050816]/95 via-[#050816]/80 to-transparent",
+            ? "border-white/8 bg-[#060b16]/88 shadow-[0_12px_40px_rgba(0,0,0,0.18)] backdrop-blur-xl"
+            : "border-transparent bg-gradient-to-b from-[#050816]/88 via-[#050816]/55 to-transparent",
         ].join(" ")}
       >
-        <div className="mx-auto flex h-14 md:h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-6 lg:h-[4.5rem] lg:px-8">
           <Link
             href="/"
             scroll
@@ -130,12 +130,12 @@ export default function Header() {
               width={140}
               height={32}
               priority
-              className="h-6 w-auto md:h-7"
+              className="h-6 w-auto lg:h-7"
             />
             <span className="sr-only">Codavo Webstudio</span>
           </Link>
 
-          <nav className="hidden items-center gap-6 text-sm text-slate-200 md:flex">
+          <nav className="hidden items-center gap-7 text-[13px] font-medium text-slate-300 xl:flex">
             {navLinks.map((link) => {
               const baseHref = link.href.replace(/#.*/, "");
               const isAnchorLink = link.href.includes("#");
@@ -157,7 +157,7 @@ export default function Header() {
                   }
                   {...(!isAnchorLink ? { scroll: true } : {})}
                   className={[
-                    "transition hover:text-white",
+                    "relative py-2 transition hover:text-white",
                     isActive ? "text-white" : "text-slate-200",
                   ].join(" ")}
                 >
@@ -167,7 +167,7 @@ export default function Header() {
             })}
           </nav>
 
-          <div className="hidden items-center gap-3 md:flex">
+          <div className="hidden items-center gap-3 xl:flex">
             <SocialLinks
               variant="header"
               size="sm"
@@ -187,7 +187,7 @@ export default function Header() {
               scroll
               data-track-event="nav_contact_click"
               data-track-label="Header Strategie Call"
-              className="inline-flex rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 px-4 py-2 text-xs md:text-sm font-medium text-white shadow hover:shadow-lg transition"
+              className="inline-flex min-h-10 items-center rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-fuchsia-500 px-4 py-2 text-sm font-medium text-white shadow-[0_8px_24px_rgba(99,102,241,0.24)] transition hover:-translate-y-px hover:shadow-[0_12px_28px_rgba(99,102,241,0.3)]"
             >
               Strategie-Call
             </Link>
@@ -198,7 +198,7 @@ export default function Header() {
             ref={buttonRef}
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? "Menü schließen" : "Menü öffnen"}
-            className="inline-flex items-center justify-center rounded-full border border-white/10 p-1.5 text-slate-100 hover:bg-white/10 md:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-slate-100 transition hover:bg-white/8 xl:hidden"
           >
             {open ? (
               <X className="h-5 w-5" aria-hidden="true" />
@@ -210,14 +210,14 @@ export default function Header() {
       </header>
 
       {open && (
-        <div className="fixed inset-0 z-40 md:hidden">
+        <div className="fixed inset-0 z-40 xl:hidden">
           <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" />
 
           <div
             ref={menuRef}
-            className="absolute inset-x-0 top-14 border-b border-white/10 bg-[#050816]/98 backdrop-blur-xl"
+            className="absolute inset-x-0 top-16 border-b border-white/10 bg-[#060b16]/98 shadow-[0_24px_70px_rgba(0,0,0,0.35)] backdrop-blur-xl lg:top-[4.5rem]"
           >
-            <nav className="mx-auto flex max-w-7xl flex-col gap-1 px-4 pb-4 pt-3 text-sm">
+            <nav className="mx-auto flex max-w-7xl flex-col gap-1 px-5 pb-6 pt-4 text-sm sm:px-6 lg:px-8">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
@@ -231,7 +231,7 @@ export default function Header() {
                       : undefined
                   }
                   {...(!link.href.includes("#") ? { scroll: true } : {})}
-                  className="rounded-lg px-3 py-2 text-slate-100 hover:bg-white/10"
+                  className="rounded-xl px-4 py-3 text-slate-200 transition hover:bg-white/[0.06] hover:text-white"
                 >
                   {link.label}
                 </Link>
@@ -242,7 +242,7 @@ export default function Header() {
                   href="/website-check"
                   data-track-event="cta_website_check_click"
                   data-track-label="Mobile Header Website Check"
-                  className="mb-2 inline-flex w-full items-center justify-center rounded-full border border-white/15 px-4 py-2 text-sm font-medium text-slate-100 transition hover:bg-white/10"
+                  className="cta-secondary mb-3"
                 >
                   Kostenloser Website-Check
                 </Link>
@@ -250,7 +250,7 @@ export default function Header() {
                   href="/kontakt"
                   data-track-event="nav_contact_click"
                   data-track-label="Mobile Header Strategie Call"
-                  className="inline-flex w-full items-center justify-center rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 px-4 py-2 text-sm font-medium text-white shadow hover:shadow-lg transition"
+                  className="cta-primary"
                 >
                   Strategie-Call
                 </Link>

@@ -63,13 +63,13 @@ export default function CaseStudies() {
   }, []);
 
   return (
-    <section id="cases" className="section scroll-mt-24">
-      <div className="container">
-        <div className="mb-10 text-center">
-          <h2 className="text-3xl font-semibold tracking-tight text-white md:text-5xl">
+    <section id="cases" className="section section--feature scroll-mt-24">
+      <div className="container max-w-7xl">
+        <div className="mb-12 max-w-3xl md:mb-16">
+          <h2 className="section-title text-white">
             Digitale Projekte mit klarem Anspruch
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-sm leading-6 text-slate-300 md:text-base">
+          <p className="lede mt-5 max-w-2xl">
             Die Beispiele zeigen reale Ausgangslagen, den jeweils gewählten
             Lösungsweg und das Ziel des Projekts.
           </p>
@@ -77,7 +77,7 @@ export default function CaseStudies() {
 
         <div
           ref={scrollerRef}
-          className="relative overflow-x-auto snap-x snap-mandatory scroll-smooth pb-2 flex gap-6 px-1 sm:px-2 [-ms-overflow-style:none] [scrollbar-width:none]"
+          className="relative flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth px-0.5 pb-4 [-ms-overflow-style:none] [scrollbar-width:none] sm:gap-8 sm:px-1"
           style={{ WebkitOverflowScrolling: "touch" }}
         >
           <style jsx>{`
@@ -92,11 +92,11 @@ export default function CaseStudies() {
               ref={(el: HTMLDivElement | null) => {
                 cardRefs.current[i] = el;
               }}
-              style={{ width: "min(88vw, 980px)", flex: "0 0 auto" }}
+              style={{ width: "min(92vw, 1080px)", flex: "0 0 auto" }}
               className="snap-start shrink-0"
             >
-              <div className="card p-0 overflow-hidden">
-                <div className="relative aspect-[16/9]">
+              <div className="overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#0b1220]/85 shadow-[0_35px_100px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.05)]">
+                <div className="relative aspect-[16/10] sm:aspect-[16/9]">
                   {c.img ? (
                     <>
                       <Image
@@ -129,28 +129,28 @@ export default function CaseStudies() {
                   )}
                 </div>
 
-                <div className="p-6 md:p-8">
-                  <h3 className="text-xl md:text-2xl font-semibold text-white">
+                <div className="p-6 sm:p-8 md:p-10">
+                  <h3 className="text-2xl font-semibold tracking-tight text-white md:text-3xl">
                     {c.title}
                   </h3>
-                  <div className="mt-4 grid gap-4 text-sm text-slate-200 md:grid-cols-3">
+                  <div className="mt-7 grid gap-6 text-sm leading-7 text-slate-300 md:grid-cols-3 md:gap-8">
                     <div>
-                      <div className="text-slate-400 text-xs uppercase tracking-wider">
+                      <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-indigo-300/70">
                         Problem
                       </div>
-                      <p className="mt-1">{c.problem}</p>
+                      <p className="mt-2">{c.problem}</p>
                     </div>
                     <div>
-                      <div className="text-slate-400 text-xs uppercase tracking-wider">
+                      <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-indigo-300/70">
                         Lösung
                       </div>
-                      <p className="mt-1">{c.solution}</p>
+                      <p className="mt-2">{c.solution}</p>
                     </div>
                     <div>
-                      <div className="text-slate-400 text-xs uppercase tracking-wider">
+                      <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-indigo-300/70">
                         Ziel
                       </div>
-                      <p className="mt-1">{neutralProjectGoal}</p>
+                      <p className="mt-2">{neutralProjectGoal}</p>
                     </div>
                   </div>
 
@@ -160,7 +160,7 @@ export default function CaseStudies() {
                         href={c.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-sm text-indigo-300 hover:text-white underline-offset-2 hover:underline"
+                        className="inline-flex items-center gap-2 text-sm font-medium text-indigo-300 transition hover:text-white"
                       >
                         Projekt live ansehen <span aria-hidden>↗</span>
                       </a>
@@ -172,7 +172,7 @@ export default function CaseStudies() {
           ))}
         </div>
 
-        <div className="mt-5 flex items-center justify-center gap-2">
+        <div className="mt-6 flex items-center justify-center gap-2">
           {caseStudies.map((_, i) => (
             <button
               key={i}
@@ -188,12 +188,12 @@ export default function CaseStudies() {
           ))}
         </div>
 
-        <div className="mt-8 text-center">
+        <div className="mt-10 text-center">
           <Link
             href="/cases"
             data-track-event="cta_cases_click"
             data-track-label="Home Cases Uebersicht"
-            className="inline-flex items-center justify-center rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-slate-200 transition hover:bg-white/10 hover:text-white"
+            className="cta-secondary"
           >
             Alle Cases ansehen
           </Link>

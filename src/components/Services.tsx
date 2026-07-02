@@ -54,46 +54,54 @@ const services = [
 ] as const;
 
 export default function Services() {
+  const spans = ["lg:col-span-7", "lg:col-span-5", "lg:col-span-4", "lg:col-span-4", "lg:col-span-4"];
+
   return (
-    <section id="leistungen" className="section scroll-mt-24">
-      <div className="container">
-        <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-3xl font-semibold tracking-tight text-white md:text-5xl">
+    <section id="leistungen" className="section section--quiet section--services-flow scroll-mt-24">
+      <div className="container max-w-6xl">
+        <div className="grid items-end gap-6 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
+          <div>
+            <h2 className="section-title text-white">
             Was möchten Sie mit Ihrer Website erreichen?
-          </h2>
-          <p className="mt-4 text-sm leading-6 text-slate-300 md:text-base">
+            </h2>
+          </div>
+          <p className="lede max-w-xl lg:pb-1">
             Wählen Sie den Einstieg über Ihr konkretes Geschäftsziel. Codavo
             verbindet Website-Strategie, Nutzerführung und technische Umsetzung.
           </p>
         </div>
 
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:mt-12 lg:grid-cols-3 lg:gap-6">
-          {services.map((service) => (
-            <article key={service.title} className="card flex h-full flex-col">
-              <service.icon className="h-7 w-7 text-indigo-300" aria-hidden />
-              <h3 className="mt-5 text-xl font-semibold text-white">
+        <div className="mt-12 grid gap-5 md:grid-cols-2 lg:mt-16 lg:grid-cols-12 lg:gap-6">
+          {services.map((service, index) => (
+            <article key={service.title} className={`card group flex h-full flex-col md:col-span-1 ${spans[index]}`}>
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-indigo-300/15 bg-indigo-400/[0.08] shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
+                <service.icon className="h-5 w-5 text-indigo-300" aria-hidden />
+              </div>
+              <h3 className="mt-8 text-xl font-semibold tracking-tight text-white md:text-2xl">
                 {service.title}
               </h3>
-              <p className="mt-2 text-sm font-medium text-indigo-300">
+              <p className="mt-2 text-sm font-semibold text-indigo-300">
                 {service.solution}
               </p>
-              <p className="mt-3 flex-1 text-sm leading-6 text-slate-300 md:text-base">
+              <p className="mt-4 max-w-xl flex-1 text-sm leading-7 text-slate-300 md:text-base">
                 {service.description}
               </p>
-              <Link
-                href={service.href}
-                className="mt-6 inline-flex items-center text-sm font-medium text-indigo-300 transition hover:text-white"
-              >
-                {service.linkLabel} <span aria-hidden>→</span>
-              </Link>
-              {"secondaryHref" in service ? (
+              <div className="mt-8 flex flex-col items-start gap-2 sm:flex-row sm:flex-wrap sm:gap-x-5">
                 <Link
-                  href={service.secondaryHref}
-                  className="mt-2 inline-flex items-center text-sm font-medium text-indigo-300 transition hover:text-white"
+                  href={service.href}
+                  className="inline-flex items-center gap-2 text-sm font-medium text-indigo-300 transition group-hover:text-indigo-200"
                 >
-                  {service.secondaryLabel} <span aria-hidden>→</span>
+                  {service.linkLabel} <span aria-hidden>→</span>
                 </Link>
-              ) : null}
+                {"secondaryHref" in service ? (
+                  <Link
+                    href={service.secondaryHref}
+                    className="inline-flex items-center gap-2 text-sm font-medium text-slate-400 transition hover:text-white"
+                  >
+                    {service.secondaryLabel} <span aria-hidden>→</span>
+                  </Link>
+                ) : null}
+              </div>
             </article>
           ))}
         </div>

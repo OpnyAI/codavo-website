@@ -128,26 +128,32 @@ export default function Home() {
       <main className="overflow-x-hidden">
         <Hero />
 
-        <section className="section">
-          <div className="container max-w-5xl">
-            <div className="mx-auto max-w-4xl text-center">
-              <h2 className="text-3xl font-semibold tracking-tight text-white md:text-5xl">
+        <section className="section section--quiet">
+          <div className="container max-w-6xl">
+            <div className="max-w-4xl">
+              <h2 className="section-title text-white">
                 Warum viele Unternehmenswebsites keine Kunden gewinnen
               </h2>
-              <p className="mt-4 text-sm leading-6 text-slate-300 md:text-base">
+              <p className="lede mt-5 max-w-2xl">
                 Gute Gestaltung allein reicht nicht. Entscheidend ist, ob Ihr
                 Angebot verständlich wird, Vertrauen entsteht und Besucher den
                 nächsten Schritt ohne Umwege finden.
               </p>
             </div>
 
-            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:mt-12 lg:gap-6">
-              {problems.map((problem) => (
-                <article key={problem.title} className="card h-full">
-                  <h3 className="text-xl font-semibold text-white">
+            <div className="mt-12 grid gap-5 md:grid-cols-12 lg:mt-16 lg:gap-6">
+              {problems.map((problem, index) => (
+                <article
+                  key={problem.title}
+                  className={`card h-full md:col-span-6 ${index === 0 || index === 3 ? "lg:col-span-7" : "lg:col-span-5"}`}
+                >
+                  <span className="text-xs font-semibold tabular-nums text-indigo-300/70">
+                    0{index + 1}
+                  </span>
+                  <h3 className="mt-8 max-w-md text-xl font-semibold tracking-tight text-white md:text-2xl">
                     {problem.title}
                   </h3>
-                  <p className="mt-3 text-sm leading-6 text-slate-300 md:text-base">
+                  <p className="mt-4 max-w-xl text-sm leading-7 text-slate-300 md:text-base">
                     {problem.description}
                   </p>
                 </article>
@@ -156,47 +162,46 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="section section--alt">
+        <section className="section section--feature section--codavo-flow">
           <div className="container max-w-6xl">
-            <div className="mx-auto max-w-3xl text-center">
-              <h2 className="text-3xl font-semibold tracking-tight text-white md:text-5xl">
-                Warum Codavo anders entwickelt
-              </h2>
-              <p className="mt-4 text-sm leading-6 text-slate-300 md:text-base">
-                Strategie, Inhalte, UX/UI und Entwicklung werden gemeinsam
-                geplant. So entsteht eine Website, die heute funktioniert und
-                bei neuen Anforderungen weiterentwickelt werden kann.
-              </p>
-            </div>
+            <div className="grid items-start gap-12 lg:grid-cols-[0.78fr_1.22fr] lg:gap-20">
+              <div className="lg:self-start">
+                <h2 className="section-title text-white">
+                  Warum Codavo anders entwickelt
+                </h2>
+                <p className="lede mt-5 max-w-xl">
+                  Strategie, Inhalte, UX/UI und Entwicklung werden gemeinsam
+                  geplant. So entsteht eine Website, die heute funktioniert und
+                  bei neuen Anforderungen weiterentwickelt werden kann.
+                </p>
+              </div>
 
-            <div className="mt-10 grid gap-4 lg:mt-12 lg:grid-cols-2 lg:gap-6">
-              {solutions.map((solution) => (
-                <article key={solution.title} className="card flex h-full flex-col">
-                  <h3 className="text-xl font-semibold leading-snug text-white">
-                    {solution.title}
-                  </h3>
-                  <div className="mt-5 space-y-4 text-sm leading-6 text-slate-300 md:text-base">
-                    <div>
-                      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-indigo-300">
-                        Ansatz
+              <div className="min-w-0 space-y-5">
+                {solutions.map((solution, index) => (
+                  <article key={solution.title} className="card group flex flex-col md:flex-row md:gap-8">
+                    <span className="text-sm font-semibold tabular-nums text-indigo-300/70">
+                      0{index + 1}
+                    </span>
+                    <div className="mt-5 flex-1 md:mt-0">
+                      <h3 className="text-xl font-semibold leading-snug tracking-tight text-white md:text-2xl">
+                        {solution.title}
+                      </h3>
+                      <p className="mt-4 text-sm leading-7 text-slate-300 md:text-base">
+                        {solution.benefit}
                       </p>
-                      <p className="mt-1">{solution.benefit}</p>
-                    </div>
-                    <div>
-                      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-indigo-300">
-                        Konkrete Bedeutung
+                      <p className="mt-3 text-sm leading-7 text-slate-400">
+                        {solution.example}
                       </p>
-                      <p className="mt-1">{solution.example}</p>
+                      <Link
+                        href={solution.href}
+                        className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-indigo-300 transition group-hover:text-indigo-200"
+                      >
+                        {solution.linkLabel} <span aria-hidden>→</span>
+                      </Link>
                     </div>
-                  </div>
-                  <Link
-                    href={solution.href}
-                    className="mt-6 inline-flex items-center text-sm font-medium text-indigo-300 transition hover:text-white"
-                  >
-                    {solution.linkLabel} <span aria-hidden>→</span>
-                  </Link>
-                </article>
-              ))}
+                  </article>
+                ))}
+              </div>
             </div>
           </div>
         </section>
@@ -206,41 +211,42 @@ export default function Home() {
         <CaseStudies />
         <Process />
 
-        <section className="section">
+        <section className="section section--quiet">
           <div className="container max-w-4xl">
             <div className="text-center">
-              <h2 className="text-3xl font-semibold tracking-tight text-white md:text-5xl">
-                Häufige Fragen vor dem Projektstart.
+              <h2 className="section-title text-white">
+                Häufige Fragen unserer Kunden
               </h2>
-              <p className="mt-4 text-sm leading-6 text-slate-300 md:text-base">
+              <p className="lede mx-auto mt-5 max-w-2xl">
                 Konkrete Antworten zu Kosten, Technik, Zusammenarbeit und der
                 Zeit nach dem Launch.
               </p>
             </div>
-            <div className="mt-10">
+            <div className="mt-12 md:mt-16">
               <FAQAccordion items={homeFaqs} />
             </div>
           </div>
         </section>
 
-        <section className="section section--alt">
+        <section className="section section--feature">
           <div className="container max-w-5xl">
-            <div className="rounded-2xl border border-indigo-500/40 bg-indigo-500/10 p-6 text-center md:p-10">
-              <h2 className="text-3xl font-semibold tracking-tight text-white md:text-5xl">
+            <div className="relative overflow-hidden rounded-[2rem] border border-indigo-400/25 bg-indigo-500/[0.08] p-7 text-center shadow-[0_35px_100px_rgba(0,0,0,0.28)] md:p-14 lg:p-16">
+              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(700px_300px_at_50%_0%,rgba(129,140,248,0.16),transparent_70%)]" />
+              <h2 className="section-title relative mx-auto max-w-4xl text-white">
                 Bereit für eine Website, die mehr leistet als nur gut
                 auszusehen?
               </h2>
-              <p className="mx-auto mt-4 max-w-3xl text-sm leading-6 text-slate-200 md:text-base">
+              <p className="lede relative mx-auto mt-5 max-w-2xl text-slate-200">
                 Im kostenlosen Erstgespräch klären wir, wie Ihre Website mehr
                 Vertrauen schaffen, besser gefunden werden und qualifizierte
                 Anfragen unterstützen kann.
               </p>
-              <div className="mx-auto mt-7 flex w-full max-w-md flex-col justify-center gap-3 sm:max-w-none sm:flex-row">
+              <div className="relative mx-auto mt-9 flex w-full max-w-md flex-col justify-center gap-3 sm:max-w-none sm:flex-row">
                 <Link
                   href="/kontakt"
                   data-track-event="cta_contact_click"
                   data-track-label="Home Abschluss Erstgespraech"
-                  className="inline-flex min-h-12 w-full items-center justify-center rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 px-5 py-3 text-sm font-medium text-white shadow transition hover:shadow-lg sm:w-auto"
+                  className="cta-primary"
                 >
                   Kostenloses Erstgespräch vereinbaren
                 </Link>
@@ -248,7 +254,7 @@ export default function Home() {
                   href="/website-check"
                   data-track-event="cta_website_check_click"
                   data-track-label="Home Abschluss Website Check"
-                  className="inline-flex min-h-12 w-full items-center justify-center rounded-full border border-white/25 px-5 py-3 text-sm font-medium text-slate-200 transition hover:bg-white/10 hover:text-white sm:w-auto"
+                  className="cta-secondary"
                 >
                   Website-Check starten
                 </Link>

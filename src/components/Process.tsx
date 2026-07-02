@@ -33,30 +33,28 @@ const steps = [
 
 export default function Process() {
   return (
-    <section id="prozess" className="section section--alt scroll-mt-24">
-      <div className="container">
-        <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-3xl font-semibold tracking-tight text-white md:text-5xl">
+    <section id="prozess" className="section section--quiet scroll-mt-24">
+      <div className="container max-w-6xl">
+        <div className="max-w-4xl">
+          <h2 className="section-title text-white">
             So läuft ein Projekt mit Codavo ab
           </h2>
-          <p className="mt-4 text-sm leading-6 text-slate-300 md:text-base">
+          <p className="lede mt-5 max-w-2xl">
             Sechs nachvollziehbare Schritte sorgen dafür, dass Ziele,
             Entscheidungen und Verantwortlichkeiten transparent bleiben.
           </p>
         </div>
 
-        <ol className="mt-10 grid gap-4 sm:grid-cols-2 lg:mt-12 lg:grid-cols-3 lg:gap-6">
+        <ol className="relative mt-14 grid gap-0 border-l border-white/10 pl-8 md:mt-20 lg:grid-cols-6 lg:border-l-0 lg:border-t lg:pl-0">
           {steps.map((step, index) => (
-            <li key={step.title} className="card h-full">
-              <div className="flex items-center gap-3">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/15 bg-white/5 text-sm font-semibold text-white">
+            <li key={step.title} className="relative pb-10 last:pb-0 lg:px-4 lg:pb-0 lg:pt-10 first:lg:pl-0 last:lg:pr-0">
+              <span className="absolute -left-[3.05rem] top-0 flex h-8 w-8 items-center justify-center rounded-full border border-indigo-300/25 bg-[#0b1324] text-xs font-semibold text-indigo-200 shadow-[0_0_0_6px_#070c18] lg:-top-4 lg:left-4 first:lg:left-0">
                   {index + 1}
-                </span>
-                <h3 className="text-xl font-semibold text-white">
-                  {step.title}
-                </h3>
-              </div>
-              <p className="mt-4 text-sm leading-6 text-slate-300 md:text-base">
+              </span>
+              <h3 className="text-lg font-semibold tracking-tight text-white lg:text-xl">
+                {step.title}
+              </h3>
+              <p className="mt-3 text-sm leading-7 text-slate-400">
                 {step.description}
               </p>
             </li>

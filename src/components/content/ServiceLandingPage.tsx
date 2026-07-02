@@ -91,24 +91,24 @@ export default function ServiceLandingPage({
 
   return (
     <>
-      <main className="min-h-screen overflow-x-hidden pt-24 md:pt-28">
-        <section className="section pt-10 md:pt-14">
-          <div className="container max-w-5xl text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-indigo-300">
+      <main className="min-h-screen overflow-x-hidden pt-20">
+        <section className="section section--feature pt-16 md:pt-24">
+          <div className="container max-w-6xl">
+            <p className="eyebrow">
               {eyebrow}
             </p>
-            <h1 className="mx-auto mt-4 max-w-4xl text-4xl font-semibold tracking-tight text-white md:text-6xl">
+            <h1 className="display-title mt-5 max-w-5xl text-white">
               {h1}
             </h1>
-            <p className="mx-auto mt-6 max-w-3xl text-base leading-7 text-slate-300 md:text-lg">
+            <p className="lede mt-7 max-w-3xl">
               {intro}
             </p>
-            <div className="mx-auto mt-8 flex max-w-md flex-col gap-3 sm:max-w-none sm:flex-row sm:justify-center">
+            <div className="mt-9 flex max-w-md flex-col gap-3 sm:max-w-none sm:flex-row">
               <Link
                 href="/kontakt"
                 data-track-event="cta_contact_click"
                 data-track-label={serviceName + " Hero Kontakt"}
-                className="inline-flex min-h-12 items-center justify-center rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 px-5 py-3 font-medium text-white"
+                className="cta-primary"
               >
                 Kostenloses Erstgespräch vereinbaren
               </Link>
@@ -116,7 +116,7 @@ export default function ServiceLandingPage({
                 href="/website-check"
                 data-track-event="cta_website_check_click"
                 data-track-label={serviceName + " Hero Website Check"}
-                className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/25 px-5 py-3 font-medium text-slate-200 hover:bg-white/10"
+                className="cta-secondary"
               >
                 Website-Check starten
               </Link>
@@ -124,30 +124,31 @@ export default function ServiceLandingPage({
           </div>
         </section>
 
-        <section className="section section--alt">
-          <div className="container max-w-4xl">
-            <div className="rounded-2xl border border-indigo-400/20 bg-indigo-500/10 p-6 md:p-8">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-indigo-300">
+        <section className="section section--quiet">
+          <div className="container max-w-5xl">
+            <div className="grid gap-8 lg:grid-cols-[0.35fr_0.65fr] lg:gap-16">
+              <p className="eyebrow">
                 Direktantwort
               </p>
-              <p className="mt-3 text-lg leading-8 text-white">{directAnswer}</p>
+              <p className="text-xl font-medium leading-9 tracking-tight text-white md:text-2xl md:leading-10">{directAnswer}</p>
             </div>
           </div>
         </section>
 
         <section className="section">
-          <div className="container max-w-5xl">
-            <div className="grid gap-5 md:grid-cols-2">
-              {sections.map((section) => (
-                <article key={section.title} className="card h-full">
-                  <h2 className="text-2xl font-semibold text-white">
+          <div className="container max-w-6xl">
+            <div className="grid gap-5 md:grid-cols-12 lg:gap-6">
+              {sections.map((section, index) => (
+                <article key={section.title} className={`card h-full md:col-span-6 ${index % 3 === 0 ? "lg:col-span-7" : index % 3 === 1 ? "lg:col-span-5" : "lg:col-span-6"}`}>
+                  <span className="text-xs font-semibold tabular-nums text-indigo-300/70">0{index + 1}</span>
+                  <h2 className="mt-8 text-2xl font-semibold tracking-tight text-white md:text-3xl">
                     {section.title}
                   </h2>
-                  <p className="mt-3 text-sm leading-6 text-slate-300 md:text-base">
+                  <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-300 md:text-base">
                     {section.text}
                   </p>
                   {section.bullets ? (
-                    <ul className="mt-5 space-y-2 text-sm leading-6 text-slate-300">
+                    <ul className="mt-6 space-y-3 text-sm leading-7 text-slate-300">
                       {section.bullets.map((bullet) => (
                         <li key={bullet} className="relative pl-5">
                           <span className="absolute left-0 top-2.5 h-1.5 w-1.5 rounded-full bg-indigo-400" />
@@ -163,18 +164,18 @@ export default function ServiceLandingPage({
         </section>
 
         <section className="section section--alt">
-          <div className="container max-w-5xl">
-            <h2 className="text-center text-3xl font-semibold tracking-tight text-white md:text-5xl">
+          <div className="container max-w-6xl">
+            <h2 className="section-title text-center text-white">
               Passende nächste Themen
             </h2>
-            <div className="mt-10 grid gap-4 md:grid-cols-3">
+            <div className="mt-12 grid gap-5 md:grid-cols-3 md:gap-6">
               {relatedLinks.map((link) => (
-                <Link key={link.href} href={link.href} className="card block h-full">
-                  <h3 className="text-lg font-semibold text-white">{link.label}</h3>
-                  <p className="mt-2 text-sm leading-6 text-slate-300">
+                <Link key={link.href} href={link.href} className="card group flex min-h-64 h-full flex-col">
+                  <h3 className="text-xl font-semibold tracking-tight text-white">{link.label}</h3>
+                  <p className="mt-4 text-sm leading-7 text-slate-400">
                     {link.description}
                   </p>
-                  <span className="mt-5 inline-flex text-sm font-medium text-indigo-300">
+                  <span className="mt-auto inline-flex pt-8 text-sm font-medium text-indigo-300 transition group-hover:text-indigo-200">
                     Weiterlesen →
                   </span>
                 </Link>
@@ -183,29 +184,30 @@ export default function ServiceLandingPage({
           </div>
         </section>
 
-        <section className="section">
+        <section className="section section--quiet">
           <div className="container max-w-4xl">
-            <h2 className="text-center text-3xl font-semibold tracking-tight text-white md:text-5xl">
+            <h2 className="section-title text-center text-white">
               Häufige Fragen unserer Kunden
             </h2>
-            <div className="mt-10">
+            <div className="mt-12 md:mt-16">
               <FAQAccordion items={faqs} />
             </div>
           </div>
         </section>
 
-        <section className="section section--alt">
+        <section className="section section--feature">
           <div className="container max-w-5xl">
-            <div className="rounded-2xl border border-indigo-500/40 bg-indigo-500/10 p-6 text-center md:p-10">
-              <h2 className="text-3xl font-semibold text-white md:text-4xl">
+            <div className="relative overflow-hidden rounded-[2rem] border border-indigo-300/20 bg-indigo-400/[0.07] p-7 text-center shadow-[0_35px_100px_rgba(0,0,0,0.25)] md:p-14">
+              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(650px_280px_at_50%_0%,rgba(129,140,248,0.14),transparent_70%)]" />
+              <h2 className="relative text-3xl font-semibold tracking-tight text-white md:text-4xl">
                 {ctaTitle}
               </h2>
-              <p className="mx-auto mt-4 max-w-2xl text-slate-200">{ctaText}</p>
+              <p className="lede relative mx-auto mt-5 max-w-2xl text-slate-200">{ctaText}</p>
               <Link
                 href="/kontakt"
                 data-track-event="cta_contact_click"
                 data-track-label={serviceName + " Abschluss Kontakt"}
-                className="mt-7 inline-flex min-h-12 items-center justify-center rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 px-5 py-3 font-medium text-white"
+                className="cta-primary relative mt-8"
               >
                 Kostenloses Erstgespräch vereinbaren
               </Link>

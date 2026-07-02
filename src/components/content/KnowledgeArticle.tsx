@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import Footer from "@/components/Footer";
 import FAQAccordion, { type FAQItem } from "@/components/FAQAccordion";
 import { ORGANIZATION_ID, SEO_CONFIG } from "@/lib/seo";
@@ -46,21 +47,102 @@ export default function KnowledgeArticle(props: Props) {
       { "@type": "ListItem", position: 3, name: props.h1, item: url },
     ],
   };
+
   return (
     <>
-      <main className="min-h-screen overflow-x-hidden pt-24">
+      <main className="min-h-screen overflow-x-hidden pt-20">
         <article>
-          <header className="section pt-12 text-center">
-            <div className="container max-w-4xl">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-indigo-300">Codavo Wissen</p>
-              <h1 className="mt-4 text-4xl font-semibold tracking-tight text-white md:text-6xl">{props.h1}</h1>
-              <p className="mx-auto mt-6 max-w-3xl text-base leading-7 text-slate-300 md:text-lg">{props.intro}</p>
+          <header className="section section--feature pt-14 md:pt-20">
+            <div className="container max-w-5xl">
+              <Link href="/wissen" className="inline-flex items-center gap-2 text-sm text-slate-400 transition hover:text-white">
+                <ArrowLeft className="h-4 w-4" aria-hidden />
+                Wissen
+              </Link>
+              <p className="eyebrow mt-12">Codavo Wissen</p>
+              <h1 className="display-title mt-5 max-w-5xl text-white">{props.h1}</h1>
+              <p className="lede mt-7 max-w-3xl">{props.intro}</p>
             </div>
           </header>
-          <section className="section section--alt"><div className="container max-w-4xl"><div className="rounded-2xl border border-indigo-400/20 bg-indigo-500/10 p-6 md:p-8"><p className="text-xs font-semibold uppercase tracking-[0.18em] text-indigo-300">Kurzantwort</p><p className="mt-3 text-lg leading-8 text-white">{props.directAnswer}</p></div></div></section>
-          <div className="section"><div className="container max-w-4xl space-y-6">{props.sections.map((section) => <section key={section.title} className="card"><h2 className="text-2xl font-semibold text-white md:text-3xl">{section.title}</h2><p className="mt-4 leading-7 text-slate-300">{section.text}</p>{section.bullets ? <ul className="mt-5 space-y-2 text-slate-300">{section.bullets.map((b) => <li key={b}>• {b}</li>)}</ul> : null}</section>)}</div></div>
-          <section className="section section--alt"><div className="container max-w-4xl"><h2 className="text-center text-3xl font-semibold text-white md:text-5xl">Häufige Fragen</h2><div className="mt-10"><FAQAccordion items={props.faqs} /></div></div></section>
-          <section className="section"><div className="container max-w-4xl"><h2 className="text-2xl font-semibold text-white">Weiterführendes Wissen</h2><div className="mt-5 flex flex-wrap gap-3">{props.related.map((link) => <Link key={link.href} href={link.href} className="rounded-full border border-white/20 px-4 py-2 text-sm text-slate-200 hover:bg-white/10">{link.label}</Link>)}</div><div className="mt-10 rounded-2xl border border-indigo-500/40 bg-indigo-500/10 p-6 text-center"><h2 className="text-2xl font-semibold text-white">Was bedeutet das für Ihre Website?</h2><p className="mt-3 text-slate-300">Im Erstgespräch oder Website-Check ordnen wir die wichtigsten Hebel für Ihr Unternehmen ein.</p><div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row"><Link href="/kontakt" data-track-event="cta_contact_click" data-track-label="Wissen Kontakt" className="rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 px-5 py-3 font-medium text-white">Erstgespräch vereinbaren</Link><Link href="/website-check" data-track-event="cta_website_check_click" data-track-label="Wissen Website Check" className="rounded-full border border-white/25 px-5 py-3 font-medium text-white">Website-Check starten</Link></div></div></div></section>
+
+          <section className="section section--quiet">
+            <div className="container max-w-5xl">
+              <div className="grid gap-10 lg:grid-cols-[0.38fr_0.62fr] lg:gap-16">
+                <div>
+                  <p className="eyebrow">Kurzantwort</p>
+                </div>
+                <p className="text-xl font-medium leading-9 tracking-tight text-white md:text-2xl md:leading-10">
+                  {props.directAnswer}
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <div className="section">
+            <div className="container max-w-5xl">
+              <div className="divide-y divide-white/8 border-y border-white/8">
+                {props.sections.map((section, index) => (
+                  <section key={section.title} className="grid gap-6 py-10 md:py-14 lg:grid-cols-[0.12fr_0.88fr] lg:gap-10">
+                    <span className="text-xs font-semibold tabular-nums text-indigo-300/70">0{index + 1}</span>
+                    <div>
+                      <h2 className="max-w-3xl text-2xl font-semibold leading-tight tracking-tight text-white md:text-3xl">
+                        {section.title}
+                      </h2>
+                      <p className="mt-5 max-w-3xl text-base leading-8 text-slate-300">
+                        {section.text}
+                      </p>
+                      {section.bullets ? (
+                        <ul className="mt-7 grid gap-3 text-sm leading-7 text-slate-300 sm:grid-cols-2">
+                          {section.bullets.map((bullet) => (
+                            <li key={bullet} className="flex items-start gap-3 rounded-xl border border-white/8 bg-white/[0.025] px-4 py-3">
+                              <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-400" />
+                              {bullet}
+                            </li>
+                          ))}
+                        </ul>
+                      ) : null}
+                    </div>
+                  </section>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <section className="section section--alt">
+            <div className="container max-w-4xl">
+              <h2 className="section-title text-center text-white">Häufige Fragen</h2>
+              <div className="mt-12 md:mt-16">
+                <FAQAccordion items={props.faqs} />
+              </div>
+            </div>
+          </section>
+
+          <section className="section section--quiet">
+            <div className="container max-w-5xl">
+              <div className="grid gap-10 lg:grid-cols-[0.42fr_0.58fr] lg:gap-16">
+                <div>
+                  <h2 className="text-2xl font-semibold tracking-tight text-white">Weiterführendes Wissen</h2>
+                </div>
+                <div className="divide-y divide-white/8 border-y border-white/8">
+                  {props.related.map((link) => (
+                    <Link key={link.href} href={link.href} className="group flex items-center justify-between gap-4 py-5 text-slate-200 transition hover:text-white">
+                      <span>{link.label}</span>
+                      <ArrowUpRight className="h-4 w-4 text-slate-500 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-indigo-300" aria-hidden />
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              <div className="relative mt-16 overflow-hidden rounded-[2rem] border border-indigo-300/20 bg-indigo-400/[0.07] p-7 text-center md:p-12">
+                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(600px_250px_at_50%_0%,rgba(129,140,248,0.13),transparent_70%)]" />
+                <h2 className="relative text-2xl font-semibold tracking-tight text-white md:text-3xl">Was bedeutet das für Ihre Website?</h2>
+                <p className="relative mx-auto mt-4 max-w-2xl leading-7 text-slate-300">Im Erstgespräch oder Website-Check ordnen wir die wichtigsten Hebel für Ihr Unternehmen ein.</p>
+                <div className="relative mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+                  <Link href="/kontakt" data-track-event="cta_contact_click" data-track-label="Wissen Kontakt" className="cta-primary">Erstgespräch vereinbaren</Link>
+                  <Link href="/website-check" data-track-event="cta_website_check_click" data-track-label="Wissen Website Check" className="cta-secondary">Website-Check starten</Link>
+                </div>
+              </div>
+            </div>
+          </section>
         </article>
       </main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />

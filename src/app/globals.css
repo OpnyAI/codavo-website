@@ -3,6 +3,11 @@
 /* ===== Base Theme (Dark + Vivid Gradients) ===== */
 :root {
   color-scheme: dark;
+  --surface: #070c18;
+  --surface-raised: rgba(15, 23, 42, 0.72);
+  --line: rgba(255, 255, 255, 0.09);
+  --muted: #a8b2c3;
+  --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 html,
@@ -20,6 +25,12 @@ body {
     "ss02" on,
     "ss03" on,
     "cv11" on;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: rgba(129, 140, 248, 0.32);
+  color: #fff;
 }
 
 /* Links neutral halten */
@@ -31,9 +42,18 @@ a:hover {
   text-decoration: none;
 }
 
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid rgba(165, 180, 252, 0.9);
+  outline-offset: 4px;
+}
+
 /* ===== Layout Helpers (ohne @apply für v4-Kompatibilität) ===== */
 .container {
-  max-width: 72rem; /* 1152px */
+  max-width: 76rem;
   margin-left: auto;
   margin-right: auto;
   padding-left: 1.5rem; /* 24px */
@@ -48,8 +68,8 @@ a:hover {
 .section {
   position: relative;
   isolation: isolate;
-  padding-top: 6rem; /* 96px */
-  padding-bottom: 6rem;
+  padding-top: clamp(5.5rem, 9vw, 8rem);
+  padding-bottom: clamp(5.5rem, 9vw, 8rem);
 }
 
 /* Content immer über dem Band */
@@ -69,56 +89,37 @@ a:hover {
   pointer-events: none;
   z-index: -1;
 
-  background:
-    linear-gradient(
-      to bottom,
-      rgba(255, 255, 255, 0.02),
-      rgba(0, 0, 0, 0.14),
-      rgba(255, 255, 255, 0.01)
-    ),
-    radial-gradient(
-      1100px 600px at 50% 18%,
-      rgba(99, 102, 241, 0.14),
-      rgba(139, 92, 246, 0.07) 42%,
-      transparent 72%
-    ),
-    radial-gradient(
-      900px 520px at 12% 35%,
-      rgba(99, 102, 241, 0.06),
-      transparent 64%
-    ),
-    radial-gradient(
-      900px 520px at 88% 35%,
-      rgba(139, 92, 246, 0.05),
-      transparent 64%
-    );
+  background: radial-gradient(
+    900px 520px at 50% 12%,
+    rgba(99, 102, 241, 0.075),
+    transparent 70%
+  );
 }
 
 /* Variante: Glow-Schwerpunkt tiefer/unten */
 .section--alt::before {
   background:
-    linear-gradient(
-      to bottom,
-      rgba(255, 255, 255, 0.02),
-      rgba(0, 0, 0, 0.16),
-      rgba(255, 255, 255, 0.01)
-    ),
+    linear-gradient(to bottom, rgba(9, 15, 28, 0.82), rgba(8, 13, 25, 0.96)),
     radial-gradient(
-      1100px 650px at 50% 82%,
-      rgba(99, 102, 241, 0.12),
-      rgba(139, 92, 246, 0.06) 44%,
-      transparent 74%
-    ),
-    radial-gradient(
-      900px 520px at 12% 70%,
-      rgba(99, 102, 241, 0.05),
-      transparent 64%
-    ),
-    radial-gradient(
-      900px 520px at 88% 70%,
-      rgba(139, 92, 246, 0.045),
-      transparent 66%
+      1050px 620px at 82% 50%,
+      rgba(99, 102, 241, 0.1),
+      transparent 72%
     );
+}
+
+.section--quiet::before {
+  background: linear-gradient(to bottom, rgba(7, 12, 24, 0.55), rgba(7, 12, 24, 0.9));
+}
+
+.section--feature {
+  padding-top: clamp(6.5rem, 11vw, 10rem);
+  padding-bottom: clamp(6.5rem, 11vw, 10rem);
+}
+
+.section--feature::before {
+  background:
+    radial-gradient(950px 600px at 18% 30%, rgba(99, 102, 241, 0.13), transparent 68%),
+    linear-gradient(145deg, rgba(10, 16, 31, 0.98), rgba(7, 12, 24, 0.72));
 }
 
 /* Hairline Divider (unten) – klare Section-Trennung */
@@ -136,30 +137,111 @@ a:hover {
   background: linear-gradient(
     to right,
     transparent,
-    rgba(148, 163, 184, 0.18),
-    rgba(255, 255, 255, 0.06),
+    rgba(148, 163, 184, 0.11),
+    rgba(255, 255, 255, 0.035),
     transparent
   );
 }
 
 /* ===== UI Primitives ===== */
 .card {
-  border-radius: 1rem; /* 16px */
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(17, 24, 39, 0.6); /* near #111827 with alpha */
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  padding: 2rem; /* 32px */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  border-radius: 1.5rem;
+  border: 1px solid var(--line);
+  background: linear-gradient(145deg, rgba(19, 28, 48, 0.72), rgba(11, 18, 33, 0.68));
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.04) inset,
+    0 24px 70px rgba(0, 0, 0, 0.18);
   transition:
-    transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
-    box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 0.35s var(--ease-premium),
+    box-shadow 0.35s var(--ease-premium),
+    border-color 0.35s ease,
     background-color 0.35s ease;
 }
 .card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
-  background: rgba(17, 24, 39, 0.72);
+  transform: translateY(-2px);
+  border-color: rgba(165, 180, 252, 0.2);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.055) inset,
+    0 30px 80px rgba(0, 0, 0, 0.24);
+}
+
+.eyebrow {
+  font-size: 0.72rem;
+  font-weight: 650;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #a5b4fc;
+}
+
+.display-title {
+  font-size: clamp(2.25rem, 5.2vw, 4.25rem);
+  font-weight: 650;
+  line-height: 0.99;
+  letter-spacing: -0.055em;
+  text-wrap: balance;
+}
+
+.section-title {
+  font-size: clamp(2rem, 4.5vw, 4rem);
+  font-weight: 620;
+  line-height: 1.04;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+}
+
+.lede {
+  color: var(--muted);
+  font-size: clamp(1rem, 1.5vw, 1.16rem);
+  line-height: 1.75;
+  text-wrap: pretty;
+}
+
+.cta-primary,
+.cta-secondary {
+  display: inline-flex;
+  min-height: 3.25rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  padding: 0.8rem 1.4rem;
+  font-size: 0.92rem;
+  font-weight: 620;
+  line-height: 1.2;
+  max-width: 100%;
+  text-align: center;
+  white-space: normal;
+  transition:
+    transform 0.25s var(--ease-premium),
+    box-shadow 0.25s var(--ease-premium),
+    border-color 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.cta-primary {
+  color: white;
+  background: linear-gradient(100deg, #6366f1, #8b5cf6 52%, #d946ef);
+  box-shadow: 0 12px 32px rgba(99, 102, 241, 0.27);
+}
+
+.cta-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 17px 40px rgba(99, 102, 241, 0.34);
+}
+
+.cta-secondary {
+  color: #f1f5f9;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.035);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset;
+}
+
+.cta-secondary:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.07);
 }
 
 .btn {
@@ -245,12 +327,51 @@ a:hover {
 @keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(10px) scale(1.02);
+    transform: translateY(12px);
   }
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
   }
+}
+
+@media (max-width: 639px) {
+  .container {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  .cta-primary,
+  .cta-secondary {
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Keep adjacent homepage sections in normal flow without a doubled spacer. */
+.section--codavo-flow {
+  padding-bottom: clamp(4rem, 6vw, 6rem);
+}
+
+.section--services-flow {
+  padding-top: clamp(4rem, 6vw, 6rem);
 }
 .no-scrollbar::-webkit-scrollbar {
   display: none;

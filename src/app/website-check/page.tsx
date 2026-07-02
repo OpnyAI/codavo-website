@@ -424,14 +424,20 @@ export default function WebsiteCheckPage() {
                   className="card flex h-full flex-col overflow-hidden p-0"
                 >
                   <div className="relative aspect-[16/10] border-b border-white/10">
-                    <Image
-                      src={reference.img || "/og.jpg"}
-                      alt={reference.alt || reference.title}
-                      fill
-                      sizes="(max-width: 1024px) 100vw, 33vw"
-                      className="object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#050816] via-[#050816]/25 to-transparent" />
+                    {reference.img ? (
+                      <>
+                        <Image
+                          src={reference.img}
+                          alt={reference.alt || reference.title}
+                          fill
+                          sizes="(max-width: 1024px) 100vw, 33vw"
+                          className="object-cover"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#050816] via-[#050816]/25 to-transparent" />
+                      </>
+                    ) : (
+                      <div className="absolute inset-0 bg-[radial-gradient(500px_260px_at_30%_20%,rgba(99,102,241,0.16),transparent_70%),linear-gradient(145deg,rgba(15,23,42,0.9),rgba(7,12,24,0.95))]" />
+                    )}
                   </div>
                   <div className="flex flex-1 flex-col p-6">
                     <h3 className="text-xl font-semibold text-white">
