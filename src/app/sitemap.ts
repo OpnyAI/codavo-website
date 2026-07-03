@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { locationProfiles } from "@/lib/locations";
 import { SEO_CONFIG } from "@/lib/seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -26,12 +27,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: "2026-07-02",
       changeFrequency: "monthly",
       priority: 0.8,
-    },
-    {
-      url: `${SEO_CONFIG.domain}/webdesign-stuttgart`,
-      lastModified: "2026-07-02",
-      changeFrequency: "monthly",
-      priority: 0.7,
     },
     {
       url: `${SEO_CONFIG.domain}/web-app-entwicklung`,
@@ -93,6 +88,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.8,
     },
+    {
+      url: `${SEO_CONFIG.domain}/standorte`,
+      lastModified: "2026-07-03",
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    ...locationProfiles.map((location) => ({
+      url: `${SEO_CONFIG.domain}/standorte/${location.slug}`,
+      lastModified: "2026-07-03",
+      changeFrequency: "monthly" as const,
+      priority: 0.65,
+    })),
     ...[
       "was-kostet-eine-website",
       "seo-aeo-llmo",

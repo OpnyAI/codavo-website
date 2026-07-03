@@ -128,39 +128,3 @@ export const globalStructuredData = {
     },
   ],
 };
-
-export const webdesignStuttgartServiceJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "@id": `${SEO_CONFIG.domain}/webdesign-stuttgart#service`,
-  name: "Webdesign für Unternehmen im Raum Stuttgart",
-  url: `${SEO_CONFIG.domain}/webdesign-stuttgart`,
-  description:
-    "Webdesign und Website-Relaunch für Unternehmen im Raum Stuttgart, erbracht durch Codavo Webstudio mit Geschäftssitz in Berglen.",
-  provider: { "@id": ORGANIZATION_ID },
-  areaServed: [
-    { "@type": "City", name: "Stuttgart" },
-    { "@type": "AdministrativeArea", name: "Region Stuttgart" },
-    { "@type": "AdministrativeArea", name: "Rems-Murr-Kreis" },
-  ],
-  hasOfferCatalog: {
-    "@type": "OfferCatalog",
-    name: "Webdesign-Leistungen für die Region Stuttgart",
-    itemListElement: [
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Neue Unternehmenswebsite",
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Website-Relaunch",
-        },
-      },
-    ],
-  },
-};

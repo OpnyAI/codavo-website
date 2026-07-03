@@ -6,7 +6,6 @@ import TrackedContactLink from "@/components/TrackedContactLink";
 const serviceLinks = [
   ["/leistungen", "Leistungen"],
   ["/webdesign", "Webdesign"],
-  ["/webdesign-stuttgart", "Webdesign Stuttgart"],
   ["/landingpage-erstellen-lassen", "Landingpage erstellen lassen"],
   ["/funnel-erstellen-lassen", "Funnel erstellen lassen"],
   ["/web-app-entwicklung", "Web App Entwicklung"],
@@ -15,11 +14,26 @@ const serviceLinks = [
   ["/hosting-wartung", "Hosting & Wartung"],
 ] as const;
 
+const locationLinks = [
+  ["/standorte/berlin", "Berlin"],
+  ["/standorte/hamburg", "Hamburg"],
+  ["/standorte/muenchen", "München"],
+  ["/standorte/koeln", "Köln"],
+  ["/standorte/frankfurt", "Frankfurt"],
+  ["/standorte/stuttgart", "Stuttgart"],
+  ["/standorte/duesseldorf", "Düsseldorf"],
+  ["/standorte/leipzig", "Leipzig"],
+  ["/standorte/dortmund", "Dortmund"],
+  ["/standorte/essen", "Essen"],
+  ["/standorte/hannover", "Hannover"],
+  ["/standorte/nuernberg", "Nürnberg"],
+] as const;
+
 export default function Footer() {
   return (
     <footer role="contentinfo" className="border-t border-white/8 bg-[#060a13] text-sm text-slate-400">
       <div className="container max-w-7xl py-16 md:py-20">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.2fr_1fr_0.8fr_0.9fr] lg:gap-10 xl:gap-16">
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-[1.2fr_1fr_0.8fr_0.8fr_1.15fr] xl:gap-10 2xl:gap-12">
           <div className="max-w-sm">
             <Image
               src="/images/logo/codavo-logo-light.png"
@@ -88,6 +102,26 @@ export default function Footer() {
 
           <div>
             <h4 className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-200">
+              Standorte
+            </h4>
+            <ul className="mt-6 space-y-3.5">
+              {locationLinks.map(([href, label]) => (
+                <li key={href}>
+                  <Link href={href} className="transition hover:text-white">
+                    {label}
+                  </Link>
+                </li>
+              ))}
+              <li className="pt-1">
+                <Link href="/standorte" className="font-medium text-indigo-300 transition hover:text-white">
+                  Alle Standorte →
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-200">
               Kontakt
             </h4>
             <ul className="mt-6 space-y-3.5 leading-6">
@@ -107,7 +141,7 @@ export default function Footer() {
                   url="mailto:kontakt@codavo-webstudio.de"
                   dataTrackEvent="cta_contact_click"
                   dataTrackLabel="Footer E-Mail"
-                  className="break-all transition hover:text-white"
+                  className="max-w-full break-words text-left text-xs leading-5 transition [overflow-wrap:anywhere] hover:text-white xl:text-sm"
                   contactMethod="email"
                 >
                   kontakt@codavo-webstudio.de
