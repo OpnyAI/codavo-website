@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
 import Footer from "@/components/Footer";
 import FAQAccordion, { type FAQItem } from "@/components/FAQAccordion";
 import { ORGANIZATION_ID, SEO_CONFIG } from "@/lib/seo";
@@ -28,6 +29,7 @@ type Props = {
   serviceDescription: string;
   ctaTitle?: string;
   ctaText?: string;
+  beforeFaq?: ReactNode;
 };
 
 export default function ServiceLandingPage({
@@ -43,6 +45,7 @@ export default function ServiceLandingPage({
   serviceDescription,
   ctaTitle = "Lassen Sie uns Ihr Projekt sinnvoll einordnen.",
   ctaText = "Im kostenlosen Erstgespräch klären wir Ziel, Umfang und den wirtschaftlich passenden nächsten Schritt.",
+  beforeFaq,
 }: Props) {
   const pageUrl = SEO_CONFIG.domain + path;
   const faqJsonLd = {
@@ -162,6 +165,8 @@ export default function ServiceLandingPage({
             </div>
           </div>
         </section>
+
+        {beforeFaq}
 
         <section className="section section--alt">
           <div className="container max-w-6xl">

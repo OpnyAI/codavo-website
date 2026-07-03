@@ -1,4 +1,5 @@
 import ServiceLandingPage from "@/components/content/ServiceLandingPage";
+import ProjectSizeSection from "@/components/pricing/ProjectSizeSection";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
@@ -11,7 +12,7 @@ export const metadata = createPageMetadata({
 const faqs = [
   { q: "Was sind individuelle Softwarelösungen für KMU?", a: "Das sind webbasierte Systeme, die auf einen konkreten Prozess, vorhandene Daten und die Rollen eines mittelständischen Unternehmens zugeschnitten werden." },
   { q: "Wann lohnt sich individuelle Software?", a: "Sie lohnt sich, wenn ein relevanter Ablauf dauerhaft durch Tabellen, E-Mails oder unpassende Standardsoftware gebremst wird und der erwartete Nutzen den Entwicklungsaufwand rechtfertigt." },
-  { q: "Was kostet individuelle Softwareentwicklung?", a: "Die Kosten hängen von Funktionen, Rollen, Daten, Schnittstellen und Betriebsanforderungen ab. Nach der Analyse erhalten Sie einen priorisierten Umfang und einen nachvollziehbaren Budgetrahmen." },
+  { q: "Was kostet individuelle Softwareentwicklung bei Codavo?", a: "Individuelle Softwareprojekte starten bei Codavo ab 14.900 €. Typische Projektgrößen liegen je nach Umfang häufig zwischen 20.000 € und 50.000 €. Enterprise-Projekte mit komplexen Integrationen, Dashboards oder mehreren Nutzerrollen starten ab 50.000 €. Der finale Umfang richtet sich nach den konkreten Anforderungen." },
   { q: "Welche Prozesse können digitalisiert werden?", a: "Zum Beispiel Angebotsabläufe, Kundenportale, Freigaben, Statusverfolgung, Dokumentenaustausch, interne Aufgaben oder strukturierte Datenerfassung." },
   { q: "Ist individuelle Software besser als Standardsoftware?", a: "Nicht grundsätzlich. Standardsoftware ist sinnvoll, wenn sie den Prozess bereits gut abbildet. Individuelle Entwicklung lohnt sich bei spezifischen, geschäftlich relevanten Anforderungen." },
   { q: "Kann Codavo bestehende Systeme anbinden?", a: "Ja, wenn geeignete Schnittstellen vorhanden sind. Vor der Umsetzung prüfen wir Datenfluss, Verantwortlichkeiten und technische Grenzen." },
@@ -37,6 +38,7 @@ export default function SoftwarePage() {
         { title: "Schrittweise Umsetzung", text: "Ein priorisierter erster Umfang reduziert Projektrisiko. Weitere Module folgen auf Basis realer Nutzung und wirtschaftlicher Prioritäten." },
         { title: "Langfristiger Betrieb", text: "Wartbare Architektur, dokumentierte Schnittstellen und ein geregelter Betrieb schaffen die Grundlage für verlässliche Weiterentwicklung." },
       ]}
+      beforeFaq={<ProjectSizeSection />}
       relatedLinks={[
         { href: "/web-app-entwicklung", label: "Web-App Entwicklung", description: "Portale, Dashboards und interne Tools." },
         { href: "/hosting-wartung", label: "Hosting und Wartung", description: "Betrieb und technische Betreuung." },

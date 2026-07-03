@@ -3,10 +3,10 @@ export const knowledgeArticles = {
     title: "Was kostet eine professionelle Website?",
     description: "Kosten, Pakete und Preisfaktoren professioneller Unternehmenswebsites verständlich erklärt.",
     intro: "Die Kosten einer Website hängen nicht nur von der Seitenzahl ab, sondern von Strategie, Inhalten, Gestaltung, Technik und Funktionen.",
-    answer: "Bei Codavo startet eine professionelle Unternehmenswebsite im Launch-Paket ab 4.900 €. Growth beginnt ab 7.900 €, Growth Plus ab 14.900 €. Der finale Preis richtet sich nach Umfang und Funktionen.",
+    answer: "Bei Codavo startet eine professionelle Unternehmenswebsite im Launch-Paket ab 4.900 €. Growth beginnt ab 7.900 €, Enterprise ab 14.900 €. Der finale Preis richtet sich nach Umfang und Funktionen.",
     sections: [
       { title: "Welche Faktoren bestimmen den Preis?", text: "Seitenstruktur, Content, UX/UI, technische Funktionen, Schnittstellen und Betreuung bestimmen den Aufwand stärker als eine pauschale Seitenzahl.", bullets: ["Strategie und Positionierung", "Design und Content-Struktur", "Funktionen und Integrationen", "SEO-, AEO- und LLMO-Grundlagen"] },
-      { title: "Launch, Growth oder Growth Plus?", text: "Launch schafft eine professionelle Grundlage. Growth ergänzt Leistungsseiten und Conversion-Struktur. Growth Plus deckt Funnel und individuelle Funktionen ab." },
+      { title: "Launch, Growth oder Enterprise?", text: "Launch schafft eine professionelle Grundlage. Growth ergänzt Leistungsseiten und Conversion-Struktur. Enterprise deckt Funnel und individuelle Funktionen ab." },
       { title: "Warum Angebote stark variieren", text: "Baukasten, Template-Anpassung und individuelle Entwicklung lösen unterschiedliche Aufgaben. Ein sinnvoller Vergleich betrachtet Ergebnis, Wartbarkeit und Erweiterbarkeit." },
     ],
     faqs: [

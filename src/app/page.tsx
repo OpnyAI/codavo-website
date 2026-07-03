@@ -87,7 +87,7 @@ const solutions = [
 const homeFaqs = [
   {
     q: "Was kostet eine professionelle Website bei Codavo?",
-    a: "Eine professionelle Unternehmenswebsite startet bei Codavo im Launch-Paket ab 4.900 €. Der finale Preis hängt vom Umfang, der Seitenstruktur, den Funktionen und dem gewünschten Betreuungsmodell ab. Growth ist ab 7.900 € vorgesehen, Growth Plus beginnt ab 14.900 €.",
+    a: "Eine professionelle Unternehmenswebsite startet bei Codavo im Launch-Paket ab 4.900 €. Der finale Preis hängt vom Umfang, der Seitenstruktur, den Funktionen und dem gewünschten Betreuungsmodell ab. Growth ist ab 7.900 € vorgesehen, Enterprise beginnt ab 14.900 €.",
     link: {
       href: "/kontakt" as const,
       label: "Kostenloses Erstgespräch vereinbaren",
