@@ -181,7 +181,7 @@ export default function Page() {
                   <Link
                     key={cluster.title}
                     href={cluster.href}
-                    className="group min-w-0 cursor-pointer rounded-3xl border border-white/8 bg-white/[0.025] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] transition duration-300 hover:-translate-y-0.5 hover:border-indigo-300/20 hover:bg-white/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#070C18]"
+                    className="group flex h-full min-w-0 cursor-pointer flex-col rounded-3xl border border-white/8 bg-white/[0.025] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] transition duration-300 hover:-translate-y-0.5 hover:border-indigo-300/20 hover:bg-white/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#070C18]"
                   >
                     <div className="flex items-start justify-between gap-4">
                       <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-indigo-300/15 bg-indigo-400/[0.08] text-indigo-300">
@@ -191,13 +191,15 @@ export default function Page() {
                         {count} {count === 1 ? "Artikel" : "Artikel"}
                       </span>
                     </div>
-                    <h2 className="mt-6 text-lg font-semibold leading-tight tracking-tight text-white">
-                      {cluster.title}
-                    </h2>
-                    <p className="mt-3 text-sm leading-7 text-slate-400">
-                      {cluster.description}
-                    </p>
-                    <span className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-indigo-300 transition group-hover:text-indigo-200">
+                    <div className="flex flex-1 flex-col">
+                      <h2 className="mt-6 text-lg font-semibold leading-tight tracking-tight text-white">
+                        {cluster.title}
+                      </h2>
+                      <p className="mt-3 text-sm leading-7 text-slate-400">
+                        {cluster.description}
+                      </p>
+                    </div>
+                    <span className="mt-auto inline-flex items-center gap-2 pt-5 text-sm font-medium text-indigo-300 transition group-hover:text-indigo-200">
                       Zum Themenbereich <span aria-hidden>→</span>
                     </span>
                   </Link>

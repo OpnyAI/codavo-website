@@ -25,6 +25,11 @@ export default function CasesPage() {
               Übersicht: reale Projekte aus unterschiedlichen Branchen, jeweils
               mit klarem Problem, sauberer Lösung und sichtbarem Ergebnis.
             </p>
+            <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-400">
+              Wir zeigen bewusst keine erfundenen Erfolgskennzahlen. Entscheidend
+              sind nachvollziehbare Ausgangslagen, saubere Umsetzung und ein
+              professioneller digitaler Auftritt.
+            </p>
           </div>
         </section>
 
@@ -78,7 +83,19 @@ export default function CasesPage() {
                       ) : null}
                     </div>
 
-                    <div className="mt-4 grid gap-4 text-sm text-slate-200 md:grid-cols-3">
+                    <div className="mt-6 grid gap-4 text-sm text-slate-200 md:grid-cols-3">
+                      <div>
+                        <div className="text-slate-400 text-xs uppercase tracking-wider">
+                          Ausgangslage
+                        </div>
+                        <p className="mt-1">{c.background}</p>
+                      </div>
+                      <div>
+                        <div className="text-slate-400 text-xs uppercase tracking-wider">
+                          Ziel
+                        </div>
+                        <p className="mt-1">{c.goal}</p>
+                      </div>
                       <div>
                         <div className="text-slate-400 text-xs uppercase tracking-wider">
                           Problem
@@ -90,6 +107,18 @@ export default function CasesPage() {
                           Lösung
                         </div>
                         <p className="mt-1">{c.solution}</p>
+                      </div>
+                      <div>
+                        <div className="text-slate-400 text-xs uppercase tracking-wider">
+                          Codavo-Leistung
+                        </div>
+                        <p className="mt-1">{c.codavoWork}</p>
+                      </div>
+                      <div>
+                        <div className="text-slate-400 text-xs uppercase tracking-wider">
+                          Fachliche Entscheidung
+                        </div>
+                        <p className="mt-1">{c.decision}</p>
                       </div>
                       <div>
                         <div className="text-slate-400 text-xs uppercase tracking-wider">
