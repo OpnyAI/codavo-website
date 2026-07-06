@@ -1,3 +1,4 @@
+import Link from "next/link";
 import ServiceLandingPage from "@/components/content/ServiceLandingPage";
 import ProjectSizeSection from "@/components/pricing/ProjectSizeSection";
 import { createPageMetadata } from "@/lib/seo";
@@ -38,7 +39,7 @@ export default function SoftwarePage() {
         { title: "Schrittweise Umsetzung", text: "Ein priorisierter erster Umfang reduziert Projektrisiko. Weitere Module folgen auf Basis realer Nutzung und wirtschaftlicher Prioritäten." },
         { title: "Langfristiger Betrieb", text: "Wartbare Architektur, dokumentierte Schnittstellen und ein geregelter Betrieb schaffen die Grundlage für verlässliche Weiterentwicklung." },
       ]}
-      beforeFaq={<ProjectSizeSection />}
+      beforeFaq={<><ProjectSizeSection /><section className="section section--quiet"><div className="container max-w-6xl"><p className="eyebrow">Arbeitsweise</p><h2 className="section-title mt-5 text-white">Qualität entsteht nicht zufällig</h2><div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">{["Ziele, Rollen und Anforderungen klären", "Prozesse und Datenflüsse nachvollziehbar machen", "Nutzerführung und Bedienlogik planen", "Individuell entwickeln statt Standardabläufe erzwingen", "Schnittstellen und technische Grenzen früh prüfen", "Performance und Stabilität berücksichtigen", "Qualitätssicherung vor dem Launch", "Betreuung und Weiterentwicklung einplanen"].map((item) => (<div key={item} className="rounded-2xl border border-white/8 bg-white/[0.025] p-5 text-sm leading-7 text-slate-300">{item}</div>))}</div></div></section><section className="section section--quiet"><div className="container max-w-5xl"><p className="eyebrow">Software im Unternehmenssystem</p><h2 className="section-title mt-5 text-white">Wenn Software mehrere Abläufe verbindet</h2><p className="lede mt-6 max-w-3xl">Individuelle Software wird besonders wertvoll, wenn sie nicht isoliert entsteht, sondern Web-Apps, Websites, Funnels, Daten und Automatisierungen sinnvoll verbindet.</p><p className="mt-5 max-w-3xl text-sm leading-7 text-slate-400 md:text-base">Für solche übergreifenden Zusammenhänge lohnt sich der Blick auf die <Link href="/digitale-systeme" className="font-medium text-indigo-300 transition hover:text-white">Architektur digitaler Unternehmenssysteme</Link>.</p></div></section></>}
       relatedLinks={[
         { href: "/web-app-entwicklung", label: "Web-App Entwicklung", description: "Portale, Dashboards und interne Tools." },
         { href: "/hosting-wartung", label: "Hosting und Wartung", description: "Betrieb und technische Betreuung." },

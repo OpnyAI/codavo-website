@@ -12,9 +12,9 @@ import {
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
-  title: "Professionelle Unternehmenswebsites | Codavo Webstudio",
+  title: "Codavo Webstudio | Websites, Funnel & Software",
   description:
-    "Codavo entwickelt individuelle Unternehmenswebsites, Landingpages und Funnel für mehr Vertrauen, qualifizierte Anfragen und Sichtbarkeit bei Google und KI-Systemen.",
+    "Codavo entwickelt Websites, Landingpages, Funnel und webbasierte Software für Unternehmen, die sichtbarer werden, Anfragen erhöhen und Prozesse vereinfachen möchten.",
 });
 
 const problems = [

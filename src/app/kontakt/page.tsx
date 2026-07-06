@@ -19,24 +19,26 @@ export default function KontaktPage() {
             Kontakt
           </h1>
           <p className="mt-4 text-slate-300 max-w-2xl">
-            Du möchtest eine neue Website, einen Relaunch oder eine individuelle
-            Web-App umsetzen? Codavo Webstudio arbeitet mit Kund:innen in Stuttgart,
-            deutschlandweit und in der gesamten DACH-Region. Je nach Umfang ist dein
-            Projekt in der Regel innerhalb von{" "}
-            <span className="font-semibold text-white">1-4 Wochen</span> online -
-            mit klarer UX, performanter Technik und sauberem Setup.
+            Sie möchten eine neue Website, einen Relaunch, eine Web-App oder ein
+            digitales System einordnen? Codavo Webstudio arbeitet mit Unternehmen
+            in Stuttgart, deutschlandweit und in der gesamten DACH-Region.
           </p>
           <p className="mt-4 text-slate-300 max-w-2xl">
-            Am direktesten erreichst du uns per Telefon oder WhatsApp. Alternativ
-            kannst du uns auch bequem per E-Mail schreiben.
+            Je nach Projektumfang unterscheiden sich Analyse, Konzeption,
+            Entwicklung und Umsetzung. Im Erstgespräch klären wir gemeinsam Ziel,
+            Budgetrahmen, passenden Projektumfang und einen realistischen Zeitplan.
+          </p>
+          <p className="mt-4 text-slate-300 max-w-2xl">
+            Telefon, WhatsApp oder E-Mail eignen sich für eine erste Zielklärung,
+            konkrete Rückfragen oder den nächsten sinnvollen Schritt.
           </p>
 
           <div className="mt-10 grid gap-6 md:grid-cols-3">
             <div className="card">
               <h2 className="text-lg font-semibold text-white">Telefon</h2>
               <p className="mt-2 text-sm text-slate-300">
-                Direkt und persönlich - ideal für ein kurzes erstes Kennenlernen
-                oder Rückfragen zum Projekt.
+                Für ein unverbindliches Erstgespräch, eine erste Zielklärung oder
+                Rückfragen zum passenden Projektumfang.
               </p>
               <TrackedContactLink
                 url="tel:+4915111956479"
@@ -52,8 +54,8 @@ export default function KontaktPage() {
             <div className="card">
               <h2 className="text-lg font-semibold text-white">WhatsApp</h2>
               <p className="mt-2 text-sm text-slate-300">
-                Schnelle Projektanfrage, Sprachnachricht oder ein Link zur
-                bestehenden Website - alles bequem per Chat.
+                Für kurze Rückfragen, einen Link zur bestehenden Website oder die
+                Abstimmung eines nächsten sinnvollen Schritts.
               </p>
               <TrackedContactLink
                 url="https://wa.me/4915111956479"
@@ -69,8 +71,8 @@ export default function KontaktPage() {
             <div className="card">
               <h2 className="text-lg font-semibold text-white">E-Mail</h2>
               <p className="mt-2 text-sm text-slate-300">
-                Ideal, wenn du bereits ein Briefing, ein PDF oder konkrete
-                Anforderungen teilen möchtest.
+                Sinnvoll, wenn Sie bereits ein Briefing, ein PDF, Anforderungen
+                oder einen Budgetrahmen teilen möchten.
               </p>
               <TrackedContactLink
                 url="mailto:kontakt@codavo-webstudio.de"
@@ -85,10 +87,10 @@ export default function KontaktPage() {
           </div>
 
           <p className="mt-8 text-xs text-slate-500 max-w-2xl">
-            Hinweis: Mit deiner Kontaktaufnahme per Telefon, E-Mail oder WhatsApp
-            verarbeiten wir deine Angaben ausschließlich zur Beantwortung deiner
+            Hinweis: Mit Ihrer Kontaktaufnahme per Telefon, E-Mail oder WhatsApp
+            verarbeiten wir Ihre Angaben ausschließlich zur Beantwortung Ihrer
             Anfrage und zur Vorbereitung bzw. Durchführung eines möglichen Projekts.
-            Details findest du in unserer{" "}
+            Details finden Sie in unserer{" "}
             <Link
               href="/datenschutz"
               className="underline underline-offset-2 hover:text-white"

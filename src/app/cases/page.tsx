@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import Footer from "@/components/Footer";
 import { caseStudies } from "@/components/case-studies-data";
 import { createPageMetadata } from "@/lib/seo";
@@ -7,7 +8,7 @@ export const metadata = createPageMetadata({
   path: "/cases",
   title: "Case Studies | Codavo Webstudio",
   description:
-    "Ausgewählte Projekte und Ergebnisse: Websites, Softwarelösungen und Systeme, die Prozesse automatisieren und Wachstum messbar machen.",
+    "Ausgewählte Codavo-Projekte aus Webdesign, Landingpages, Software und digitalen Systemen – mit Fokus auf Ausgangslage, Lösung und Umsetzung.",
 });
 
 export default function CasesPage() {
@@ -97,10 +98,58 @@ export default function CasesPage() {
                         <p className="mt-1">{c.result}</p>
                       </div>
                     </div>
+
+                    {c.serviceLinks?.length ? (
+                      <div className="mt-6 flex flex-wrap gap-2 border-t border-white/8 pt-5">
+                        {c.serviceLinks.map((link) => (
+                          <Link
+                            key={`${c.title}-${link.href}`}
+                            href={link.href}
+                            className="rounded-full border border-white/10 bg-white/[0.025] px-3 py-1.5 text-xs font-medium text-slate-300 transition hover:border-indigo-300/30 hover:text-white"
+                          >
+                            {link.label}
+                          </Link>
+                        ))}
+                      </div>
+                    ) : null}
                   </div>
                 </div>
               </article>
             ))}
+          </div>
+        </section>
+
+        <section className="section">
+          <div className="container max-w-5xl">
+            <div className="relative overflow-hidden rounded-[2rem] border border-indigo-300/20 bg-indigo-400/[0.07] p-7 text-center shadow-[0_35px_100px_rgba(0,0,0,0.24)] md:p-12">
+              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(620px_260px_at_50%_0%,rgba(129,140,248,0.14),transparent_70%)]" />
+              <h2 className="relative text-3xl font-semibold tracking-tight text-white md:text-4xl">
+                Sie möchten ein ähnliches Projekt umsetzen?
+              </h2>
+              <p className="relative mx-auto mt-5 max-w-2xl text-sm leading-7 text-slate-300 md:text-base">
+                Mit dem Website-Check oder einem kurzen Erstgespräch prüfen wir,
+                welche digitale Lösung zu Ihrem Ziel, Ihrer aktuellen Website
+                und Ihrem Unternehmen passt.
+              </p>
+              <div className="relative mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+                <Link
+                  href="/website-check"
+                  data-track-event="cta_website_check_click"
+                  data-track-label="Cases Abschluss Website Check"
+                  className="cta-primary"
+                >
+                  Website-Check starten
+                </Link>
+                <Link
+                  href="/kontakt"
+                  data-track-event="cta_contact_click"
+                  data-track-label="Cases Abschluss Kontakt"
+                  className="cta-secondary"
+                >
+                  Projekt besprechen
+                </Link>
+              </div>
+            </div>
           </div>
         </section>
       </main>

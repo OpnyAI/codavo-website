@@ -1,3 +1,4 @@
+import Link from "next/link";
 import ServiceLandingPage from "@/components/content/ServiceLandingPage";
 import { createPageMetadata } from "@/lib/seo";
 
@@ -42,6 +43,7 @@ export default function WebAppPage() {
         { href: "/hosting-wartung", label: "Hosting und Wartung", description: "Betrieb und Weiterentwicklung einplanen." },
         { href: "/wissen/website-landingpage-funnel", label: "Website, Landingpage oder Funnel", description: "Die passende digitale Form einordnen." },
       ]}
+      beforeFaq={<section className="section section--quiet"><div className="container max-w-5xl"><p className="eyebrow">Web-App als Baustein</p><h2 className="section-title mt-5 text-white">Wenn aus einer Anwendung ein Systembaustein wird</h2><p className="lede mt-6 max-w-3xl">Eine Web-App ist eine konkrete browserbasierte Anwendung. Sobald sie Daten aus Website, Funnel, CRM oder internen Prozessen übernimmt, wird sie Teil einer größeren Architektur.</p><p className="mt-5 max-w-3xl text-sm leading-7 text-slate-400 md:text-base">In diesem Fall hilft die Betrachtung als <Link href="/digitale-systeme" className="font-medium text-indigo-300 transition hover:text-white">digitales Unternehmenssystem</Link>, bevor einzelne Funktionen geplant werden.</p></div></section>}
       faqs={faqs}
       ctaTitle="Sie möchten einen konkreten Prozess digital abbilden?"
       ctaText="Im Erstgespräch klären wir Nutzer, Kernfunktionen und ob eine individuelle Web-App der wirtschaftlich sinnvolle Weg ist."

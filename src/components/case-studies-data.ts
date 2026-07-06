@@ -3,6 +3,10 @@ export type CaseStudyItem = {
   problem: string;
   solution: string;
   result: string;
+  serviceLinks?: {
+    href: string;
+    label: string;
+  }[];
   img?: string;
   alt?: string;
   href?: string;
@@ -15,6 +19,10 @@ export const caseStudies: CaseStudyItem[] = [
     solution:
       "Startseite klarer aufgebaut, Nutzen deutlich gemacht, Anfrage-Buttons sichtbar platziert.",
     result: "Professionellerer Auftritt, klarere Nutzerführung und eine technische Grundlage für weiteres Wachstum.",
+    serviceLinks: [
+      { href: "/webdesign", label: "Webdesign" },
+      { href: "/website-check", label: "Website-Check" },
+    ],
     img: "/cases/projekt1.webp",
     alt: "Hero-Screenshot Pioneer Solution",
     href: "https://pioneer-solution.de",
@@ -25,6 +33,10 @@ export const caseStudies: CaseStudyItem[] = [
     solution:
       "Nutzen in einer klaren Story erklärt, Produktabschnitte strukturiert, Ladezeiten reduziert.",
     result: "Professionellerer Auftritt, klarere Nutzerführung und eine technische Grundlage für weiteres Wachstum.",
+    serviceLinks: [
+      { href: "/webdesign", label: "Webdesign" },
+      { href: "/landingpage-erstellen-lassen", label: "Landingpages" },
+    ],
     img: "/cases/projekt2.webp",
     alt: "Hero-Screenshot Opny AI",
     href: "https://opny.ai",
@@ -35,6 +47,10 @@ export const caseStudies: CaseStudyItem[] = [
     solution:
       "Strukturierte Darstellung der Kernleistungen, Referenzen hervorgehoben, klare Kontaktwege.",
     result: "Professionellerer Auftritt, klarere Nutzerführung und eine technische Grundlage für weiteres Wachstum.",
+    serviceLinks: [
+      { href: "/webdesign", label: "Webdesign" },
+      { href: "/digitale-systeme", label: "Digitale Systeme" },
+    ],
     img: "/cases/ib-bauwerkspruefung.webp",
     alt: "Hero-Screenshot IB Bauwerksprüfung",
     href: "https://ib-bauwerkspruefung.de",
@@ -45,6 +61,10 @@ export const caseStudies: CaseStudyItem[] = [
     solution:
       "Klarer Aufbau nach Zielgruppen, Leistungen sauber gegliedert, Vertrauen durch Referenzen und Bilder.",
     result: "Professionellerer Auftritt, klarere Nutzerführung und eine technische Grundlage für weiteres Wachstum.",
+    serviceLinks: [
+      { href: "/webdesign", label: "Webdesign" },
+      { href: "/landingpage-erstellen-lassen", label: "Landingpages" },
+    ],
     img: "/cases/taner-care.webp",
     alt: "Hero-Screenshot Taner Care",
     href: "https://taner-care.de",
@@ -55,6 +75,10 @@ export const caseStudies: CaseStudyItem[] = [
     solution:
       "Website strukturiert aufgebaut, Leistungen verständlich gegliedert und klare Kontaktwege für Anfragen geschaffen.",
     result: "Professionellerer Auftritt, klarere Nutzerführung und eine technische Grundlage für weiteres Wachstum.",
+    serviceLinks: [
+      { href: "/webdesign", label: "Webdesign" },
+      { href: "/funnel-erstellen-lassen", label: "Funnel" },
+    ],
     img: "/cases/hwk.webp",
     alt: "Hero-Screenshot HWK Sanierung",
     href: "https://www.hwksanierung.de/",
@@ -66,6 +90,10 @@ export const caseStudies: CaseStudyItem[] = [
     solution:
       "Website modernisiert, mobile Nutzerführung verbessert und Termin- bzw. Kontaktmöglichkeiten sichtbar integriert.",
     result: "Professionellerer Auftritt, klarere Nutzerführung und eine technische Grundlage für weiteres Wachstum.",
+    serviceLinks: [
+      { href: "/webdesign", label: "Webdesign" },
+      { href: "/funnel-erstellen-lassen", label: "Funnel" },
+    ],
     img: "/cases/fahrservice.webp",
     alt: "Hero-Screenshot Kreuz Fahrservice",
     href: "https://www.kreuz-fahrservice.de/",

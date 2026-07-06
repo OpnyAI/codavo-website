@@ -206,6 +206,16 @@ export default function LocationsPage() {
                 </Link>
               ))}
             </div>
+            <aside className="mt-6 rounded-3xl border border-indigo-300/15 bg-indigo-400/[0.06] p-6 md:p-8">
+              <h3 className="text-xl font-semibold text-white">Digitale Systeme als verbindende Architektur</h3>
+              <p className="mt-3 max-w-4xl text-sm leading-7 text-slate-300 md:text-base">
+                Digitale Systeme verbinden Website, Funnel, Software, Prozesse,
+                Tracking und Automatisierung zu einer durchgängigen Architektur.
+              </p>
+              <Link href="/digitale-systeme" className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-indigo-300 transition hover:text-white">
+                Digitale Systeme einordnen <ArrowRight className="h-4 w-4" aria-hidden />
+              </Link>
+            </aside>
           </div>
         </section>
 

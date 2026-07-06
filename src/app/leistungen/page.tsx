@@ -5,8 +5,8 @@ import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
   path: "/leistungen",
-  title: "Leistungen für professionelle Unternehmenswebsites | Codavo",
-  description: "Unternehmenswebsites, Landingpages, Funnel, Web-Apps, individuelle Software sowie Hosting und Wartung.",
+  title: "Leistungen im Überblick | Codavo Webstudio",
+  description: "Überblick über Codavo-Leistungen: Websites, Landingpages, Funnel, Web-Apps, individuelle Software, digitale Systeme sowie Hosting und Wartung.",
 });
 
 const offers = [
@@ -55,8 +55,8 @@ export default function Page() {
         <section className="section text-center">
           <div className="container max-w-4xl">
             <p className="eyebrow">Codavo Leistungen</p>
-            <h1 className="mt-4 text-4xl font-semibold tracking-tight text-white md:text-6xl">Digitale Leistungen mit der Unternehmenswebsite im Mittelpunkt</h1>
-            <p className="lede mx-auto mt-6 max-w-3xl">Codavo entwickelt professionelle Websites als Grundlage und ergänzt sie bei Bedarf um Landingpages, Funnel, Web-Apps, Software und laufende Betreuung.</p>
+            <h1 className="mt-4 text-4xl font-semibold tracking-tight text-white md:text-6xl">Digitale Leistungen im Überblick</h1>
+            <p className="lede mx-auto mt-6 max-w-3xl">Codavo entwickelt Websites, Landingpages, Funnel, Web-Apps, Software und laufende Betreuung passend zum jeweiligen Geschäftsziel.</p>
           </div>
         </section>
 
@@ -81,6 +81,28 @@ export default function Page() {
                 Tracking-Setups, z. B. Google Analytics, Google Ads Conversion Tracking oder Meta Pixel, werden nach Bedarf passend zum Projektziel und zur Einwilligungslogik integriert. Umfang und eingesetzte Tools richten sich nach dem jeweiligen Website-, Landingpage- oder Funnel-Projekt.
               </p>
             </aside>
+
+            <div className="mt-5 grid gap-5 md:grid-cols-2">
+              <aside className="rounded-3xl border border-white/8 bg-white/[0.025] p-6 md:p-8">
+                <h2 className="text-xl font-semibold text-white">Digitale Systeme als verbindende Architektur</h2>
+                <p className="mt-3 text-sm leading-7 text-slate-300 md:text-base">
+                  Digitale Systeme verbinden Website, Funnel, Software, Prozesse und Automatisierung zu einer durchgängigen Systemarchitektur.
+                </p>
+                <Link href="/digitale-systeme" className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-indigo-300 transition hover:text-white">
+                  Digitale Systeme einordnen <ArrowRight className="h-4 w-4" aria-hidden />
+                </Link>
+              </aside>
+
+              <aside className="rounded-3xl border border-white/8 bg-white/[0.025] p-6 md:p-8">
+                <h2 className="text-xl font-semibold text-white">Unsicher, welche Lösung passt?</h2>
+                <p className="mt-3 text-sm leading-7 text-slate-300 md:text-base">
+                  Mit dem Website-Check analysieren wir Ihre aktuelle Website und zeigen sinnvolle nächste Schritte.
+                </p>
+                <Link href="/website-check" data-track-event="cta_website_check_click" data-track-label="Leistungen Website Check Orientierung" className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-indigo-300 transition hover:text-white">
+                  Website-Check starten <ArrowRight className="h-4 w-4" aria-hidden />
+                </Link>
+              </aside>
+            </div>
           </div>
         </section>
 

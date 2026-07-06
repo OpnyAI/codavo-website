@@ -134,7 +134,7 @@ export default function LocationLandingPage({ location }: { location: LocationPr
             <div className="mt-10 grid gap-12 lg:grid-cols-[1fr_0.38fr] lg:items-end lg:gap-20">
               <div>
                 <p className="eyebrow">Webdesign · {location.state}</p>
-                <h1 className="display-title mt-5 max-w-5xl text-white">Webdesign in {location.city} für professionelle Unternehmenswebsites</h1>
+                <h1 className="display-title mt-5 max-w-5xl text-white">{location.h1 || `Webdesign in ${location.city} für professionelle Unternehmenswebsites`}</h1>
                 <p className="lede mt-7 max-w-3xl">{location.intro}</p>
                 <div className="mt-9 flex max-w-md flex-col gap-3 sm:max-w-none sm:flex-row">
                   <Link href="/kontakt" data-track-event="cta_contact_click" data-track-label={`Standort ${location.city} Hero Kontakt`} className="cta-primary">

@@ -369,6 +369,7 @@ export default function DigitaleSystemePage() {
 
             <p className="mx-auto mt-8 max-w-4xl text-center text-sm leading-7 text-slate-300 md:text-base">
               So werden Anfragen, Daten und Aufgaben nicht mehrfach erfasst, manuell übertragen oder in einzelnen Tools verloren, sondern sauber zwischen Website, Vertrieb und internen Prozessen weitergegeben.
+              Web-Apps, Kundenportale oder Dashboards können dabei als konkrete Anwendungsbausteine Teil eines digitalen Unternehmenssystems sein. Mehr dazu auf der Seite zur <Link href="/web-app-entwicklung" className="font-medium text-indigo-300 transition hover:text-white">Web-App Entwicklung</Link>.
             </p>
           </div>
         </section>
@@ -438,6 +439,29 @@ export default function DigitaleSystemePage() {
                 </li>
               ))}
             </ol>
+          </div>
+        </section>
+
+        <section className="section section--quiet">
+          <div className="container max-w-6xl">
+            <p className="eyebrow">Arbeitsweise</p>
+            <h2 className="section-title mt-5 text-white">Qualität entsteht nicht zufällig</h2>
+            <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+              {[
+                "Ziele, Systeme und Abhängigkeiten klären",
+                "Übergaben zwischen Website, Funnel und Prozessen definieren",
+                "Datenflüsse und Verantwortlichkeiten nachvollziehbar machen",
+                "Automatisierung nur mit erkennbarem Nutzen planen",
+                "Tracking passend zu Ziel und Einwilligungslogik prüfen",
+                "Schnittstellen und technische Grenzen früh einordnen",
+                "Qualitätssicherung vor dem Launch",
+                "Betreuung und Weiterentwicklung einplanen",
+              ].map((item) => (
+                <div key={item} className="rounded-2xl border border-white/8 bg-white/[0.025] p-5 text-sm leading-7 text-slate-300">
+                  {item}
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
