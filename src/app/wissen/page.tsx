@@ -10,7 +10,13 @@ import {
   Sparkles,
 } from "lucide-react";
 import Footer from "@/components/Footer";
-import { knowledgeArticles, type KnowledgeSlug } from "@/lib/knowledge";
+import {
+  knowledgeArticles,
+  knowledgeClusterMeta,
+  knowledgeClusterOrder,
+  type KnowledgeCluster,
+  type KnowledgeSlug,
+} from "@/lib/knowledge";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
@@ -26,105 +32,52 @@ const articleIcons = {
   "website-landingpage-funnel": Compass,
   "individuelle-website-vs-baukasten": Code2,
   "ki-systeme-website-verstehen": BookOpen,
+  "wann-lohnt-sich-ein-website-relaunch": Search,
+  "was-gehoert-auf-eine-professionelle-unternehmenswebsite": Layers3,
+  "was-ist-ein-funnel": Compass,
+  "wann-lohnt-sich-individuelle-software-fuer-kmu": Code2,
+  "was-ist-ein-digitales-unternehmenssystem": BarChart3,
 } satisfies Record<KnowledgeSlug, typeof BookOpen>;
 
-const topicClusters = [
-  {
-    title: "Unternehmenswebsites",
-    id: "unternehmenswebsites",
-    href: "#unternehmenswebsites",
-    description:
-      "Strategie, Kosten, Struktur und technische Grundlagen für professionelle Firmenauftritte.",
-    slugs: ["was-kostet-eine-website", "individuelle-website-vs-baukasten"],
-    icon: Layers3,
-  },
-  {
-    title: "Landingpages & Funnel",
-    id: "landingpages-funnel",
-    href: "#landingpages-funnel",
-    description:
-      "Unterschiede, Einsatzbereiche und Entscheidungslogik für Kampagnen, Angebote und Leadstrecken.",
-    slugs: ["website-landingpage-funnel"],
-    icon: Compass,
-  },
-  {
-    title: "Software & Web-Apps",
-    id: "software-web-apps",
-    href: "#software-web-apps",
-    description:
-      "Orientierung für individuelle Entwicklung, Erweiterbarkeit und digitale Prozesse.",
-    slugs: [],
-    icon: Code2,
-  },
-  {
-    title: "SEO / AEO / LLMO",
-    id: "seo-aeo-llmo",
-    href: "#seo-aeo-llmo",
-    description:
-      "Sichtbarkeit in klassischen Suchmaschinen, Antwortsystemen und KI-Modellen verständlich eingeordnet.",
-    slugs: ["seo-aeo-llmo", "ki-systeme-website-verstehen"],
-    icon: Sparkles,
-  },
-  {
-    title: "Tracking & Analytics",
-    id: "tracking-analytics",
-    href: "#tracking-analytics",
-    description:
-      "Grundlagen für messbare Nutzerwege, Funnel-Verständnis und bessere digitale Entscheidungen.",
-    slugs: [],
-    icon: BarChart3,
-  },
-] as const satisfies readonly {
-  title: string;
-  id: string;
-  href: `#${string}`;
-  description: string;
-  slugs: readonly KnowledgeSlug[];
-  icon: typeof BookOpen;
-}[];
+const clusterIcons = {
+  unternehmenswebsites: Layers3,
+  landingpages: Compass,
+  "funnel-systeme": Compass,
+  "seo-aeo-llmo": Sparkles,
+  "tracking-analytics": BarChart3,
+  "web-apps-software": Code2,
+  "hosting-wartung": BookOpen,
+  "digitalisierung-mittelstand": BarChart3,
+} satisfies Record<KnowledgeCluster, typeof BookOpen>;
 
-const articleGroups = [
-  {
-    title: "Unternehmenswebsites",
-    id: "unternehmenswebsites",
-    description:
-      "Kosten, Projektumfang und technische Entscheidungen für Websites, die langfristig erweiterbar bleiben sollen.",
-    slugs: ["was-kostet-eine-website", "individuelle-website-vs-baukasten"],
-  },
-  {
-    title: "Landingpages & Funnel",
-    id: "landingpages-funnel",
-    description:
-      "Orientierung für Unternehmen, die Website, Landingpage und Funnel richtig einordnen möchten.",
-    slugs: ["website-landingpage-funnel"],
-  },
-  {
-    title: "Software & Web-Apps",
-    id: "software-web-apps",
-    description:
-      "Dieser Themenbereich ist für Wissen zu Web-Apps, Softwareprojekten und individuellen digitalen Systemen vorbereitet.",
-    slugs: [],
-  },
-  {
-    title: "SEO / AEO / LLMO",
-    id: "seo-aeo-llmo",
-    description:
-      "Antworten zu SEO, AEO, LLMO und dazu, wie KI-Systeme Websites semantisch einordnen.",
-    slugs: ["seo-aeo-llmo", "ki-systeme-website-verstehen"],
-  },
-  {
-    title: "Tracking & Analytics",
-    id: "tracking-analytics",
-    description:
-      "Dieser Themenbereich ist für Wissen zu Tracking, Analytics, Consent und Conversion-Messung vorbereitet.",
-    slugs: [],
-  },
-] as const satisfies readonly {
-  title: string;
-  id: string;
-  description: string;
-  slugs: readonly KnowledgeSlug[];
-}[];
+const knowledgeSlugs = Object.keys(knowledgeArticles) as KnowledgeSlug[];
+
+const clusterAnchorIds = {
+  unternehmenswebsites: "unternehmenswebsites",
+  landingpages: "landingpages-funnel",
+  "funnel-systeme": "funnel-systeme",
+  "seo-aeo-llmo": "seo-aeo-llmo",
+  "tracking-analytics": "tracking-analytics",
+  "web-apps-software": "software-web-apps",
+  "hosting-wartung": "hosting-wartung",
+  "digitalisierung-mittelstand": "digitalisierung-mittelstand",
+} satisfies Record<KnowledgeCluster, string>;
+
+const topicClusters = knowledgeClusterOrder.map((id) => ({
+  title: knowledgeClusterMeta[id].title,
+  id: clusterAnchorIds[id],
+  href: `#${clusterAnchorIds[id]}`,
+  description: knowledgeClusterMeta[id].description,
+  slugs: knowledgeSlugs.filter((slug) => knowledgeArticles[slug].cluster === id),
+  icon: clusterIcons[id],
+}));
+
+const articleGroups = knowledgeClusterOrder.map((id) => ({
+  title: knowledgeClusterMeta[id].title,
+  id: clusterAnchorIds[id],
+  description: knowledgeClusterMeta[id].description,
+  slugs: knowledgeSlugs.filter((slug) => knowledgeArticles[slug].cluster === id),
+}));
 
 function getExistingArticleCount(slugs: readonly KnowledgeSlug[]) {
   return slugs.filter((slug) => knowledgeArticles[slug]).length;

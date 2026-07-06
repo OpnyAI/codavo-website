@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import FAQAccordion, { type FAQItem } from "@/components/FAQAccordion";
 import { ORGANIZATION_ID, SEO_CONFIG } from "@/lib/seo";
 import type { ContentSection } from "@/components/content/ServiceLandingPage";
+import type { KnowledgeLink } from "@/lib/knowledge";
 
 type Props = {
   path: string;
@@ -13,6 +14,8 @@ type Props = {
   sections: readonly ContentSection[];
   faqs: FAQItem[];
   related: readonly { href: string; label: string }[];
+  primaryMoneyPage: KnowledgeLink;
+  secondaryLinks: readonly KnowledgeLink[];
 };
 
 export default function KnowledgeArticle(props: Props) {
@@ -106,6 +109,41 @@ export default function KnowledgeArticle(props: Props) {
               </div>
             </div>
           </div>
+
+          <section className="section section--quiet">
+            <div className="container max-w-5xl">
+              <div className="grid gap-10 lg:grid-cols-[0.36fr_0.64fr] lg:gap-16">
+                <div>
+                  <p className="eyebrow">Nächster Schritt</p>
+                  <h2 className="mt-5 text-2xl font-semibold tracking-tight text-white">Passende Einordnung</h2>
+                </div>
+                <div className="grid gap-4">
+                  <Link
+                    href={props.primaryMoneyPage.href}
+                    className="group rounded-3xl border border-indigo-300/20 bg-indigo-400/[0.07] p-6 transition hover:border-indigo-300/35 hover:bg-indigo-400/[0.1]"
+                  >
+                    <span className="text-xs font-semibold uppercase tracking-[0.16em] text-indigo-300/80">Primäre Leistungsseite</span>
+                    <h3 className="mt-3 text-xl font-semibold text-white">{props.primaryMoneyPage.label}</h3>
+                    <p className="mt-3 text-sm leading-7 text-slate-300">{props.primaryMoneyPage.description}</p>
+                  </Link>
+                  {props.secondaryLinks.length ? (
+                    <div className="grid gap-3 md:grid-cols-3">
+                      {props.secondaryLinks.map((link) => (
+                        <Link
+                          key={link.href}
+                          href={link.href}
+                          className="rounded-2xl border border-white/8 bg-white/[0.025] p-4 text-sm leading-6 text-slate-300 transition hover:border-indigo-300/25 hover:text-white"
+                        >
+                          <span className="font-medium text-white">{link.label}</span>
+                          <span className="mt-2 block text-slate-400">{link.description}</span>
+                        </Link>
+                      ))}
+                    </div>
+                  ) : null}
+                </div>
+              </div>
+            </div>
+          </section>
 
           <section className="section section--alt">
             <div className="container max-w-4xl">

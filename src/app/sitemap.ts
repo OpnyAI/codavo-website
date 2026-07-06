@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { locationProfiles } from "@/lib/locations";
+import { knowledgeArticles } from "@/lib/knowledge";
 import { SEO_CONFIG } from "@/lib/seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -100,13 +101,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.7,
     })),
-    ...[
-      "was-kostet-eine-website",
-      "seo-aeo-llmo",
-      "website-landingpage-funnel",
-      "individuelle-website-vs-baukasten",
-      "ki-systeme-website-verstehen",
-    ].map((slug) => ({
+    ...Object.keys(knowledgeArticles).map((slug) => ({
       url: `${SEO_CONFIG.domain}/wissen/${slug}`,
       lastModified: "2026-07-02",
       changeFrequency: "monthly" as const,
