@@ -92,6 +92,24 @@ const industryTrustChips = [
   "Sanierung & Modernisierung",
 ];
 
+const trustLogos = [
+  { src: "/logos/creamy.png", alt: "Creamy Logo" },
+  { src: "/logos/hwk.png", alt: "HWK Logo" },
+  { src: "/logos/ib.png", alt: "IB Logo" },
+  { src: "/logos/kreuz.png", alt: "Kreuz Logo" },
+  { src: "/logos/mag.png", alt: "MAG Logo" },
+  { src: "/logos/opny.png", alt: "Opny Logo" },
+  { src: "/logos/care.png", alt: "Care Logo" },
+  { src: "/logos/tpv.png", alt: "TPV Logo" },
+] as const;
+
+const formValueBullets = [
+  "Individuelle Ersteinschätzung Ihrer aktuellen Website",
+  "Konkrete Ansatzpunkte für Nutzerführung, Technik und Sichtbarkeit",
+  "Einschätzung, welche nächsten Schritte sinnvoll sind",
+  "Kostenlos und unverbindlich",
+] as const;
+
 const faqItems = [
   {
     q: "Was prüft der Website-Check?",
@@ -503,6 +521,58 @@ export default function WebsiteCheckPage() {
 
         <section id="website-check-form" className="section scroll-mt-28">
           <div className="container max-w-6xl">
+            <div className="mb-8 rounded-3xl border border-white/10 bg-white/[0.035] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] sm:p-6 md:mb-10 md:p-7">
+              <div className="grid gap-6 lg:grid-cols-[0.42fr_0.58fr] lg:items-center">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.2em] text-indigo-200/80">
+                    Social Proof
+                  </p>
+                  <h2 className="mt-3 text-2xl font-semibold tracking-tight text-white md:text-3xl">
+                    Vertrauen aus echten Projekten
+                  </h2>
+                  <p className="mt-4 text-sm leading-7 text-slate-300">
+                    Codavo durfte bereits Unternehmen aus unterschiedlichen
+                    Branchen bei Websites, Landingpages, digitalen Prozessen
+                    und Weblösungen unterstützen.
+                  </p>
+                  <p className="mt-4 inline-flex items-center rounded-full border border-amber-300/20 bg-amber-300/[0.08] px-3 py-1.5 text-sm font-medium text-amber-100">
+                    ★★★★★ 5,0 bei Google
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+                  {trustLogos.map((logo) => (
+                    <div
+                      key={logo.src}
+                      className="flex min-h-20 items-center justify-center rounded-2xl border border-white/8 bg-white/[0.04] px-4 py-3"
+                    >
+                      <Image
+                        src={logo.src}
+                        alt={logo.alt}
+                        width={108}
+                        height={108}
+                        className="max-h-12 w-auto max-w-full object-contain opacity-85 grayscale transition hover:opacity-100 hover:grayscale-0"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="mb-8 rounded-3xl border border-indigo-400/20 bg-indigo-500/10 p-5 sm:p-6 md:mb-10">
+              <h2 className="text-2xl font-semibold tracking-tight text-white">
+                Was Sie erhalten
+              </h2>
+              <ul className="mt-5 grid gap-3 text-sm leading-6 text-slate-200 md:grid-cols-2">
+                {formValueBullets.map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <Check className="mt-1 h-4 w-4 shrink-0 text-indigo-300" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
             <div className="grid gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
               <div className="max-w-xl">
                 <h2 className="text-3xl font-semibold tracking-tight text-white md:text-4xl">
@@ -510,7 +580,9 @@ export default function WebsiteCheckPage() {
                 </h2>
                 <p className="mt-4 text-sm leading-7 text-slate-300 md:text-base">
                   Tragen Sie Ihre Daten und Ihre Website ein. Wir melden uns mit
-                  einer ersten Einschätzung.
+                  einer ersten Einschätzung. Der Website-Check dient als
+                  kompakte Website-Potenzialanalyse für Unternehmen, die ihren
+                  digitalen Auftritt besser einordnen möchten.
                 </p>
 
                 <div className="mt-8 space-y-4">

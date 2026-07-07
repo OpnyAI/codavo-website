@@ -21,6 +21,7 @@ type FormValues = {
   phone: string;
   industry: string;
   biggestProblem: string;
+  budgetRange: string;
   fax: string;
   utm_source: string;
   utm_medium: string;
@@ -42,6 +43,7 @@ const initialValues: FormValues = {
   phone: "",
   industry: "",
   biggestProblem: "",
+  budgetRange: "",
   fax: "",
   utm_source: "",
   utm_medium: "",
@@ -58,6 +60,15 @@ const biggestProblemOptions = [
   "Schlechte mobile Nutzererfahrung",
   "Angebot wird nicht klar kommuniziert",
   "Unsicher, wo ich ansetzen soll",
+];
+
+const budgetRangeOptions = [
+  "Noch offen",
+  "Unter 3.000 €",
+  "3.000–5.000 €",
+  "5.000–10.000 €",
+  "10.000–20.000 €",
+  "Über 20.000 €",
 ];
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -415,6 +426,35 @@ export default function WebsiteCheckForm() {
           {errors.biggestProblem ? (
             <p className="text-sm text-rose-300">{errors.biggestProblem}</p>
           ) : null}
+        </div>
+
+        <div className="space-y-2 sm:col-span-2">
+          <Label htmlFor="budgetRange" className="text-slate-100">
+            Geplanter Budgetrahmen
+          </Label>
+          <div className="relative">
+            <select
+              id="budgetRange"
+              name="budgetRange"
+              value={values.budgetRange}
+              onChange={handleChange("budgetRange")}
+              className="flex h-11 w-full appearance-none rounded-md border border-white/10 bg-white/5 px-3 pr-11 text-sm text-slate-100 outline-none transition focus:border-indigo-400/70 focus:ring-4 focus:ring-indigo-500/20"
+            >
+              <option value="" className="bg-slate-950 text-slate-300">
+                Optional auswählen
+              </option>
+              {budgetRangeOptions.map((option) => (
+                <option
+                  key={option}
+                  value={option}
+                  className="bg-slate-950 text-slate-100"
+                >
+                  {option}
+                </option>
+              ))}
+            </select>
+            <ChevronDown className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+          </div>
         </div>
       </div>
 

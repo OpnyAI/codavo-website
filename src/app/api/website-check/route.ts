@@ -9,6 +9,7 @@ type WebsiteCheckPayload = {
   phone?: string;
   industry?: string;
   biggestProblem?: string;
+  budgetRange?: string;
   fax?: string;
   utm_source?: string;
   utm_medium?: string;
@@ -92,6 +93,7 @@ export async function POST(request: Request) {
   const phone = toSafeString(body.phone);
   const industry = toSafeString(body.industry);
   const biggestProblem = toSafeString(body.biggestProblem);
+  const budgetRange = toSafeString(body.budgetRange);
   const honeypot = toSafeString(body.fax);
   const websiteValue = toSafeString(body.websiteUrl);
   const tracking = {
@@ -152,6 +154,7 @@ export async function POST(request: Request) {
     phone.length > 50 ||
     industry.length > 80 ||
     biggestProblem.length > 120 ||
+    budgetRange.length > 80 ||
     websiteValue.length > 2083 ||
     tracking.utm_source.length > 200 ||
     tracking.utm_medium.length > 200 ||
@@ -197,6 +200,7 @@ export async function POST(request: Request) {
     phone: escapeHtml(phone || "Nicht angegeben"),
     industry: escapeHtml(industry || "Nicht angegeben"),
     biggestProblem: escapeHtml(biggestProblem),
+    budgetRange: escapeHtml(budgetRange || "Nicht angegeben"),
     tracking: {
       utm_source: escapeHtml(tracking.utm_source || "-"),
       utm_medium: escapeHtml(tracking.utm_medium || "-"),
@@ -220,6 +224,7 @@ export async function POST(request: Request) {
     `Telefon / WhatsApp: ${phone || "Nicht angegeben"}`,
     `Branche: ${industry || "Nicht angegeben"}`,
     `Größtes Problem: ${biggestProblem}`,
+    `Geplanter Budgetrahmen: ${budgetRange || "Nicht angegeben"}`,
     "",
     "Tracking / Herkunft",
     "",
@@ -245,6 +250,7 @@ export async function POST(request: Request) {
           <tr><td style="padding:8px 0;font-weight:700;">Telefon / WhatsApp</td><td style="padding:8px 0;">${safe.phone}</td></tr>
           <tr><td style="padding:8px 0;font-weight:700;">Branche</td><td style="padding:8px 0;">${safe.industry}</td></tr>
           <tr><td style="padding:8px 0;font-weight:700;">Größtes Problem</td><td style="padding:8px 0;">${safe.biggestProblem}</td></tr>
+          <tr><td style="padding:8px 0;font-weight:700;">Geplanter Budgetrahmen</td><td style="padding:8px 0;">${safe.budgetRange}</td></tr>
         </tbody>
       </table>
 
