@@ -142,6 +142,7 @@ export default function Home() {
     <>
       <main className="overflow-x-hidden">
         <Hero />
+        <CaseStudies />
         <Services />
 
         <section className="section section--feature section--compact">
@@ -208,7 +209,6 @@ export default function Home() {
         </section>
 
         <PackagesSection />
-        <CaseStudies />
         <KnowledgeSection />
         <Process />
 

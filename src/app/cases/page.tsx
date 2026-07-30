@@ -6,145 +6,200 @@ import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
   path: "/cases",
-  title: "Case Studies | Codavo Webstudio",
+  title: "Webdesign Referenzen & Case Studies | Codavo",
   description:
-    "Ausgewählte Codavo-Projekte aus Webdesign, Landingpages, Software und digitalen Systemen – mit Fokus auf Ausgangslage, Lösung und Umsetzung.",
+    "Ausgewählte Codavo-Projekte aus Medientechnik, Catering, Sanierung, Pflege, Industrie, KI und Ingenieurwesen – mit Einblicken in Ausgangslage, Umsetzung und Kundenfeedback.",
 });
+
+function Stars({ rating }: { rating: number }) {
+  return (
+    <span
+      className="flex gap-0.5 text-base leading-none"
+      aria-label={`${rating} von 5 Sternen`}
+    >
+      {[1, 2, 3, 4, 5].map((star) => (
+        <span
+          key={star}
+          className={star <= rating ? "text-amber-300" : "text-white/20"}
+          aria-hidden
+        >
+          ★
+        </span>
+      ))}
+    </span>
+  );
+}
 
 export default function CasesPage() {
   return (
     <>
-      <main className="pt-28 pb-16 min-h-screen md:pt-32 lg:pt-36">
-        <section className="section">
-          <div className="container">
-            <h1 className="text-3xl md:text-5xl font-semibold tracking-tight text-white">
-              Case Studies
+      <main className="min-h-screen pb-16 pt-28 md:pt-32 lg:pt-36">
+        <section className="section pb-10">
+          <div className="container max-w-7xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-indigo-300/80">
+              Codavo Referenzen
+            </p>
+            <h1 className="mt-4 max-w-5xl text-4xl font-semibold tracking-tight text-white md:text-6xl lg:text-7xl">
+              Wir lassen digitale Projekte für sich sprechen.
             </h1>
-            <p className="mt-4 text-slate-300 max-w-2xl">
-              Die aktuellen Referenzen aus unserer Homepage als vollständige
-              Übersicht: reale Projekte aus unterschiedlichen Branchen, jeweils
-              mit klarem Problem, sauberer Lösung und sichtbarem Ergebnis.
+            <p className="lede mt-6 max-w-3xl">
+              Websites für Unternehmen mit unterschiedlichen Zielgruppen und
+              Geschäftsmodellen – individuell konzipiert, gestaltet und
+              technisch umgesetzt.
             </p>
-            <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-400">
-              Wir zeigen bewusst keine erfundenen Erfolgskennzahlen. Entscheidend
-              sind nachvollziehbare Ausgangslagen, saubere Umsetzung und ein
-              professioneller digitaler Auftritt.
-            </p>
+            <div className="mt-8 flex flex-wrap gap-2">
+              {[
+                "Webdesign",
+                "UX/UI",
+                "Content-Struktur",
+                "Individuelle Entwicklung",
+              ].map((label) => (
+                <span
+                  key={label}
+                  className="rounded-full border border-white/10 bg-white/[0.025] px-3 py-1.5 text-xs font-medium text-slate-300"
+                >
+                  {label}
+                </span>
+              ))}
+            </div>
           </div>
         </section>
 
-        <section className="section section--alt mt-10 pb-4">
-          <div className="container grid gap-6">
-            {caseStudies.map((c) => (
-              <article key={c.title} className="card">
-                <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02]">
-                  <div className="relative aspect-[16/9]">
-                    {c.img ? (
-                      <>
-                        <Image
-                          src={c.img}
-                          alt={c.alt ?? c.title}
-                          fill
-                          sizes="(max-width: 768px) 100vw, 1200px"
-                          className="
-                            object-cover
-                            object-[center_18%]
-                            sm:object-[center_24%]
-                            md:object-[center_30%]
-                            lg:object-center
-                          "
-                        />
-                        <div className="absolute top-0 left-0 right-0 h-3 sm:h-3.5 md:h-4 lg:h-5 bg-black/30 border-b border-white/10 backdrop-blur-md flex items-center gap-1.5 px-2 sm:px-3">
-                          <span className="h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-red-400" />
-                          <span className="h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-yellow-400" />
-                          <span className="h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-green-400" />
-                          <div className="ml-1 sm:ml-2 h-3 sm:h-3.5 flex-1 rounded bg-white/10 border border-white/10" />
-                        </div>
-                        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/0 to-black/30" />
-                      </>
+        <section className="section section--alt pt-10">
+          <div className="container max-w-7xl">
+            <div className="grid items-start gap-6 lg:grid-cols-2 lg:gap-8">
+              {caseStudies.map((project, index) => (
+                <article
+                  key={project.title}
+                  className="group overflow-hidden rounded-[1.9rem] border border-white/10 bg-[#09101d]/92 shadow-[0_35px_100px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.04)]"
+                >
+                  <div className="relative aspect-[16/9] overflow-hidden border-b border-white/8 bg-[#111827]">
+                    {project.img ? (
+                      <Image
+                        src={project.img}
+                        alt={project.alt ?? project.title}
+                        fill
+                        sizes="(max-width: 1023px) 100vw, 50vw"
+                        className="object-cover object-top transition duration-700 group-hover:scale-[1.02]"
+                        priority={index < 2}
+                      />
                     ) : null}
-                  </div>
-
-                  <div className="p-6 md:p-8">
-                    <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
-                      <h2 className="text-xl md:text-2xl font-semibold text-white">
-                        {c.title}
-                      </h2>
-
-                      {c.href ? (
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-transparent to-[#050914]/85" />
+                    <div className="absolute left-5 top-5 flex flex-wrap gap-2">
+                      <span className="rounded-full border border-white/15 bg-[#050914]/80 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-white shadow-lg backdrop-blur-md">
+                        {project.industry}
+                      </span>
+                    </div>
+                    <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-5 p-5 sm:p-7">
+                      <div>
+                        <p className="text-xs font-medium uppercase tracking-[0.15em] text-indigo-200/80">
+                          Projekt 0{index + 1}
+                        </p>
+                        <h2 className="mt-2 text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+                          {project.company}
+                        </h2>
+                      </div>
+                      {project.href ? (
                         <a
-                          href={c.href}
+                          href={project.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="mt-2 md:mt-0 inline-flex items-center gap-1 text-sm text-indigo-300 hover:text-white underline-offset-2 hover:underline"
+                          className="hidden items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-medium text-white backdrop-blur-md transition hover:bg-white hover:text-[#050914] sm:inline-flex"
                         >
                           Website ansehen <span aria-hidden>↗</span>
                         </a>
                       ) : null}
                     </div>
+                  </div>
 
-                    <div className="mt-6 grid gap-4 text-sm text-slate-200 md:grid-cols-3">
+                  <div className="p-5 sm:p-7 lg:p-8">
+                    <h3 className="text-xl font-semibold tracking-tight text-white sm:text-2xl">
+                      {project.title}
+                    </h3>
+                    <p className="mt-4 text-sm leading-7 text-slate-300">
+                      {project.background}
+                    </p>
+
+                    <div className="mt-7 grid gap-5 border-y border-white/8 py-6 sm:grid-cols-2">
                       <div>
-                        <div className="text-slate-400 text-xs uppercase tracking-wider">
-                          Ausgangslage
-                        </div>
-                        <p className="mt-1">{c.background}</p>
+                        <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-indigo-300/70">
+                          Herausforderung
+                        </p>
+                        <p className="mt-2 text-sm leading-6 text-slate-400">
+                          {project.problem}
+                        </p>
                       </div>
                       <div>
-                        <div className="text-slate-400 text-xs uppercase tracking-wider">
-                          Ziel
-                        </div>
-                        <p className="mt-1">{c.goal}</p>
-                      </div>
-                      <div>
-                        <div className="text-slate-400 text-xs uppercase tracking-wider">
-                          Problem
-                        </div>
-                        <p className="mt-1">{c.problem}</p>
-                      </div>
-                      <div>
-                        <div className="text-slate-400 text-xs uppercase tracking-wider">
-                          Lösung
-                        </div>
-                        <p className="mt-1">{c.solution}</p>
-                      </div>
-                      <div>
-                        <div className="text-slate-400 text-xs uppercase tracking-wider">
-                          Codavo-Leistung
-                        </div>
-                        <p className="mt-1">{c.codavoWork}</p>
-                      </div>
-                      <div>
-                        <div className="text-slate-400 text-xs uppercase tracking-wider">
-                          Fachliche Entscheidung
-                        </div>
-                        <p className="mt-1">{c.decision}</p>
-                      </div>
-                      <div>
-                        <div className="text-slate-400 text-xs uppercase tracking-wider">
-                          Ergebnis
-                        </div>
-                        <p className="mt-1">{c.result}</p>
+                        <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-indigo-300/70">
+                          Codavo-Umsetzung
+                        </p>
+                        <p className="mt-2 text-sm leading-6 text-slate-400">
+                          {project.solution}
+                        </p>
                       </div>
                     </div>
 
-                    {c.serviceLinks?.length ? (
-                      <div className="mt-6 flex flex-wrap gap-2 border-t border-white/8 pt-5">
-                        {c.serviceLinks.map((link) => (
-                          <Link
-                            key={`${c.title}-${link.href}`}
-                            href={link.href}
-                            className="rounded-full border border-white/10 bg-white/[0.025] px-3 py-1.5 text-xs font-medium text-slate-300 transition hover:border-indigo-300/30 hover:text-white"
-                          >
-                            {link.label}
-                          </Link>
-                        ))}
-                      </div>
+                    <div className="mt-6">
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-indigo-300/70">
+                        Ergebnis
+                      </p>
+                      <p className="mt-2 text-sm leading-7 text-slate-200">
+                        {project.result}
+                      </p>
+                    </div>
+
+                    {project.googleReview ? (
+                      <a
+                        href={project.googleReview.sourceUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-7 block rounded-2xl border border-indigo-300/15 bg-[linear-gradient(135deg,rgba(99,102,241,0.09),rgba(255,255,255,0.025))] p-5 transition hover:border-indigo-300/30"
+                        aria-label={`Google-Rezension von ${project.googleReview.author} öffnen`}
+                      >
+                        <div className="flex items-center justify-between gap-3">
+                          <Stars rating={project.googleReview.rating} />
+                          <span className="text-[11px] font-medium uppercase tracking-[0.14em] text-slate-500">
+                            Google-Rezension
+                          </span>
+                        </div>
+                        <blockquote className="mt-4 text-[15px] leading-7 text-slate-100">
+                          „{project.googleReview.quote}“
+                        </blockquote>
+                        <div className="mt-4 text-xs leading-5 text-slate-400">
+                          <span className="font-semibold text-white">
+                            {project.googleReview.author}
+                          </span>
+                          <span aria-hidden> · </span>
+                          {project.googleReview.role}
+                        </div>
+                      </a>
                     ) : null}
+
+                    <div className="mt-6 flex flex-wrap items-center gap-2">
+                      {project.serviceLinks?.map((service) => (
+                        <Link
+                          key={`${project.title}-${service.href}`}
+                          href={service.href}
+                          className="rounded-full border border-white/10 bg-white/[0.025] px-3 py-1.5 text-xs font-medium text-slate-300 transition hover:border-indigo-300/30 hover:text-white"
+                        >
+                          {service.label}
+                        </Link>
+                      ))}
+                      {project.href ? (
+                        <a
+                          href={project.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="ml-auto inline-flex items-center gap-1.5 text-sm font-medium text-indigo-300 transition hover:text-white sm:hidden"
+                        >
+                          Website ansehen <span aria-hidden>↗</span>
+                        </a>
+                      ) : null}
+                    </div>
                   </div>
-                </div>
-              </article>
-            ))}
+                </article>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -153,29 +208,29 @@ export default function CasesPage() {
             <div className="relative overflow-hidden rounded-[2rem] border border-indigo-300/20 bg-indigo-400/[0.07] p-7 text-center shadow-[0_35px_100px_rgba(0,0,0,0.24)] md:p-12">
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(620px_260px_at_50%_0%,rgba(129,140,248,0.14),transparent_70%)]" />
               <h2 className="relative text-3xl font-semibold tracking-tight text-white md:text-4xl">
-                Sie möchten ein ähnliches Projekt umsetzen?
+                Welcher digitale Auftritt passt zu Ihrem Unternehmen?
               </h2>
               <p className="relative mx-auto mt-5 max-w-2xl text-sm leading-7 text-slate-300 md:text-base">
-                Mit dem Website-Check oder einem kurzen Erstgespräch prüfen wir,
-                welche digitale Lösung zu Ihrem Ziel, Ihrer aktuellen Website
-                und Ihrem Unternehmen passt.
+                Im Erstgespräch klären wir Ziele, Zielgruppen und den sinnvollen
+                Umfang – von der fokussierten Unternehmenswebsite bis zum
+                individuellen digitalen System.
               </p>
               <div className="relative mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-                <Link
-                  href="/website-check"
-                  data-track-event="cta_website_check_click"
-                  data-track-label="Cases Abschluss Website Check"
-                  className="cta-primary"
-                >
-                  Website-Check starten
-                </Link>
                 <Link
                   href="/kontakt"
                   data-track-event="cta_contact_click"
                   data-track-label="Cases Abschluss Kontakt"
-                  className="cta-secondary"
+                  className="cta-primary"
                 >
                   Projekt besprechen
+                </Link>
+                <Link
+                  href="/website-check"
+                  data-track-event="cta_website_check_click"
+                  data-track-label="Cases Abschluss Website Check"
+                  className="cta-secondary"
+                >
+                  Website-Check starten
                 </Link>
               </div>
             </div>

@@ -1,201 +1,142 @@
-"use client";
-
-import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { caseStudies } from "@/components/case-studies-data";
 
-const neutralProjectGoal =
-  "Ziel war ein professionellerer Auftritt, klarere Nutzerführung und eine technische Basis für weiteres Wachstum.";
+function Stars({ rating }: { rating: number }) {
+  return (
+    <span
+      className="flex gap-0.5 text-[15px] leading-none text-amber-300"
+      aria-label={`${rating} von 5 Sternen`}
+    >
+      {[1, 2, 3, 4, 5].map((star) => (
+        <span
+          key={star}
+          className={star <= rating ? "text-amber-300" : "text-white/20"}
+          aria-hidden
+        >
+          ★
+        </span>
+      ))}
+    </span>
+  );
+}
 
 export default function CaseStudies() {
-  const scrollerRef = useRef<HTMLDivElement | null>(null);
-  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const [active, setActive] = useState(0);
-
-  const goTo = (idx: number) => {
-    const scroller = scrollerRef.current;
-    const card = cardRefs.current[idx];
-    if (!scroller || !card) return;
-
-    const paddingLeft = parseInt(
-      getComputedStyle(scroller).paddingLeft || "0",
-      10,
-    );
-
-    scroller.scrollTo({
-      left: card.offsetLeft - paddingLeft,
-      behavior: "smooth",
-    });
-  };
-
-  useEffect(() => {
-    const scroller = scrollerRef.current;
-    if (!scroller) return;
-
-    let rAF = 0;
-    const onScroll = () => {
-      cancelAnimationFrame(rAF);
-      rAF = requestAnimationFrame(() => {
-        const mid = scroller.scrollLeft + scroller.clientWidth / 2;
-        let nearest = 0;
-        let min = Infinity;
-
-        cardRefs.current.forEach((el, i) => {
-          if (!el) return;
-          const center = el.offsetLeft + el.clientWidth / 2;
-          const d = Math.abs(center - mid);
-          if (d < min) {
-            min = d;
-            nearest = i;
-          }
-        });
-
-        setActive(nearest);
-      });
-    };
-
-    scroller.addEventListener("scroll", onScroll, { passive: true });
-    return () => {
-      scroller.removeEventListener("scroll", onScroll);
-      cancelAnimationFrame(rAF);
-    };
-  }, []);
+  const featuredCases = caseStudies.filter((item) => item.featured);
 
   return (
     <section id="cases" className="section section--feature scroll-mt-24">
       <div className="container max-w-7xl">
-        <div className="mb-12 max-w-3xl md:mb-16">
-          <h2 className="section-title text-white">
-            Digitale Projekte mit klarem Anspruch
-          </h2>
-          <p className="lede mt-5 max-w-2xl">
-            Die Beispiele zeigen reale Ausgangslagen, den jeweils gewählten
-            Lösungsweg und das Ziel des Projekts.
-          </p>
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <div className="max-w-3xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-indigo-300/80">
+              Ausgewählte Projekte
+            </p>
+            <h2 className="section-title mt-4 text-white">
+              Websites, die Unternehmen unverwechselbar machen.
+            </h2>
+            <p className="lede mt-5 max-w-2xl">
+              Reale Projekte aus Medientechnik, Catering, Sanierung, Pflege,
+              Industrie und Mobilität – individuell konzipiert und entwickelt.
+            </p>
+          </div>
+
+          <Link
+            href="/cases"
+            data-track-event="cta_cases_click"
+            data-track-label="Home Cases Uebersicht"
+            className="cta-secondary hidden self-start md:inline-flex lg:self-auto"
+          >
+            Alle Projekte ansehen
+          </Link>
         </div>
 
-        <div
-          ref={scrollerRef}
-          className="relative flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth px-0.5 pb-4 [-ms-overflow-style:none] [scrollbar-width:none] sm:gap-8 sm:px-1"
-          style={{ WebkitOverflowScrolling: "touch" }}
-        >
-          <style jsx>{`
-            div::-webkit-scrollbar {
-              display: none;
-            }
-          `}</style>
-
-          {caseStudies.map((c, i) => (
+        <div className="mt-12 grid gap-5 md:grid-cols-2 lg:mt-16 lg:gap-7">
+          {featuredCases.map((project, index) => (
             <article
-              key={c.title}
-              ref={(el: HTMLDivElement | null) => {
-                cardRefs.current[i] = el;
-              }}
-              style={{ width: "min(92vw, 1080px)", flex: "0 0 auto" }}
-              className="snap-start shrink-0"
+              key={project.title}
+              className="group flex min-h-full flex-col overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#09101d]/90 shadow-[0_30px_90px_rgba(0,0,0,0.28),inset_0_1px_0_rgba(255,255,255,0.04)] transition duration-300 hover:-translate-y-1 hover:border-indigo-300/25"
             >
-              <div className="overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#0b1220]/85 shadow-[0_35px_100px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.05)]">
-                <div className="relative aspect-[16/10] sm:aspect-[16/9]">
-                  {c.img ? (
-                    <>
-                      <Image
-                        src={c.img}
-                        alt={c.alt ?? c.title}
-                        fill
-                        sizes="(max-width: 768px) 96vw, 860px"
-                        className="
-                          object-cover
-                          object-[center_18%]
-                          sm:object-[center_24%]
-                          md:object-[center_30%]
-                          lg:object-center
-                        "
-                        priority={i === 0}
-                      />
-                      <div className="absolute top-0 left-0 right-0 h-3 sm:h-3.5 md:h-4 lg:h-5 bg-black/30 border-b border-white/10 backdrop-blur-md flex items-center gap-1.5 px-2 sm:px-3">
-                        <span className="h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-red-400" />
-                        <span className="h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-yellow-400" />
-                        <span className="h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-green-400" />
-                        <div className="ml-1 sm:ml-2 h-3 sm:h-3.5 flex-1 rounded bg-white/10 border border-white/10" />
-                      </div>
-                      <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/0 to-black/30" />
-                    </>
-                  ) : (
-                    <>
-                      <div className="absolute inset-0 bg-[radial-gradient(1100px_700px_at_50%_-10%,rgba(99,102,241,0.35),transparent_65%)]" />
-                      <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/30" />
-                    </>
-                  )}
-                </div>
-
-                <div className="p-6 sm:p-8 md:p-10">
-                  <h3 className="text-2xl font-semibold tracking-tight text-white md:text-3xl">
-                    {c.title}
+              <div className="relative aspect-[16/9] overflow-hidden border-b border-white/8 bg-[#101829]">
+                {project.img ? (
+                  <Image
+                    src={project.img}
+                    alt={project.alt ?? project.title}
+                    fill
+                    sizes="(max-width: 767px) 100vw, 50vw"
+                    className="object-cover object-top transition duration-700 group-hover:scale-[1.025]"
+                    priority={index < 2}
+                  />
+                ) : null}
+                <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-transparent to-[#050914]/80" />
+                <span className="absolute left-4 top-4 rounded-full border border-white/15 bg-[#050914]/80 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-white shadow-lg backdrop-blur-md sm:left-5 sm:top-5">
+                  {project.industry}
+                </span>
+                <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-5 sm:p-6">
+                  <h3 className="max-w-[75%] text-xl font-semibold tracking-tight text-white sm:text-2xl">
+                    {project.company}
                   </h3>
-                  <div className="mt-7 grid gap-6 text-sm leading-7 text-slate-300 md:grid-cols-3 md:gap-8">
-                    <div>
-                      <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-indigo-300/70">
-                        Problem
-                      </div>
-                      <p className="mt-2">{c.problem}</p>
-                    </div>
-                    <div>
-                      <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-indigo-300/70">
-                        Lösung
-                      </div>
-                      <p className="mt-2">{c.solution}</p>
-                    </div>
-                    <div>
-                      <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-indigo-300/70">
-                        Ziel
-                      </div>
-                      <p className="mt-2">{neutralProjectGoal}</p>
-                    </div>
-                  </div>
-
-                  {c.href && (
-                    <div className="mt-6">
-                      <a
-                        href={c.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-sm font-medium text-indigo-300 transition hover:text-white"
-                      >
-                        Projekt live ansehen <span aria-hidden>↗</span>
-                      </a>
-                    </div>
-                  )}
+                  {project.href ? (
+                    <a
+                      href={project.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${project.company} Website ansehen`}
+                      className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-white/15 bg-white/10 text-lg text-white backdrop-blur-md transition hover:bg-white hover:text-[#050914]"
+                    >
+                      <span aria-hidden>↗</span>
+                    </a>
+                  ) : null}
                 </div>
+              </div>
+
+              <div className="flex flex-1 flex-col p-5 sm:p-6 lg:p-7">
+                <h3 className="text-xl font-semibold tracking-tight text-white">
+                  {project.title}
+                </h3>
+                <p className="mt-3 text-sm leading-7 text-slate-300">
+                  {project.result}
+                </p>
+
+                {project.googleReview ? (
+                  <a
+                    href={project.googleReview.sourceUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-6 block rounded-2xl border border-white/8 bg-white/[0.035] p-4 transition hover:border-indigo-300/20 hover:bg-white/[0.055]"
+                    aria-label={`Google-Rezension von ${project.googleReview.author} öffnen`}
+                  >
+                    <div className="flex items-center justify-between gap-3">
+                      <Stars rating={project.googleReview.rating} />
+                      <span className="text-[11px] font-medium uppercase tracking-[0.12em] text-slate-500">
+                        Google
+                      </span>
+                    </div>
+                    <blockquote className="mt-3 text-sm leading-6 text-slate-200">
+                      „{project.googleReview.quote}“
+                    </blockquote>
+                    <div className="mt-3 text-xs leading-5 text-slate-400">
+                      <span className="font-semibold text-white">
+                        {project.googleReview.author}
+                      </span>
+                      <span aria-hidden> · </span>
+                      {project.googleReview.role}
+                    </div>
+                  </a>
+                ) : null}
               </div>
             </article>
           ))}
         </div>
 
-        <div className="mt-6 flex items-center justify-center gap-2">
-          {caseStudies.map((_, i) => (
-            <button
-              key={i}
-              aria-label={`Slide ${i + 1}`}
-              aria-current={active === i ? "true" : undefined}
-              onClick={() => goTo(i)}
-              className={`h-2.5 rounded-full transition-all ${
-                active === i
-                  ? "w-6 bg-white"
-                  : "w-2.5 bg-white/40 hover:bg-white/70"
-              }`}
-            />
-          ))}
-        </div>
-
-        <div className="mt-10 text-center">
+        <div className="mt-10 text-center md:hidden">
           <Link
             href="/cases"
             data-track-event="cta_cases_click"
-            data-track-label="Home Cases Uebersicht"
+            data-track-label="Home Cases Uebersicht Mobile"
             className="cta-secondary"
           >
-            Alle Cases ansehen
+            Alle Projekte ansehen
           </Link>
         </div>
       </div>
