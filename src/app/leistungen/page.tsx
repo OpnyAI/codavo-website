@@ -12,37 +12,31 @@ export const metadata = createPageMetadata({
 const offers = [
   {
     title: "Unternehmenswebsites",
-    price: "ab 4.900 €",
     text: "Individuelle Websites für Positionierung, Vertrauen, Sichtbarkeit und eine klare digitale Grundlage.",
     href: "/webdesign",
   },
   {
     title: "Landingpages",
-    price: "ab 2.900 €",
     text: "Fokussierte Seiten für einzelne Angebote, Kampagnen und konkrete Anfrage- oder Kontaktziele.",
     href: "/landingpage-erstellen-lassen",
   },
   {
     title: "Funnel-Systeme",
-    price: "ab 3.900 €",
     text: "Strukturierte Nutzerwege für Leadgenerierung, Qualifizierung, Terminbuchung und Folgeprozesse.",
     href: "/funnel-erstellen-lassen",
   },
   {
     title: "Individuelle Software",
-    price: "ab 14.900 €",
     text: "Webbasierte Systeme für Portale, Dashboards, Schnittstellen, Automatisierung und spezifische Prozesse.",
     href: "/softwareloesungen-fuer-kmu",
   },
   {
     title: "Hosting & Wartung",
-    price: "ab 49 €/Monat",
     text: "Technischer Betrieb, Wartung, Kontrolle und planbare Weiterentwicklung nach dem Launch.",
     href: "/hosting-wartung",
   },
   {
     title: "Web-Apps",
-    price: "individueller Projektumfang",
     text: "Web-Apps werden in der Regel als individuelle Software anhand von Funktionen, Rollen und Integrationen kalkuliert.",
     href: "/web-app-entwicklung",
   },
@@ -66,7 +60,6 @@ export default function Page() {
               {offers.map((offer) => (
                 <Link key={offer.href} href={offer.href} className="card group flex h-full min-w-0 flex-col">
                   <h2 className="break-words text-2xl font-semibold tracking-tight text-white">{offer.title}</h2>
-                  <p className="mt-3 text-lg font-semibold text-indigo-300">{offer.price}</p>
                   <p className="mt-4 flex-1 text-sm leading-7 text-slate-300 md:text-base">{offer.text}</p>
                   <span className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-indigo-300">
                     Details ansehen <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" aria-hidden />
@@ -96,10 +89,10 @@ export default function Page() {
               <aside className="rounded-3xl border border-white/8 bg-white/[0.025] p-6 md:p-8">
                 <h2 className="text-xl font-semibold text-white">Unsicher, welche Lösung passt?</h2>
                 <p className="mt-3 text-sm leading-7 text-slate-300 md:text-base">
-                  Mit dem Website-Check analysieren wir Ihre aktuelle Website und zeigen sinnvolle nächste Schritte.
+                  Im kostenlosen Erstgespräch klären wir Ihre Ausgangslage, die wichtigsten Ziele und einen sinnvollen nächsten Schritt.
                 </p>
-                <Link href="/website-check" data-track-event="cta_website_check_click" data-track-label="Leistungen Website Check Orientierung" className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-indigo-300 transition hover:text-white">
-                  Website-Check starten <ArrowRight className="h-4 w-4" aria-hidden />
+                <Link href="/kontakt" data-track-event="cta_contact_click" data-track-label="Leistungen Erstgespräch Orientierung" className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-indigo-300 transition hover:text-white">
+                  Kostenloses Erstgespräch vereinbaren <ArrowRight className="h-4 w-4" aria-hidden />
                 </Link>
               </aside>
             </div>
@@ -109,7 +102,7 @@ export default function Page() {
         <section className="section">
           <div className="container max-w-4xl text-center">
             <h2 className="text-3xl font-semibold text-white">Welche Leistung passt zu Ihrem Ziel?</h2>
-            <p className="mt-4 text-slate-300">Die Einstiegspreise dienen als Orientierung. Im Erstgespräch klären wir den finalen Umfang anhand von Anforderungen, Inhalten und Projektziel.</p>
+            <p className="mt-4 text-slate-300">Im kostenlosen Erstgespräch klären wir, welche Lösung Ihre Ausgangslage sinnvoll verbessert und welcher Umfang dafür erforderlich ist.</p>
             <Link href="/kontakt" data-track-event="cta_contact_click" data-track-label="Leistungen Abschluss" className="cta-primary mt-7">Kostenloses Erstgespräch vereinbaren</Link>
           </div>
         </section>

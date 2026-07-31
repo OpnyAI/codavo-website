@@ -92,7 +92,7 @@ export const knowledgeArticles = {
     intro:
       "Die Kosten einer Website hängen nicht nur von der Seitenzahl ab. Entscheidend sind Ziel, Inhalte, Nutzerführung, technische Grundlage, Sichtbarkeit und spätere Erweiterbarkeit.",
     answer:
-      "Bei Codavo startet eine professionelle Unternehmenswebsite im Launch-Paket ab 4.900 €. Growth beginnt ab 7.900 €, Enterprise ab 14.900 €. Der passende Umfang richtet sich nach Ziel, Seitenstruktur, Content, Funktionen, SEO-/AEO-/LLMO-Grundlagen und gewünschter Weiterentwicklung.",
+      "Der passende Projektumfang richtet sich nach Ziel, Seitenstruktur, Content, Funktionen, SEO-/AEO-/LLMO-Grundlagen und gewünschter Weiterentwicklung. Deshalb klärt Codavo zuerst die Ausgangslage und erstellt anschließend ein individuelles, nachvollziehbares Angebot.",
     cluster: "unternehmenswebsites",
     primaryMoneyPage: {
       href: "/webdesign",
@@ -173,7 +173,7 @@ export const knowledgeArticles = {
     faqs: [
       {
         q: "Was kostet eine kleine Unternehmenswebsite?",
-        a: "Bei Codavo startet das Launch-Paket ab 4.900 €. Der konkrete Umfang wird nach Ziel, Seitenstruktur und benötigten Inhalten festgelegt.",
+        a: "Der konkrete Umfang wird nach Ziel, Seitenstruktur, benötigten Inhalten und Funktionen festgelegt. Nach dem Erstgespräch erhalten Sie ein passendes Angebot.",
       },
       {
         q: "Warum gibt es keinen Einheitspreis?",
@@ -189,7 +189,7 @@ export const knowledgeArticles = {
       },
       {
         q: "Was kostet eine Landingpage?",
-        a: "Landingpages starten bei Codavo ab 2.900 €. Formulare, Tracking und Funnel-Logik beeinflussen den finalen Preis.",
+        a: "Der Umfang einer Landingpage richtet sich nach Inhalt, Formularen, Tracking, Integrationen und möglicher Funnel-Logik. Diese Anforderungen werden vor dem Angebot gemeinsam geklärt.",
       },
       {
         q: "Gibt es laufende Kosten?",
@@ -210,7 +210,7 @@ export const knowledgeArticles = {
     intro:
       "Moderne Sichtbarkeit umfasst klassische Suchergebnisse, direkte Antworten und die Einordnung durch KI-Modelle.",
     answer:
-      "SEO verbessert klassische Auffindbarkeit. AEO strukturiert direkte Antworten. LLMO hilft KI-Systemen, Unternehmen, Leistungen und Zusammenhänge eindeutiger einzuordnen. Eine Garantie für Rankings oder KI-Nennungen gibt es nicht.",
+      "SEO verbessert klassische Auffindbarkeit. AEO strukturiert direkte Antworten. LLMO hilft KI-Systemen, Unternehmen, Leistungen und Zusammenhänge eindeutiger einzuordnen. Gemeinsam schaffen diese Disziplinen starke Voraussetzungen für Sichtbarkeit bei Google und in KI-Suchen.",
     cluster: "seo-aeo-llmo",
     primaryMoneyPage: {
       href: "/webdesign",

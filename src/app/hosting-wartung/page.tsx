@@ -1,5 +1,4 @@
 import ServiceLandingPage from "@/components/content/ServiceLandingPage";
-import MaintenancePricingSection from "@/components/pricing/MaintenancePricingSection";
 import { createPageMetadata } from "@/lib/seo";
 export const metadata = createPageMetadata({ path: "/hosting-wartung", title: "Hosting, Wartung und Updates für Websites | Codavo", description: "Betreuter Betrieb, Wartung, Updates und Weiterentwicklung für professionelle Unternehmenswebsites." });
 const faqs = [
@@ -9,7 +8,7 @@ const faqs = [
   { q: "Was ist der Unterschied zwischen Hosting und Wartung?", a: "Hosting ist der technische Betrieb. Wartung umfasst laufende Pflege, Kontrolle und Fehlerbehebung." },
   { q: "Kann ich selbst hosten?", a: "Ja. Vorher sollte geklärt werden, wer Verantwortung für Updates, Betrieb und Fehlerbehebung übernimmt." },
   { q: "Sind Inhaltsänderungen enthalten?", a: "Das hängt vom Betreuungsumfang ab. Größere Inhalte, Seiten und Funktionen werden meist separat geplant." },
-  { q: "Was kostet Hosting und Wartung bei Codavo?", a: "Landingpage Care startet bei 49 €/Monat. Für professionelle Websites startet Care bei 99 €/Monat. Care Plus liegt bei 249 €/Monat und Growth Care bei 399 €/Monat. Welches Paket sinnvoll ist, hängt vom Umfang der Website und dem gewünschten Betreuungsgrad ab." },
+  { q: "Wie wird der passende Betreuungsumfang festgelegt?", a: "Der Betreuungsumfang richtet sich nach Website, technischer Komplexität, Änderungsbedarf und gewünschter Reaktionszeit. Im Erstgespräch klären wir, welche Verantwortung Codavo sinnvoll übernehmen soll." },
   { q: "Ist Hosting günstiger bei klassischen Anbietern?", a: "Reines Hosting kann bei klassischen Anbietern günstiger sein. Bei Codavo geht es jedoch nicht nur um Speicherplatz, sondern um technische Betreuung, Wartung, Prüfung, Ansprechpartner und Weiterentwicklung." },
   { q: "Übernimmt Codavo auch Tracking und Auswertung?", a: "Je nach Betreuungsumfang kann Codavo Performance- und Tracking-Daten prüfen und daraus Optimierungsvorschläge ableiten. Tracking wird dabei projektbezogen und passend zur Einwilligungslogik umgesetzt, zum Beispiel mit Google Analytics, Google Ads Conversion Tracking oder anderen geeigneten Tools nach Bedarf." },
   { q: "Kann Codavo bestehende Websites übernehmen?", a: "Das ist nach Prüfung der technischen Grundlage, Systeme und Wartbarkeit häufig möglich." },
@@ -21,4 +20,4 @@ export default function Page() { return <ServiceLandingPage path="/hosting-wartu
   { title: "Technische Anpassungen", text: "Kleinere Änderungen lassen sich planbar umsetzen; größere Funktionen werden als eigene Erweiterung konzipiert." },
   { title: "Weiterentwicklung", text: "Neue Leistungsseiten, Landingpages, Funnel oder Schnittstellen können auf einer sauberen Grundlage ergänzt werden." },
   { title: "Betreuungsmodelle", text: "Umfang und Reaktionswege richten sich nach Kritikalität, Änderungsbedarf und technischer Komplexität." },
-]} relatedLinks={[{ href: "/webdesign", label: "Neue Website", description: "Professionelle Grundlage schaffen." },{ href: "/website-check", label: "Website-Check", description: "Bestehenden Auftritt einordnen." },{ href: "/wissen/individuelle-website-vs-baukasten", label: "Individuell oder Baukasten?", description: "Technische Grundlagen vergleichen." }]} beforeFaq={<MaintenancePricingSection />} faqs={faqs} />; }
+]} relatedLinks={[{ href: "/webdesign", label: "Neue Website", description: "Professionelle Grundlage schaffen." },{ href: "/kontakt", label: "Kostenloses Erstgespräch", description: "Ausgangslage und nächsten Schritt klären." },{ href: "/wissen/individuelle-website-vs-baukasten", label: "Individuell oder Baukasten?", description: "Technische Grundlagen vergleichen." }]} faqs={faqs} />; }

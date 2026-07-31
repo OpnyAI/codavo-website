@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { CalendarCheck, SearchCheck } from "lucide-react";
+import { CalendarCheck } from "lucide-react";
 
 const HIDE_ROUTES = [
   "/kontakt",
@@ -96,29 +96,17 @@ export default function MobileCTA() {
           : "opacity-0 translate-y-3 pointer-events-none",
       ].join(" ")}
     >
-      <div className="pointer-events-auto mx-auto flex max-w-md items-center gap-2 rounded-3xl border border-white/12 bg-slate-950/88 p-2 shadow-[0_18px_40px_-18px_rgba(0,0,0,0.85)] backdrop-blur-xl">
+      <div className="pointer-events-auto mx-auto max-w-md rounded-3xl border border-white/12 bg-slate-950/88 p-2 shadow-[0_18px_40px_-18px_rgba(0,0,0,0.85)] backdrop-blur-xl">
         <Link
           href="/kontakt"
           scroll
           data-track-event="cta_contact_click"
           data-track-label="Mobile Erstgespraech"
           aria-label="Kostenloses Erstgespräch vereinbaren"
-          className="inline-flex min-h-11 flex-[1.1] items-center justify-center gap-1 whitespace-nowrap rounded-2xl bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 px-2 py-2 text-xs font-semibold text-white shadow-[0_0_0_1px_rgba(255,255,255,0.05)] transition-all hover:brightness-110 active:brightness-95"
+          className="inline-flex min-h-12 w-full items-center justify-center gap-2 whitespace-nowrap rounded-2xl bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 px-4 py-2.5 text-sm font-semibold text-white shadow-[0_0_0_1px_rgba(255,255,255,0.05)] transition-all hover:brightness-110 active:brightness-95"
         >
           <CalendarCheck className="h-4 w-4 shrink-0" aria-hidden="true" />
-          <span>Erstgespräch</span>
-        </Link>
-
-        <Link
-          href="/website-check"
-          scroll
-          data-track-event="cta_website_check_click"
-          data-track-label="Mobile Website Check"
-          aria-label="Kostenlosen Website-Check starten"
-          className="inline-flex min-h-11 flex-1 items-center justify-center gap-1 whitespace-nowrap rounded-2xl border border-white/14 bg-white/[0.06] px-2 py-2 text-xs font-medium text-white transition-colors hover:bg-white/10 active:bg-white/15"
-        >
-          <SearchCheck className="h-4 w-4 shrink-0" aria-hidden="true" />
-          <span>Website-Check</span>
+          <span>Kostenloses Erstgespräch</span>
         </Link>
       </div>
     </div>

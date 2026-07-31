@@ -3,9 +3,11 @@ import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import Process from "@/components/Process";
 import CaseStudies from "@/components/CaseStudies";
+import Testimonials from "@/components/Testimonials";
+import About from "@/components/About";
+import FirstConsultation from "@/components/FirstConsultation";
 import Footer from "@/components/Footer";
 import FAQAccordion from "@/components/FAQAccordion";
-import { PackagesSection } from "@/components/HomeExpansion";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
@@ -83,8 +85,8 @@ const solutions = [
 
 const homeFaqs = [
   {
-    q: "Was kostet eine professionelle Website bei Codavo?",
-    a: "Eine professionelle Unternehmenswebsite startet bei Codavo im Launch-Paket ab 4.900 €. Der finale Preis hängt vom Umfang, der Seitenstruktur, den Funktionen und dem gewünschten Betreuungsmodell ab. Growth ist ab 7.900 € vorgesehen, Enterprise beginnt ab 14.900 €.",
+    q: "Wie entsteht das Angebot für eine professionelle Website?",
+    a: "Der passende Projektumfang entsteht aus Ihren Zielen, der benötigten Seitenstruktur, den Inhalten, Funktionen und dem gewünschten Betreuungsmodell. Im Erstgespräch klären wir zunächst die Ausgangslage. Anschließend erhalten Sie ein transparent abgegrenztes Angebot für die tatsächlich sinnvolle Lösung.",
     link: {
       href: "/kontakt" as const,
       label: "Kostenloses Erstgespräch vereinbaren",
@@ -107,8 +109,8 @@ const homeFaqs = [
     a: "Eine Website stellt das Unternehmen und mehrere Leistungen umfassend dar. Eine Landingpage konzentriert sich auf ein Angebot oder eine Kampagne. Ein Funnel führt Besucher über mehrere definierte Schritte zu einer Anfrage, Buchung oder Bewerbung.",
   },
   {
-    q: "Für wen eignet sich das Growth-Paket?",
-    a: "Growth eignet sich für Unternehmen, die ihre Website aktiv zur Kundengewinnung einsetzen möchten. Das Paket ist sinnvoll, wenn mehrere Leistungen erklärt, Suchmaschinen und KI-Systeme besser bedient und Besucher gezielter zu Anfragen geführt werden sollen.",
+    q: "Für welche Unternehmen eignet sich eine neue Website?",
+    a: "Eine neue Website ist sinnvoll, wenn der aktuelle Auftritt nicht mehr zur Qualität des Unternehmens passt, Leistungen unklar erklärt, bei Google und in KI-Suchen kaum sichtbar ist oder zu wenige passende Anfragen unterstützt.",
   },
   { q: "Unterstützt Codavo auch nach dem Launch?", a: "Ja. Codavo kann Hosting, Wartung, Updates, technische Betreuung und spätere Erweiterungen übernehmen. Der konkrete Umfang richtet sich nach Website, Änderungsbedarf und Betriebsanforderungen." },
   { q: "Wie läuft ein Website-Projekt mit Codavo ab?", a: "Ein Projekt beginnt mit Analyse und Zielklärung. Danach folgen Strategie, Seitenstruktur, UX/UI, Entwicklung, Launch und auf Wunsch laufende Betreuung. Inhalte, Funktionen und Verantwortlichkeiten werden früh transparent festgelegt." },
@@ -139,6 +141,7 @@ export default function Home() {
     <>
       <main className="overflow-x-hidden">
         <Hero />
+        <CaseStudies />
 
         <section className="section section--feature section--compact">
           <div className="container max-w-6xl">
@@ -205,29 +208,28 @@ export default function Home() {
             <div className="mt-8 flex flex-col items-start justify-between gap-5 rounded-2xl border border-indigo-400/20 bg-indigo-500/[0.07] p-6 sm:flex-row sm:items-center">
               <div className="max-w-2xl">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-indigo-300">
-                  Kostenloser Website-Quick-Check
+                  Nächster Schritt
                 </p>
                 <p className="mt-2 text-base leading-7 text-slate-200">
-                  Finden Sie heraus, an welchen Stellen Ihre Website heute
-                  Vertrauen, Auffindbarkeit oder qualifizierte Anfragen verliert.
+                  Im kostenlosen Erstgespräch klären wir, was Ihre Website heute
+                  leisten muss und welcher Projektumfang dafür sinnvoll ist.
                 </p>
               </div>
               <Link
-                href="/website-check"
-                data-track-event="cta_website_check_click"
-                data-track-label="Home Argumentation Website Quick Check"
+                href="/kontakt"
+                data-track-event="cta_contact_click"
+                data-track-label="Home Argumentation Erstgespraech"
                 className="cta-primary shrink-0"
               >
-                Website-Quick-Check starten
+                Kostenloses Erstgespräch
               </Link>
             </div>
           </div>
         </section>
 
         <Services />
-        <CaseStudies />
-
-        <PackagesSection />
+        <About />
+        <Testimonials />
         <Process />
 
         <section className="section section--quiet">
@@ -237,7 +239,7 @@ export default function Home() {
                 Häufige Fragen unserer Kunden
               </h2>
               <p className="lede mx-auto mt-5 max-w-2xl">
-                Konkrete Antworten zu Kosten, Technik, Zusammenarbeit und der
+                Konkrete Antworten zu Projektumfang, Technik, Zusammenarbeit und der
                 Zeit nach dem Launch.
               </p>
             </div>
@@ -247,43 +249,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section
-          className="section section--feature"
-          data-mobile-cta-stop
-        >
-          <div className="container max-w-5xl">
-            <div className="relative overflow-hidden rounded-[2rem] border border-indigo-400/25 bg-indigo-500/[0.08] p-7 text-center shadow-[0_35px_100px_rgba(0,0,0,0.28)] md:p-14 lg:p-16">
-              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(700px_300px_at_50%_0%,rgba(129,140,248,0.16),transparent_70%)]" />
-              <h2 className="section-title relative mx-auto max-w-4xl text-white">
-                Bereit für eine Website, die mehr leistet als nur gut
-                auszusehen?
-              </h2>
-              <p className="lede relative mx-auto mt-5 max-w-2xl text-slate-200">
-                Im kostenlosen Erstgespräch klären wir, wie Ihre Website mehr
-                Vertrauen schaffen, besser gefunden werden und qualifizierte
-                Anfragen unterstützen kann.
-              </p>
-              <div className="relative mx-auto mt-9 flex w-full max-w-md flex-col justify-center gap-3 sm:max-w-none sm:flex-row">
-                <Link
-                  href="/kontakt"
-                  data-track-event="cta_contact_click"
-                  data-track-label="Home Abschluss Erstgespraech"
-                  className="cta-primary"
-                >
-                  Kostenloses Erstgespräch vereinbaren
-                </Link>
-                <Link
-                  href="/website-check"
-                  data-track-event="cta_website_check_click"
-                  data-track-label="Home Abschluss Website Check"
-                  className="cta-secondary"
-                >
-                  Website-Check starten
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
+        <FirstConsultation />
 
         <Footer />
       </main>

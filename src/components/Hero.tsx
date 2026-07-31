@@ -14,6 +14,7 @@ function GoogleRating({ className = "" }: { className?: string }) {
           alt=""
           width={80}
           height={80}
+          priority
           aria-hidden="true"
         />
       </span>
@@ -66,7 +67,7 @@ export default function Hero() {
             Individuell entwickelt · Kein Baukastensystem
           </p>
 
-          <div className="mx-auto mt-8 flex min-w-0 w-full max-w-md flex-col gap-3 sm:max-w-none sm:flex-row lg:mx-0">
+          <div className="mx-auto mt-8 flex min-w-0 w-full max-w-md flex-col gap-3 sm:max-w-none lg:mx-0">
             <Link
               href="/kontakt"
               data-track-event="cta_contact_click"
@@ -74,15 +75,6 @@ export default function Hero() {
               className="cta-primary"
             >
               Kostenloses Erstgespräch vereinbaren
-            </Link>
-
-            <Link
-              href="/website-check"
-              data-track-event="cta_website_check_click"
-              data-track-label="Hero Website Check"
-              className="cta-secondary"
-            >
-              Website-Check starten
             </Link>
           </div>
 

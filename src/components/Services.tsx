@@ -10,7 +10,6 @@ const services = [
       "Für Unternehmen, die einen hochwertigen digitalen Auftritt benötigen, der Vertrauen schafft und Leistungen klar darstellt.",
     href: "/webdesign",
     linkLabel: "Unternehmenswebsite planen",
-    priceHint: "Websites ab 4.900 €",
   },
   {
     icon: Megaphone,
@@ -22,7 +21,6 @@ const services = [
     linkLabel: "Landingpage ansehen",
     secondaryHref: "/funnel-erstellen-lassen",
     secondaryLabel: "Funnel ansehen",
-    priceHint: "Landingpages ab 2.900 € · Funnel ab 3.900 €",
   },
   {
     icon: SearchCheck,
@@ -32,7 +30,6 @@ const services = [
       "Für Unternehmen, die nicht nur bei Google, sondern auch in KI-Systemen besser verstanden werden möchten.",
     href: "/wissen/seo-aeo-llmo",
     linkLabel: "Moderne Sichtbarkeit verstehen",
-    priceHint: "Als Bestandteil einer klaren Website-Struktur",
   },
   {
     icon: Workflow,
@@ -44,7 +41,6 @@ const services = [
     linkLabel: "Web-App ansehen",
     secondaryHref: "/softwareloesungen-fuer-kmu",
     secondaryLabel: "Software für KMU",
-    priceHint: "Individuelle Software ab 14.900 €",
   },
   {
     icon: ServerCog,
@@ -54,7 +50,6 @@ const services = [
       "Hosting, Wartung und technische Weiterentwicklung halten die Website sicher, aktuell und erweiterbar.",
     href: "/hosting-wartung",
     linkLabel: "Hosting und Wartung ansehen",
-    priceHint: "Hosting & Wartung ab 49 €/Monat",
   },
 ] as const;
 
@@ -91,7 +86,6 @@ export default function Services() {
               <p className="mt-4 max-w-xl flex-1 text-sm leading-7 text-slate-300 md:text-base">
                 {service.description}
               </p>
-              <p className="mt-5 text-xs font-medium text-slate-500">{service.priceHint}</p>
               <div className="mt-8 flex flex-col items-start gap-2 sm:flex-row sm:flex-wrap sm:gap-x-5">
                 <Link
                   href={service.href}

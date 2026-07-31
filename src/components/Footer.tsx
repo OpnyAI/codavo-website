@@ -79,22 +79,12 @@ export default function Footer() {
               <li><Link href="/faq" className="transition hover:text-white">FAQ</Link></li>
               <li>
                 <Link
-                  href="/website-check"
-                  data-track-event="cta_website_check_click"
-                  data-track-label="Footer Website Check"
-                  className="font-medium text-indigo-300 transition hover:text-white"
-                >
-                  Kostenloser Website-Check
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/kontakt"
                   data-track-event="nav_contact_click"
                   data-track-label="Footer Navigation Kontakt"
-                  className="transition hover:text-white"
+                  className="font-medium text-indigo-300 transition hover:text-white"
                 >
-                  Kontakt
+                  Kostenloses Erstgespräch
                 </Link>
               </li>
             </ul>

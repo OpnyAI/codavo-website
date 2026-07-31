@@ -2,30 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { caseStudies } from "@/components/case-studies-data";
 
-function Stars({ rating }: { rating: number }) {
-  return (
-    <span
-      className="flex gap-0.5 text-[15px] leading-none text-amber-300"
-      aria-label={`${rating} von 5 Sternen`}
-    >
-      {[1, 2, 3, 4, 5].map((star) => (
-        <span
-          key={star}
-          className={star <= rating ? "text-amber-300" : "text-white/20"}
-          aria-hidden
-        >
-          ★
-        </span>
-      ))}
-    </span>
-  );
-}
-
 export default function CaseStudies() {
-  const featuredCases = caseStudies.filter((item) => item.featured);
+  const featuredCases = caseStudies.filter((item) => item.featured).slice(0, 4);
 
   return (
-    <section id="cases" className="section section--feature scroll-mt-24">
+    <section id="cases" className="section section--feature section--compact scroll-mt-24">
       <div className="container max-w-7xl">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl">
@@ -33,11 +14,11 @@ export default function CaseStudies() {
               Ausgewählte Projekte
             </p>
             <h2 className="section-title mt-4 text-white">
-              Websites, die Unternehmen unverwechselbar machen.
+              So kann ein professioneller Webauftritt aussehen.
             </h2>
             <p className="lede mt-5 max-w-2xl">
-              Reale Projekte aus Medientechnik, Catering, Sanierung, Pflege,
-              Industrie und Mobilität – individuell konzipiert und entwickelt.
+              Vier reale Websites aus unterschiedlichen Branchen – individuell
+              konzipiert, gestaltet und entwickelt.
             </p>
           </div>
 
@@ -97,33 +78,6 @@ export default function CaseStudies() {
                 <p className="mt-3 text-sm leading-7 text-slate-300">
                   {project.result}
                 </p>
-
-                {project.googleReview ? (
-                  <a
-                    href={project.googleReview.sourceUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-6 block rounded-2xl border border-white/8 bg-white/[0.035] p-4 transition hover:border-indigo-300/20 hover:bg-white/[0.055]"
-                    aria-label={`Google-Rezension von ${project.googleReview.author} öffnen`}
-                  >
-                    <div className="flex items-center justify-between gap-3">
-                      <Stars rating={project.googleReview.rating} />
-                      <span className="text-[11px] font-medium uppercase tracking-[0.12em] text-slate-500">
-                        Google
-                      </span>
-                    </div>
-                    <blockquote className="mt-3 text-sm leading-6 text-slate-200">
-                      „{project.googleReview.quote}“
-                    </blockquote>
-                    <div className="mt-3 text-xs leading-5 text-slate-400">
-                      <span className="font-semibold text-white">
-                        {project.googleReview.author}
-                      </span>
-                      <span aria-hidden> · </span>
-                      {project.googleReview.role}
-                    </div>
-                  </a>
-                ) : null}
               </div>
             </article>
           ))}

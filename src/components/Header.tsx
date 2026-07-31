@@ -157,16 +157,7 @@ export default function Header() {
             })}
           </nav>
 
-          <div className="hidden items-center gap-3 xl:flex">
-            <Link
-              href="/website-check"
-              scroll
-              data-track-event="cta_website_check_click"
-              data-track-label="Header Website Check"
-              className="hidden rounded-full border border-white/15 px-3 py-2 text-xs font-medium text-slate-200 transition hover:bg-white/10 hover:text-white xl:inline-flex"
-            >
-              Website-Check
-            </Link>
+          <div className="hidden items-center xl:flex">
             <Link
               href="/kontakt"
               scroll
@@ -215,14 +206,6 @@ export default function Header() {
               ))}
 
               <div className="mt-3 border-t border-white/10 pt-3">
-                <Link
-                  href="/website-check"
-                  data-track-event="cta_website_check_click"
-                  data-track-label="Mobile Header Website Check"
-                  className="cta-secondary mb-3"
-                >
-                  Kostenloser Website-Check
-                </Link>
                 <Link
                   href="/kontakt"
                   data-track-event="nav_contact_click"
