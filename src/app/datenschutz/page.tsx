@@ -146,13 +146,18 @@ export default function DatenschutzPage() {
                 7. Kontaktaufnahme
               </h2>
               <p className="mt-2 text-slate-300">
-                Wenn du uns per E-Mail, Telefon oder WhatsApp kontaktierst,
-                verarbeiten wir deine Angaben zur Bearbeitung deiner Anfrage.
+                Wenn du uns über ein Kontaktformular, per E-Mail, Telefon oder
+                WhatsApp kontaktierst, verarbeiten wir deine Angaben zur
+                Bearbeitung deiner Anfrage. Bei einer Projektanfrage können
+                hierzu insbesondere Kontakt-, Unternehmens-, Umsatz-, Budget-
+                und Projektdaten gehören.
               </p>
               <p className="mt-2 text-slate-300">
                 Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO
                 (Vertragsanbahnung/-durchführung) bzw. Art. 6 Abs. 1 lit. f
-                DSGVO.
+                DSGVO. Soweit wir im Formular eine Einwilligung abfragen,
+                erfolgt die Verarbeitung zusätzlich auf Grundlage von Art. 6
+                Abs. 1 lit. a DSGVO.
               </p>
             </section>
 
@@ -165,6 +170,12 @@ export default function DatenschutzPage() {
                 Wir setzen externe Dienstleister (z. B. Hosting-Provider) ein,
                 die im Rahmen einer Auftragsverarbeitung gemäß Art. 28 DSGVO
                 tätig sind.
+              </p>
+              <p className="mt-2 text-slate-300">
+                Für die technische Übermittlung von Formularanfragen per E-Mail
+                nutzen wir den Versanddienst Resend. Dabei werden die im
+                Formular angegebenen Daten an Resend übermittelt, soweit dies
+                für den E-Mail-Versand erforderlich ist.
               </p>
             </section>
 

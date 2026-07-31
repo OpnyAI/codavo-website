@@ -5,7 +5,6 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
-import SocialLinks from "@/components/SocialLinks";
 
 const navLinks = [
   { href: "/webdesign", label: "Webdesign" },
@@ -14,7 +13,6 @@ const navLinks = [
   { href: "/leistungen", label: "Leistungen" },
   { href: "/cases", label: "Case Studies" },
   { href: "/wissen", label: "Wissen" },
-  { href: "/kontakt", label: "Kontakt" },
 ];
 
 export default function Header() {
@@ -147,14 +145,6 @@ export default function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  data-track-event={
-                    link.href === "/kontakt" ? "nav_contact_click" : undefined
-                  }
-                  data-track-label={
-                    link.href === "/kontakt"
-                      ? "Desktop Navigation Kontakt"
-                      : undefined
-                  }
                   {...(!isAnchorLink ? { scroll: true } : {})}
                   className={[
                     "relative py-2 transition hover:text-white",
@@ -168,11 +158,6 @@ export default function Header() {
           </nav>
 
           <div className="hidden items-center gap-3 xl:flex">
-            <SocialLinks
-              variant="header"
-              size="sm"
-              className="hidden 2xl:flex"
-            />
             <Link
               href="/website-check"
               scroll
@@ -186,10 +171,10 @@ export default function Header() {
               href="/kontakt"
               scroll
               data-track-event="nav_contact_click"
-              data-track-label="Header Strategie Call"
+              data-track-label="Header Erstgespraech"
               className="inline-flex min-h-10 items-center rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-fuchsia-500 px-4 py-2 text-sm font-medium text-white shadow-[0_8px_24px_rgba(99,102,241,0.24)] transition hover:-translate-y-px hover:shadow-[0_12px_28px_rgba(99,102,241,0.3)]"
             >
-              Strategie-Call
+              Kostenloses Erstgespräch
             </Link>
           </div>
 
@@ -222,14 +207,6 @@ export default function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  data-track-event={
-                    link.href === "/kontakt" ? "nav_contact_click" : undefined
-                  }
-                  data-track-label={
-                    link.href === "/kontakt"
-                      ? "Mobile Navigation Kontakt"
-                      : undefined
-                  }
                   {...(!link.href.includes("#") ? { scroll: true } : {})}
                   className="rounded-xl px-4 py-3 text-slate-200 transition hover:bg-white/[0.06] hover:text-white"
                 >
@@ -249,10 +226,10 @@ export default function Header() {
                 <Link
                   href="/kontakt"
                   data-track-event="nav_contact_click"
-                  data-track-label="Mobile Header Strategie Call"
+                  data-track-label="Mobile Header Erstgespraech"
                   className="cta-primary"
                 >
-                  Strategie-Call
+                  Kostenloses Erstgespräch
                 </Link>
               </div>
             </nav>

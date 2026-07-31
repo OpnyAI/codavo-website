@@ -153,7 +153,7 @@ export const caseStudies: CaseStudyItem[] = [
     decision:
       "Kurze Erklärungen, wiederkehrende Orientierungspunkte und klare Handlungsoptionen reduzieren Komplexität, ohne wichtige Informationen auszulassen.",
     result:
-      "Ein vertrauensvoller Webauftritt, der Leistungen strukturiert erklärt und Angehörige wie Pflegebedürftige sicher zum nächsten Schritt führt.",
+      "Nach dem Launch stieg der Umsatz um 30 Prozent. Aufgrund der gestiegenen Nachfrage stellte Taner Care inzwischen sieben neue Mitarbeiterinnen und Mitarbeiter ein.",
     serviceLinks: [
       { href: "/webdesign", label: "Webdesign" },
       { href: "/digitale-systeme", label: "Digitale Systeme" },

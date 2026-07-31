@@ -19,36 +19,36 @@ export const metadata = createPageMetadata({
 
 const problems = [
   {
-    title: "Kaum sichtbar bei Google und KI-Systemen",
+    title: "Der Auftritt bleibt hinter der eigenen Qualität zurück",
     description:
-      "Wenn Inhalte, Struktur und technische Signale fehlen, verstehen Suchmaschinen und KI-Systeme nicht klar genug, wofür Ihr Unternehmen steht.",
+      "Die Leistungen sind hochwertig, doch die Website wirkt veraltet, austauschbar oder erklärt den Mehrwert nicht überzeugend.",
   },
   {
-    title: "Besucher werden nicht zu Anfragen",
+    title: "Es kommen zu wenige passende Anfragen",
     description:
-      "Viele Websites erklären zwar Leistungen, führen Besucher aber nicht gezielt zur Kontaktaufnahme, Anfrage oder Terminbuchung.",
+      "Interessenten finden nicht schnell genug die richtigen Argumente, Belege und nächsten Schritte – und verlassen die Seite ohne Kontaktaufnahme.",
   },
   {
-    title: "Austauschbarer Auftritt",
+    title: "Bei Google und KI-Systemen kaum präsent",
     description:
-      "Standardlayouts und generische Texte schaffen selten Vertrauen. Entscheidend ist, dass Ihr Unternehmen eigenständig, professionell und glaubwürdig wirkt.",
+      "Wenn Inhalte, Struktur und technische Signale fehlen, wird nicht klar genug verstanden, wofür das Unternehmen steht und bei welchen Fragen es relevant ist.",
   },
   {
-    title: "Technisch schwer erweiterbar",
+    title: "Wichtige Verbesserungen bleiben liegen",
     description:
-      "Wenn eine Website technisch limitiert ist, werden spätere Anpassungen, neue Seiten, Funnel, Schnittstellen oder Web-App-Funktionen unnötig kompliziert.",
+      "Im Alltag fehlen Zeit, Know-how oder eine verlässliche technische Grundlage, um Inhalte, Angebote und Funktionen laufend weiterzuentwickeln.",
   },
 ] as const;
 
 const solutions = [
   {
-    title: "Individueller Code statt Baukasten",
+    title: "Qualität sichtbar machen",
     benefit:
-      "Jede Website wird individuell mit moderner Webtechnologie entwickelt. Design, Performance, Struktur und Erweiterbarkeit bleiben kontrollierbar.",
+      "Positionierung, Inhalte und individuelles Design werden so verbunden, dass der digitale Auftritt dem tatsächlichen Leistungsniveau entspricht.",
     example:
-      "React und Next.js schaffen eine saubere Grundlage für Leistungsseiten, Landingpages, Funnel und spätere Funktionen.",
+      "Besucher erkennen schneller, warum das Unternehmen die richtige Wahl ist, und fassen bereits vor dem ersten Gespräch Vertrauen.",
     detail:
-      "Baukastensysteme können für einfache Anforderungen sinnvoll sein. Individueller Code bietet mehr Kontrolle über eigenständiges Design, Performance und langfristige Erweiterungen.",
+      "Ein Standardtemplate kann Farben und Bilder austauschen. Eine klare Positionierung, eine eigenständige Nutzerführung und passgenaue Funktionen entstehen dadurch jedoch nicht automatisch.",
     href: "/webdesign",
     linkLabel: "Webdesign ansehen",
   },
@@ -57,7 +57,7 @@ const solutions = [
     benefit:
       "Inhalte, Metadaten, FAQ, interne Verlinkung und strukturierte Daten werden für Suchmaschinen und KI-Systeme verständlich aufgebaut.",
     example:
-      "Das unterstützt die Einordnung durch Google, AI Overviews, ChatGPT, Gemini, Claude und Perplexity, ohne Rankings zu versprechen.",
+      "So entstehen starke Voraussetzungen für gute Platzierungen bei Google und Sichtbarkeit in Antworten von ChatGPT, Gemini, Claude und Perplexity.",
     detail: null,
     href: "/wissen/seo-aeo-llmo",
     linkLabel: "SEO, AEO und LLMO verstehen",
@@ -73,11 +73,11 @@ const solutions = [
     linkLabel: "Landingpages ansehen",
   },
   {
-    title: "Langfristige Betreuung",
+    title: "Eine Website, die mitwächst",
     benefit:
-      "Nach dem Launch kann Codavo Hosting, Wartung, Updates, technische Erweiterungen und laufende Optimierung übernehmen.",
+      "Die Website wird auf einer flexiblen Grundlage aufgebaut und kann nach dem Launch betreut, erweitert und laufend optimiert werden.",
     example:
-      "Der Betreuungsumfang richtet sich transparent nach Betrieb, Änderungsbedarf und technischen Anforderungen.",
+      "Neue Leistungsseiten, Landingpages, Funnel oder Schnittstellen lassen sich ergänzen, ohne jedes Mal von vorne anzufangen.",
     detail: null,
     href: "/hosting-wartung",
     linkLabel: "Hosting und Wartung ansehen",
@@ -118,9 +118,9 @@ const homeFaqs = [
 ];
 
 const argumentPairs = [
-  { problem: problems[0], solution: solutions[1] },
+  { problem: problems[0], solution: solutions[0] },
   { problem: problems[1], solution: solutions[2] },
-  { problem: problems[2], solution: solutions[0] },
+  { problem: problems[2], solution: solutions[1] },
   { problem: problems[3], solution: solutions[3] },
 ] as const;
 
@@ -142,21 +142,20 @@ export default function Home() {
     <>
       <main className="overflow-x-hidden">
         <Hero />
-        <CaseStudies />
-        <Services />
 
         <section className="section section--feature section--compact">
           <div className="container max-w-6xl">
             <div className="max-w-5xl">
               <h2 className="section-title text-white">
-                Warum viele Websites scheitern – und was Codavo anders macht
+                Eine neue Optik allein macht noch keine wirksame Website
               </h2>
               <p className="lede mt-5 max-w-3xl">
-                Gute Gestaltung allein reicht nicht. Entscheidend ist, ob Ihr
-                Angebot verständlich wird, Vertrauen entsteht und Besucher den
-                nächsten Schritt ohne Umwege finden. Codavo plant Strategie,
-                Inhalte, UX/UI und Entwicklung deshalb gemeinsam und schafft
-                eine Grundlage, die heute funktioniert und später erweiterbar bleibt.
+                Viele Unternehmen glauben, ein moderneres Template oder ein
+                schneller Baukasten-Relaunch reiche aus. Das eigentliche Problem:
+                Die Website wurde nie als zusammenhängender Weg vom ersten
+                Eindruck bis zur Anfrage geplant. Deshalb verbindet Codavo
+                Positionierung, Inhalte, Nutzerführung, Sichtbarkeit und
+                Entwicklung zu einem digitalen Vertriebsweg.
               </p>
             </div>
 
@@ -169,7 +168,7 @@ export default function Home() {
                     </span>
                     <div>
                       <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-slate-500">
-                        Herausforderung
+                        Das zeigt sich so
                       </p>
                       <h3 className="mt-2 text-xl font-semibold tracking-tight text-white md:text-2xl">
                         {problem.title}
@@ -183,7 +182,7 @@ export default function Home() {
                   <div className="my-6 h-px bg-white/8" />
 
                   <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-indigo-300/75">
-                    Codavo-Ansatz
+                    So löst Codavo das
                   </p>
                   <h3 className="mt-2 text-lg font-semibold tracking-tight text-white">
                     {solution.title}
@@ -205,8 +204,33 @@ export default function Home() {
                   </article>
                 ))}
             </div>
+
+            <div className="mt-8 flex flex-col items-start justify-between gap-5 rounded-2xl border border-indigo-400/20 bg-indigo-500/[0.07] p-6 sm:flex-row sm:items-center">
+              <div className="max-w-2xl">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-indigo-300">
+                  Beispiel &amp; Beweis
+                </p>
+                <p className="mt-2 text-base leading-7 text-slate-200">
+                  Nach dem Launch der neuen Website stieg der Umsatz von Taner
+                  Care um 30 Prozent. Aufgrund der zusätzlichen Nachfrage stellte
+                  das Unternehmen inzwischen sieben neue Mitarbeiterinnen und
+                  Mitarbeiter ein.
+                </p>
+              </div>
+              <Link
+                href="/kontakt"
+                data-track-event="cta_contact_click"
+                data-track-label="Home Argumentation Erstgespraech"
+                className="cta-primary shrink-0"
+              >
+                Kostenloses Erstgespräch
+              </Link>
+            </div>
           </div>
         </section>
+
+        <Services />
+        <CaseStudies />
 
         <PackagesSection />
         <KnowledgeSection />
@@ -229,7 +253,10 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="section section--feature">
+        <section
+          className="section section--feature"
+          data-mobile-cta-stop
+        >
           <div className="container max-w-5xl">
             <div className="relative overflow-hidden rounded-[2rem] border border-indigo-400/25 bg-indigo-500/[0.08] p-7 text-center shadow-[0_35px_100px_rgba(0,0,0,0.28)] md:p-14 lg:p-16">
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(700px_300px_at_50%_0%,rgba(129,140,248,0.16),transparent_70%)]" />

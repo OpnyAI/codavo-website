@@ -1,39 +1,55 @@
 import Link from "next/link";
+import BusinessApplicationForm from "@/components/contact/BusinessApplicationForm";
 import Footer from "@/components/Footer";
 import TrackedContactLink from "@/components/TrackedContactLink";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
   path: "/kontakt",
-  title: "Kontakt & Strategie-Call | Codavo Webstudio",
+  title: "Für kostenloses Erstgespräch bewerben | Codavo",
   description:
-    "Projektanfrage oder Strategie-Call: Wir klären Ziel, Scope und Hebel für Webdesign, Software und digitale Systeme - strukturiert und effizient.",
+    "Bewerben Sie sich für ein kostenloses Erstgespräch mit Codavo. Wir prüfen Ihr Vorhaben rund um Website, Relaunch, Auffindbarkeit oder individuelle Software persönlich.",
 });
 
 export default function KontaktPage() {
   return (
     <>
-      <main className="min-h-screen pt-28 md:pt-32 lg:pt-36 pb-20">
-        <div id="kontakt" className="container mt-10 md:mt-6 lg:mt-4 section">
-          <h1 className="text-3xl md:text-5xl font-semibold tracking-tight text-white">
-            Kontakt
-          </h1>
-          <p className="mt-4 text-slate-300 max-w-2xl">
-            Sie möchten eine neue Website, einen Relaunch, eine Web-App oder ein
-            digitales System einordnen? Codavo Webstudio arbeitet mit Unternehmen
-            in Stuttgart, deutschlandweit und in der gesamten DACH-Region.
-          </p>
-          <p className="mt-4 text-slate-300 max-w-2xl">
-            Je nach Projektumfang unterscheiden sich Analyse, Konzeption,
-            Entwicklung und Umsetzung. Im Erstgespräch klären wir gemeinsam Ziel,
-            Budgetrahmen, passenden Projektumfang und einen realistischen Zeitplan.
-          </p>
-          <p className="mt-4 text-slate-300 max-w-2xl">
-            Telefon, WhatsApp oder E-Mail eignen sich für eine erste Zielklärung,
-            konkrete Rückfragen oder den nächsten sinnvollen Schritt.
-          </p>
+      <main className="min-h-screen pt-28 md:pt-32 lg:pt-36">
+        <section id="kontakt" className="container section pt-12 md:pt-16">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="eyebrow">Bewerbung für Geschäftskunden</p>
+            <h1 className="display-title mt-5 text-white">
+              Ihr kostenloses Erstgespräch mit Codavo
+            </h1>
+            <p className="lede mx-auto mt-6 max-w-2xl">
+              Bitte füllen Sie das folgende kurze Formular aus, damit wir
+              wissen, wie wir Ihnen am besten helfen können.
+            </p>
+            <p className="mx-auto mt-4 max-w-xl text-sm leading-6 text-slate-400">
+              Wir machen uns zunächst ein Bild von Ihrem Unternehmen und Ihrem
+              Vorhaben. Anschließend entscheiden wir, ob und in welcher Form
+              ein kostenloses Erstgespräch sinnvoll ist.
+            </p>
+          </div>
 
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
+          <div className="mx-auto mt-10 max-w-3xl sm:mt-12">
+            <BusinessApplicationForm />
+          </div>
+        </section>
+
+        <section className="container section section--quiet">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="eyebrow">Direkter Kontakt</p>
+            <h2 className="mt-4 text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+              Sie möchten vorab nur eine kurze Frage klären?
+            </h2>
+            <p className="mt-3 text-sm leading-6 text-slate-400">
+              Dann erreichen Sie uns auch direkt per Telefon, WhatsApp oder
+              E-Mail.
+            </p>
+          </div>
+
+          <div className="mx-auto mt-9 grid max-w-5xl gap-5 md:grid-cols-3">
             <div className="card">
               <h2 className="text-lg font-semibold text-white">Telefon</h2>
               <p className="mt-2 text-sm text-slate-300">
@@ -86,11 +102,11 @@ export default function KontaktPage() {
             </div>
           </div>
 
-          <p className="mt-8 text-xs text-slate-500 max-w-2xl">
+          <p className="mx-auto mt-8 max-w-3xl text-center text-xs leading-5 text-slate-500">
             Hinweis: Mit Ihrer Kontaktaufnahme per Telefon, E-Mail oder WhatsApp
             verarbeiten wir Ihre Angaben ausschließlich zur Beantwortung Ihrer
-            Anfrage und zur Vorbereitung bzw. Durchführung eines möglichen Projekts.
-            Details finden Sie in unserer{" "}
+            Anfrage und zur Vorbereitung beziehungsweise Durchführung eines
+            möglichen Projekts. Details finden Sie in unserer{" "}
             <Link
               href="/datenschutz"
               className="underline underline-offset-2 hover:text-white"
@@ -99,7 +115,7 @@ export default function KontaktPage() {
             </Link>
             .
           </p>
-        </div>
+        </section>
       </main>
       <Footer />
     </>

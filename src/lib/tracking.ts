@@ -7,6 +7,7 @@ export const TRACKING_EVENTS = {
   contactNav: "nav_contact_click",
   mobileCta: "mobile_cta_click",
   websiteCheckSubmit: "website_check_submit",
+  contactApplicationSubmit: "contact_application_submit",
 } as const;
 
 export type TrackingEventName =
