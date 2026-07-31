@@ -5,10 +5,7 @@ import Process from "@/components/Process";
 import CaseStudies from "@/components/CaseStudies";
 import Footer from "@/components/Footer";
 import FAQAccordion from "@/components/FAQAccordion";
-import {
-  KnowledgeSection,
-  PackagesSection,
-} from "@/components/HomeExpansion";
+import { PackagesSection } from "@/components/HomeExpansion";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
@@ -208,22 +205,20 @@ export default function Home() {
             <div className="mt-8 flex flex-col items-start justify-between gap-5 rounded-2xl border border-indigo-400/20 bg-indigo-500/[0.07] p-6 sm:flex-row sm:items-center">
               <div className="max-w-2xl">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-indigo-300">
-                  Beispiel &amp; Beweis
+                  Kostenloser Website-Quick-Check
                 </p>
                 <p className="mt-2 text-base leading-7 text-slate-200">
-                  Nach dem Launch der neuen Website stieg der Umsatz von Taner
-                  Care um 30 Prozent. Aufgrund der zusätzlichen Nachfrage stellte
-                  das Unternehmen inzwischen sieben neue Mitarbeiterinnen und
-                  Mitarbeiter ein.
+                  Finden Sie heraus, an welchen Stellen Ihre Website heute
+                  Vertrauen, Auffindbarkeit oder qualifizierte Anfragen verliert.
                 </p>
               </div>
               <Link
-                href="/kontakt"
-                data-track-event="cta_contact_click"
-                data-track-label="Home Argumentation Erstgespraech"
+                href="/website-check"
+                data-track-event="cta_website_check_click"
+                data-track-label="Home Argumentation Website Quick Check"
                 className="cta-primary shrink-0"
               >
-                Kostenloses Erstgespräch
+                Website-Quick-Check starten
               </Link>
             </div>
           </div>
@@ -233,7 +228,6 @@ export default function Home() {
         <CaseStudies />
 
         <PackagesSection />
-        <KnowledgeSection />
         <Process />
 
         <section className="section section--quiet">
