@@ -92,16 +92,23 @@ export default function Testimonials() {
                 </div>
 
                 <div className="p-6 md:p-8 lg:p-10">
-                  <div className="grid gap-5 md:grid-cols-3">
+                  <div className="divide-y divide-white/8">
                     {storyRows.map(({ key, label, icon: Icon }) => (
-                      <div key={key}>
-                        <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-indigo-300">
+                      <div
+                        key={key}
+                        className="grid grid-cols-[auto_minmax(0,1fr)] gap-4 py-5 first:pt-0 last:pb-0"
+                      >
+                        <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-indigo-300/15 bg-indigo-400/[0.07] text-indigo-300">
                           <Icon className="h-4 w-4" aria-hidden />
-                          {label}
+                        </span>
+                        <div>
+                          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-indigo-300">
+                            {label}
+                          </p>
+                          <p className="mt-2 text-sm leading-7 text-slate-300">
+                            {project[key]}
+                          </p>
                         </div>
-                        <p className="mt-3 text-sm leading-7 text-slate-300">
-                          {project[key]}
-                        </p>
                       </div>
                     ))}
                   </div>

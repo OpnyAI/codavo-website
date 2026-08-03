@@ -228,8 +228,8 @@ export default function Home() {
         </section>
 
         <Services />
-        <About />
         <Testimonials />
+        <About />
         <Process />
 
         <section className="section section--quiet">
