@@ -88,7 +88,7 @@ export const caseStudies: CaseStudyItem[] = [
       { href: "/webdesign", label: "Webdesign" },
       { href: "/landingpage-erstellen-lassen", label: "Landingpages" },
     ],
-    img: "/cases/2026/creamy.png",
+    img: "/cases/2026/creamy-full-hero.png",
     alt: "Startseite von Creamy Catering mit Coffee Catering und Matcha Catering",
     href: "https://www.creamy-catering.de",
     featured: true,
