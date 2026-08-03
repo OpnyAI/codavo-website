@@ -85,18 +85,22 @@ export default function DatenschutzPage() {
                 4. Cookies & Einwilligung
               </h2>
               <p className="mt-2 text-slate-300">
-                Unsere Website verwendet technisch notwendige Cookies sowie –
-                nach deiner ausdrücklichen Einwilligung – Analyse-Technologien.
+                Unsere Website verwendet technisch notwendige Technologien
+                sowie – nach deiner ausdrücklichen Einwilligung – Statistik-
+                und Marketing-Technologien.
               </p>
               <p className="mt-2 text-slate-300">
                 Die Einwilligung erfolgt über ein Consent-Banner beim
-                erstmaligen Besuch unserer Website. Ohne deine Zustimmung werden
-                keine Analyse-Dienste aktiviert.
+                erstmaligen Besuch unserer Website. Du kannst Statistik und
+                Marketing gemeinsam akzeptieren, nur Statistik zulassen oder
+                beides ablehnen. Ohne deine Zustimmung werden keine optionalen
+                Statistik- oder Marketing-Cookies gesetzt.
               </p>
               <p className="mt-2 text-slate-300">
                 Deine Auswahl wird lokal im Browser gespeichert. Du kannst deine
-                Einwilligung jederzeit widerrufen, indem du den lokalen Speicher
-                deines Browsers löschst.
+                Einwilligung jederzeit über „Cookie-Einstellungen“ ändern oder
+                widerrufen. Die Rechtmäßigkeit der bis zum Widerruf erfolgten
+                Verarbeitung bleibt unberührt.
               </p>
             </section>
 
@@ -110,9 +114,10 @@ export default function DatenschutzPage() {
                 Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland.
               </p>
               <p className="mt-2 text-slate-300">
-                Der Tag Manager speichert selbst keine personenbezogenen Daten,
-                sondern dient ausschließlich der Verwaltung und Ausspielung von
-                Website-Tags.
+                Der Tag Manager dient der Verwaltung und Ausspielung von
+                Website-Tags. Welche optionalen Tags ausgeführt werden, richtet
+                sich nach deiner Auswahl im Consent-Banner. Rechtsgrundlage für
+                optionale Tags ist Art. 6 Abs. 1 lit. a DSGVO.
               </p>
             </section>
 
@@ -140,10 +145,118 @@ export default function DatenschutzPage() {
               </p>
             </section>
 
-            {/* 7. Kontakt */}
+            {/* 7. Google Ads */}
             <section>
               <h2 className="text-lg font-semibold text-white">
-                7. Kontaktaufnahme
+                7. Google Ads und Conversion-Tracking
+              </h2>
+              <p className="mt-2 text-slate-300">
+                Sofern du Marketing zugestimmt hast, verwenden wir Google Ads
+                Conversion-Tracking und können Remarketing-Funktionen nutzen.
+                Dabei kann erfasst werden, ob ein Websitebesuch nach dem Kontakt
+                mit einer Anzeige zu einer von uns definierten Handlung führt.
+              </p>
+              <p className="mt-2 text-slate-300">
+                Anbieter ist die Google Ireland Limited. Rechtsgrundlage ist
+                Art. 6 Abs. 1 lit. a DSGVO. Eine Datenübertragung in die USA kann
+                nicht ausgeschlossen werden. Weitere Informationen findest du
+                in der{" "}
+                <a
+                  href="https://policies.google.com/privacy"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="underline underline-offset-2 hover:text-white"
+                >
+                  Datenschutzerklärung von Google
+                </a>
+                .
+              </p>
+            </section>
+
+            {/* 8. Meta */}
+            <section>
+              <h2 className="text-lg font-semibold text-white">
+                8. Meta Pixel
+              </h2>
+              <p className="mt-2 text-slate-300">
+                Sofern du Marketing zugestimmt hast, können wir den Meta Pixel
+                der Meta Platforms Ireland Limited einsetzen. Er dient der
+                Messung von Website-Ereignissen, der Zuordnung von Conversions
+                und der Bildung von Zielgruppen für Werbung auf Facebook und
+                Instagram.
+              </p>
+              <p className="mt-2 text-slate-300">
+                Rechtsgrundlage ist Art. 6 Abs. 1 lit. a DSGVO. Eine
+                Datenübertragung in Drittländer kann nicht ausgeschlossen
+                werden. Weitere Informationen findest du in der{" "}
+                <a
+                  href="https://www.facebook.com/privacy/policy/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="underline underline-offset-2 hover:text-white"
+                >
+                  Datenschutzrichtlinie von Meta
+                </a>
+                .
+              </p>
+            </section>
+
+            {/* 9. LinkedIn */}
+            <section>
+              <h2 className="text-lg font-semibold text-white">
+                9. LinkedIn Insight Tag
+              </h2>
+              <p className="mt-2 text-slate-300">
+                Sofern du Marketing zugestimmt hast, können wir das LinkedIn
+                Insight Tag der LinkedIn Ireland Unlimited Company einsetzen.
+                Es unterstützt die Conversion-Messung und die Bildung von
+                Website-Zielgruppen für LinkedIn-Werbung.
+              </p>
+              <p className="mt-2 text-slate-300">
+                Rechtsgrundlage ist Art. 6 Abs. 1 lit. a DSGVO. Weitere
+                Informationen findest du in der{" "}
+                <a
+                  href="https://www.linkedin.com/legal/privacy-policy"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="underline underline-offset-2 hover:text-white"
+                >
+                  Datenschutzrichtlinie von LinkedIn
+                </a>
+                .
+              </p>
+            </section>
+
+            {/* 10. TikTok */}
+            <section>
+              <h2 className="text-lg font-semibold text-white">
+                10. TikTok Pixel
+              </h2>
+              <p className="mt-2 text-slate-300">
+                Sofern du Marketing zugestimmt hast, können wir den TikTok Pixel
+                der TikTok Technology Limited einsetzen. Er unterstützt die
+                Messung von Website-Ereignissen, die Zuordnung von Conversions
+                und die Bildung von Zielgruppen für TikTok-Werbung.
+              </p>
+              <p className="mt-2 text-slate-300">
+                Rechtsgrundlage ist Art. 6 Abs. 1 lit. a DSGVO. Weitere
+                Informationen findest du in der{" "}
+                <a
+                  href="https://www.tiktok.com/legal/page/eea/privacy-policy/de"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="underline underline-offset-2 hover:text-white"
+                >
+                  Datenschutzerklärung von TikTok
+                </a>
+                .
+              </p>
+            </section>
+
+            {/* 11. Kontakt */}
+            <section>
+              <h2 className="text-lg font-semibold text-white">
+                11. Kontaktaufnahme
               </h2>
               <p className="mt-2 text-slate-300">
                 Wenn du uns über ein Kontaktformular, per E-Mail, Telefon oder
@@ -161,10 +274,10 @@ export default function DatenschutzPage() {
               </p>
             </section>
 
-            {/* 8. Dienstleister */}
+            {/* 12. Dienstleister */}
             <section>
               <h2 className="text-lg font-semibold text-white">
-                8. Einsatz von Dienstleistern
+                12. Einsatz von Dienstleistern
               </h2>
               <p className="mt-2 text-slate-300">
                 Wir setzen externe Dienstleister (z. B. Hosting-Provider) ein,
@@ -179,10 +292,10 @@ export default function DatenschutzPage() {
               </p>
             </section>
 
-            {/* 9. Deine Rechte */}
+            {/* 13. Deine Rechte */}
             <section>
               <h2 className="text-lg font-semibold text-white">
-                9. Deine Rechte
+                13. Deine Rechte
               </h2>
               <ul className="mt-2 list-disc list-inside text-slate-300">
                 <li>Recht auf Auskunft</li>
@@ -195,14 +308,14 @@ export default function DatenschutzPage() {
               </ul>
             </section>
 
-            {/* 10. Stand */}
+            {/* 14. Stand */}
             <section>
               <h2 className="text-lg font-semibold text-white">
-                10. Stand dieser Datenschutzerklärung
+                14. Stand dieser Datenschutzerklärung
               </h2>
               <p className="mt-2 text-slate-300">
-                Diese Datenschutzerklärung ist aktuell gültig. Änderungen können
-                sich durch technische oder gesetzliche Anpassungen ergeben.
+                Stand: August 2026. Änderungen können sich durch technische oder
+                gesetzliche Anpassungen ergeben.
               </p>
             </section>
           </div>

@@ -25,6 +25,13 @@ export const CONSENT_GRANTED_ANALYTICS_ONLY: ConsentState = {
   ad_personalization: "denied",
 };
 
+export const CONSENT_GRANTED_ALL: ConsentState = {
+  ad_storage: "granted",
+  analytics_storage: "granted",
+  ad_user_data: "granted",
+  ad_personalization: "granted",
+};
+
 type DataLayerPush = (...args: unknown[]) => number;
 
 type GtagFn = (

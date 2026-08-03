@@ -16,12 +16,17 @@ import "./globals.css";
 
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
-const GTAG_PRIMARY_ID = GA_ID || GOOGLE_ADS_ID;
+const GTAG_PRIMARY_ID = GTM_ID ? undefined : GA_ID || GOOGLE_ADS_ID;
 
 export const metadata: Metadata = {
   ...createPageMetadata(),
   metadataBase: new URL(SEO_CONFIG.domain),
   applicationName: SEO_CONFIG.companyName,
+  verification: {
+    other: {
+      "facebook-domain-verification": "jw1b3dc5ucya1833ke985bnsmdgdfi",
+    },
+  },
   icons: {
     icon: [
       { url: "/favicon.ico" },

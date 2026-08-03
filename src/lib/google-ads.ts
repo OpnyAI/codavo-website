@@ -1,3 +1,5 @@
+import { safeReadStoredConsent } from "@/lib/consent";
+
 export const GOOGLE_ADS_ID = "AW-18059484807";
 
 const GOOGLE_ADS_CONTACT_CONVERSION = "AW-18059484807/bZjUCLuPwJQcEIe9t6ND";
@@ -46,6 +48,17 @@ const EVENT_DEDUPE_WINDOW_MS = 1500;
 
 const isBrowser = () => typeof window !== "undefined";
 
+const hasAdsConsent = () => {
+  if (!isBrowser()) return false;
+  const consent = safeReadStoredConsent();
+
+  return (
+    consent?.ad_storage === "granted" &&
+    consent.ad_user_data === "granted" &&
+    consent.ad_personalization === "granted"
+  );
+};
+
 const getPagePath = (pagePath?: string) => {
   if (pagePath) return pagePath;
   if (!isBrowser()) return undefined;
@@ -73,6 +86,7 @@ const trackConversion = (
   dedupeKey: string,
 ) => {
   if (!isBrowser()) return false;
+  if (!hasAdsConsent()) return false;
   if (typeof window.gtag !== "function") return false;
   if (!markEventWithinCooldown(dedupeKey)) return false;
 
@@ -173,7 +187,7 @@ export const handleConversionRedirect = (
     }
   };
 
-  if (typeof window.gtag !== "function") {
+  if (!hasAdsConsent() || typeof window.gtag !== "function") {
     navigate();
     return;
   }

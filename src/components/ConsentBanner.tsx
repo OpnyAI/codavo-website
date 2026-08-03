@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import {
   CONSENT_DENIED,
+  CONSENT_GRANTED_ALL,
   CONSENT_GRANTED_ANALYTICS_ONLY,
   CONSENT_STORAGE_KEY,
   applyConsent,
@@ -43,7 +44,17 @@ export default function ConsentBanner() {
     setState("hidden");
   }
 
-  if (state === "hidden") return null;
+  if (state === "hidden") {
+    return (
+      <button
+        type="button"
+        onClick={() => setState("visible")}
+        className="fixed bottom-3 left-3 z-[60] rounded-full border border-white/15 bg-[#0b1220]/95 px-3 py-2 text-xs font-medium text-slate-200 shadow-lg backdrop-blur hover:border-white/30 hover:text-white"
+      >
+        Cookie-Einstellungen
+      </button>
+    );
+  }
 
   return (
     <div className="fixed inset-x-0 bottom-0 z-[60] p-3 sm:p-4">
@@ -54,10 +65,10 @@ export default function ConsentBanner() {
               Cookies & Datenschutz
             </p>
             <p className="mt-1 text-sm text-neutral-700 dark:text-neutral-300">
-              Wir verwenden Cookies, um die Website zu betreiben und – nur mit
-              deiner Einwilligung – anonyme Nutzungsstatistiken (Google
-              Analytics) zu erheben. Du kannst jederzeit ablehnen oder
-              zustimmen.
+              Wir verwenden notwendige Technologien und – nur mit deiner
+              Einwilligung – Statistik- und Marketing-Technologien. Dazu können
+              Google Analytics, Google Ads, Meta, LinkedIn und TikTok gehören.
+              Du kannst deine Auswahl jederzeit ändern.
             </p>
             <p className="mt-2 text-xs text-neutral-500 dark:text-neutral-400">
               Mehr Infos in unserer{" "}
@@ -74,10 +85,18 @@ export default function ConsentBanner() {
           <div className="flex flex-col gap-2 sm:min-w-[240px] sm:items-stretch">
             <button
               type="button"
-              onClick={() => setConsent(CONSENT_GRANTED_ANALYTICS_ONLY)}
+              onClick={() => setConsent(CONSENT_GRANTED_ALL)}
               className="inline-flex items-center justify-center rounded-xl bg-neutral-900 px-4 py-2 text-sm font-semibold text-white hover:opacity-90 dark:bg-white dark:text-neutral-900"
             >
-              Akzeptieren (Analytics)
+              Alle akzeptieren
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setConsent(CONSENT_GRANTED_ANALYTICS_ONLY)}
+              className="inline-flex items-center justify-center rounded-xl border border-neutral-300 bg-transparent px-4 py-2 text-sm font-semibold text-neutral-900 hover:bg-neutral-50 dark:border-neutral-700 dark:text-neutral-100 dark:hover:bg-neutral-900/40"
+            >
+              Nur Statistik
             </button>
 
             <button
@@ -89,7 +108,7 @@ export default function ConsentBanner() {
             </button>
 
             <div className="text-[11px] text-neutral-500 dark:text-neutral-400">
-              Keine Marketing-Cookies, keine Werbung. Nur „Analytics“ optional.
+              Marketing-Tags werden erst nach deiner Zustimmung aktiviert.
             </div>
           </div>
         </div>
