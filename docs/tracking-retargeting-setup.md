@@ -33,10 +33,10 @@ Stand: 3. August 2026
 - Business-Portfolio-ID: `1471546707071946`.
 - Werbekonto `Codavo Webstudio Ads`, ID `3112738788919713`, ist vorhanden. Es wurde keine Kampagne aktiviert.
 - Die Domain `codavo-webstudio.de` wurde als Business-Asset angelegt, Asset-ID `1628145275545570`.
-- Der notwendige Meta-Verifizierungscode wurde lokal in die Website aufgenommen. Die Domain bleibt bis zur Veröffentlichung und anschließenden Prüfung in Meta unbestätigt.
+- Der notwendige Meta-Verifizierungscode wurde in die Website aufgenommen und ist auf der Live-Domain ausgeliefert. `codavo-webstudio.de` wurde anschließend in Meta erfolgreich als `Verified` bestätigt.
 - Der Datensatz `Codavo Webstudio Pixel`, ID `1592509072445980`, wurde erstellt und mit dem Werbekonto verbunden.
 - Die Meta Business Tools Terms wurden nach ausdrücklicher Freigabe akzeptiert. Automatisches erweitertes Matching bleibt deaktiviert.
-- Das Basispixel ist im GTM-Arbeitsbereich vorbereitet und an `ad_storage`, `ad_user_data` und `ad_personalization` gebunden. Meta zeigt noch keine Aktivität, solange die GTM-Version nicht veröffentlicht und Marketing-Einwilligung nicht erteilt wurde.
+- Das Basispixel ist im GTM veröffentlicht und an `ad_storage`, `ad_user_data` und `ad_personalization` gebunden. Im positiven Tag-Assistant-Test wurde `PageView` nach Marketing-Einwilligung genau einmal ausgelöst.
 - Im Business-Portfolio fehlen derzeit unter anderem verifizierte Firmendaten, eine primäre Facebook-Seite und eine verpflichtende Zwei-Faktor-Authentifizierung.
 
 ### LinkedIn
@@ -48,8 +48,8 @@ Stand: 3. August 2026
 
 ### TikTok
 
-- Im Safari-Profil besteht keine aktive TikTok-for-Business-Sitzung.
-- Der Login über TikTok wurde gestartet und verlangt eine QR-Code-Bestätigung auf dem Mobilgerät. Ohne diese Bestätigung können Werbekonto und Pixel-ID nicht geprüft oder angelegt werden.
+- Die TikTok-for-Business-Anmeldung ist erfolgt; das Werbekonto `Codavo_adv` mit Advertiser-ID `7669851332597383189` wurde angelegt.
+- TikTok führt anschließend direkt in die Kampagnenerstellung. Dieser Schritt wurde bewusst nicht fortgesetzt: Pixel-/GTM-Einrichtung und Test werden wie vereinbart später abgeschlossen, und es wurde keine Kampagne erstellt oder aktiviert.
 
 ## Lokal umgesetzte Website-Änderungen
 
@@ -70,8 +70,9 @@ Alle Marketing-Tags müssen zusätzlich zur Plattformkonfiguration im GTM an Mar
 3. `Meta - Base Pixel - PageView` wurde für Pixel `1592509072445980` ergänzt.
 4. Der Trigger `Consent - Marketing granted or loaded` reagiert auf `consent_loaded` und `consent_updated`.
 5. Beide Marketing-Tags verlangen zusätzlich `ad_storage`, `ad_user_data` und `ad_personalization` und werden pro Seitenaufruf höchstens einmal ausgeführt.
-6. LinkedIn und TikTok bleiben bis zur Entsperrung beziehungsweise Anmeldung technisch blockiert und wurden deshalb nicht mit Platzhalter-IDs veröffentlicht.
-7. Der GTM-Arbeitsbereich enthält genau drei isolierte Änderungen; es wurden keine vorhandenen Tags oder Trigger gelöscht oder verändert.
+6. LinkedIn bleibt bis zur Entsperrung technisch blockiert. TikTok wurde auf ausdrücklichen Wunsch zurückgestellt. Beide Plattformen wurden deshalb nicht mit Platzhalter-IDs veröffentlicht.
+7. Der GTM-Arbeitsbereich enthielt genau drei isolierte Änderungen; es wurden keine vorhandenen Tags oder Trigger gelöscht oder verändert.
+8. Der Arbeitsbereich wurde am 3. August 2026 als GTM-Version 4 `Codavo Meta + Google Ads Tracking 2026-08-03` veröffentlicht.
 
 ## Ereignis- und Conversion-Plan
 
@@ -116,7 +117,9 @@ Es werden keine sensiblen Merkmale oder daraus abgeleitete Zielgruppen verwendet
 - Der richtige Container `GTM-M2SSF8SZ`, Google Ads `AW-18059484807` und GA4 `G-97DHW1DWSM` wurden auf `www.codavo-webstudio.de` erkannt.
 - Im geprüften Negativfall standen `ad_storage`, `analytics_storage`, `ad_user_data` und `ad_personalization` vollständig auf `Abgelehnt`.
 - Dabei feuerte ausschließlich die vorhandene GA4-Basiskonfiguration; Meta und Google Ads blieben blockiert. Der Consent-Negativtest ist damit bestanden.
-- Der positive Live-Test und der erneute Aufruf mit gespeicherter Marketing-Einwilligung erfolgen nach Veröffentlichung der neuen Cookie-Oberfläche. Bis dahin wird der GTM-Arbeitsbereich nicht veröffentlicht.
+- Im Positivfall wechselten alle vier Consent-Signale auf `Gewährt`. `Meta - Base Pixel - PageView` und `Google Ads - Base Tag - Remarketing` wurden jeweils genau einmal ausgelöst.
+- Der Auslöser wurde so korrigiert, dass beide Marketing-Tags ausschließlich auf `consent_loaded` beziehungsweise `consent_updated` reagieren; dadurch feuern sie nach einer nachträglichen Einwilligung zuverlässig und nicht vorher.
+- GTM-Version 4 ist live. Sie enthält ausschließlich den neuen Consent-Trigger sowie das Meta- und das Google-Ads-Basis-Tag.
 
 ## Bereits geprüfte Qualität
 
@@ -124,14 +127,13 @@ Es werden keine sensiblen Merkmale oder daraus abgeleitete Zielgruppen verwendet
 - Produktions-Build erfolgreich, 94 Seiten erzeugt.
 - Lokaler UI-Test für Ablehnen, Statistik-Zustimmung, vollständige Zustimmung und erneutes Öffnen der Cookie-Einstellungen erfolgreich.
 - Meta-Verifizierungs-Metatag lokal mit dem erwarteten Inhalt vorhanden.
+- Website-Änderungen auf der Produktions-Domain veröffentlicht; GTM-Container, Cookie-Einstellungen und Meta-Verifizierungs-Metatag live erkannt.
 
 ## Noch benötigte Zugriffe und Entscheidungen
 
-1. TikTok-Login per QR-Code auf dem Mobilgerät bestätigen; anschließend Werbekonto und Pixel prüfen/einrichten.
+1. TikTok-Pixel, GTM-Einbindung und Plattformtest später abschließen; Werbekonto `Codavo_adv` / `7669851332597383189` ist bereits angelegt.
 2. LinkedIn-Werbekonto `549790685` entsperren lassen; erst danach Insight Tag und Partner-ID einrichten.
-3. Website-Änderungen veröffentlichen und den positiven Consent-Test durchführen; anschließend den isolierten GTM-Arbeitsbereich veröffentlichen.
-4. Meta-Domain nach Livegang des Verifizierungs-Metatags in Meta bestätigen.
-5. Firmendaten, primäre Meta-Seite und Zwei-Faktor-Pflicht im Meta Business-Portfolio festlegen.
-6. Datenschutztext rechtlich prüfen.
-7. Zielgruppen später anhand der Baulig-Vorgaben definieren und anlegen.
-8. Erst nach vollständigem Test Freigabe für Kampagnenentwürfe, Tagesbudget und Live-Schaltung einholen.
+3. Firmendaten, primäre Meta-Seite und Zwei-Faktor-Pflicht im Meta Business-Portfolio festlegen.
+4. Datenschutztext rechtlich prüfen.
+5. Zielgruppen später anhand der Baulig-Vorgaben definieren und anlegen.
+6. Erst nach vollständigem Test Freigabe für Kampagnenentwürfe, Tagesbudget und Live-Schaltung einholen.
