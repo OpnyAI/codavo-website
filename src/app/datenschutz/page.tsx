@@ -1,4 +1,5 @@
 import Footer from "@/components/Footer";
+import ConsentSettingsButton from "@/components/ConsentSettingsButton";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
@@ -98,7 +99,7 @@ export default function DatenschutzPage() {
               </p>
               <p className="mt-2 text-slate-300">
                 Deine Auswahl wird lokal im Browser gespeichert. Du kannst deine
-                Einwilligung jederzeit über „Cookie-Einstellungen“ ändern oder
+                Einwilligung jederzeit über <ConsentSettingsButton /> ändern oder
                 widerrufen. Die Rechtmäßigkeit der bis zum Widerruf erfolgten
                 Verarbeitung bleibt unberührt.
               </p>
