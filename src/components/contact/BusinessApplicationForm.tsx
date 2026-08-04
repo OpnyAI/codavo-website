@@ -26,6 +26,10 @@ import {
   type ContactApplicationPayload,
 } from "@/lib/contact-application";
 import { TRACKING_EVENTS, trackAnalyticsEvent } from "@/lib/tracking";
+import {
+  ATTRIBUTION_READY_EVENT,
+  getAttributionForForm,
+} from "@/lib/attribution";
 
 type FormValues = Required<ContactApplicationPayload>;
 type FormErrors = Partial<Record<keyof FormValues, string>>;
@@ -68,6 +72,13 @@ const initialValues: FormValues = {
   utm_term: "",
   utm_id: "",
   fbclid: "",
+  gclid: "",
+  msclkid: "",
+  ttclid: "",
+  li_fat_id: "",
+  landing_page: "",
+  referrer: "",
+  first_seen_at: "",
 };
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -322,17 +333,18 @@ export default function BusinessApplicationForm() {
   };
 
   useEffect(() => {
-    const searchParams = new URLSearchParams(window.location.search);
-    setValues((current) => ({
-      ...current,
-      utm_source: searchParams.get("utm_source") || "",
-      utm_medium: searchParams.get("utm_medium") || "",
-      utm_campaign: searchParams.get("utm_campaign") || "",
-      utm_content: searchParams.get("utm_content") || "",
-      utm_term: searchParams.get("utm_term") || "",
-      utm_id: searchParams.get("utm_id") || "",
-      fbclid: searchParams.get("fbclid") || "",
-    }));
+    const syncAttribution = () => {
+      setValues((current) => ({
+        ...current,
+        ...getAttributionForForm(),
+      }));
+    };
+
+    syncAttribution();
+    window.addEventListener(ATTRIBUTION_READY_EVENT, syncAttribution);
+    return () => {
+      window.removeEventListener(ATTRIBUTION_READY_EVENT, syncAttribution);
+    };
   }, []);
 
   useEffect(() => {

@@ -64,6 +64,77 @@ function labelValue(label: string, value: string) {
   return `<tr><td style="padding:8px 12px 8px 0;font-weight:700;vertical-align:top;">${escapeHtml(label)}</td><td style="padding:8px 0;vertical-align:top;">${escapeHtml(value || "Nicht angegeben")}</td></tr>`;
 }
 
+type TrackingData = {
+  utm_source: string;
+  utm_medium: string;
+  utm_campaign: string;
+  utm_content: string;
+  utm_term: string;
+  utm_id: string;
+  fbclid: string;
+  gclid: string;
+  msclkid: string;
+  ttclid: string;
+  li_fat_id: string;
+  landing_page: string;
+  referrer: string;
+  first_seen_at: string;
+};
+
+function getAttributionLabel(tracking: TrackingData) {
+  const source = tracking.utm_source.toLowerCase();
+  const medium = tracking.utm_medium.toLowerCase();
+  const referrer = tracking.referrer.toLowerCase();
+  const isPaid = /(paid|cpc|ppc|advertising|ads?)/.test(medium);
+
+  if (source.includes("instagram") || referrer.includes("instagram.com")) {
+    return `Instagram · ${isPaid ? "bezahlt" : "organisch"}`;
+  }
+  if (
+    source.includes("facebook") ||
+    source === "meta" ||
+    referrer.includes("facebook.com")
+  ) {
+    return `Facebook / Meta · ${isPaid ? "bezahlt" : "organisch"}`;
+  }
+  if (tracking.gclid || (source.includes("google") && isPaid)) {
+    return "Google Ads";
+  }
+  if (tracking.msclkid || (source.includes("bing") && isPaid)) {
+    return "Microsoft Ads";
+  }
+  if (tracking.ttclid || source.includes("tiktok") || referrer.includes("tiktok.com")) {
+    return `TikTok · ${isPaid ? "bezahlt" : "organisch"}`;
+  }
+  if (
+    tracking.li_fat_id ||
+    source.includes("linkedin") ||
+    referrer.includes("linkedin.com")
+  ) {
+    return `LinkedIn · ${isPaid ? "bezahlt" : "organisch"}`;
+  }
+  if (tracking.fbclid) return "Meta / Instagram / Facebook · Klick-ID";
+  if (tracking.utm_source) {
+    return [tracking.utm_source, tracking.utm_medium]
+      .filter(Boolean)
+      .join(" · ");
+  }
+  if (tracking.referrer) return tracking.referrer;
+  return "Direkt / nicht zuordenbar";
+}
+
+function formatFirstSeen(value: string) {
+  if (!value) return "";
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return value;
+
+  return new Intl.DateTimeFormat("de-DE", {
+    dateStyle: "medium",
+    timeStyle: "short",
+    timeZone: "Europe/Berlin",
+  }).format(date);
+}
+
 export async function POST(request: Request) {
   let body: ContactApplicationPayload;
 
@@ -104,6 +175,13 @@ export async function POST(request: Request) {
     utm_term: toSafeString(body.utm_term),
     utm_id: toSafeString(body.utm_id),
     fbclid: toSafeString(body.fbclid),
+    gclid: toSafeString(body.gclid),
+    msclkid: toSafeString(body.msclkid),
+    ttclid: toSafeString(body.ttclid),
+    li_fat_id: toSafeString(body.li_fat_id),
+    landing_page: toSafeString(body.landing_page),
+    referrer: toSafeString(body.referrer),
+    first_seen_at: toSafeString(body.first_seen_at),
   };
   const honeypot = toSafeString(body.fax);
 
@@ -237,6 +315,10 @@ export async function POST(request: Request) {
     ["Qualifizierung für die Zusammenarbeit", fields.qualification],
   ];
   const trackingRows: Array<[string, string]> = [
+    ["Erkannte Herkunft", getAttributionLabel(tracking)],
+    ["Erste Landingpage", tracking.landing_page],
+    ["Referrer-Domain", tracking.referrer],
+    ["Erster Besuch", formatFirstSeen(tracking.first_seen_at)],
     ["UTM Source", tracking.utm_source],
     ["UTM Medium", tracking.utm_medium],
     ["UTM Campaign", tracking.utm_campaign],
@@ -244,6 +326,10 @@ export async function POST(request: Request) {
     ["UTM Term", tracking.utm_term],
     ["UTM ID", tracking.utm_id],
     ["FBCLID", tracking.fbclid],
+    ["GCLID", tracking.gclid],
+    ["MSCLKID", tracking.msclkid],
+    ["TTCLID", tracking.ttclid],
+    ["LinkedIn Click ID", tracking.li_fat_id],
   ];
   const subject = `Neue B2B-Bewerbung: ${fields.companyName}`;
   const text = [

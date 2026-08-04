@@ -102,6 +102,15 @@ export default function DatenschutzPage() {
                 widerrufen. Die Rechtmäßigkeit der bis zum Widerruf erfolgten
                 Verarbeitung bleibt unberührt.
               </p>
+              <p className="mt-2 text-slate-300">
+                Nach deiner Marketing-Einwilligung können wir während des
+                aktuellen Website-Besuchs die ursprüngliche Landingpage, die
+                Referrer-Domain, Kampagnenparameter (UTM) und vorhandene
+                Werbe-Klick-IDs im Sitzungsspeicher des Browsers erfassen. Diese
+                Angaben helfen uns, eine von dir abgesendete Kontaktanfrage dem
+                auslösenden Marketingkanal zuzuordnen. Die Sitzungsdaten werden
+                spätestens nach zwölf Stunden verworfen.
+              </p>
             </section>
 
             {/* 5. Google Tag Manager */}

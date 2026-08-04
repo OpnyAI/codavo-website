@@ -111,4 +111,11 @@ export type ContactApplicationPayload = {
   utm_term?: string;
   utm_id?: string;
   fbclid?: string;
+  gclid?: string;
+  msclkid?: string;
+  ttclid?: string;
+  li_fat_id?: string;
+  landing_page?: string;
+  referrer?: string;
+  first_seen_at?: string;
 };

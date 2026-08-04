@@ -3,6 +3,10 @@
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import {
+  capturePageAttributionCandidate,
+  persistAttributionForConsent,
+} from "@/lib/attribution";
+import {
   CONSENT_DENIED,
   CONSENT_GRANTED_ALL,
   CONSENT_GRANTED_ANALYTICS_ONLY,
@@ -28,6 +32,8 @@ export default function ConsentBanner() {
   }, []);
 
   useEffect(() => {
+    capturePageAttributionCandidate();
+
     // Show banner only if no stored choice
     if (!hasChoice) setState("visible");
   }, [hasChoice]);
@@ -35,12 +41,16 @@ export default function ConsentBanner() {
   // Safety: If user already has a choice stored, make sure it’s applied client-side as well
   useEffect(() => {
     const stored = safeReadStoredConsent();
-    if (stored) applyConsent(stored);
+    if (stored) {
+      applyConsent(stored);
+      persistAttributionForConsent(stored);
+    }
   }, []);
 
   function setConsent(consent: ConsentState) {
     safeStoreConsent(consent);
     applyConsent(consent);
+    persistAttributionForConsent(consent);
     setState("hidden");
   }
 

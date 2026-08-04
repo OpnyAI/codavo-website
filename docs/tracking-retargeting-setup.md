@@ -58,6 +58,7 @@ Stand: 3. August 2026
 - Der Cookie-Banner bietet jetzt `Alle akzeptieren`, `Nur Statistik` und `Ablehnen` sowie dauerhaft erreichbare Cookie-Einstellungen.
 - Meta, LinkedIn und TikTok werden im Banner und in der Datenschutzerklärung als Marketing-Dienste benannt.
 - Google-Ads-Conversions werden nur noch ausgelöst, wenn alle erforderlichen Marketing-Zustimmungen erteilt sind.
+- Nach Marketing-Einwilligung wird die First-Touch-Herkunft eines Besuchs für höchstens zwölf Stunden im Sitzungsspeicher gehalten. Kontaktanfragen enthalten dadurch Landingpage, Referrer-Domain, UTM-Parameter und vorhandene Plattform-Klick-IDs auch nach interner Navigation.
 - Der Meta-Domain-Verifizierungscode wurde in die Website-Metadaten aufgenommen.
 - Die Datenschutzerklärung wurde um Google Ads, Meta Pixel, LinkedIn Insight Tag und TikTok Pixel ergänzt. Vor der Veröffentlichung wird eine rechtliche Prüfung empfohlen.
 
