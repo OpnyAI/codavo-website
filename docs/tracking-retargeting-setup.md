@@ -37,7 +37,7 @@ Stand: 4. August 2026
 - Der Datensatz `Codavo Webstudio Pixel`, ID `1592509072445980`, wurde erstellt und mit dem Werbekonto verbunden.
 - Die Meta Business Tools Terms wurden nach ausdrücklicher Freigabe akzeptiert. Automatisches erweitertes Matching bleibt deaktiviert.
 - Das Basispixel ist im GTM veröffentlicht und an `ad_storage`, `ad_user_data` und `ad_personalization` gebunden. Im positiven Tag-Assistant-Test wurde `PageView` nach Marketing-Einwilligung genau einmal ausgelöst.
-- Die manuelle Conversions-API-Anbindung über die vorhandenen Next.js-Formularrouten ist umgesetzt. Erfolgreiche Kontaktbewerbungen und Website-Checks werden nach Marketing-Einwilligung als Meta-Standardereignis `Lead` browser- und serverseitig mit identischer `event_id` gesendet. Der Zugriffsschlüssel wurde am 4. August 2026 erzeugt und ausschließlich als sensibles, auf Produktion begrenztes Vercel-Secret gespeichert.
+- Die manuelle Conversions-API-Anbindung über die vorhandenen Next.js-Formularrouten ist umgesetzt. Erfolgreiche Kontaktbewerbungen und Website-Checks werden nach Marketing-Einwilligung als Meta-Standardereignis `Lead` browser- und serverseitig mit identischer `event_id` gesendet. Nach einer erfolgreichen Kontaktbewerbung wird auf die eigenständige, nicht indexierbare Seite `/danke` weitergeleitet; dort wird das Browser-Event einmalig mit der bereits serverseitig verwendeten Event-ID ausgelöst. Ein direkter oder erneuter Aufruf von `/danke` erzeugt ohne den kurzlebigen Erfolgsnachweis aus dem Formular kein zusätzliches `Lead`-Event. Der Zugriffsschlüssel wurde am 4. August 2026 erzeugt und ausschließlich als sensibles, auf Produktion begrenztes Vercel-Secret gespeichert.
 - Im Business-Portfolio fehlen derzeit unter anderem verifizierte Firmendaten, eine primäre Facebook-Seite und eine verpflichtende Zwei-Faktor-Authentifizierung.
 
 ### LinkedIn
@@ -84,7 +84,7 @@ Alle Marketing-Tags müssen zusätzlich zur Plattformkonfiguration im GTM an Mar
 | Telefon | vorhandenes Telefon-Conversion-Ereignis | qualifizierte Kontaktabsicht |
 | WhatsApp | vorhandenes WhatsApp-Conversion-Ereignis | qualifizierte Kontaktabsicht |
 | Website-Check abgesendet | `website_check_submit` | Meta `Lead` per Pixel + Conversions API nach erfolgreicher Übermittlung und Marketing-Einwilligung |
-| Kontaktbewerbung abgesendet | `contact_application_submit` | Meta `Lead` per Pixel + Conversions API nach erfolgreicher Übermittlung und Marketing-Einwilligung |
+| Kontaktbewerbung abgesendet | `contact_application_submit`, anschließend `/danke` | Meta `Lead` per Pixel auf `/danke` + Conversions API nach erfolgreicher Übermittlung und Marketing-Einwilligung |
 | Referenzen angesehen | `cta_cases_click` | Interesse, keine primäre Conversion |
 
 Die endgültige Zuordnung zu Meta-, LinkedIn-, TikTok- und Google-Events wird erst nach Prüfung der tatsächlichen Pixel-/Conversion-IDs veröffentlicht.

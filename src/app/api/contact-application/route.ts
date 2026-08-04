@@ -390,7 +390,7 @@ export async function POST(request: Request) {
       await sendMetaLeadEvent({
         request,
         eventId: toSafeString(body.metaEventId),
-        eventSourceUrl: "https://www.codavo-webstudio.de/kontakt",
+        eventSourceUrl: "https://www.codavo-webstudio.de/danke",
         contentName: "B2B-Bewerbung",
         email: fields.email,
         phone: fields.phone,

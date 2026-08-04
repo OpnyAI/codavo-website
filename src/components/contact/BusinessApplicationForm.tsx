@@ -2,13 +2,13 @@
 
 import {
   AlertCircle,
-  CheckCircle2,
   ChevronDown,
   ChevronLeft,
   ChevronRight,
   LoaderCircle,
 } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -33,7 +33,7 @@ import {
 import {
   createMetaEventId,
   hasMarketingConsent,
-  trackMetaLead,
+  queueMetaLead,
 } from "@/lib/meta-pixel";
 
 type FormValues = Required<
@@ -159,15 +159,14 @@ function SelectField({
 }
 
 export default function BusinessApplicationForm() {
+  const router = useRouter();
   const [values, setValues] = useState<FormValues>(initialValues);
   const [errors, setErrors] = useState<FormErrors>({});
   const [step, setStep] = useState(0);
   const [serverError, setServerError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
   const formRef = useRef<HTMLFormElement | null>(null);
   const stepHeadingRef = useRef<HTMLHeadingElement | null>(null);
-  const successRef = useRef<HTMLDivElement | null>(null);
 
   const progress = Math.round(((step + 1) / steps.length) * 100);
 
@@ -333,10 +332,8 @@ export default function BusinessApplicationForm() {
         project_type: values.projectType,
         budget_range: values.budgetRange,
       });
-      trackMetaLead(metaEventId, "B2B-Bewerbung");
-      setIsSuccess(true);
-      setValues(initialValues);
-      setErrors({});
+      queueMetaLead(metaEventId, "B2B-Bewerbung");
+      router.replace("/danke");
     } catch {
       setServerError(
         "Die Anfrage konnte gerade nicht gesendet werden. Bitte versuchen Sie es erneut.",
@@ -362,40 +359,8 @@ export default function BusinessApplicationForm() {
   }, []);
 
   useEffect(() => {
-    if (isSuccess) {
-      successRef.current?.focus();
-      return;
-    }
-
     stepHeadingRef.current?.focus();
-  }, [isSuccess, step]);
-
-  if (isSuccess) {
-    return (
-      <div
-        ref={successRef}
-        tabIndex={-1}
-        className="card border border-emerald-400/20 bg-emerald-500/10 p-6 outline-none sm:p-9"
-      >
-        <div className="flex items-start gap-4">
-          <CheckCircle2 className="mt-1 h-6 w-6 shrink-0 text-emerald-300" />
-          <div>
-            <h2 className="text-2xl font-semibold tracking-tight text-white">
-              Vielen Dank für Ihre Bewerbung
-            </h2>
-            <p className="mt-3 leading-7 text-slate-200">
-              Wir prüfen Ihre Angaben persönlich und melden uns zeitnah bei
-              Ihnen, wenn ein kostenloses Erstgespräch sinnvoll erscheint.
-            </p>
-            <p className="mt-4 text-sm text-slate-400">
-              Ihre Angaben werden ausschließlich zur Bearbeitung Ihrer Anfrage
-              und zur Vorbereitung eines möglichen Projekts verwendet.
-            </p>
-          </div>
-        </div>
-      </div>
-    );
-  }
+  }, [step]);
 
   return (
     <form

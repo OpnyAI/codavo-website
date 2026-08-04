@@ -7,6 +7,15 @@ type MetaPixelFn = (
   options: { eventID: string },
 ) => void;
 
+type PendingMetaLead = {
+  eventId: string;
+  contentName: string;
+  queuedAt: number;
+};
+
+const PENDING_META_LEAD_KEY = "codavo_pending_meta_lead_v1";
+const PENDING_META_LEAD_MAX_AGE_MS = 30 * 60 * 1000;
+
 export function hasMarketingConsent() {
   if (typeof window === "undefined") return false;
 
@@ -41,4 +50,54 @@ export function trackMetaLead(eventId: string, contentName: string) {
   );
 
   return true;
+}
+
+export function queueMetaLead(eventId: string, contentName: string) {
+  if (!hasMarketingConsent()) return false;
+
+  try {
+    const pendingLead: PendingMetaLead = {
+      eventId,
+      contentName,
+      queuedAt: Date.now(),
+    };
+    window.sessionStorage.setItem(
+      PENDING_META_LEAD_KEY,
+      JSON.stringify(pendingLead),
+    );
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+export function flushQueuedMetaLead() {
+  if (typeof window === "undefined") return "empty" as const;
+
+  try {
+    const raw = window.sessionStorage.getItem(PENDING_META_LEAD_KEY);
+    if (!raw) return "empty" as const;
+
+    const pendingLead = JSON.parse(raw) as Partial<PendingMetaLead>;
+    const { eventId, contentName, queuedAt } = pendingLead;
+    if (
+      typeof eventId !== "string" ||
+      typeof contentName !== "string" ||
+      typeof queuedAt !== "number" ||
+      Date.now() - queuedAt > PENDING_META_LEAD_MAX_AGE_MS
+    ) {
+      window.sessionStorage.removeItem(PENDING_META_LEAD_KEY);
+      return "empty" as const;
+    }
+
+    if (!trackMetaLead(eventId, contentName)) {
+      return "pending" as const;
+    }
+
+    window.sessionStorage.removeItem(PENDING_META_LEAD_KEY);
+    return "tracked" as const;
+  } catch {
+    window.sessionStorage.removeItem(PENDING_META_LEAD_KEY);
+    return "empty" as const;
+  }
 }
