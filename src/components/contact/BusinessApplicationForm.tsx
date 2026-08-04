@@ -30,8 +30,15 @@ import {
   ATTRIBUTION_READY_EVENT,
   getAttributionForForm,
 } from "@/lib/attribution";
+import {
+  createMetaEventId,
+  hasMarketingConsent,
+  trackMetaLead,
+} from "@/lib/meta-pixel";
 
-type FormValues = Required<ContactApplicationPayload>;
+type FormValues = Required<
+  Omit<ContactApplicationPayload, "metaEventId" | "marketingConsent">
+>;
 type FormErrors = Partial<Record<keyof FormValues, string>>;
 
 const steps = [
@@ -299,10 +306,16 @@ export default function BusinessApplicationForm() {
     setServerError(null);
 
     try {
+      const metaEventId = createMetaEventId("contact-application");
+      const marketingConsent = hasMarketingConsent();
       const response = await fetch("/api/contact-application", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
+        body: JSON.stringify({
+          ...values,
+          metaEventId,
+          marketingConsent,
+        }),
       });
       const payload = (await response.json()) as { error?: string };
 
@@ -320,6 +333,7 @@ export default function BusinessApplicationForm() {
         project_type: values.projectType,
         budget_range: values.budgetRange,
       });
+      trackMetaLead(metaEventId, "B2B-Bewerbung");
       setIsSuccess(true);
       setValues(initialValues);
       setErrors({});

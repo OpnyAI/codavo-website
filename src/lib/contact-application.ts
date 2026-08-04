@@ -118,4 +118,6 @@ export type ContactApplicationPayload = {
   landing_page?: string;
   referrer?: string;
   first_seen_at?: string;
+  metaEventId?: string;
+  marketingConsent?: boolean;
 };

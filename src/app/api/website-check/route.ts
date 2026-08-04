@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { sendMetaLeadEvent } from "@/lib/meta-conversions";
 
 type WebsiteCheckPayload = {
   firstName?: string;
@@ -18,6 +19,8 @@ type WebsiteCheckPayload = {
   utm_term?: string;
   utm_id?: string;
   fbclid?: string;
+  metaEventId?: string;
+  marketingConsent?: boolean;
 };
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -296,6 +299,20 @@ export async function POST(request: Request) {
         },
         { status: 502 },
       );
+    }
+
+    if (body.marketingConsent === true && body.metaEventId) {
+      await sendMetaLeadEvent({
+        request,
+        eventId: toSafeString(body.metaEventId),
+        eventSourceUrl: "https://www.codavo-webstudio.de/website-check",
+        contentName: "Website-Check Formular",
+        email,
+        phone,
+        firstName,
+        lastName,
+        fbclid: tracking.fbclid,
+      });
     }
 
     return NextResponse.json({ ok: true });

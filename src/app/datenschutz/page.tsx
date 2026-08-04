@@ -185,14 +185,23 @@ export default function DatenschutzPage() {
             {/* 8. Meta */}
             <section>
               <h2 className="text-lg font-semibold text-white">
-                8. Meta Pixel
+                8. Meta Pixel und Conversions API
               </h2>
               <p className="mt-2 text-slate-300">
                 Sofern du Marketing zugestimmt hast, können wir den Meta Pixel
-                der Meta Platforms Ireland Limited einsetzen. Er dient der
-                Messung von Website-Ereignissen, der Zuordnung von Conversions
-                und der Bildung von Zielgruppen für Werbung auf Facebook und
-                Instagram.
+                sowie die Meta Conversions API der Meta Platforms Ireland
+                Limited einsetzen. Sie dienen der Messung von
+                Website-Ereignissen, der Zuordnung von Conversions und der
+                Bildung von Zielgruppen für Werbung auf Facebook und Instagram.
+              </p>
+              <p className="mt-2 text-slate-300">
+                Nach einer erfolgreich abgesendeten Formularanfrage kann das
+                Ereignis „Lead“ zusätzlich serverseitig an Meta übermittelt
+                werden. Dabei können Ereignisart und -zeit, die Quellseite,
+                Browser- und Klick-IDs, IP-Adresse, Browserinformationen sowie
+                gehashte Kontaktangaben wie E-Mail-Adresse, Telefonnummer und
+                Name verarbeitet werden. Die serverseitige Übermittlung erfolgt
+                nur, wenn zuvor eine Marketing-Einwilligung erteilt wurde.
               </p>
               <p className="mt-2 text-slate-300">
                 Rechtsgrundlage ist Art. 6 Abs. 1 lit. a DSGVO. Eine

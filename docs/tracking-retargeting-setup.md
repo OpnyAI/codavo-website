@@ -1,6 +1,6 @@
 # Tracking- und Retargeting-Setup
 
-Stand: 3. August 2026
+Stand: 4. August 2026
 
 ## Sicherheits- und Freigabegrenze
 
@@ -37,6 +37,7 @@ Stand: 3. August 2026
 - Der Datensatz `Codavo Webstudio Pixel`, ID `1592509072445980`, wurde erstellt und mit dem Werbekonto verbunden.
 - Die Meta Business Tools Terms wurden nach ausdrücklicher Freigabe akzeptiert. Automatisches erweitertes Matching bleibt deaktiviert.
 - Das Basispixel ist im GTM veröffentlicht und an `ad_storage`, `ad_user_data` und `ad_personalization` gebunden. Im positiven Tag-Assistant-Test wurde `PageView` nach Marketing-Einwilligung genau einmal ausgelöst.
+- Die manuelle Conversions-API-Anbindung über die vorhandenen Next.js-Formularrouten ist umgesetzt. Erfolgreiche Kontaktbewerbungen und Website-Checks werden nach Marketing-Einwilligung als Meta-Standardereignis `Lead` browser- und serverseitig mit identischer `event_id` gesendet. Der Zugriffsschlüssel wurde am 4. August 2026 erzeugt und ausschließlich als sensibles, auf Produktion begrenztes Vercel-Secret gespeichert.
 - Im Business-Portfolio fehlen derzeit unter anderem verifizierte Firmendaten, eine primäre Facebook-Seite und eine verpflichtende Zwei-Faktor-Authentifizierung.
 
 ### LinkedIn
@@ -60,7 +61,7 @@ Stand: 3. August 2026
 - Google-Ads-Conversions werden nur noch ausgelöst, wenn alle erforderlichen Marketing-Zustimmungen erteilt sind.
 - Nach Marketing-Einwilligung wird die First-Touch-Herkunft eines Besuchs für höchstens zwölf Stunden im Sitzungsspeicher gehalten. Kontaktanfragen enthalten dadurch Landingpage, Referrer-Domain, UTM-Parameter und vorhandene Plattform-Klick-IDs auch nach interner Navigation.
 - Der Meta-Domain-Verifizierungscode wurde in die Website-Metadaten aufgenommen.
-- Die Datenschutzerklärung wurde um Google Ads, Meta Pixel, LinkedIn Insight Tag und TikTok Pixel ergänzt. Vor der Veröffentlichung wird eine rechtliche Prüfung empfohlen.
+- Die Datenschutzerklärung wurde um Google Ads, Meta Pixel, Meta Conversions API, LinkedIn Insight Tag und TikTok Pixel ergänzt. Vor der Veröffentlichung wird eine rechtliche Prüfung empfohlen.
 
 ## Umgesetzte GTM-Konfiguration
 
@@ -82,8 +83,8 @@ Alle Marketing-Tags müssen zusätzlich zur Plattformkonfiguration im GTM an Mar
 | Kontakt-CTA | `cta_contact_click` / `nav_contact_click` / `mobile_cta_click` | Mikro-Conversion, nicht als Lead doppelt zählen |
 | Telefon | vorhandenes Telefon-Conversion-Ereignis | qualifizierte Kontaktabsicht |
 | WhatsApp | vorhandenes WhatsApp-Conversion-Ereignis | qualifizierte Kontaktabsicht |
-| Website-Check abgesendet | `website_check_submit` | Lead/Conversion nach erfolgreicher Übermittlung |
-| Kontaktbewerbung abgesendet | `contact_application_submit` | Lead/Conversion nach erfolgreicher Übermittlung |
+| Website-Check abgesendet | `website_check_submit` | Meta `Lead` per Pixel + Conversions API nach erfolgreicher Übermittlung und Marketing-Einwilligung |
+| Kontaktbewerbung abgesendet | `contact_application_submit` | Meta `Lead` per Pixel + Conversions API nach erfolgreicher Übermittlung und Marketing-Einwilligung |
 | Referenzen angesehen | `cta_cases_click` | Interesse, keine primäre Conversion |
 
 Die endgültige Zuordnung zu Meta-, LinkedIn-, TikTok- und Google-Events wird erst nach Prüfung der tatsächlichen Pixel-/Conversion-IDs veröffentlicht.
@@ -109,6 +110,7 @@ Es werden keine sensiblen Merkmale oder daraus abgeleitete Zielgruppen verwendet
 - Alle akzeptieren: jedes Basis-Tag genau einmal; Consent-Update wird korrekt verarbeitet.
 - Widerruf/Änderung: Einstellungen bleiben erreichbar und neue Aufrufe respektieren die geänderte Auswahl.
 - Formulare: Conversion nur nach erfolgreicher Übermittlung, nicht beim bloßen Klick.
+- Meta-Lead-Deduplizierung: Browser- und Serverereignis verwenden denselben Ereignisnamen `Lead` und dieselbe eindeutige `event_id`.
 - Telefon/WhatsApp/CTAs: höchstens eine vorgesehene Conversion pro Aktion.
 - Google Tag Assistant/GTM Preview sowie die Diagnosetools aller Plattformen zeigen die erwarteten Events ohne Duplikate.
 - Testdaten werden als Test markiert bzw. vor Kampagnenauswertung ausgeschlossen, soweit die Plattform dies unterstützt.

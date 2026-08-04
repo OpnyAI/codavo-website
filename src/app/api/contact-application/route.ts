@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import type { ContactApplicationPayload } from "@/lib/contact-application";
+import { sendMetaLeadEvent } from "@/lib/meta-conversions";
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
@@ -383,6 +384,21 @@ export async function POST(request: Request) {
         },
         { status: 502 },
       );
+    }
+
+    if (body.marketingConsent === true && body.metaEventId) {
+      await sendMetaLeadEvent({
+        request,
+        eventId: toSafeString(body.metaEventId),
+        eventSourceUrl: "https://www.codavo-webstudio.de/kontakt",
+        contentName: "B2B-Bewerbung",
+        email: fields.email,
+        phone: fields.phone,
+        firstName: fields.firstName,
+        lastName: fields.lastName,
+        fbclid: tracking.fbclid,
+        firstSeenAt: tracking.first_seen_at,
+      });
     }
 
     return NextResponse.json({ ok: true });

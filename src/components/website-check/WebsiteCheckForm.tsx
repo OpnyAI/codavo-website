@@ -11,6 +11,11 @@ import Link from "next/link";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { TRACKING_EVENTS, trackAnalyticsEvent } from "@/lib/tracking";
+import {
+  createMetaEventId,
+  hasMarketingConsent,
+  trackMetaLead,
+} from "@/lib/meta-pixel";
 
 type FormValues = {
   firstName: string;
@@ -155,12 +160,18 @@ export default function WebsiteCheckForm() {
     setServerError(null);
 
     try {
+      const metaEventId = createMetaEventId("website-check");
+      const marketingConsent = hasMarketingConsent();
       const response = await fetch("/api/website-check", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(values),
+        body: JSON.stringify({
+          ...values,
+          metaEventId,
+          marketingConsent,
+        }),
       });
 
       const payload = (await response.json()) as { error?: string };
@@ -177,6 +188,7 @@ export default function WebsiteCheckForm() {
         page_path: "/website-check",
         cta_label: "Website-Check Formular",
       });
+      trackMetaLead(metaEventId, "Website-Check Formular");
       setIsSuccess(true);
       setValues(initialValues);
       setErrors({});
