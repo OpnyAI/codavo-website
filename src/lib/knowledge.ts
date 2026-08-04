@@ -102,10 +102,10 @@ export const knowledgeArticles = {
     },
     secondaryLinks: [
       {
-        href: "/website-check",
-        label: "Website-Check",
+        href: "/kontakt",
+        label: "Kostenloses Erstgespräch",
         description:
-          "Sinnvoll, wenn eine bestehende Website vor einem Relaunch eingeordnet werden soll.",
+          "Bestehende Website und sinnvollen nächsten Schritt persönlich einordnen.",
       },
       {
         href: "/hosting-wartung",
@@ -220,10 +220,10 @@ export const knowledgeArticles = {
     },
     secondaryLinks: [
       {
-        href: "/website-check",
-        label: "Website-Check",
+        href: "/kontakt",
+        label: "Kostenloses Erstgespräch",
         description:
-          "Prüft, ob Inhalte, Struktur und Nutzerführung gut verständlich sind.",
+          "Inhalte, Struktur und Nutzerführung gemeinsam einordnen.",
       },
       {
         href: "/wissen/ki-systeme-website-verstehen",
@@ -427,10 +427,10 @@ export const knowledgeArticles = {
     },
     secondaryLinks: [
       {
-        href: "/website-check",
-        label: "Website-Check",
+        href: "/kontakt",
+        label: "Kostenloses Erstgespräch",
         description:
-          "Einordnung, ob der bestehende Auftritt technisch und inhaltlich trägt.",
+          "Bestehenden Auftritt technisch und inhaltlich einordnen.",
       },
       {
         href: "/hosting-wartung",
@@ -491,10 +491,10 @@ export const knowledgeArticles = {
       "KI-Systeme können Websites besser einordnen, wenn Leistungen eindeutig beschrieben, Fragen direkt beantwortet, Unternehmensdaten konsistent genannt und relevante Seiten sinnvoll miteinander verlinkt sind. Das verbessert die Verständlichkeit, garantiert aber keine Nennung in KI-Antworten.",
     cluster: "seo-aeo-llmo",
     primaryMoneyPage: {
-      href: "/website-check",
-      label: "Website-Check",
+      href: "/kontakt",
+      label: "Kostenloses Erstgespräch",
       description:
-        "Prüft, ob Inhalte, Nutzerführung und technische Signale verständlich genug sind.",
+        "Inhalte, Nutzerführung und technische Signale persönlich einordnen.",
     },
     secondaryLinks: [
       {
@@ -607,10 +607,10 @@ export const knowledgeArticles = {
     },
     secondaryLinks: [
       {
-        href: "/website-check",
-        label: "Website-Check",
+        href: "/kontakt",
+        label: "Kostenloses Erstgespräch",
         description:
-          "Sinnvoll, wenn noch nicht klar ist, ob Optimierung oder Relaunch wirtschaftlicher ist.",
+          "Klären, ob Optimierung oder Relaunch wirtschaftlich sinnvoller ist.",
       },
       {
         href: "/wissen/was-kostet-eine-website",

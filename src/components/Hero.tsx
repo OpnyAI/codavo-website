@@ -74,7 +74,7 @@ export default function Hero() {
               data-track-label="Hero Erstgespraech"
               className="cta-primary"
             >
-              Kostenloses Erstgespräch vereinbaren
+              Kostenloses Erstgespräch
             </Link>
           </div>
 

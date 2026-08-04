@@ -113,15 +113,7 @@ export default function ServiceLandingPage({
                 data-track-label={serviceName + " Hero Kontakt"}
                 className="cta-primary"
               >
-                Kostenloses Erstgespräch vereinbaren
-              </Link>
-              <Link
-                href="/website-check"
-                data-track-event="cta_website_check_click"
-                data-track-label={serviceName + " Hero Website Check"}
-                className="cta-secondary"
-              >
-                Website-Check starten
+                Kostenloses Erstgespräch
               </Link>
             </div>
           </div>
@@ -214,7 +206,7 @@ export default function ServiceLandingPage({
                 data-track-label={serviceName + " Abschluss Kontakt"}
                 className="cta-primary relative mt-8"
               >
-                Kostenloses Erstgespräch vereinbaren
+                Kostenloses Erstgespräch
               </Link>
             </div>
           </div>

@@ -304,7 +304,7 @@ export const caseStudies: CaseStudyItem[] = [
       "Ein professioneller Auftritt mit klarer Angebotsstruktur und gut sichtbaren Kontaktwegen.",
     serviceLinks: [
       { href: "/webdesign", label: "Webdesign" },
-      { href: "/website-check", label: "Website-Check" },
+      { href: "/kontakt", label: "Kostenloses Erstgespräch" },
     ],
     img: "/cases/projekt1.webp",
     alt: "Projektansicht von Pioneer Solution",

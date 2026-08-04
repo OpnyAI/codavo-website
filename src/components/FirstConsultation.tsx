@@ -82,7 +82,7 @@ export default function FirstConsultation() {
               data-track-label="Home Erstgespraech Ablauf"
               className="cta-primary shrink-0"
             >
-              Kostenloses Erstgespräch vereinbaren
+              Kostenloses Erstgespräch
               <ArrowRight className="ml-2 h-4 w-4" aria-hidden />
             </Link>
           </div>

@@ -222,15 +222,7 @@ export default function CasesPage() {
                   data-track-label="Cases Abschluss Kontakt"
                   className="cta-primary"
                 >
-                  Projekt besprechen
-                </Link>
-                <Link
-                  href="/website-check"
-                  data-track-event="cta_website_check_click"
-                  data-track-label="Cases Abschluss Website Check"
-                  className="cta-secondary"
-                >
-                  Website-Check starten
+                  Kostenloses Erstgespräch
                 </Link>
               </div>
             </div>

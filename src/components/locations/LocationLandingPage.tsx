@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Check, Layers3 } from "lucide-react";
+import { ArrowRight, Layers3 } from "lucide-react";
 import FAQAccordion, { type FAQItem } from "@/components/FAQAccordion";
 import Footer from "@/components/Footer";
 import type { LocationProfile } from "@/lib/locations";
@@ -140,9 +140,6 @@ export default function LocationLandingPage({ location }: { location: LocationPr
                   <Link href="/kontakt" data-track-event="cta_contact_click" data-track-label={`Standort ${location.city} Hero Kontakt`} className="cta-primary">
                     Kostenloses Erstgespräch
                   </Link>
-                  <Link href="/website-check" data-track-event="cta_website_check_click" data-track-label={`Standort ${location.city} Hero Website Check`} className="cta-secondary">
-                    Website-Check starten
-                  </Link>
                 </div>
               </div>
               <aside className="rounded-3xl border border-indigo-300/15 bg-indigo-400/[0.06] p-6 md:p-7">
@@ -247,7 +244,7 @@ export default function LocationLandingPage({ location }: { location: LocationPr
             </div>
             <div className="mt-8 grid gap-4 md:grid-cols-3">
               {[
-                { href: "/website-check", label: "Website-Check", text: "Bestehenden Auftritt strukturiert prüfen" },
+                { href: "/kontakt", label: "Kostenloses Erstgespräch", text: "Ausgangslage und sinnvollen nächsten Schritt klären" },
                 { href: "/wissen", label: "Wissen", text: "Fundierte Antworten zu Website, SEO und KI" },
                 { href: "/standorte", label: "Alle Standorte", text: "Deutschlandweite Leistungsgebiete entdecken" },
               ].map((item) => (
@@ -312,8 +309,7 @@ export default function LocationLandingPage({ location }: { location: LocationPr
               <h2 className="relative text-3xl font-semibold tracking-tight text-white md:text-4xl">Welcher digitale Schritt ist für Ihr Unternehmen sinnvoll?</h2>
               <p className="lede relative mx-auto mt-5 max-w-2xl">Im Erstgespräch klären wir Ziel, Ausgangslage und den wirtschaftlich passenden Umfang – ohne vorab eine bestimmte Lösung zu erzwingen.</p>
               <div className="relative mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-                <Link href="/kontakt" data-track-event="cta_contact_click" data-track-label={`Standort ${location.city} Abschluss Kontakt`} className="cta-primary">Erstgespräch vereinbaren</Link>
-                <Link href="/website-check" data-track-event="cta_website_check_click" data-track-label={`Standort ${location.city} Abschluss Website Check`} className="cta-secondary"><Check className="mr-2 h-4 w-4" aria-hidden />Website prüfen lassen</Link>
+                <Link href="/kontakt" data-track-event="cta_contact_click" data-track-label={`Standort ${location.city} Abschluss Erstgespraech`} className="cta-primary">Kostenloses Erstgespräch</Link>
               </div>
             </div>
           </div>

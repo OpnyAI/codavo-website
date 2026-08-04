@@ -34,7 +34,7 @@ export default function ProjectSizeSection() {
             ))}
           </ul>
           <Link href="/kontakt" data-track-event="cta_contact_click" data-track-label="Software Projektgröße" className="cta-primary mt-8">
-            Projektumfang anfragen
+            Kostenloses Erstgespräch
           </Link>
         </div>
       </div>

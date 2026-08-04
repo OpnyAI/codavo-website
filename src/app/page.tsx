@@ -89,7 +89,7 @@ const homeFaqs = [
     a: "Der passende Projektumfang entsteht aus Ihren Zielen, der benötigten Seitenstruktur, den Inhalten, Funktionen und dem gewünschten Betreuungsmodell. Im Erstgespräch klären wir zunächst die Ausgangslage. Anschließend erhalten Sie ein transparent abgegrenztes Angebot für die tatsächlich sinnvolle Lösung.",
     link: {
       href: "/kontakt" as const,
-      label: "Kostenloses Erstgespräch vereinbaren",
+      label: "Kostenloses Erstgespräch",
     },
   },
   {

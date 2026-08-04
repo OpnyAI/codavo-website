@@ -10,16 +10,16 @@ export default function Contact() {
   const EMAIL = "kontakt@codavo-webstudio.de";
 
   const mailto = `mailto:${EMAIL}?subject=${encodeURIComponent(
-    "Anfrage Strategie-Call: Website / Softwarelösung / digitales System",
+    "Anfrage für ein kostenloses Erstgespräch",
   )}&body=${encodeURIComponent(
-    "Hallo Codavo,\n\nich möchte ein Strategiegespräch für ein digitales System buchen.\n\nViele Grüße\n",
+    "Hallo Codavo,\n\nich möchte ein kostenloses Erstgespräch vereinbaren.\n\nViele Grüße\n",
   )}`;
 
   const wa = `https://wa.me/${WHATSAPP.replace(
     /\D/g,
     "",
   )}?text=${encodeURIComponent(
-    "Hallo! Ich möchte ein Strategiegespräch zu einer Website- und Softwarelösung buchen.",
+    "Hallo! Ich möchte ein kostenloses Erstgespräch vereinbaren.",
   )}`;
 
   const tel = `tel:${PHONE_TEL}`;
@@ -29,7 +29,7 @@ export default function Contact() {
       <div className="container">
         <div className="text-center">
           <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-white">
-            Strategiegespräch vereinbaren
+            Kostenloses Erstgespräch
           </h2>
           <p className="mt-4 text-slate-300 max-w-2xl mx-auto">
             Sprechen wir über Ihre Ziele, Engpässe und den effizientesten Weg zu

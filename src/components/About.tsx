@@ -65,7 +65,7 @@ export default function About() {
               data-track-label="About Erstgespraech"
               className="cta-primary mt-8"
             >
-              Kostenloses Erstgespräch vereinbaren
+              Kostenloses Erstgespräch
             </Link>
           </div>
         </div>

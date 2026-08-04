@@ -49,7 +49,7 @@ export default function PricingCard({
           data-track-label={`${trackingContext} ${item.name}`}
           className={`w-full ${featured ? "cta-primary" : "cta-secondary"}`}
         >
-          Paket anfragen
+          Kostenloses Erstgespräch
         </Link>
       </div>
     </article>

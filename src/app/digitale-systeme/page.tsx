@@ -93,10 +93,10 @@ const systemBuildingBlocks = [
     linkLabel: "Betreuung ansehen",
   },
   {
-    title: "Website-Check",
-    text: "Ordnet den bestehenden Auftritt ein und zeigt, wo Struktur, Technik oder Nutzerführung zuerst verbessert werden sollten.",
-    href: "/website-check",
-    linkLabel: "Website prüfen",
+    title: "Kostenloses Erstgespräch",
+    text: "Ordnet Ausgangslage, Ziele und den wirtschaftlich sinnvollen nächsten Schritt gemeinsam mit Codavo ein.",
+    href: "/kontakt",
+    linkLabel: "Kostenloses Erstgespräch",
   },
   {
     title: "Wissen",
@@ -262,15 +262,7 @@ export default function DigitaleSystemePage() {
                 data-track-label="Digitale Systeme Hero Systemstrategie"
                 className="cta-primary"
               >
-                Systemstrategie besprechen
-              </Link>
-              <Link
-                href="/website-check"
-                data-track-event="cta_website_check_click"
-                data-track-label="Digitale Systeme Hero Website Check"
-                className="cta-secondary"
-              >
-                Website-Check starten
+                Kostenloses Erstgespräch
               </Link>
             </div>
             <div className="mx-auto mt-12 grid max-w-4xl grid-cols-2 gap-2 text-xs text-slate-400 sm:grid-cols-3 md:grid-cols-6">
@@ -514,15 +506,7 @@ export default function DigitaleSystemePage() {
                   data-track-label="Digitale Systeme Abschluss Systemstrategie"
                   className="cta-primary"
                 >
-                  Systemstrategie besprechen
-                </Link>
-                <Link
-                  href="/website-check"
-                  data-track-event="cta_website_check_click"
-                  data-track-label="Digitale Systeme Abschluss Website Check"
-                  className="cta-secondary"
-                >
-                  Website-Check starten
+                  Kostenloses Erstgespräch
                 </Link>
               </div>
             </div>

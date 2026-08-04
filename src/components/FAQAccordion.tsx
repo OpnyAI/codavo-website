@@ -8,7 +8,7 @@ export type FAQItem = {
   q: string;
   a: string;
   link?: {
-    href: "/kontakt" | "/website-check";
+    href: "/kontakt";
     label: string;
   };
 };

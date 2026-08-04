@@ -258,26 +258,18 @@ export default function Page() {
                 Welche Wissenslücke bremst Ihre Website?
               </h2>
               <p className="lede relative mx-auto mt-5 max-w-2xl text-slate-200">
-                Im Website-Check oder Erstgespräch ordnen wir ein, welche
+                Im kostenlosen Erstgespräch ordnen wir ein, welche
                 Inhalte, technischen Grundlagen und nächsten Schritte für Ihr
                 Unternehmen relevant sind.
               </p>
-              <div className="relative mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-                <Link
-                  href="/website-check"
-                  data-track-event="cta_website_check_click"
-                  data-track-label="Wissen Hub Abschluss Website Check"
-                  className="cta-primary"
-                >
-                  Website-Check starten
-                </Link>
+              <div className="relative mt-8 flex justify-center">
                 <Link
                   href="/kontakt"
                   data-track-event="cta_contact_click"
-                  data-track-label="Wissen Hub Abschluss Kontakt"
-                  className="cta-secondary"
+                  data-track-label="Wissen Hub Abschluss Erstgespraech"
+                  className="cta-primary"
                 >
-                  Kontakt aufnehmen
+                  Kostenloses Erstgespräch
                 </Link>
               </div>
             </div>

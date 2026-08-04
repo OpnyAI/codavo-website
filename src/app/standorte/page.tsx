@@ -133,8 +133,7 @@ export default function LocationsPage() {
                   ))}
                 </div>
                 <div className="mt-9 flex max-w-md flex-col gap-3 sm:max-w-none sm:flex-row">
-                  <Link href="/kontakt" data-track-event="cta_contact_click" data-track-label="Standorte Hub Hero Kontakt" className="cta-primary">Projekt besprechen</Link>
-                  <Link href="/website-check" data-track-event="cta_website_check_click" data-track-label="Standorte Hub Hero Website Check" className="cta-secondary">Website-Check starten</Link>
+                  <Link href="/kontakt" data-track-event="cta_contact_click" data-track-label="Standorte Hub Hero Erstgespraech" className="cta-primary">Kostenloses Erstgespräch</Link>
                 </div>
               </div>
               <GermanyMapVisual />
@@ -234,8 +233,7 @@ export default function LocationsPage() {
               <h2 className="relative text-3xl font-semibold tracking-tight text-white md:text-4xl">Welcher digitale Schritt bringt Ihr Unternehmen weiter?</h2>
               <p className="lede relative mx-auto mt-5 max-w-2xl">Im Erstgespräch klären wir, ob Unternehmenswebsite, Landingpage, Funnel oder Web-App den wirtschaftlich sinnvollsten Hebel bietet.</p>
               <div className="relative mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-                <Link href="/kontakt" data-track-event="cta_contact_click" data-track-label="Standorte Hub Abschluss Kontakt" className="cta-primary">Projekt besprechen</Link>
-                <Link href="/website-check" data-track-event="cta_website_check_click" data-track-label="Standorte Hub Abschluss Website Check" className="cta-secondary">Website-Check starten</Link>
+                <Link href="/kontakt" data-track-event="cta_contact_click" data-track-label="Standorte Hub Abschluss Erstgespraech" className="cta-primary">Kostenloses Erstgespräch</Link>
               </div>
             </div>
           </div>

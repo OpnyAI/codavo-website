@@ -92,7 +92,7 @@ export default function Page() {
                   Im kostenlosen Erstgespräch klären wir Ihre Ausgangslage, die wichtigsten Ziele und einen sinnvollen nächsten Schritt.
                 </p>
                 <Link href="/kontakt" data-track-event="cta_contact_click" data-track-label="Leistungen Erstgespräch Orientierung" className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-indigo-300 transition hover:text-white">
-                  Kostenloses Erstgespräch vereinbaren <ArrowRight className="h-4 w-4" aria-hidden />
+                  Kostenloses Erstgespräch <ArrowRight className="h-4 w-4" aria-hidden />
                 </Link>
               </aside>
             </div>
@@ -103,7 +103,7 @@ export default function Page() {
           <div className="container max-w-4xl text-center">
             <h2 className="text-3xl font-semibold text-white">Welche Leistung passt zu Ihrem Ziel?</h2>
             <p className="mt-4 text-slate-300">Im kostenlosen Erstgespräch klären wir, welche Lösung Ihre Ausgangslage sinnvoll verbessert und welcher Umfang dafür erforderlich ist.</p>
-            <Link href="/kontakt" data-track-event="cta_contact_click" data-track-label="Leistungen Abschluss" className="cta-primary mt-7">Kostenloses Erstgespräch vereinbaren</Link>
+            <Link href="/kontakt" data-track-event="cta_contact_click" data-track-label="Leistungen Abschluss" className="cta-primary mt-7">Kostenloses Erstgespräch</Link>
           </div>
         </section>
       </main>

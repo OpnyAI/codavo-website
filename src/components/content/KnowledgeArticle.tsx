@@ -173,10 +173,9 @@ export default function KnowledgeArticle(props: Props) {
               <div className="relative mt-16 overflow-hidden rounded-[2rem] border border-indigo-300/20 bg-indigo-400/[0.07] p-7 text-center md:p-12">
                 <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(600px_250px_at_50%_0%,rgba(129,140,248,0.13),transparent_70%)]" />
                 <h2 className="relative text-2xl font-semibold tracking-tight text-white md:text-3xl">Was bedeutet das für Ihre Website?</h2>
-                <p className="relative mx-auto mt-4 max-w-2xl leading-7 text-slate-300">Im Erstgespräch oder Website-Check ordnen wir die wichtigsten Hebel für Ihr Unternehmen ein.</p>
-                <div className="relative mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-                  <Link href="/kontakt" data-track-event="cta_contact_click" data-track-label="Wissen Kontakt" className="cta-primary">Erstgespräch vereinbaren</Link>
-                  <Link href="/website-check" data-track-event="cta_website_check_click" data-track-label="Wissen Website Check" className="cta-secondary">Website-Check starten</Link>
+                <p className="relative mx-auto mt-4 max-w-2xl leading-7 text-slate-300">Im kostenlosen Erstgespräch ordnen wir die wichtigsten Hebel für Ihr Unternehmen ein.</p>
+                <div className="relative mt-8 flex justify-center">
+                  <Link href="/kontakt" data-track-event="cta_contact_click" data-track-label="Wissen Erstgespraech" className="cta-primary">Kostenloses Erstgespräch</Link>
                 </div>
               </div>
             </div>

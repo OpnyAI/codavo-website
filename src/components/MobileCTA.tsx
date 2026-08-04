@@ -102,7 +102,7 @@ export default function MobileCTA() {
           scroll
           data-track-event="cta_contact_click"
           data-track-label="Mobile Erstgespraech"
-          aria-label="Kostenloses Erstgespräch vereinbaren"
+          aria-label="Kostenloses Erstgespräch"
           className="inline-flex min-h-12 w-full items-center justify-center gap-2 whitespace-nowrap rounded-2xl bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 px-4 py-2.5 text-sm font-semibold text-white shadow-[0_0_0_1px_rgba(255,255,255,0.05)] transition-all hover:brightness-110 active:brightness-95"
         >
           <CalendarCheck className="h-4 w-4 shrink-0" aria-hidden="true" />

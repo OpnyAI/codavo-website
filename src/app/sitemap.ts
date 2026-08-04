@@ -60,12 +60,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.6,
     },
     {
-      url: `${SEO_CONFIG.domain}/website-check`,
-      lastModified: "2026-07-02",
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
       url: `${SEO_CONFIG.domain}/landingpage-erstellen-lassen`,
       lastModified: "2026-07-02",
       changeFrequency: "monthly",
