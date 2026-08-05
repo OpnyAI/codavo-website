@@ -10,6 +10,7 @@ const HIDE_ROUTES = [
   "/website-check",
   "/impressum",
   "/datenschutz",
+  "/agb",
 ] as const;
 
 export default function MobileCTA() {

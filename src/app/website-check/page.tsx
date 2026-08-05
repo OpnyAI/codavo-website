@@ -731,6 +731,9 @@ export default function WebsiteCheckPage() {
             <Link href="/datenschutz" className="transition hover:text-white">
               Datenschutz
             </Link>
+            <Link href="/agb" className="transition hover:text-white">
+              AGB
+            </Link>
           </div>
         </div>
       </footer>
