@@ -8,13 +8,14 @@ import {
   LoaderCircle,
 } from "lucide-react";
 import Link from "next/link";
+import ContactThankYouTracking from "@/components/contact/ContactThankYouTracking";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { TRACKING_EVENTS, trackAnalyticsEvent } from "@/lib/tracking";
 import {
   createMetaEventId,
   hasMarketingConsent,
-  trackMetaLead,
+  queueMetaLead,
 } from "@/lib/meta-pixel";
 
 type FormValues = {
@@ -188,7 +189,7 @@ export default function WebsiteCheckForm() {
         page_path: "/website-check",
         cta_label: "Website-Check Formular",
       });
-      trackMetaLead(metaEventId, "Website-Check Formular");
+      queueMetaLead(metaEventId, "Website-Check Formular");
       setIsSuccess(true);
       setValues(initialValues);
       setErrors({});
@@ -223,38 +224,41 @@ export default function WebsiteCheckForm() {
 
   if (isSuccess) {
     return (
-      <div
-        ref={successRef}
-        tabIndex={-1}
-        className="card border border-emerald-400/20 bg-emerald-500/10 p-6 outline-none sm:p-8"
-      >
-        <div className="flex items-start gap-3">
-          <CheckCircle2 className="mt-0.5 h-5 w-5 text-emerald-300" />
-          <div>
-            <h3 className="text-xl font-semibold text-white">
-              Vielen Dank – Ihre Anfrage ist eingegangen
-            </h3>
-            <p className="mt-3 text-sm leading-6 text-slate-200">
-              Wir prüfen Ihre Website und melden uns mit einer ersten
-              Einschätzung bei Ihnen.
-            </p>
-            <p className="mt-3 text-sm leading-6 text-slate-300">
-              Nächster Schritt: Wir sehen uns Ihren Auftritt individuell an und
-              kommen zeitnah mit einer ersten Einschätzung auf Sie zu.
-            </p>
-            <p className="mt-4 text-xs text-slate-300">
-              Hinweise zum Datenschutz finden Sie in unserer{" "}
-              <Link
-                href="/datenschutz"
-                className="underline underline-offset-2 hover:text-white"
-              >
-                Datenschutzerklärung
-              </Link>
-              .
-            </p>
+      <>
+        <ContactThankYouTracking />
+        <div
+          ref={successRef}
+          tabIndex={-1}
+          className="card border border-emerald-400/20 bg-emerald-500/10 p-6 outline-none sm:p-8"
+        >
+          <div className="flex items-start gap-3">
+            <CheckCircle2 className="mt-0.5 h-5 w-5 text-emerald-300" />
+            <div>
+              <h3 className="text-xl font-semibold text-white">
+                Vielen Dank – Ihre Anfrage ist eingegangen
+              </h3>
+              <p className="mt-3 text-sm leading-6 text-slate-200">
+                Wir prüfen Ihre Website und melden uns mit einer ersten
+                Einschätzung bei Ihnen.
+              </p>
+              <p className="mt-3 text-sm leading-6 text-slate-300">
+                Nächster Schritt: Wir sehen uns Ihren Auftritt individuell an und
+                kommen zeitnah mit einer ersten Einschätzung auf Sie zu.
+              </p>
+              <p className="mt-4 text-xs text-slate-300">
+                Hinweise zum Datenschutz finden Sie in unserer{" "}
+                <Link
+                  href="/datenschutz"
+                  className="underline underline-offset-2 hover:text-white"
+                >
+                  Datenschutzerklärung
+                </Link>
+                .
+              </p>
+            </div>
           </div>
         </div>
-      </div>
+      </>
     );
   }
 
