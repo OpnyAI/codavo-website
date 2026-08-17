@@ -48,8 +48,6 @@ export function trackAnalyticsEvent(
 ) {
   if (!hasAnalyticsConsent()) return false;
 
-  const usesGoogleTagManager = Boolean(process.env.NEXT_PUBLIC_GTM_ID);
-
   const trackedWindow = window as unknown as {
     dataLayer?: unknown[];
     gtag?: (
@@ -59,17 +57,9 @@ export function trackAnalyticsEvent(
     ) => void;
   };
 
-  if (usesGoogleTagManager) {
-    trackedWindow.dataLayer = trackedWindow.dataLayer || [];
-    trackedWindow.dataLayer.push({ event: eventName, ...params });
-
-    // The object event remains available to GTM, while the targeted gtag
-    // command sends the same event once to the existing GA4 destination.
-    trackedWindow.gtag?.("event", eventName, {
-      ...params,
-      send_to: GOOGLE_ANALYTICS_ID,
-    });
-  } else if (typeof trackedWindow.gtag === "function") {
+  if (typeof trackedWindow.gtag === "function") {
+    // gtag writes this event into dataLayer itself. Pushing an additional
+    // object event here would make GTM and GA4 process the same action twice.
     trackedWindow.gtag("event", eventName, {
       ...params,
       send_to: GOOGLE_ANALYTICS_ID,

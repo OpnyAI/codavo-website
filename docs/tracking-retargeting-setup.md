@@ -96,7 +96,7 @@ Für die Formularereignisse werden ausschließlich technische Bezeichner wie For
 
 ### Technische Weiterleitung und noch in GA4 abzuschließen
 
-1. Die Website legt jedes neue Ereignis weiterhin als benanntes Objekt in der GTM-Datenebene ab und sendet es zusätzlich gezielt per `gtag` an die bestehende GA4-Mess-ID `G-97DHW1DWSM`. Dadurch ist kein weiteres paralleles GA4-Ereignistag im GTM nötig.
+1. Die Website sendet jedes neue Ereignis genau einmal per `gtag` an die bestehende GA4-Mess-ID `G-97DHW1DWSM`. `gtag` legt den Befehl selbst in der GTM-Datenebene ab; ein zusätzlicher paralleler Objekt-Push oder ein weiteres GA4-Ereignistag im GTM würde das Ereignis doppelt erzeugen.
 2. Nach der Veröffentlichung müssen die vier Ereignisse im Tag Assistant und in GA4 DebugView auf genau eine Auslösung pro Aktion geprüft werden.
 3. In GA4 nur `generate_lead` als Schlüsselereignis markieren. Die Schritt- und Validierungsereignisse bleiben Diagnoseereignisse.
 4. Am 17. August 2026 wurden in GA4 sieben ereignisbezogene benutzerdefinierte Dimensionen angelegt: `form_id`, `form_name`, `step_number`, `step_name`, `field_name`, `error_type` und `lead_source`.
