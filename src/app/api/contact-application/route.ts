@@ -136,6 +136,20 @@ function formatFirstSeen(value: string) {
   }).format(date);
 }
 
+function getApplicantGreeting({
+  salutation,
+  firstName,
+  lastName,
+}: {
+  salutation: string;
+  firstName: string;
+  lastName: string;
+}) {
+  if (salutation === "Frau") return `Guten Tag Frau ${lastName},`;
+  if (salutation === "Herr") return `Guten Tag Herr ${lastName},`;
+  return `Hallo ${firstName},`;
+}
+
 export async function POST(request: Request) {
   let body: ContactApplicationPayload;
 
@@ -356,6 +370,35 @@ export async function POST(request: Request) {
       </table>
     </div>
   `;
+  const applicantGreeting = getApplicantGreeting(fields);
+  const confirmationSubject = "Ihre Bewerbung bei Codavo ist eingegangen";
+  const confirmationText = [
+    applicantGreeting,
+    "",
+    "vielen Dank für Ihre Bewerbung für ein kostenloses Erstgespräch bei Codavo Webstudio.",
+    "",
+    "Wir haben Ihre Angaben erhalten und prüfen diese persönlich. Wir melden uns zeitnah bei Ihnen, sobald wir uns ein Bild von Ihrem Unternehmen und Ihrem Vorhaben gemacht haben.",
+    "",
+    "Falls Sie noch Informationen, Unterlagen oder Links ergänzen möchten, können Sie einfach auf diese E-Mail antworten.",
+    "",
+    "Viele Grüße",
+    "Mehmet Çatalsakal",
+    "Codavo Webstudio",
+    "https://www.codavo-webstudio.de",
+  ].join("\n");
+  const confirmationHtml = `
+    <div style="font-family:Arial,sans-serif;line-height:1.65;color:#111827;max-width:640px;margin:0 auto;">
+      <p>${escapeHtml(applicantGreeting)}</p>
+      <p>vielen Dank für Ihre Bewerbung für ein kostenloses Erstgespräch bei Codavo Webstudio.</p>
+      <p>Wir haben Ihre Angaben erhalten und prüfen diese persönlich. Wir melden uns zeitnah bei Ihnen, sobald wir uns ein Bild von Ihrem Unternehmen und Ihrem Vorhaben gemacht haben.</p>
+      <p>Falls Sie noch Informationen, Unterlagen oder Links ergänzen möchten, können Sie einfach auf diese E-Mail antworten.</p>
+      <p style="margin-top:24px;">Viele Grüße<br />
+        Mehmet Çatalsakal<br />
+        Codavo Webstudio<br />
+        <a href="https://www.codavo-webstudio.de" style="color:#4f46e5;">www.codavo-webstudio.de</a>
+      </p>
+    </div>
+  `;
 
   try {
     const response = await fetch("https://api.resend.com/emails", {
@@ -383,6 +426,39 @@ export async function POST(request: Request) {
             "Die Anfrage konnte gerade nicht verarbeitet werden. Bitte versuchen Sie es erneut.",
         },
         { status: 502 },
+      );
+    }
+
+    try {
+      const confirmationResponse = await fetch(
+        "https://api.resend.com/emails",
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${RESEND_API_KEY}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            from: CONTACT_FROM_EMAIL,
+            to: [fields.email],
+            reply_to: CONTACT_TO_EMAIL,
+            subject: confirmationSubject,
+            text: confirmationText,
+            html: confirmationHtml,
+          }),
+        },
+      );
+
+      if (!confirmationResponse.ok) {
+        console.error(
+          "Contact application confirmation email failed",
+          await confirmationResponse.text(),
+        );
+      }
+    } catch (confirmationError) {
+      console.error(
+        "Contact application confirmation email exception",
+        confirmationError,
       );
     }
 
