@@ -147,7 +147,7 @@ function getApplicantGreeting({
 }) {
   if (salutation === "Frau") return `Guten Tag Frau ${lastName},`;
   if (salutation === "Herr") return `Guten Tag Herr ${lastName},`;
-  return `Hallo ${firstName},`;
+  return `Guten Tag ${firstName} ${lastName},`;
 }
 
 export async function POST(request: Request) {
