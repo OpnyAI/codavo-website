@@ -1,6 +1,6 @@
 # Tracking- und Retargeting-Setup
 
-Stand: 4. August 2026
+Stand: 17. August 2026
 
 ## Sicherheits- und Freigabegrenze
 
@@ -26,6 +26,8 @@ Stand: 4. August 2026
 - Der verwendete und bestätigte Google-Zugang ist `mehmet_ctskl@hotmail.de`.
 - GTM-Konto `Codavo Webstudio`, Konto-ID `6340470404`; Container `www.codavo-webstudio.de`, Container-ID `GTM-M2SSF8SZ` / `244241771`.
 - GA4-Mess-ID: `G-97DHW1DWSM`.
+- Im am 17. August 2026 gelesenen Standard-Arbeitsbereich sind sowohl `GA4 – Base Configuration` als auch `Google-Tag (Analytics)` mit derselben Mess-ID `G-97DHW1DWSM` und demselben Initialisierungs-Trigger vorhanden. Beide blieben unverändert; nach der nächsten Veröffentlichung muss Tag Assistant zeigen, ob dadurch ein Seitenaufruf doppelt gesendet wird.
+- Außerdem sind zwei unterschiedliche Google-Ads-Conversion-Tags auf denselben Trigger `Dankeseite` gelegt. Sie wurden nicht verändert. Vor einer weiteren Google-Ads-Optimierung muss geklärt werden, welche Conversion-Aktion primär bleiben soll.
 - Im getrennten GTM-Arbeitsbereich `Codavo Tracking 2026` wurden ein consent-gebundenes Meta-Basispixel und ein consent-gebundenes Google-Ads-Basis-/Remarketing-Tag ergänzt. Die zwei vorhandenen Analytics-Tags und die älteren, unveröffentlichten Telefon-Änderungen im Standard-Arbeitsbereich blieben unverändert.
 
 ### Meta
@@ -81,13 +83,25 @@ Alle Marketing-Tags müssen zusätzlich zur Plattformkonfiguration im GTM an Mar
 | Website-Aktion | Datenebenen-Ereignis | Messziel |
 | --- | --- | --- |
 | Kontakt-CTA | `cta_contact_click` / `nav_contact_click` / `mobile_cta_click` | Mikro-Conversion, nicht als Lead doppelt zählen |
+| Erstes Ausfüllen der Kontaktbewerbung | `form_start` | Einstieg in den Bewerbungsfunnel |
+| Gültiger Abschluss eines Formularschritts | `form_step_complete` mit `step_number` und `step_name` | Abbruchstelle zwischen den sieben Schritten auswerten |
+| Fehlgeschlagene Formularvalidierung | `form_validation_error` mit technischem `field_name` | Hürden erkennen, ohne eingegebene Feldwerte zu übertragen |
 | Telefon | vorhandenes Telefon-Conversion-Ereignis | qualifizierte Kontaktabsicht |
 | WhatsApp | vorhandenes WhatsApp-Conversion-Ereignis | qualifizierte Kontaktabsicht |
 | Website-Check abgesendet | `website_check_submit` | Meta `Lead` per Pixel + Conversions API nach erfolgreicher Übermittlung und Marketing-Einwilligung |
-| Kontaktbewerbung abgesendet | `contact_application_submit`, anschließend `/danke` | Meta `Lead` per Pixel auf `/danke` + Conversions API nach erfolgreicher Übermittlung und Marketing-Einwilligung |
+| Kontaktbewerbung erfolgreich abgesendet | `contact_application_submit` und GA4-Standardereignis `generate_lead`, anschließend `/danke` | Lead erst nach erfolgreicher Serverantwort; Meta `Lead` per Pixel auf `/danke` + Conversions API |
 | Referenzen angesehen | `cta_cases_click` | Interesse, keine primäre Conversion |
 
-Die endgültige Zuordnung zu Meta-, LinkedIn-, TikTok- und Google-Events wird erst nach Prüfung der tatsächlichen Pixel-/Conversion-IDs veröffentlicht.
+Für die Formularereignisse werden ausschließlich technische Bezeichner wie Formular-ID, Schritt, Feldname und Seitenpfad übertragen. Namen, E-Mail-Adresse, Telefonnummer, Freitext, Budgetauswahl und andere eingegebene Feldwerte werden nicht an Google Analytics gesendet. Ein eigenes `form_abandon`-Ereignis wird bewusst nicht erzeugt; Abbrüche werden in GA4 aus der Differenz zwischen `form_start`, den abgeschlossenen Schritten und `generate_lead` abgeleitet.
+
+### Technische Weiterleitung und noch in GA4 abzuschließen
+
+1. Die Website legt jedes neue Ereignis weiterhin als benanntes Objekt in der GTM-Datenebene ab und sendet es zusätzlich gezielt per `gtag` an die bestehende GA4-Mess-ID `G-97DHW1DWSM`. Dadurch ist kein weiteres paralleles GA4-Ereignistag im GTM nötig.
+2. Nach der Veröffentlichung müssen die vier Ereignisse im Tag Assistant und in GA4 DebugView auf genau eine Auslösung pro Aktion geprüft werden.
+3. In GA4 nur `generate_lead` als Schlüsselereignis markieren. Die Schritt- und Validierungsereignisse bleiben Diagnoseereignisse.
+4. Am 17. August 2026 wurden in GA4 sieben ereignisbezogene benutzerdefinierte Dimensionen angelegt: `form_id`, `form_name`, `step_number`, `step_name`, `field_name`, `error_type` und `lead_source`.
+5. `generate_lead` kann erst nach dem ersten empfangenen Live-Ereignis in der aktuellen GA4-Oberfläche per Stern als Schlüsselereignis markiert werden. Bereits vorhandene Schlüsselereignisse wurden nicht verändert.
+6. Eine Google-Ads-Lead-Conversion nur einmal anbinden: entweder aus GA4 importieren oder das bestehende native Google-Ads-Conversion-Tag nutzen, nicht beides als primäre Conversion.
 
 ## Zurückgestellte Retargeting-Zielgruppen
 
@@ -140,3 +154,4 @@ Es werden keine sensiblen Merkmale oder daraus abgeleitete Zielgruppen verwendet
 4. Datenschutztext rechtlich prüfen.
 5. Zielgruppen später anhand der Baulig-Vorgaben definieren und anlegen.
 6. Erst nach vollständigem Test Freigabe für Kampagnenentwürfe, Tagesbudget und Live-Schaltung einholen.
+7. Die zwei GA4-Basistags mit derselben Mess-ID und die zwei Google-Ads-Danke-Seiten-Conversions im GTM-Vorschaumodus auf tatsächliche Duplikate prüfen und erst danach einen überzähligen Pfad deaktivieren.

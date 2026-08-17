@@ -42,14 +42,45 @@ type FormValues = Required<
 type FormErrors = Partial<Record<keyof FormValues, string>>;
 
 const steps = [
-  { title: "Zu Ihnen", hint: "Person und Unternehmen" },
-  { title: "Kontakt", hint: "So erreichen wir Sie" },
-  { title: "Vorhaben", hint: "Projekt und Ausgangslage" },
-  { title: "Ziel", hint: "Wirkung und Engpass" },
-  { title: "Unternehmen", hint: "Werbung, Umsatz und Team" },
-  { title: "Investition", hint: "Budget und Zeitpunkt" },
-  { title: "Qualifizierung", hint: "Warum Sie zu Codavo passen" },
+  {
+    title: "Zu Ihnen",
+    hint: "Person und Unternehmen",
+    trackingName: "person_company",
+  },
+  {
+    title: "Kontakt",
+    hint: "So erreichen wir Sie",
+    trackingName: "contact_details",
+  },
+  {
+    title: "Vorhaben",
+    hint: "Projekt und Ausgangslage",
+    trackingName: "project_context",
+  },
+  {
+    title: "Ziel",
+    hint: "Wirkung und Engpass",
+    trackingName: "goal_challenge",
+  },
+  {
+    title: "Unternehmen",
+    hint: "Werbung, Umsatz und Team",
+    trackingName: "company_profile",
+  },
+  {
+    title: "Investition",
+    hint: "Budget und Zeitpunkt",
+    trackingName: "investment_timing",
+  },
+  {
+    title: "Qualifizierung",
+    hint: "Warum Sie zu Codavo passen",
+    trackingName: "qualification_consent",
+  },
 ] as const;
+
+const CONTACT_APPLICATION_FORM_ID = "contact_application";
+const CONTACT_APPLICATION_FORM_NAME = "B2B-Bewerbung";
 
 const initialValues: FormValues = {
   salutation: "",
@@ -167,10 +198,64 @@ export default function BusinessApplicationForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const formRef = useRef<HTMLFormElement | null>(null);
   const stepHeadingRef = useRef<HTMLHeadingElement | null>(null);
+  const hasTrackedFormStartRef = useRef(false);
+  const trackedCompletedStepsRef = useRef<Set<number>>(new Set());
 
   const progress = Math.round(((step + 1) / steps.length) * 100);
 
+  const getFormEventParams = (stepIndex = step) => ({
+    form_id: CONTACT_APPLICATION_FORM_ID,
+    form_name: CONTACT_APPLICATION_FORM_NAME,
+    page_path: "/kontakt",
+    step_number: stepIndex + 1,
+    step_name: steps[stepIndex].trackingName,
+  });
+
+  const trackFormStart = () => {
+    if (hasTrackedFormStartRef.current) return;
+
+    const tracked = trackAnalyticsEvent(TRACKING_EVENTS.formStart, {
+      form_id: CONTACT_APPLICATION_FORM_ID,
+      form_name: CONTACT_APPLICATION_FORM_NAME,
+      page_path: "/kontakt",
+    });
+
+    if (tracked) {
+      hasTrackedFormStartRef.current = true;
+    }
+  };
+
+  const trackStepCompletion = (stepIndex: number) => {
+    if (trackedCompletedStepsRef.current.has(stepIndex)) return;
+
+    const tracked = trackAnalyticsEvent(
+      TRACKING_EVENTS.formStepComplete,
+      getFormEventParams(stepIndex),
+    );
+
+    if (tracked) {
+      trackedCompletedStepsRef.current.add(stepIndex);
+    }
+  };
+
+  const trackValidationErrors = (
+    stepIndex: number,
+    validationErrors: FormErrors,
+  ) => {
+    Object.keys(validationErrors).forEach((fieldName) => {
+      trackAnalyticsEvent(TRACKING_EVENTS.formValidationError, {
+        ...getFormEventParams(stepIndex),
+        field_name: fieldName,
+        error_type: "validation_error",
+      });
+    });
+  };
+
   const setField = (field: keyof FormValues, value: string | boolean) => {
+    if (field !== "fax") {
+      trackFormStart();
+    }
+
     setValues((current) => ({ ...current, [field]: value }));
     setErrors((current) => ({ ...current, [field]: undefined }));
     setServerError(null);
@@ -261,6 +346,11 @@ export default function BusinessApplicationForm() {
     }
 
     setErrors(nextErrors);
+
+    if (Object.keys(nextErrors).length > 0) {
+      trackValidationErrors(stepIndex, nextErrors);
+    }
+
     return Object.keys(nextErrors).length === 0;
   };
 
@@ -274,11 +364,14 @@ export default function BusinessApplicationForm() {
   };
 
   const goForward = () => {
+    trackFormStart();
+
     if (!validateStep(step)) {
       focusFirstError();
       return;
     }
 
+    trackStepCompletion(step);
     setStep((current) => Math.min(current + 1, steps.length - 1));
   };
 
@@ -290,6 +383,7 @@ export default function BusinessApplicationForm() {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    trackFormStart();
 
     if (step < steps.length - 1) {
       goForward();
@@ -301,6 +395,7 @@ export default function BusinessApplicationForm() {
       return;
     }
 
+    trackStepCompletion(step);
     setIsSubmitting(true);
     setServerError(null);
 
@@ -327,10 +422,16 @@ export default function BusinessApplicationForm() {
       }
 
       trackAnalyticsEvent(TRACKING_EVENTS.contactApplicationSubmit, {
+        form_id: CONTACT_APPLICATION_FORM_ID,
+        form_name: CONTACT_APPLICATION_FORM_NAME,
         page_path: "/kontakt",
         cta_label: "B2B-Bewerbung",
-        project_type: values.projectType,
-        budget_range: values.budgetRange,
+      });
+      trackAnalyticsEvent(TRACKING_EVENTS.generateLead, {
+        form_id: CONTACT_APPLICATION_FORM_ID,
+        form_name: CONTACT_APPLICATION_FORM_NAME,
+        page_path: "/kontakt",
+        lead_source: "contact_application",
       });
       queueMetaLead(metaEventId, "B2B-Bewerbung");
       router.replace("/danke");
