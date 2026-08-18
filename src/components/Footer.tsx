@@ -154,9 +154,10 @@ export default function Footer() {
 
         <div className="mt-14 flex flex-col gap-4 border-t border-white/8 pt-7 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} Codavo Webstudio. Alle Rechte vorbehalten.</p>
-          <div className="flex gap-5">
+          <div className="flex flex-wrap gap-x-5 gap-y-2">
             <Link href="/impressum" className="transition hover:text-slate-300">Impressum</Link>
             <Link href="/datenschutz" className="transition hover:text-slate-300">Datenschutz</Link>
+            <Link href="/agb" className="transition hover:text-slate-300">AGB</Link>
           </div>
         </div>
       </div>
