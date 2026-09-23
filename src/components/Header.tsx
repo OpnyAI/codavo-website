@@ -20,6 +20,7 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const isWebsiteCheckPage = pathname.startsWith("/website-check");
+  const isPresentationPage = pathname.startsWith("/website-praesentation");
 
   const menuRef = useRef<HTMLDivElement | null>(null);
   const buttonRef = useRef<HTMLButtonElement | null>(null);
@@ -62,7 +63,7 @@ export default function Header() {
     };
   }, [open]);
 
-  if (isWebsiteCheckPage) {
+  if (isWebsiteCheckPage || isPresentationPage) {
     return (
       <header
         className={[
@@ -92,12 +93,23 @@ export default function Header() {
           </Link>
 
           <div className="flex items-center">
-            <Link
-              href="#website-check-form"
-              className="inline-flex rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-sm font-medium text-slate-300 transition hover:bg-white/10 hover:text-white sm:px-4 sm:py-2"
-            >
-              Zum Formular
-            </Link>
+            {isWebsiteCheckPage ? (
+              <Link
+                href="#website-check-form"
+                className="inline-flex rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-sm font-medium text-slate-300 transition hover:bg-white/10 hover:text-white sm:px-4 sm:py-2"
+              >
+                Zum Formular
+              </Link>
+            ) : (
+              <Link
+                href="/kontakt"
+                data-track-event="nav_contact_click"
+                data-track-label="Praesentation Header Erstgespraech"
+                className="inline-flex rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-sm font-medium text-slate-300 transition hover:bg-white/10 hover:text-white sm:px-4 sm:py-2"
+              >
+                Gespräch anfragen
+              </Link>
+            )}
           </div>
         </div>
       </header>

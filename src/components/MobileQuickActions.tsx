@@ -9,7 +9,7 @@ const PHONE_HREF = "tel:+4915111956479";
 const WHATSAPP_HREF = "https://wa.me/4915111956479";
 
 // Routen, auf denen die Floating-CTAs komplett ausgeblendet werden sollen
-const HIDE_ROUTES = ["/kontakt", "/impressum", "/datenschutz"];
+const HIDE_ROUTES = ["/kontakt", "/impressum", "/datenschutz", "/agb"];
 
 export default function MobileQuickActions() {
   const pathname = usePathname();
