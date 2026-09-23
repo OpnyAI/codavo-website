@@ -8,6 +8,7 @@ import { CalendarCheck } from "lucide-react";
 const HIDE_ROUTES = [
   "/kontakt",
   "/website-check",
+  "/website-praesentation",
   "/impressum",
   "/datenschutz",
   "/agb",
