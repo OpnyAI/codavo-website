@@ -11,20 +11,32 @@ const strengths = [
 export default function About() {
   return (
     <section id="about" className="section section--feature section--compact scroll-mt-24">
-      <div className="container max-w-6xl">
+      <div className="container container--wide">
         <div className="grid items-center gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:gap-16">
           <figure className="relative mx-auto w-full max-w-lg lg:mx-0">
             <div className="absolute -inset-5 -z-10 rounded-[2.5rem] bg-indigo-500/15 blur-3xl" />
-            <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-white/10 bg-[#080e1a] shadow-[0_35px_100px_rgba(0,0,0,0.35)]">
+            <div className="relative aspect-square overflow-hidden rounded-[2rem] border border-white/10 bg-[#080e1a] shadow-[0_35px_100px_rgba(0,0,0,0.35)]">
               <Image
-                src="/images/about/mehmet-catalsakal-fotoshooting-2026.jpg"
+                src="/images/hero/mehmet-catalsakal-founder-original.jpg"
                 alt="Mehmet Çatalsakal, Gründer und Ansprechpartner von Codavo Webstudio"
                 fill
-                sizes="(max-width: 1023px) 90vw, 40vw"
-                className="object-cover object-[52%_center]"
+                unoptimized
+                sizes="(max-width: 1023px) 90vw, 32rem"
+                className="object-cover object-[64%_center]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#07101d]/75 via-transparent to-transparent" />
             </div>
+            <figcaption className="mt-5 rounded-2xl border border-white/10 bg-white/[0.035] px-5 py-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
+              <span className="block text-base font-semibold text-white">
+                Mehmet Çatalsakal
+              </span>
+              <span className="mt-1 block text-sm text-slate-300">
+                Gründer von Codavo Webstudio
+              </span>
+              <span className="mt-1.5 block text-xs font-medium text-indigo-200">
+                M.Sc. Wirtschaftsingenieurwesen
+              </span>
+            </figcaption>
           </figure>
 
           <div>

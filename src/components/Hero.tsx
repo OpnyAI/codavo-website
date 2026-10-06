@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import HeroVideo from "@/components/HeroVideo";
 
 function GoogleRating({ className = "" }: { className?: string }) {
   return (
@@ -45,8 +46,8 @@ export default function Hero() {
       <div className="pointer-events-none absolute inset-0 -z-20 bg-[radial-gradient(900px_600px_at_18%_20%,rgba(99,102,241,0.2),transparent_70%),radial-gradient(850px_650px_at_82%_45%,rgba(139,92,246,0.13),transparent_72%)]" />
       <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-[#070d1a]/30 via-[#070c18]/12 to-[#070C18]" />
 
-      <div className="container grid w-full grid-cols-[minmax(0,1fr)] items-center gap-12 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:gap-10 xl:gap-16">
-        <div className="min-w-0 text-center lg:text-left">
+      <div className="container container--wide grid w-full grid-cols-[minmax(0,1fr)] gap-y-8 sm:gap-y-10 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:gap-x-10 lg:gap-y-0 xl:grid-cols-[minmax(0,0.86fr)_minmax(0,1.14fr)] xl:gap-x-14">
+        <div className="min-w-0 text-center lg:col-start-1 lg:row-start-1 lg:text-left">
           <p className="eyebrow fade-up text-white/65">
             Unternehmenswebsites · Landingpages · Funnel-Systeme
           </p>
@@ -55,8 +56,14 @@ export default function Hero() {
             Professionelle Websites, die Vertrauen schaffen und neue Kunden
             gewinnen.
           </h1>
+        </div>
 
-          <p className="lede fade-up delay-2 mx-auto mt-6 max-w-2xl lg:mx-0 lg:max-w-xl">
+        <div className="fade-up delay-2 mx-auto min-w-0 w-full max-w-[720px] lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:self-center lg:max-w-none">
+          <HeroVideo />
+        </div>
+
+        <div className="min-w-0 text-center lg:col-start-1 lg:row-start-2 lg:text-left">
+          <p className="lede fade-up delay-2 mx-auto max-w-2xl lg:mx-0 lg:mt-6 lg:max-w-xl">
             Codavo Webstudio entwickelt hochwertige Unternehmenswebsites,
             Landingpages und Funnel-Systeme für Unternehmen, die professionell
             auftreten, bei Suchmaschinen und KI-Systemen gefunden werden und aus
@@ -79,35 +86,6 @@ export default function Hero() {
           </div>
 
           <GoogleRating className="mx-auto mt-7 flex lg:mx-0 lg:mt-6" />
-        </div>
-
-        <div className="fade-up delay-2 mx-auto min-w-0 w-full max-w-[680px] lg:max-w-none">
-          <figure className="relative">
-            <div className="absolute -inset-5 -z-10 rounded-[2.5rem] bg-indigo-500/15 blur-3xl" />
-            <div className="relative aspect-square overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#080e1a] shadow-[0_40px_100px_rgba(0,0,0,0.42),inset_0_1px_0_rgba(255,255,255,0.06)]">
-              <Image
-                src="/images/hero/mehmet-catalsakal-founder-original.jpg"
-                alt="Mehmet Çatalsakal, Gründer von Codavo Webstudio"
-                fill
-                priority
-                unoptimized
-                sizes="(max-width: 1023px) 92vw, (max-width: 1279px) 48vw, 680px"
-                className="object-cover object-[64%_center]"
-              />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#070c18]/80 via-[#070c18]/5 to-transparent" />
-              <figcaption className="absolute bottom-5 left-5 rounded-2xl border border-white/10 bg-[#070c18]/70 px-4 py-3 shadow-lg backdrop-blur-md sm:bottom-7 sm:left-7 sm:px-5">
-                <span className="block text-sm font-semibold text-white sm:text-base">
-                  Mehmet Çatalsakal
-                </span>
-                <span className="mt-0.5 block text-xs text-slate-300 sm:text-sm">
-                  Gründer von Codavo Webstudio
-                </span>
-                <span className="mt-1.5 block text-[11px] font-medium text-white/85 sm:text-xs">
-                  M.Sc. Wirtschaftsingenieurwesen
-                </span>
-              </figcaption>
-            </div>
-          </figure>
         </div>
       </div>
     </section>

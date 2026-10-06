@@ -144,7 +144,7 @@ export default function Home() {
         <CaseStudies />
 
         <section className="section section--feature section--compact">
-          <div className="container max-w-6xl">
+          <div className="container container--wide">
             <div className="max-w-5xl">
               <h2 className="section-title text-white">
                 Eine neue Optik allein macht noch keine wirksame Website

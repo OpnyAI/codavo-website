@@ -32,7 +32,7 @@ const locationLinks = [
 export default function Footer() {
   return (
     <footer role="contentinfo" className="border-t border-white/8 bg-[#060a13] text-sm text-slate-400">
-      <div className="container max-w-7xl py-16 md:py-20">
+      <div className="container container--wide py-16 md:py-20">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-[1.2fr_1fr_0.8fr_0.8fr_1.15fr] xl:gap-10 2xl:gap-12">
           <div className="max-w-sm">
             <Image

@@ -34,7 +34,7 @@ const steps = [
 export default function Process() {
   return (
     <section id="prozess" className="section section--quiet section--compact scroll-mt-24">
-      <div className="container max-w-6xl">
+      <div className="container container--wide">
         <div className="max-w-4xl">
           <h2 className="section-title text-white">
             So läuft ein Projekt mit Codavo ab
