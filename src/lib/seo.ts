@@ -15,6 +15,7 @@ export const SEO_CONFIG = {
     alt: "Codavo Webstudio",
   },
   logoPath: "/images/logo/codavo-logo-light.png",
+  founderImagePath: "/images/hero/mehmet-catalsakal-founder-original.jpg",
   telephone: "+49 1511 1956479",
   email: "kontakt@codavo-webstudio.de",
   address: {
@@ -27,10 +28,24 @@ export const SEO_CONFIG = {
   socialLinks: {
     linkedin: "https://www.linkedin.com/company/codavo-webstudio",
   },
+  founder: {
+    name: "Mehmet Çatalsakal",
+    jobTitle: "Gründer von Codavo Webstudio",
+    socialLinks: {
+      linkedin:
+        "https://www.linkedin.com/in/mehmet-catalsakal-43264a15b/?isSelfProfile=true",
+      instagram:
+        "https://www.instagram.com/mehmet.catalsakal?stkn=cDVzN25ibHp0Y3l6&utm_source=qr",
+      tiktok: "https://www.tiktok.com/@mehmet.catalsakal",
+      youtube:
+        "https://youtube.com/@mehmet_catalsakal?si=Ni5Ow2Aj0_7zca6r",
+    },
+  },
 } as const;
 
 export const ORGANIZATION_ID = `${SEO_CONFIG.domain}/#organization`;
 export const WEBSITE_ID = `${SEO_CONFIG.domain}/#website`;
+export const PERSON_ID = `${SEO_CONFIG.domain}/#mehmet-catalsakal`;
 
 export function absoluteUrl(path = "/") {
   return new URL(path, SEO_CONFIG.domain).toString();
@@ -117,6 +132,28 @@ export const globalStructuredData = {
         email: SEO_CONFIG.email,
         availableLanguage: ["de"],
       },
+      founder: { "@id": PERSON_ID },
+    },
+    {
+      "@type": "Person",
+      "@id": PERSON_ID,
+      name: SEO_CONFIG.founder.name,
+      jobTitle: SEO_CONFIG.founder.jobTitle,
+      description:
+        "Gründer von Codavo Webstudio und M.Sc. Wirtschaftsingenieurwesen mit Fokus auf Website-Strategie, UX/UI und individuelle Webentwicklung.",
+      url: `${SEO_CONFIG.domain}/#about`,
+      image: absoluteUrl(SEO_CONFIG.founderImagePath),
+      sameAs: Object.values(SEO_CONFIG.founder.socialLinks),
+      worksFor: { "@id": ORGANIZATION_ID },
+      knowsAbout: [
+        "Website-Strategie",
+        "Webdesign",
+        "UX/UI",
+        "Webentwicklung",
+        "SEO",
+        "AEO",
+        "LLMO",
+      ],
     },
     {
       "@type": "WebSite",

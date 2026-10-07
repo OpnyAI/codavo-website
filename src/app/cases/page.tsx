@@ -8,7 +8,7 @@ export const metadata = createPageMetadata({
   path: "/cases",
   title: "Webdesign Referenzen & Case Studies | Codavo",
   description:
-    "Ausgewählte Codavo-Projekte aus Medientechnik, Catering, Sanierung, Pflege, Industrie, KI und Ingenieurwesen – mit Einblicken in Ausgangslage, Umsetzung und Kundenfeedback.",
+    "Ausgewählte Webdesign-Projekte von Codavo mit Einblicken in Ausgangslage, Umsetzung, Nutzerführung und freigegebenes Kundenfeedback.",
 });
 
 function Stars({ rating }: { rating: number }) {

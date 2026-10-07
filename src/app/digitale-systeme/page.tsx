@@ -5,9 +5,9 @@ import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
   path: "/digitale-systeme",
-  title: "Digitale Systeme für Unternehmen | Website, Software & Automatisierung",
+  title: "Digitale Systeme für Unternehmen | Codavo",
   description:
-    "Codavo verbindet Website, Funnel, Software, Tracking, Automatisierung und KI zu digitalen Systemen für Unternehmen. Für klare Prozesse, bessere Übersicht und skalierbare digitale Strukturen.",
+    "Codavo verbindet Websites, Funnel, Software, Tracking, Automatisierung und KI zu digitalen Systemen für klare Prozesse und skalierbare Strukturen.",
 });
 
 const disconnectedProcesses = [

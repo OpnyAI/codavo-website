@@ -8,12 +8,16 @@ import About from "@/components/About";
 import FirstConsultation from "@/components/FirstConsultation";
 import Footer from "@/components/Footer";
 import FAQAccordion from "@/components/FAQAccordion";
-import { createPageMetadata } from "@/lib/seo";
+import {
+  absoluteUrl,
+  createPageMetadata,
+  ORGANIZATION_ID,
+} from "@/lib/seo";
 
 export const metadata = createPageMetadata({
-  title: "Codavo Webstudio | Websites, Funnel & Software",
+  title: "Professionelle Unternehmenswebsites | Codavo Webstudio",
   description:
-    "Codavo entwickelt Websites, Landingpages, Funnel und webbasierte Software für Unternehmen, die sichtbarer werden, Anfragen erhöhen und Prozesse vereinfachen möchten.",
+    "Individuelle Websites, Landingpages und Funnel für Unternehmen, die bei Google und in KI-Systemen organisch sichtbar werden und qualifizierte Anfragen gewinnen.",
 });
 
 const problems = [
@@ -136,6 +140,23 @@ export default function Home() {
       },
     })),
   };
+  const videoJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    name: "Wie Ihre Website zum Wachstumshebel wird",
+    description:
+      "Codavo erklärt, wie Positionierung, Inhalte und Technik eine Unternehmenswebsite zu einem digitalen Wachstumshebel machen.",
+    thumbnailUrl: absoluteUrl(
+      "/videos/startseite/website-wachstumshebel-poster.jpg"
+    ),
+    uploadDate: "2026-10-06",
+    duration: "PT3M30S",
+    contentUrl: absoluteUrl(
+      "/videos/startseite/website-wachstumshebel.mp4"
+    ),
+    inLanguage: "de-DE",
+    publisher: { "@id": ORGANIZATION_ID },
+  };
 
   return (
     <>
@@ -257,6 +278,10 @@ export default function Home() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(videoJsonLd) }}
       />
     </>
   );

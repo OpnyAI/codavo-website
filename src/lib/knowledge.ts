@@ -73,6 +73,7 @@ export type KnowledgeLink = {
 
 type KnowledgeArticleEntry = {
   title: string;
+  seoTitle?: string;
   description: string;
   intro: string;
   answer: string;
@@ -82,6 +83,7 @@ type KnowledgeArticleEntry = {
   sections: readonly ContentSection[];
   faqs: readonly FAQItem[];
   related: readonly string[];
+  sources?: readonly { href: string; label: string }[];
 };
 
 export const knowledgeArticles = {
@@ -205,12 +207,13 @@ export const knowledgeArticles = {
   },
   "seo-aeo-llmo": {
     title: "SEO, AEO und LLMO: Was Unternehmen über moderne Sichtbarkeit wissen sollten",
+    seoTitle: "SEO, AEO & LLMO: Sichtbar bei Google und KI | Codavo",
     description:
-      "SEO, AEO und LLMO sowie Sichtbarkeit in Google, AI Overviews und KI-Systemen verständlich erklärt.",
+      "Wie SEO, AEO und LLMO Unternehmen helfen, bei Google und in KI-Systemen organisch sichtbar zu werden und qualifizierte Anfragen zu gewinnen.",
     intro:
-      "Moderne Sichtbarkeit umfasst klassische Suchergebnisse, direkte Antworten und die Einordnung durch KI-Modelle.",
+      "Moderne Sichtbarkeit umfasst klassische Suchergebnisse, direkte Antworten und die Einordnung durch KI-Systeme. Entscheidend ist keine möglichst hohe Keyword-Dichte, sondern eine technisch erreichbare, fachlich klare und eindeutig zuordenbare Website.",
     answer:
-      "SEO verbessert klassische Auffindbarkeit. AEO strukturiert direkte Antworten. LLMO hilft KI-Systemen, Unternehmen, Leistungen und Zusammenhänge eindeutiger einzuordnen. Gemeinsam schaffen diese Disziplinen starke Voraussetzungen für Sichtbarkeit bei Google und in KI-Suchen.",
+      "SEO schafft die technische und inhaltliche Grundlage für organische Auffindbarkeit. AEO macht Antworten präzise und direkt nutzbar. LLMO hilft KI-Systemen, Unternehmen, Personen, Leistungen und Quellen eindeutig einzuordnen. Zusammen verbessern sie die Voraussetzungen für relevante Sichtbarkeit und qualifizierte Anfragen – ohne Rankings oder KI-Nennungen garantieren zu können.",
     cluster: "seo-aeo-llmo",
     primaryMoneyPage: {
       href: "/webdesign",
@@ -231,38 +234,68 @@ export const knowledgeArticles = {
         description:
           "Vertiefung zu Entitäten, internen Links und maschineller Einordnung.",
       },
+      {
+        href: "/website-check",
+        label: "Website-Check",
+        description:
+          "Sichtbarkeit, Inhalte, Technik und Nutzerführung der bestehenden Website einordnen.",
+      },
     ],
     sections: [
       {
-        title: "SEO: klassische Suche",
-        text: "Technik, Suchintention, Inhalte und interne Verlinkung helfen Google und anderen Suchmaschinen, relevante Seiten zu finden und zu bewerten.",
+        title: "SEO bleibt das technische und inhaltliche Fundament",
+        text: "Suchmaschinen müssen eine Seite erreichen, rendern, verstehen und einer konkreten Suchintention zuordnen können. Dafür braucht es indexierbare URLs, eindeutige Seitentitel, semantische Überschriften, hilfreiche Inhalte, interne Links und eine nachvollziehbare Informationsarchitektur. SEO ist deshalb nicht nur die Platzierung einzelner Keywords, sondern die Grundlage, auf der auch moderne Antwort- und KI-Systeme aufbauen.",
+        bullets: [
+          "Jede URL beantwortet eine erkennbare Suchintention",
+          "Wichtige Seiten sind intern sinnvoll erreichbar",
+          "Inhalte sind technisch indexierbar und mobil nutzbar",
+          "Titel, Beschreibung und Hauptüberschrift passen zusammen",
+        ],
       },
       {
-        title: "AEO: präzise Antworten",
-        text: "AEO steht für Answer Engine Optimization. Klare Direktantworten, FAQ-Bereiche und semantische Struktur erleichtern die Nutzung in Antwortsystemen und AI Overviews.",
+        title: "AEO: Antworten müssen schnell verständlich sein",
+        text: "AEO steht für Answer Engine Optimization. Gemeint ist die verständliche Aufbereitung von Antworten, die Suchmaschinen, AI Overviews oder andere Antwortsysteme direkt erfassen können. Hilfreich sind eine kurze Einordnung am Anfang, eindeutige Zwischenüberschriften, konkrete Definitionen und Antworten, die auch ohne den restlichen Absatz verständlich bleiben. Ein FAQ-Markup allein ersetzt diese inhaltliche Klarheit nicht.",
       },
       {
-        title: "LLMO: verständlich für KI-Systeme",
-        text: "LLMO beschreibt Maßnahmen, die Inhalte für große Sprachmodelle verständlicher machen. Wichtig sind eindeutige Entitäten, konsistente Leistungsbegriffe, Quellen und nachvollziehbare Zusammenhänge.",
+        title: "LLMO: Unternehmen und Expertise eindeutig zuordnen",
+        text: "LLMO beschreibt Maßnahmen, mit denen Inhalte und Entitäten für große Sprachmodelle eindeutiger werden. Dazu gehören konsistente Unternehmensdaten, klar benannte verantwortliche Personen, nachvollziehbare Autorenangaben, belastbare Quellen und interne Verbindungen zwischen Leistungen, Fachartikeln und Referenzen. Ein KI-System sollte erkennen können, wer eine Aussage trifft, welche Erfahrung dahintersteht und welche Seite die maßgebliche Quelle ist.",
       },
       {
-        title: "Was Unternehmen praktisch tun können",
-        text: "Hilfreich sind klare Leistungsseiten, präzise FAQs, saubere interne Links, technische Metadaten, strukturierte Daten und Inhalte, die echte Fragen beantworten.",
+        title: "Von organischer Sichtbarkeit zu qualifizierten Anfragen",
+        text: "Reichweite allein ist kein sinnvolles Ziel. Inhalte sollten die Fragen potenzieller Kunden entlang ihrer Entscheidung beantworten: vom Problem über die mögliche Lösung bis zur Auswahl eines Anbieters. Eine Leistungsseite erklärt das Angebot, ein Fachartikel schafft Orientierung und eine Fallstudie belegt Erfahrung. So kann organische Sichtbarkeit nicht nur Besucher, sondern besser passende Leads und qualifizierte Anfragen unterstützen.",
       },
       {
-        title: "Typische Fehler",
-        text: "Problematisch sind austauschbare Texte, widersprüchliche Leistungsbegriffe, fehlende FAQ-Struktur, versteckte Kontaktwege und Seiten, die mehrere Suchintentionen gleichzeitig bedienen wollen.",
+        title: "Strukturierte Daten helfen bei der Einordnung",
+        text: "Schema.org-Markup kann Suchmaschinen mitteilen, ob eine Seite beispielsweise eine Organisation, Person, Dienstleistung, ein Video oder einen Artikel beschreibt. Die Angaben müssen mit dem sichtbaren Inhalt übereinstimmen und aktuell sein. Strukturierte Daten können Verständnis unterstützen, sind aber kein Ersatz für hilfreiche Texte, echte Expertise oder nachvollziehbare Belege.",
+      },
+      {
+        title: "Quellen, Autorenschaft und Originalität schaffen Vertrauen",
+        text: "Austauschbare Zusammenfassungen liefern wenig zusätzlichen Wert. Stärker sind Inhalte, die eigene Erfahrung, konkrete Entscheidungen, nachvollziehbare Beispiele oder belastbare Quellen enthalten. Sichtbare Autorenangaben und reale Aktualisierungsdaten helfen Nutzern und Systemen dabei, Verantwortung und fachlichen Kontext einzuordnen.",
+      },
+      {
+        title: "KI-Crawler und Such-Crawler getrennt betrachten",
+        text: "Ob Inhalte in einer KI-Suche erscheinen können, hängt auch von der technischen Erreichbarkeit ab. Anbieter verwenden teilweise unterschiedliche Crawler für Suche, Nutzeraufrufe und Modelltraining. Deshalb sollte eine robots.txt-Regel bewusst festlegen, welche Nutzung erlaubt ist. Eine pauschale Blockierung kann unbeabsichtigt auch gewünschte Auffindbarkeit verhindern.",
+      },
+      {
+        title: "Typische Fehler bei SEO, AEO und LLMO",
+        text: "Problematisch sind automatisch erzeugte Textvarianten ohne eigenen Nutzen, widersprüchliche Unternehmensdaten, unklare Autoren, übertriebene Keyword-Wiederholungen und viele nahezu identische Seiten für Städte oder Suchbegriffe. Ebenso wenig hilfreich sind garantierte Rankingversprechen oder die Annahme, ein einzelnes Markup könne fehlende inhaltliche Qualität kompensieren.",
+      },
+      {
+        title: "Erfolg realistisch messen",
+        text: "Technische Verbesserungen lassen sich direkt prüfen. Ihre geschäftliche Wirkung zeigt sich dagegen erst nach Crawling und Indexierung. Relevante Signale sind Impressionen und Klicks in der Search Console, qualifizierte Einstiegsseiten, Anfragen aus organischen Quellen und nachvollziehbare Verweise aus KI-Systemen. Einzelne Positionswerte reichen für eine belastbare Bewertung nicht aus.",
       },
       {
         title: "Checkliste für moderne Sichtbarkeit",
-        text: "Eine Website sollte nicht nur für Keywords, sondern für Verständnis optimiert werden.",
+        text: "Eine Website sollte nicht für einzelne Schlagwörter, sondern für fachliches Verständnis, eindeutige Zuordnung und den tatsächlichen Entscheidungsweg potenzieller Kunden optimiert werden.",
         bullets: [
           "Klare Seitenrolle je URL",
           "Direktantworten auf zentrale Fragen",
-          "Konsistente Unternehmens- und Leistungsdaten",
+          "Konsistente Unternehmens-, Personen- und Leistungsdaten",
           "Interne Links zwischen verwandten Themen",
-          "FAQ-Bereiche mit echten Fragen",
-          "Saubere technische Grundlagen und strukturierte Daten",
+          "Sichtbare Autorenschaft, Quellen und Aktualisierungsdaten",
+          "Reale Beispiele statt austauschbarer Textvarianten",
+          "Saubere technische Grundlagen und passendes Markup",
+          "Messung über Sichtbarkeit und qualifizierte Anfragen",
         ],
       },
     ],
@@ -281,7 +314,7 @@ export const knowledgeArticles = {
       },
       {
         q: "Welche Inhalte helfen KI-Systemen?",
-        a: "Präzise Leistungsseiten, Direktantworten, FAQs, konsistente Unternehmensdaten und nachvollziehbare interne Links.",
+        a: "Präzise Leistungsseiten, direkte Antworten, konsistente Unternehmens- und Personendaten, sichtbare Autoren, nachvollziehbare Quellen, interne Links und reale Beispiele erleichtern die Einordnung.",
       },
       {
         q: "Sind strukturierte Daten wichtig?",
@@ -293,9 +326,24 @@ export const knowledgeArticles = {
       "was-gehoert-auf-eine-professionelle-unternehmenswebsite",
       "website-landingpage-funnel",
     ],
+    sources: [
+      {
+        href: "https://developers.google.com/search/docs/fundamentals/ai-optimization-guide",
+        label: "Google Search Central: AI features and your website",
+      },
+      {
+        href: "https://developers.google.com/search/docs/fundamentals/creating-helpful-content",
+        label: "Google Search Central: Helpful, reliable, people-first content",
+      },
+      {
+        href: "https://help.openai.com/en/articles/12627856",
+        label: "OpenAI: Publishers and Developers FAQ",
+      },
+    ],
   },
   "website-landingpage-funnel": {
     title: "Website, Landingpage oder Funnel: Was braucht Ihr Unternehmen?",
+    seoTitle: "Website, Landingpage oder Funnel? Entscheidungshilfe | Codavo",
     description:
       "Unterschiede zwischen Unternehmenswebsite, Landingpage und Funnel mit Entscheidungslogik, Beispielen und typischen Fehlern.",
     intro:
@@ -412,8 +460,9 @@ export const knowledgeArticles = {
   },
   "individuelle-website-vs-baukasten": {
     title: "Individuelle Website oder Baukasten: Was ist sinnvoller?",
+    seoTitle: "Individuelle Website oder Baukasten? Vergleich | Codavo",
     description:
-      "Baukastensystem und individuelle Website fair nach Kosten, Kontrolle und Erweiterbarkeit verglichen.",
+      "Baukastensystem und individuelle Website im Vergleich: Unterschiede bei Kosten, Design, technischer Kontrolle, Sichtbarkeit und Erweiterbarkeit.",
     intro:
       "Beide Ansätze können sinnvoll sein. Entscheidend sind Anspruch, Budget, Differenzierung und zukünftige Anforderungen.",
     answer:
@@ -483,8 +532,9 @@ export const knowledgeArticles = {
   },
   "ki-systeme-website-verstehen": {
     title: "Wie KI-Systeme wie ChatGPT oder Gemini Websites verstehen",
+    seoTitle: "Wie KI-Systeme Websites verstehen | Codavo",
     description:
-      "Wie klare Inhalte, Entitäten, interne Links und strukturierte Daten KI-Systemen bei der Einordnung helfen.",
+      "Wie klare Inhalte, Personen- und Unternehmensdaten, interne Links, Quellen und strukturierte Daten KI-Systemen bei der Einordnung helfen.",
     intro:
       "KI-Systeme verarbeiten Inhalte anders als Menschen, benötigen aber dieselben Grundlagen: Klarheit, Zusammenhang und verlässliche Signale.",
     answer:
@@ -695,8 +745,9 @@ export const knowledgeArticles = {
   },
   "was-gehoert-auf-eine-professionelle-unternehmenswebsite": {
     title: "Was gehört auf eine professionelle Unternehmenswebsite?",
+    seoTitle: "Professionelle Unternehmenswebsite: Inhalte | Codavo",
     description:
-      "Die wichtigsten Inhalte, Seitenbereiche und Vertrauenselemente für professionelle Unternehmenswebsites.",
+      "Welche Inhalte eine professionelle Unternehmenswebsite braucht: Positionierung, Leistungen, Vertrauen, Referenzen, FAQ, Kontaktwege und SEO-Grundlagen.",
     intro:
       "Eine professionelle Unternehmenswebsite muss nicht möglichst viel zeigen. Sie muss schnell verständlich machen, wer das Unternehmen ist, welches Problem es löst und welcher nächste Schritt sinnvoll ist.",
     answer:
@@ -1088,3 +1139,49 @@ export const knowledgeArticles = {
 } as const satisfies Record<string, KnowledgeArticleEntry>;
 
 export type KnowledgeSlug = keyof typeof knowledgeArticles;
+
+export const knowledgeArticleDates = {
+  "was-kostet-eine-website": {
+    publishedAt: "2026-07-02",
+    updatedAt: "2026-08-04",
+  },
+  "seo-aeo-llmo": {
+    publishedAt: "2026-07-02",
+    updatedAt: "2026-10-07",
+  },
+  "website-landingpage-funnel": {
+    publishedAt: "2026-07-02",
+    updatedAt: "2026-08-04",
+  },
+  "individuelle-website-vs-baukasten": {
+    publishedAt: "2026-07-02",
+    updatedAt: "2026-08-04",
+  },
+  "ki-systeme-website-verstehen": {
+    publishedAt: "2026-07-02",
+    updatedAt: "2026-08-04",
+  },
+  "wann-lohnt-sich-ein-website-relaunch": {
+    publishedAt: "2026-07-06",
+    updatedAt: "2026-08-04",
+  },
+  "was-gehoert-auf-eine-professionelle-unternehmenswebsite": {
+    publishedAt: "2026-07-06",
+    updatedAt: "2026-08-04",
+  },
+  "was-ist-ein-funnel": {
+    publishedAt: "2026-07-06",
+    updatedAt: "2026-08-04",
+  },
+  "wann-lohnt-sich-individuelle-software-fuer-kmu": {
+    publishedAt: "2026-07-06",
+    updatedAt: "2026-08-04",
+  },
+  "was-ist-ein-digitales-unternehmenssystem": {
+    publishedAt: "2026-07-06",
+    updatedAt: "2026-08-04",
+  },
+} as const satisfies Record<
+  KnowledgeSlug,
+  { publishedAt: string; updatedAt: string }
+>;

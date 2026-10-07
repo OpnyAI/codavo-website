@@ -78,8 +78,8 @@ export default function HeroVideo() {
           Präsentation
         </span>
         <span className="hidden h-1 w-1 rounded-full bg-white/25 sm:block" aria-hidden="true" />
-        <span className="text-sm text-slate-400">
-          Wie Ihre Website zum Wachstumshebel wird.
+        <span className="min-w-0 text-sm text-slate-400">
+          Für mehr organische Sichtbarkeit und qualifizierte Anfragen.
         </span>
       </figcaption>
     </figure>

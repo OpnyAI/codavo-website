@@ -23,7 +23,7 @@ export const metadata = createPageMetadata({
   path: "/wissen",
   title: "Wissen für moderne Unternehmenswebsites | Codavo",
   description:
-    "Praxisnahes Wissen zu Webdesign, SEO, AEO, LLMO, Landingpages, Funnel, Technik und Website-Betreuung.",
+    "Praxisnahes Wissen von Codavo zu Webdesign, SEO, AEO, LLMO, organischer Sichtbarkeit, Landingpages, Funnel, Software und Website-Betreuung.",
 });
 
 const articleIcons = {

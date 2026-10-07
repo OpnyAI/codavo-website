@@ -64,10 +64,9 @@ export default function Hero() {
 
         <div className="min-w-0 text-center lg:col-start-1 lg:row-start-2 lg:text-left">
           <p className="lede fade-up delay-2 mx-auto max-w-2xl lg:mx-0 lg:mt-6 lg:max-w-xl">
-            Codavo Webstudio entwickelt hochwertige Unternehmenswebsites,
-            Landingpages und Funnel-Systeme für Unternehmen, die professionell
-            auftreten, bei Suchmaschinen und KI-Systemen gefunden werden und aus
-            Besuchern qualifizierte Anfragen machen möchten.
+            Codavo entwickelt individuelle Websites, die Vertrauen schaffen,
+            bei Google und in KI-Systemen organisch sichtbar werden und
+            qualifizierte Anfragen erzeugen.
           </p>
 
           <p className="mt-6 inline-flex rounded-full border border-white/10 bg-white/[0.035] px-4 py-2 text-xs font-medium text-slate-200 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">

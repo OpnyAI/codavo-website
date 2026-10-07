@@ -75,6 +75,7 @@ export default function Footer() {
             <ul className="mt-6 space-y-3.5">
               <li><Link href="/" className="transition hover:text-white">Startseite</Link></li>
               <li><Link href="/wissen" className="transition hover:text-white">Wissen</Link></li>
+              <li><Link href="/website-check" className="transition hover:text-white">Website-Check</Link></li>
               <li><Link href="/cases" className="transition hover:text-white">Cases</Link></li>
               <li><Link href="/faq" className="transition hover:text-white">FAQ</Link></li>
               <li>
