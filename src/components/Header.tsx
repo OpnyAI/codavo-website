@@ -63,7 +63,9 @@ export default function Header() {
     };
   }, [open]);
 
-  if (isWebsiteCheckPage || isPresentationPage) {
+  if (isPresentationPage) return null;
+
+  if (isWebsiteCheckPage) {
     return (
       <header
         className={[
