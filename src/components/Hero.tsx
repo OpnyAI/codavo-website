@@ -3,25 +3,28 @@ import Link from "next/link";
 
 const heroProjects = [
   {
-    company: "TPV-AV",
-    domain: "tpv-av.de",
-    image: "/cases/2026/tpv.png",
-    position:
-      "left-0 top-[3%] z-10 w-[76%] -rotate-[2.5deg] sm:w-[72%] lg:-left-[6%] lg:top-0 lg:w-[72%]",
-  },
-  {
     company: "Creamy Catering",
     domain: "creamy-catering.de",
     image: "/cases/2026/creamy-full-hero.png",
-    position:
-      "left-1/2 top-1/2 z-30 w-[78%] -translate-x-1/2 -translate-y-1/2 rotate-[0.5deg] sm:w-[74%] lg:left-[54%] lg:w-[72%]",
+    desktopPosition: "lg:-translate-y-3 lg:-rotate-[2deg]",
+    mobilePosition:
+      "max-sm:left-1/2 max-sm:top-1/2 max-sm:z-30 max-sm:w-[78%] max-sm:-translate-x-1/2 max-sm:-translate-y-1/2 max-sm:rotate-[0.5deg]",
+  },
+  {
+    company: "TPV-AV",
+    domain: "tpv-av.de",
+    image: "/cases/2026/tpv.png",
+    desktopPosition: "lg:translate-y-4 lg:rotate-[1deg]",
+    mobilePosition:
+      "max-sm:left-0 max-sm:top-[3%] max-sm:z-10 max-sm:w-[76%] max-sm:-rotate-[2.5deg]",
   },
   {
     company: "HWK Sanierung",
     domain: "hwksanierung.de",
     image: "/cases/2026/hwk.png",
-    position:
-      "bottom-[3%] right-0 z-20 w-[76%] rotate-[2deg] sm:w-[72%] lg:bottom-0 lg:-right-[12%] lg:w-[72%]",
+    desktopPosition: "lg:translate-y-1 lg:rotate-[2deg]",
+    mobilePosition:
+      "max-sm:bottom-[3%] max-sm:right-0 max-sm:z-20 max-sm:w-[76%] max-sm:rotate-[2deg]",
   },
 ] as const;
 
@@ -65,7 +68,7 @@ function GoogleRating({ className = "" }: { className?: string }) {
 
 export default function Hero() {
   return (
-    <section className="relative isolate flex min-h-[100svh] items-center overflow-hidden pb-16 pt-24 md:pb-20 md:pt-28">
+    <section className="relative isolate min-h-[100svh] overflow-hidden pb-16 pt-24 md:pb-20 md:pt-28">
       <Image
         src="/images/hero/stuttgart-schlossplatz-nacht.jpg"
         alt=""
@@ -80,7 +83,8 @@ export default function Hero() {
       <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(750px_520px_at_22%_42%,rgba(99,102,241,0.22),transparent_72%),linear-gradient(to_bottom,rgba(5,9,20,0.03),rgba(5,9,20,0.34))]" />
       <div className="pointer-events-none absolute inset-0 -z-10 bg-[#050914]/20 lg:hidden" />
 
-      <div className="container container--wide grid w-full grid-cols-[minmax(0,1fr)] items-center gap-12 lg:grid-cols-[minmax(0,0.86fr)_minmax(0,1.14fr)] lg:gap-12 xl:gap-16">
+      <div className="container container--wide">
+        <div className="grid grid-cols-[minmax(0,1fr)] items-center gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-16">
         <div className="min-w-0 text-center lg:text-left">
           <p className="eyebrow fade-up text-white/65">
             Webdesign aus Stuttgart · Individuell entwickelt
@@ -121,14 +125,39 @@ export default function Hero() {
             </Link>
           </div>
 
-          <GoogleRating className="mx-auto mt-7 flex lg:mx-0 lg:mt-6" />
+          <GoogleRating className="mx-auto mt-5 flex lg:mx-0" />
         </div>
 
-        <div className="fade-up delay-2 relative mx-auto min-h-[350px] w-full max-w-[820px] sm:min-h-[480px] lg:min-h-[700px] lg:max-w-none">
+        <figure className="mx-auto w-full max-w-[400px] lg:max-w-[460px]">
+          <div className="relative aspect-square overflow-hidden rounded-[2rem] border border-white/15 bg-[#080e1a] shadow-[0_25px_80px_rgba(0,0,0,0.3)]">
+            <Image
+              src="/images/hero/mehmet-catalsakal-founder-original.jpg"
+              alt="Mehmet Çatalsakal, Gründer von Codavo Webstudio"
+              fill
+              priority
+              sizes="(max-width: 639px) 90vw, (max-width: 1023px) 400px, 460px"
+              className="object-cover object-[64%_center]"
+            />
+          </div>
+          <figcaption className="mt-4 px-1 text-center lg:text-left">
+            <span className="block text-base font-semibold text-white">
+              Mehmet Çatalsakal
+            </span>
+            <span className="mt-1 block text-sm text-slate-300">
+              Gründer von Codavo Webstudio
+            </span>
+            <span className="mt-1.5 block text-xs font-medium text-indigo-200">
+              M.Sc. Wirtschaftsingenieurwesen
+            </span>
+          </figcaption>
+        </figure>
+        </div>
+
+        <div className="mt-10 grid min-w-0 grid-cols-1 gap-5 max-sm:relative max-sm:mx-auto max-sm:block max-sm:h-[350px] max-sm:w-full max-sm:max-w-[400px] sm:grid-cols-3 lg:mt-12 lg:gap-6">
           {heroProjects.map((project) => (
             <figure
               key={project.company}
-              className={`pointer-events-none absolute overflow-hidden rounded-2xl border border-white/15 bg-[#080e1a]/95 shadow-[0_32px_90px_rgba(0,0,0,0.48)] backdrop-blur-sm ${project.position}`}
+              className={`pointer-events-none mx-auto w-full max-w-[400px] overflow-hidden rounded-xl border border-white/15 bg-[#080e1a]/95 shadow-[0_12px_35px_rgba(0,0,0,0.25)] max-sm:absolute ${project.mobilePosition} ${project.desktopPosition}`}
             >
               <div className="flex h-8 items-center gap-2 border-b border-white/10 bg-[#080e1a]/95 px-3">
                 <span className="h-1.5 w-1.5 rounded-full bg-white/25" />
@@ -143,7 +172,7 @@ export default function Hero() {
                   src={project.image}
                   alt={`${project.company} Website`}
                   fill
-                  sizes="(max-width: 639px) 72vw, (max-width: 1023px) 68vw, 560px"
+                  sizes="(max-width: 639px) 70vw, (max-width: 1023px) 30vw, 400px"
                   className="object-cover object-top"
                 />
               </div>

@@ -17,12 +17,11 @@ export default function About() {
             <div className="absolute -inset-5 -z-10 rounded-[2.5rem] bg-indigo-500/15 blur-3xl" />
             <div className="relative aspect-square overflow-hidden rounded-[2rem] border border-white/10 bg-[#080e1a] shadow-[0_35px_100px_rgba(0,0,0,0.35)]">
               <Image
-                src="/images/hero/mehmet-catalsakal-founder-original.jpg"
+                src="/images/hero/mehmet-catalsakal-about.jpg"
                 alt="Mehmet Çatalsakal, Gründer und Ansprechpartner von Codavo Webstudio"
                 fill
-                unoptimized
                 sizes="(max-width: 1023px) 90vw, 32rem"
-                className="object-cover object-[64%_center]"
+                className="object-cover object-[56%_center]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#07101d]/75 via-transparent to-transparent" />
             </div>
