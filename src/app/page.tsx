@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import Process from "@/components/Process";
 import CaseStudies from "@/components/CaseStudies";
+import HomepageVideoSection from "@/components/HomepageVideoSection";
 import Testimonials from "@/components/Testimonials";
 import About from "@/components/About";
 import FirstConsultation from "@/components/FirstConsultation";
@@ -163,6 +164,7 @@ export default function Home() {
       <main className="overflow-x-hidden">
         <Hero />
         <CaseStudies />
+        <HomepageVideoSection />
 
         <section className="section section--feature section--compact">
           <div className="container container--wide">
