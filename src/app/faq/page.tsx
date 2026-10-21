@@ -4,8 +4,8 @@ import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
   path: "/faq",
-  title: "FAQ | Codavo Webstudio",
-  description: "Antworten zu Ablauf, Budget, Zeitplan, Technik und Zusammenarbeit bei Website- und Softwareprojekten.",
+  title: "FAQ zu Webdesign, Websites & Software | Codavo",
+  description: "Antworten zu Webdesign, Projektablauf, Budget, Technik, SEO, AEO, LLMO, Hosting und Zusammenarbeit mit Codavo Webstudio.",
 });
 
 const faqs = [

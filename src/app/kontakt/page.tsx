@@ -8,7 +8,7 @@ export const metadata = createPageMetadata({
   path: "/kontakt",
   title: "Für kostenloses Erstgespräch bewerben | Codavo",
   description:
-    "Bewerben Sie sich für ein kostenloses Erstgespräch mit Codavo. Wir prüfen Ihr Vorhaben rund um Website, Relaunch, Auffindbarkeit oder individuelle Software persönlich.",
+    "Kostenloses Erstgespräch mit Codavo für Unternehmenswebsite, Relaunch, organische Sichtbarkeit, Funnel oder individuelle Software anfragen.",
 });
 
 export default function KontaktPage() {

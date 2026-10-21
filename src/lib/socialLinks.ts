@@ -1,3 +1,5 @@
+import { SEO_CONFIG } from "@/lib/seo";
+
 export type SocialIcon = "linkedin" | "instagram" | "tiktok" | "youtube";
 
 export type SocialLink = {
@@ -10,26 +12,26 @@ export type SocialLink = {
 export const socialLinks: SocialLink[] = [
   {
     name: "LinkedIn",
-    href: "https://www.linkedin.com/in/mehmet-catalsakal-43264a15b/",
+    href: SEO_CONFIG.founder.socialLinks.linkedin,
     icon: "linkedin",
-    ariaLabel: "Opny auf LinkedIn",
+    ariaLabel: "Mehmet Çatalsakal auf LinkedIn",
   },
   {
     name: "Instagram",
-    href: "https://www.instagram.com/opny.ai?igsh=cDVzN25ibHp0Y3l6&utm_source=qr",
+    href: SEO_CONFIG.founder.socialLinks.instagram,
     icon: "instagram",
-    ariaLabel: "Opny auf Instagram",
+    ariaLabel: "Mehmet Çatalsakal auf Instagram",
   },
   {
     name: "TikTok",
-    href: "https://www.tiktok.com/@opny.ai?_r=1&_t=ZG-948DurHTZhZ",
+    href: SEO_CONFIG.founder.socialLinks.tiktok,
     icon: "tiktok",
-    ariaLabel: "Opny auf TikTok",
+    ariaLabel: "Mehmet Çatalsakal auf TikTok",
   },
   {
     name: "YouTube",
-    href: "https://www.youtube.com/@Opny_AI",
+    href: SEO_CONFIG.founder.socialLinks.youtube,
     icon: "youtube",
-    ariaLabel: "Opny auf YouTube",
+    ariaLabel: "Mehmet Çatalsakal auf YouTube",
   },
 ];

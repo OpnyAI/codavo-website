@@ -59,6 +59,9 @@ select:focus-visible {
   padding-left: 1.5rem; /* 24px */
   padding-right: 1.5rem;
 }
+.container.container--wide {
+  max-width: 86rem;
+}
 .section-sm {
   padding-top: 3rem;
   padding-bottom: 3rem;

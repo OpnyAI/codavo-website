@@ -1,6 +1,6 @@
 import ServiceLandingPage from "@/components/content/ServiceLandingPage";
 import { createPageMetadata } from "@/lib/seo";
-export const metadata = createPageMetadata({ path: "/hosting-wartung", title: "Hosting, Wartung und Updates für Websites | Codavo", description: "Betreuter Betrieb, Wartung, Updates und Weiterentwicklung für professionelle Unternehmenswebsites." });
+export const metadata = createPageMetadata({ path: "/hosting-wartung", title: "Hosting, Wartung und Updates für Websites | Codavo", description: "Hosting, Wartung, technische Betreuung und planbare Weiterentwicklung für professionelle Unternehmenswebsites – mit einem direkten Ansprechpartner." });
 const faqs = [
   { q: "Warum ist Website-Wartung wichtig?", a: "Wartung hält eine Website technisch stabil, aktuell und zuverlässig. Sie hilft, Fehler und veraltete Abhängigkeiten früh zu erkennen." },
   { q: "Was gehört zur Wartung?", a: "Je nach Modell gehören Updates, Funktionsprüfungen, Monitoring, Performance-Kontrolle und kleinere technische Anpassungen dazu." },

@@ -20,6 +20,7 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const isWebsiteCheckPage = pathname.startsWith("/website-check");
+  const isPresentationPage = pathname.startsWith("/website-praesentation");
 
   const menuRef = useRef<HTMLDivElement | null>(null);
   const buttonRef = useRef<HTMLButtonElement | null>(null);
@@ -62,6 +63,8 @@ export default function Header() {
     };
   }, [open]);
 
+  if (isPresentationPage) return null;
+
   if (isWebsiteCheckPage) {
     return (
       <header
@@ -92,12 +95,23 @@ export default function Header() {
           </Link>
 
           <div className="flex items-center">
-            <Link
-              href="#website-check-form"
-              className="inline-flex rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-sm font-medium text-slate-300 transition hover:bg-white/10 hover:text-white sm:px-4 sm:py-2"
-            >
-              Zum Formular
-            </Link>
+            {isWebsiteCheckPage ? (
+              <Link
+                href="#website-check-form"
+                className="inline-flex rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-sm font-medium text-slate-300 transition hover:bg-white/10 hover:text-white sm:px-4 sm:py-2"
+              >
+                Zum Formular
+              </Link>
+            ) : (
+              <Link
+                href="/kontakt"
+                data-track-event="nav_contact_click"
+                data-track-label="Praesentation Header Erstgespraech"
+                className="inline-flex rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-sm font-medium text-slate-300 transition hover:bg-white/10 hover:text-white sm:px-4 sm:py-2"
+              >
+                Gespräch anfragen
+              </Link>
+            )}
           </div>
         </div>
       </header>
@@ -115,7 +129,7 @@ export default function Header() {
             : "border-transparent bg-gradient-to-b from-[#050816]/88 via-[#050816]/55 to-transparent",
         ].join(" ")}
       >
-        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-6 lg:h-[4.5rem] lg:px-8">
+        <div className="mx-auto flex h-16 max-w-[86rem] items-center justify-between px-5 sm:px-6 lg:h-[4.5rem] lg:px-8">
           <Link
             href="/"
             scroll
@@ -193,7 +207,7 @@ export default function Header() {
             ref={menuRef}
             className="absolute inset-x-0 top-16 border-b border-white/10 bg-[#060b16]/98 shadow-[0_24px_70px_rgba(0,0,0,0.35)] backdrop-blur-xl lg:top-[4.5rem]"
           >
-            <nav className="mx-auto flex max-w-7xl flex-col gap-1 px-5 pb-6 pt-4 text-sm sm:px-6 lg:px-8">
+            <nav className="mx-auto flex max-w-[86rem] flex-col gap-1 px-5 pb-6 pt-4 text-sm sm:px-6 lg:px-8">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
