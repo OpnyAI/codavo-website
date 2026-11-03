@@ -1,24 +1,23 @@
 "use client";
 
 import { useEffect } from "react";
-import { flushQueuedMetaLead } from "@/lib/meta-pixel";
+import { flushQueuedMetaLead, type MetaLeadSource } from "@/lib/meta-pixel";
 
-const MAX_TRACKING_ATTEMPTS = 20;
+const TRACKING_WINDOW_MS = 30_000;
 const TRACKING_RETRY_DELAY_MS = 250;
 
-export default function ContactThankYouTracking() {
+export default function ContactThankYouTracking({ source }: { source: MetaLeadSource }) {
   useEffect(() => {
     let cancelled = false;
     let timeoutId: number | undefined;
-    let attempts = 0;
+    const deadline = Date.now() + TRACKING_WINDOW_MS;
 
     const flushLead = () => {
       if (cancelled) return;
 
-      const result = flushQueuedMetaLead();
-      attempts += 1;
+      const result = flushQueuedMetaLead(source);
 
-      if (result === "pending" && attempts < MAX_TRACKING_ATTEMPTS) {
+      if (result === "pending" && Date.now() < deadline) {
         timeoutId = window.setTimeout(flushLead, TRACKING_RETRY_DELAY_MS);
       }
     };
@@ -29,7 +28,7 @@ export default function ContactThankYouTracking() {
       cancelled = true;
       if (timeoutId !== undefined) window.clearTimeout(timeoutId);
     };
-  }, []);
+  }, [source]);
 
   return null;
 }

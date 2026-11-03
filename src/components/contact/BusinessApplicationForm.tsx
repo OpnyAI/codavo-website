@@ -431,7 +431,7 @@ export default function BusinessApplicationForm() {
         page_path: "/kontakt",
         lead_source: "contact_application",
       });
-      queueMetaLead(metaEventId, "B2B-Bewerbung");
+      queueMetaLead("contact-application", metaEventId, "B2B-Bewerbung");
       window.location.assign("/danke");
     } catch {
       setServerError(

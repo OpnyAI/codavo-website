@@ -88,21 +88,13 @@ export async function sendMetaLeadEvent({
   firstSeenAt,
 }: MetaLeadEvent): Promise<MetaConversionsResult> {
   const accessToken = process.env.META_CONVERSIONS_API_ACCESS_TOKEN;
-  if (!accessToken) return { sent: false, reason: "not_configured" };
+  if (!accessToken) {
+    console.warn("Meta Conversions API Lead skipped: token missing");
+    return { sent: false, reason: "not_configured" };
+  }
   if (!isValidEventId(eventId)) {
     return { sent: false, reason: "invalid_event_id" };
   }
-
-  const userData = {
-    em: hashIfPresent(normalizeEmail(email)),
-    ph: hashIfPresent(normalizePhone(phone)),
-    fn: hashIfPresent(normalizeName(firstName)),
-    ln: hashIfPresent(normalizeName(lastName)),
-    client_ip_address: getClientIp(request),
-    client_user_agent: request.headers.get("user-agent") || undefined,
-    fbp: getCookie(request, "_fbp"),
-    fbc: getCookie(request, "_fbc") || createFbc(fbclid, firstSeenAt),
-  };
 
   const graphApiVersion =
     process.env.META_GRAPH_API_VERSION || DEFAULT_META_GRAPH_API_VERSION;
@@ -110,6 +102,17 @@ export async function sendMetaLeadEvent({
   const endpoint = `https://graph.facebook.com/${graphApiVersion}/${META_PIXEL_ID}/events`;
 
   try {
+    const userData = {
+      em: hashIfPresent(normalizeEmail(email)),
+      ph: hashIfPresent(normalizePhone(phone)),
+      fn: hashIfPresent(normalizeName(firstName)),
+      ln: hashIfPresent(normalizeName(lastName)),
+      client_ip_address: getClientIp(request),
+      client_user_agent: request.headers.get("user-agent") || undefined,
+      fbp: getCookie(request, "_fbp"),
+      fbc: getCookie(request, "_fbc") || createFbc(fbclid, firstSeenAt),
+    };
+
     const response = await fetch(endpoint, {
       method: "POST",
       headers: {
@@ -136,18 +139,26 @@ export async function sendMetaLeadEvent({
       signal: AbortSignal.timeout(5000),
     });
 
-    if (!response.ok) {
-      const errorText = await response.text();
+    const result = (await response.json()) as {
+      events_received?: number;
+      error?: { code?: number; error_subcode?: number };
+    };
+
+    if (!response.ok || result.events_received !== 1) {
       console.error("Meta Conversions API Lead failed", {
         status: response.status,
-        body: errorText.slice(0, 1000),
+        eventsReceived: result.events_received,
+        code: result.error?.code,
+        subcode: result.error?.error_subcode,
       });
       return { sent: false, reason: "api_error" };
     }
 
     return { sent: true };
   } catch (error) {
-    console.error("Meta Conversions API Lead exception", error);
+    console.error("Meta Conversions API Lead exception", {
+      type: error instanceof Error ? error.name : "UnknownError",
+    });
     return { sent: false, reason: "api_error" };
   }
 }

@@ -15,7 +15,7 @@ export const metadata = createPageMetadata({
 export default function DankePage() {
   return (
     <>
-      <ContactThankYouTracking />
+      <ContactThankYouTracking source="contact-application" />
       <main className="min-h-screen pt-28 md:pt-32 lg:pt-36">
         <section className="container section pt-12 md:pt-16">
           <div className="card mx-auto max-w-3xl border border-emerald-400/20 bg-emerald-500/10 p-7 sm:p-10">

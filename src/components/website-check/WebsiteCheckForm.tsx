@@ -189,7 +189,7 @@ export default function WebsiteCheckForm() {
         page_path: "/website-check",
         cta_label: "Website-Check Formular",
       });
-      queueMetaLead(metaEventId, "Website-Check Formular");
+      queueMetaLead("website-check", metaEventId, "Website-Check Formular");
       setIsSuccess(true);
       setValues(initialValues);
       setErrors({});
@@ -225,7 +225,7 @@ export default function WebsiteCheckForm() {
   if (isSuccess) {
     return (
       <>
-        <ContactThankYouTracking />
+        <ContactThankYouTracking source="website-check" />
         <div
           ref={successRef}
           tabIndex={-1}
