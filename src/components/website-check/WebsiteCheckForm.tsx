@@ -16,6 +16,7 @@ import {
   createMetaEventId,
   hasMarketingConsent,
   queueMetaLead,
+  trackMetaLead,
 } from "@/lib/meta-pixel";
 
 type FormValues = {
@@ -189,7 +190,9 @@ export default function WebsiteCheckForm() {
         page_path: "/website-check",
         cta_label: "Website-Check Formular",
       });
-      queueMetaLead("website-check", metaEventId, "Website-Check Formular");
+      if (marketingConsent && !trackMetaLead(metaEventId, "Website-Check Formular")) {
+        queueMetaLead("website-check", metaEventId, "Website-Check Formular");
+      }
       setIsSuccess(true);
       setValues(initialValues);
       setErrors({});

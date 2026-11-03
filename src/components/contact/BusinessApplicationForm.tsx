@@ -8,6 +8,7 @@ import {
   LoaderCircle,
 } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -33,6 +34,7 @@ import {
   createMetaEventId,
   hasMarketingConsent,
   queueMetaLead,
+  trackMetaLead,
 } from "@/lib/meta-pixel";
 
 type FormValues = Required<
@@ -189,6 +191,7 @@ function SelectField({
 }
 
 export default function BusinessApplicationForm() {
+  const router = useRouter();
   const [values, setValues] = useState<FormValues>(initialValues);
   const [errors, setErrors] = useState<FormErrors>({});
   const [step, setStep] = useState(0);
@@ -431,8 +434,10 @@ export default function BusinessApplicationForm() {
         page_path: "/kontakt",
         lead_source: "contact_application",
       });
-      queueMetaLead("contact-application", metaEventId, "B2B-Bewerbung");
-      window.location.assign("/danke");
+      if (marketingConsent && !trackMetaLead(metaEventId, "B2B-Bewerbung")) {
+        queueMetaLead("contact-application", metaEventId, "B2B-Bewerbung");
+      }
+      router.push("/danke");
     } catch {
       setServerError(
         "Die Anfrage konnte gerade nicht gesendet werden. Bitte versuchen Sie es erneut.",
