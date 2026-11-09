@@ -226,7 +226,17 @@ export async function POST(request: Request) {
     !fields.lastName ||
     !fields.companyName ||
     !fields.email ||
+    !fields.phone ||
     !fields.projectType ||
+    !fields.currentSituation ||
+    !fields.primaryGoal ||
+    !fields.biggestProblem ||
+    !fields.marketingChannel ||
+    !fields.paidAdsStatus ||
+    !fields.monthlyRevenue ||
+    !fields.employeeCount ||
+    !fields.budgetRange ||
+    !fields.desiredStart ||
     !fields.qualification
   ) {
     return NextResponse.json(
@@ -321,9 +331,8 @@ export async function POST(request: Request) {
     ["Mitarbeitende", fields.employeeCount],
     ["Budgetrahmen", fields.budgetRange],
     ["Gewünschter Start", fields.desiredStart],
-    ["Beschreibung des Vorhabens", fields.qualification],
+    ["Qualifizierung für die Zusammenarbeit", fields.qualification],
   ];
-  const answeredRows = rows.filter(([, value]) => value);
   const trackingRows: Array<[string, string]> = [
     ["Erkannte Herkunft", getAttributionLabel(tracking)],
     ["Erste Landingpage", tracking.landing_page],
@@ -341,11 +350,11 @@ export async function POST(request: Request) {
     ["TTCLID", tracking.ttclid],
     ["LinkedIn Click ID", tracking.li_fat_id],
   ];
-  const subject = `Neue Projektanfrage: ${fields.companyName}`;
+  const subject = `Neue B2B-Bewerbung: ${fields.companyName}`;
   const text = [
-    "Neue Anfrage für ein kostenloses Erstgespräch",
+    "Neue Bewerbung für ein kostenloses Erstgespräch",
     "",
-    ...answeredRows.map(([label, value]) => `${label}: ${value || "Nicht angegeben"}`),
+    ...rows.map(([label, value]) => `${label}: ${value || "Nicht angegeben"}`),
     "",
     "Tracking / Herkunft",
     "",
@@ -355,9 +364,9 @@ export async function POST(request: Request) {
   ].join("\n");
   const html = `
     <div style="font-family:Arial,sans-serif;line-height:1.6;color:#111827">
-      <h2 style="margin-bottom:16px;">Neue Anfrage für ein kostenloses Erstgespräch</h2>
+      <h2 style="margin-bottom:16px;">Neue Bewerbung für ein kostenloses Erstgespräch</h2>
       <table cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:760px;border-collapse:collapse;">
-        <tbody>${answeredRows.map(([label, value]) => labelValue(label, value)).join("")}</tbody>
+        <tbody>${rows.map(([label, value]) => labelValue(label, value)).join("")}</tbody>
       </table>
       <h3 style="margin:24px 0 8px;">Tracking / Herkunft</h3>
       <table cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:760px;border-collapse:collapse;">
@@ -366,13 +375,13 @@ export async function POST(request: Request) {
     </div>
   `;
   const applicantGreeting = getApplicantGreeting(fields);
-  const confirmationSubject = "Ihre Anfrage bei Codavo ist eingegangen";
+  const confirmationSubject = "Ihre Bewerbung bei Codavo ist eingegangen";
   const confirmationText = [
     applicantGreeting,
     "",
-    "vielen Dank für Ihre Anfrage für ein kostenloses Erstgespräch bei Codavo Webstudio.",
+    "vielen Dank für Ihre Bewerbung für ein kostenloses Erstgespräch bei Codavo Webstudio.",
     "",
-    "Wir lesen Ihre Angaben persönlich und melden uns bei Ihnen zum nächsten Schritt.",
+    "Wir haben Ihre Angaben erhalten und prüfen diese persönlich. Wir melden uns zeitnah bei Ihnen, sobald wir uns ein Bild von Ihrem Unternehmen und Ihrem Vorhaben gemacht haben.",
     "",
     "Falls Sie noch Informationen, Unterlagen oder Links ergänzen möchten, können Sie einfach auf diese E-Mail antworten.",
     "",
@@ -384,8 +393,8 @@ export async function POST(request: Request) {
   const confirmationHtml = `
     <div style="font-family:Arial,sans-serif;line-height:1.65;color:#111827;max-width:640px;margin:0 auto;">
       <p>${escapeHtml(applicantGreeting)}</p>
-      <p>vielen Dank für Ihre Anfrage für ein kostenloses Erstgespräch bei Codavo Webstudio.</p>
-      <p>Wir lesen Ihre Angaben persönlich und melden uns bei Ihnen zum nächsten Schritt.</p>
+      <p>vielen Dank für Ihre Bewerbung für ein kostenloses Erstgespräch bei Codavo Webstudio.</p>
+      <p>Wir haben Ihre Angaben erhalten und prüfen diese persönlich. Wir melden uns zeitnah bei Ihnen, sobald wir uns ein Bild von Ihrem Unternehmen und Ihrem Vorhaben gemacht haben.</p>
       <p>Falls Sie noch Informationen, Unterlagen oder Links ergänzen möchten, können Sie einfach auf diese E-Mail antworten.</p>
       <p style="margin-top:24px;">Viele Grüße<br />
         Mehmet Çatalsakal<br />

@@ -281,7 +281,8 @@ export default function DatenschutzPage() {
                 Wenn du uns über ein Kontaktformular, per E-Mail, Telefon oder
                 WhatsApp kontaktierst, verarbeiten wir deine Angaben zur
                 Bearbeitung deiner Anfrage. Bei einer Projektanfrage können
-                hierzu insbesondere Kontakt-, Unternehmens- und Projektdaten gehören.
+                hierzu insbesondere Kontakt-, Unternehmens-, Umsatz-, Budget-
+                und Projektdaten gehören.
               </p>
               <p className="mt-2 text-slate-300">
                 Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO

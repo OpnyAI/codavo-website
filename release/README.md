@@ -14,7 +14,7 @@ KI-Automatisierung ist das zentrale Angebot auf Leistungsübersicht, Kontakt, FA
 - Vier ausführliche Leistungsseiten: `/prozessautomatisierung`, `/crm-automatisierung`, `/ki-beratung`, `/individuelle-ki-loesungen`. Jede erläutert konkrete Einsatzfelder, Vorgehen, Grenzen und nächste Schritte.
 - `/digitale-systeme` wird dauerhaft auf `/automatisierung` weitergeleitet; `/softwareloesungen-fuer-kmu` auf `/individuelle-ki-loesungen`. Die alten Inhaltsseiten wurden entfernt. `/leistungen`, Footer, Software-/Web-App-Seiten, Wissen und regionale Website-Seiten sind entsprechend eingebunden.
 - `/faq` enthält die zwölf Automatisierungsfragen und einen eigenen Bereich für Website-Projekte. Die Akkordeons haben eindeutige IDs.
-- Kontakt: drei Schritte, passende Projektarten, optionale Telefonnummer. Anfrage und Bestätigung im Backend geprüft. Auch der Website-Check weist ungültige JSON-Werte kontrolliert zurück.
+- Kontakt: ursprünglicher siebenstufiger Baulig-Erstgespräch-Funnel vollständig wiederhergestellt, inklusive Pflichttelefonnummer und Qualifizierungsfragen. Ausschließlich die Projektart „KI-Automatisierung“ wurde im Dropdown ergänzt. Anfrage und Bestätigung mit isoliertem Versand geprüft. Auch der Website-Check weist ungültige JSON-Werte kontrolliert zurück.
 - Sprunglink zum Inhalt und Schließen des mobilen Menüs per Escape ergänzt. Sitemap und Vorschaubild auf den neuen Stand gebracht.
 - Veralteten TMG-Verweis im Impressum auf § 5 DDG aktualisiert und den überholten TMG-Haftungsabsatz entfernt. Maßgebliche Quelle: https://www.gesetze-im-internet.de/ddg/__5.html
 

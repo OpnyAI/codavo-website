@@ -12,6 +12,15 @@ import { useEffect, useRef, useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
+  biggestProblemOptions,
+  budgetRangeOptions,
+  currentSituationOptions,
+  desiredStartOptions,
+  employeeCountOptions,
+  marketingChannelOptions,
+  monthlyRevenueOptions,
+  paidAdsStatusOptions,
+  primaryGoalOptions,
   projectTypeOptions,
   type ContactApplicationPayload,
 } from "@/lib/contact-application";
@@ -27,19 +36,7 @@ import {
 } from "@/lib/meta-pixel";
 
 type FormValues = Required<
-  Omit<ContactApplicationPayload,
-    | "metaEventId"
-    | "marketingConsent"
-    | "currentSituation"
-    | "primaryGoal"
-    | "biggestProblem"
-    | "marketingChannel"
-    | "paidAdsStatus"
-    | "monthlyRevenue"
-    | "employeeCount"
-    | "budgetRange"
-    | "desiredStart"
-  >
+  Omit<ContactApplicationPayload, "metaEventId" | "marketingConsent">
 >;
 type FormErrors = Partial<Record<keyof FormValues, string>>;
 
@@ -56,8 +53,28 @@ const steps = [
   },
   {
     title: "Vorhaben",
-    hint: "Projektart und Beschreibung",
-    trackingName: "project_request",
+    hint: "Projekt und Ausgangslage",
+    trackingName: "project_context",
+  },
+  {
+    title: "Ziel",
+    hint: "Wirkung und Engpass",
+    trackingName: "goal_challenge",
+  },
+  {
+    title: "Unternehmen",
+    hint: "Werbung, Umsatz und Team",
+    trackingName: "company_profile",
+  },
+  {
+    title: "Investition",
+    hint: "Budget und Zeitpunkt",
+    trackingName: "investment_timing",
+  },
+  {
+    title: "Qualifizierung",
+    hint: "Warum Sie zu Codavo passen",
+    trackingName: "qualification_consent",
   },
 ] as const;
 
@@ -73,6 +90,15 @@ const initialValues: FormValues = {
   phone: "",
   websiteUrl: "",
   projectType: "",
+  currentSituation: "",
+  primaryGoal: "",
+  biggestProblem: "",
+  marketingChannel: "",
+  paidAdsStatus: "",
+  monthlyRevenue: "",
+  employeeCount: "",
+  budgetRange: "",
+  desiredStart: "",
   qualification: "",
   privacyAccepted: false,
   fax: "",
@@ -254,6 +280,9 @@ export default function BusinessApplicationForm() {
       } else if (!emailPattern.test(values.email)) {
         nextErrors.email = "Bitte eine gültige E-Mail-Adresse angeben.";
       }
+      if (!values.phone.trim()) {
+        nextErrors.phone = "Bitte Telefonnummer angeben.";
+      }
       if (!isValidUrl(values.websiteUrl)) {
         nextErrors.websiteUrl = "Bitte eine gültige Website-Adresse angeben.";
       }
@@ -263,9 +292,50 @@ export default function BusinessApplicationForm() {
       if (!values.projectType) {
         nextErrors.projectType = "Bitte Projektart auswählen.";
       }
+      if (!values.currentSituation) {
+        nextErrors.currentSituation = "Bitte Ausgangslage auswählen.";
+      }
+    }
+
+    if (stepIndex === 3) {
+      if (!values.primaryGoal) {
+        nextErrors.primaryGoal = "Bitte wichtigstes Ziel auswählen.";
+      }
+      if (!values.biggestProblem) {
+        nextErrors.biggestProblem = "Bitte größten Engpass auswählen.";
+      }
+    }
+
+    if (stepIndex === 4) {
+      if (!values.marketingChannel) {
+        nextErrors.marketingChannel = "Bitte wichtigsten Kanal auswählen.";
+      }
+      if (!values.paidAdsStatus) {
+        nextErrors.paidAdsStatus =
+          "Bitte angeben, ob Sie bereits Werbeanzeigen schalten.";
+      }
+      if (!values.monthlyRevenue) {
+        nextErrors.monthlyRevenue =
+          "Bitte aktuellen Monatsumsatz auswählen.";
+      }
+      if (!values.employeeCount) {
+        nextErrors.employeeCount = "Bitte Unternehmensgröße auswählen.";
+      }
+    }
+
+    if (stepIndex === 5) {
+      if (!values.budgetRange) {
+        nextErrors.budgetRange = "Bitte Budgetrahmen auswählen.";
+      }
+      if (!values.desiredStart) {
+        nextErrors.desiredStart = "Bitte gewünschten Start auswählen.";
+      }
+    }
+
+    if (stepIndex === 6) {
       if (values.qualification.trim().length < 20) {
         nextErrors.qualification =
-          "Bitte beschreiben Sie Ihr Vorhaben in mindestens 20 Zeichen.";
+          "Bitte qualifizieren Sie sich in mindestens 20 Zeichen.";
       }
       if (!values.privacyAccepted) {
         nextErrors.privacyAccepted =
@@ -397,7 +467,7 @@ export default function BusinessApplicationForm() {
       onSubmit={handleSubmit}
       noValidate
       className="card overflow-hidden p-0"
-      aria-label="Anfrage für ein kostenloses Erstgespräch"
+        aria-label="Bewerbung für ein kostenloses Erstgespräch"
     >
       <div className="border-b border-white/10 bg-white/[0.025] px-5 py-5 sm:px-8">
         <div className="flex items-end justify-between gap-4">
@@ -493,7 +563,6 @@ export default function BusinessApplicationForm() {
                 value={values.phone}
                 error={errors.phone}
                 autoComplete="tel"
-                optional
                 onChange={(value) => setField("phone", value)}
               />
               <div className="sm:col-span-2">
@@ -523,14 +592,121 @@ export default function BusinessApplicationForm() {
                 error={errors.projectType}
                 onChange={(value) => setField("projectType", value)}
               />
+              <SelectField
+                id="currentSituation"
+                label="Welche Ausgangslage beschreibt Sie am besten?"
+                value={values.currentSituation}
+                options={currentSituationOptions}
+                placeholder="Ausgangslage auswählen"
+                error={errors.currentSituation}
+                onChange={(value) => setField("currentSituation", value)}
+              />
+            </div>
+          ) : null}
+
+          {step === 3 ? (
+            <div className="grid gap-6">
+              <SelectField
+                id="primaryGoal"
+                label="Was soll das Projekt vor allem bewirken?"
+                value={values.primaryGoal}
+                options={primaryGoalOptions}
+                placeholder="Wichtigstes Ziel auswählen"
+                error={errors.primaryGoal}
+                onChange={(value) => setField("primaryGoal", value)}
+              />
+              <SelectField
+                id="biggestProblem"
+                label="Was ist aktuell Ihr größter Engpass?"
+                value={values.biggestProblem}
+                options={biggestProblemOptions}
+                placeholder="Größten Engpass auswählen"
+                error={errors.biggestProblem}
+                onChange={(value) => setField("biggestProblem", value)}
+              />
+            </div>
+          ) : null}
+
+          {step === 4 ? (
+            <div className="grid gap-6">
+              <SelectField
+                id="marketingChannel"
+                label="Wie gewinnen Sie aktuell überwiegend neue Kunden?"
+                value={values.marketingChannel}
+                options={marketingChannelOptions}
+                placeholder="Wichtigsten Kanal auswählen"
+                error={errors.marketingChannel}
+                onChange={(value) => setField("marketingChannel", value)}
+              />
+              <SelectField
+                id="paidAdsStatus"
+                label="Schalten Sie bereits bezahlte Werbeanzeigen, zum Beispiel auf Google, Meta oder LinkedIn?"
+                value={values.paidAdsStatus}
+                options={paidAdsStatusOptions}
+                placeholder="Bitte auswählen"
+                error={errors.paidAdsStatus}
+                onChange={(value) => setField("paidAdsStatus", value)}
+              />
+              <div className="grid gap-5 sm:grid-cols-2">
+                <SelectField
+                  id="employeeCount"
+                  label="Wie viele festangestellte Mitarbeitende haben Sie?"
+                  value={values.employeeCount}
+                  options={employeeCountOptions}
+                  placeholder="Größe auswählen"
+                  error={errors.employeeCount}
+                  onChange={(value) => setField("employeeCount", value)}
+                />
+                <SelectField
+                  id="monthlyRevenue"
+                  label="Wie hoch ist Ihr aktueller Monatsumsatz?"
+                  value={values.monthlyRevenue}
+                  options={monthlyRevenueOptions}
+                  placeholder="Umsatz auswählen"
+                  error={errors.monthlyRevenue}
+                  onChange={(value) => setField("monthlyRevenue", value)}
+                />
+              </div>
+            </div>
+          ) : null}
+
+          {step === 5 ? (
+            <div className="grid gap-6">
+              <SelectField
+                id="budgetRange"
+                label="Wie viel können und möchten Sie investieren, um Ihr Ziel zu erreichen?"
+                value={values.budgetRange}
+                options={budgetRangeOptions}
+                placeholder="Budgetrahmen auswählen"
+                error={errors.budgetRange}
+                onChange={(value) => setField("budgetRange", value)}
+              />
+              <SelectField
+                id="desiredStart"
+                label="Wann möchten Sie starten?"
+                value={values.desiredStart}
+                options={desiredStartOptions}
+                placeholder="Zeitraum auswählen"
+                error={errors.desiredStart}
+                onChange={(value) => setField("desiredStart", value)}
+              />
+            </div>
+          ) : null}
+
+          {step === 6 ? (
+            <div>
               <Label
                 htmlFor="qualification"
                 className="text-sm font-medium text-slate-100"
               >
-                Was möchten Sie verändern?
+                Warum sollte ich ausgerechnet mit Ihnen zusammenarbeiten?
               </Label>
               <p className="mt-2 text-sm leading-6 text-slate-400">
-                Beschreiben Sie kurz den heutigen Ablauf und was sich verbessern soll. Bei Automatisierungsvorhaben helfen uns auch Hinweise auf die beteiligten Systeme.
+                Was unterscheidet Sie von anderen Bewerbern und warum sollte
+                ich Sie kostenlos beraten?{" "}
+                <span className="font-medium text-slate-300">
+                  (Ich erhalte viele Anfragen.)
+                </span>
               </p>
               <textarea
                 id="qualification"
@@ -545,7 +721,7 @@ export default function BusinessApplicationForm() {
                   errors.qualification ? "qualification-error" : undefined
                 }
                 className="mt-3 w-full resize-y rounded-xl border border-white/10 bg-slate-950/70 px-4 py-3 text-sm leading-6 text-white placeholder:text-slate-600 hover:border-white/20 focus:border-indigo-300/70"
-                placeholder="Zum Beispiel: Wir übertragen Anfragen aus dem Postfach von Hand ins CRM und möchten diesen Schritt automatisieren."
+                placeholder="Warum ist Ihr Vorhaben für Codavo besonders interessant und warum passen wir gut zusammen?"
               />
               <div className="mt-2 flex justify-between gap-4 text-xs">
                 {errors.qualification ? (
@@ -583,8 +759,8 @@ export default function BusinessApplicationForm() {
                     className="text-sm font-normal leading-6 text-slate-300"
                   >
                     Ich stimme zu, dass Codavo Webstudio meine Kontakt-,
-                    Unternehmens- und Projektdaten zur Bearbeitung meiner
-                    Anfrage per E-Mail übermittelt und
+                    Unternehmens-, Umsatz-, Budget- und Projektdaten zur
+                    Bearbeitung meiner Bewerbung per E-Mail übermittelt und
                     verarbeitet. Weitere Informationen enthält die{" "}
                     <Link
                       href="/datenschutz"
@@ -651,7 +827,7 @@ export default function BusinessApplicationForm() {
             </button>
           ) : (
             <p className="text-xs leading-5 text-slate-500">
-              Wir lesen Ihre Anfrage persönlich.
+              Ihre Bewerbung wird kostenlos und persönlich geprüft.
             </p>
           )}
 
@@ -672,11 +848,11 @@ export default function BusinessApplicationForm() {
               {isSubmitting ? (
                 <>
                   <LoaderCircle className="h-4 w-4 animate-spin" />
-                  Anfrage wird gesendet
+                  Bewerbung wird gesendet
                 </>
               ) : (
                 <>
-                  Erstgespräch anfragen
+                  Bewerbung für Erstgespräch absenden
                   <ChevronRight className="h-4 w-4" />
                 </>
               )}

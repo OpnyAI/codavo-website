@@ -14,11 +14,12 @@ const post=(body,ip='test')=>context.exports.POST(new Request('http://localhost/
  assert.equal((await post('{','json')).status,400);
  assert.equal((await post(null,'null')).status,400);
  assert.equal((await post({},'missing')).status,400);
- const valid={firstName:'Test',lastName:'Person',companyName:'Testbetrieb',email:'test@example.invalid',projectType:'KI-Strategie und Beratung',qualification:'Wir möchten wiederkehrende Abläufe im Einkauf automatisieren.',privacyAccepted:true};
+ const valid={firstName:'Test',lastName:'Person',companyName:'Testbetrieb',email:'test@example.invalid',phone:'000000',projectType:'KI-Automatisierung',currentSituation:'Wir möchten einen Prozess digitalisieren',primaryGoal:'Interne oder externe Prozesse digitalisieren',biggestProblem:'Uns fehlen Zeit und Know-how für die Umsetzung',marketingChannel:'Empfehlungen und persönliches Netzwerk',paidAdsStatus:'Nein, aktuell noch nicht',monthlyRevenue:'Unter 25.000 Euro Monatsumsatz',employeeCount:'1–3',budgetRange:'Unter 5.000 €',desiredStart:'So bald wie möglich',qualification:'Wir möchten wiederkehrende Abläufe im Einkauf automatisieren.',privacyAccepted:true};
  assert.equal((await post({...valid,privacyAccepted:false},'privacy')).status,400);
  assert.equal((await post({...valid,email:'invalid'},'email')).status,400);
  assert.equal((await post({...valid,fax:'bot'},'bot')).status,400);
  assert.equal(calls.length,0);
+ for(const field of ['phone','currentSituation','primaryGoal','biggestProblem','marketingChannel','paidAdsStatus','monthlyRevenue','employeeCount','budgetRange','desiredStart']) assert.equal((await post({...valid,[field]:''},'missing-'+field)).status,400);
  const success=await post(valid,'success');assert.equal(success.status,200);assert.equal(calls.length,2);assert.equal(calls[0].reply_to,valid.email);assert.ok(calls[0].text.includes(valid.qualification));assert.equal(calls[1].to[0],valid.email);
  const websiteContext={...context,exports:{},process:{env:{RESEND_API_KEY:'local-test',WEBSITE_CHECK_FROM_EMAIL:'test@example.invalid',WEBSITE_CHECK_TO_EMAIL:'owner@example.invalid'}}};
  vm.runInNewContext(ts.transpileModule(fs.readFileSync('src/app/api/website-check/route.ts','utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS}}).outputText,websiteContext);
