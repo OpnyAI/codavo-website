@@ -6,9 +6,10 @@ import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
   path: "/kontakt",
-  title: "Für kostenloses Erstgespräch bewerben | Codavo",
+  automationImage: true,
+  title: "Kostenloses Erstgespräch anfragen | Codavo",
   description:
-    "Bewerben Sie sich für ein kostenloses Erstgespräch mit Codavo. Wir prüfen Ihr Vorhaben rund um Website, Relaunch, Auffindbarkeit oder individuelle Software persönlich.",
+    "Sprechen Sie mit Codavo über KI-Automatisierung, CRM, KI-Beratung, individuelle KI-Lösungen oder ein Website-Projekt.",
 });
 
 export default function KontaktPage() {
@@ -17,18 +18,12 @@ export default function KontaktPage() {
       <main className="min-h-screen pt-28 md:pt-32 lg:pt-36">
         <section id="kontakt" className="container section pt-12 md:pt-16">
           <div className="mx-auto max-w-3xl text-center">
-            <p className="eyebrow">Bewerbung für Geschäftskunden</p>
+            <p className="eyebrow">Kontakt für Unternehmen</p>
             <h1 className="display-title mt-5 text-white">
               Ihr kostenloses Erstgespräch mit Codavo
             </h1>
             <p className="lede mx-auto mt-6 max-w-2xl">
-              Bitte füllen Sie das folgende kurze Formular aus, damit wir
-              wissen, wie wir Ihnen am besten helfen können.
-            </p>
-            <p className="mx-auto mt-4 max-w-xl text-sm leading-6 text-slate-400">
-              Wir machen uns zunächst ein Bild von Ihrem Unternehmen und Ihrem
-              Vorhaben. Anschließend entscheiden wir, ob und in welcher Form
-              ein kostenloses Erstgespräch sinnvoll ist.
+              Welche manuellen Abläufe möchten Sie vereinfachen? Beschreiben Sie kurz Ihr Vorhaben zu KI-Automatisierung, CRM oder KI-Beratung. Auch für Ihr Website-Projekt sind Sie hier richtig.
             </p>
           </div>
 
@@ -70,7 +65,7 @@ export default function KontaktPage() {
             <div className="card">
               <h2 className="text-lg font-semibold text-white">WhatsApp</h2>
               <p className="mt-2 text-sm text-slate-300">
-                Für kurze Rückfragen, einen Link zur bestehenden Website oder die
+                Für kurze Rückfragen zu Ihrem Vorhaben oder die
                 Abstimmung eines nächsten sinnvollen Schritts.
               </p>
               <TrackedContactLink

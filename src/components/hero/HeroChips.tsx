@@ -5,12 +5,12 @@ export default function HeroChips() {
     { label: "Webdesign", href: "/webdesign", ariaLabel: "Zu Webdesign" },
     {
       label: "Individuelle Softwarelösungen",
-      href: "/softwareloesungen-fuer-kmu",
+      href: "/individuelle-ki-loesungen",
       ariaLabel: "Zu individuellen Softwarelösungen",
     },
     {
       label: "Digitale Systemarchitektur",
-      href: "/digitale-systeme",
+      href: "/automatisierung",
       ariaLabel: "Zu digitaler Systemarchitektur",
     },
   ];

@@ -6,9 +6,9 @@ import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
   path: "/danke",
-  title: "Vielen Dank für Ihre Bewerbung | Codavo",
+  title: "Vielen Dank für Ihre Anfrage | Codavo",
   description:
-    "Vielen Dank für Ihre Bewerbung bei Codavo. Wir prüfen Ihre Angaben persönlich und melden uns zeitnah bei Ihnen.",
+    "Vielen Dank für Ihre Anfrage bei Codavo. Wir prüfen Ihre Angaben persönlich und melden uns zeitnah bei Ihnen.",
   noIndex: true,
 });
 
@@ -26,11 +26,10 @@ export default function DankePage() {
               <div>
                 <p className="eyebrow text-emerald-300">Anfrage eingegangen</p>
                 <h1 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-                  Vielen Dank für Ihre Bewerbung
+                  Vielen Dank für Ihre Anfrage
                 </h1>
                 <p className="mt-5 leading-7 text-slate-200">
-                  Wir prüfen Ihre Angaben persönlich und melden uns zeitnah bei
-                  Ihnen, wenn ein kostenloses Erstgespräch sinnvoll erscheint.
+                  Wir lesen Ihre Angaben persönlich und melden uns bei Ihnen zum nächsten Schritt.
                 </p>
                 <p className="mt-4 text-sm leading-6 text-slate-400">
                   Ihre Angaben werden ausschließlich zur Bearbeitung Ihrer

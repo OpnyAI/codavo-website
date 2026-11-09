@@ -9,8 +9,8 @@ const serviceLinks = [
   ["/landingpage-erstellen-lassen", "Landingpage erstellen lassen"],
   ["/funnel-erstellen-lassen", "Funnel erstellen lassen"],
   ["/web-app-entwicklung", "Web App Entwicklung"],
-  ["/softwareloesungen-fuer-kmu", "Softwarelösungen für KMU"],
-  ["/digitale-systeme", "Digitale Systeme"],
+  ["/automatisierung", "KI-Automatisierung"],
+  ["/individuelle-ki-loesungen", "Individuelle KI-Lösungen"],
   ["/hosting-wartung", "Hosting & Wartung"],
 ] as const;
 
@@ -29,10 +29,19 @@ const locationLinks = [
   ["/standorte/nuernberg", "Nürnberg"],
 ] as const;
 
-export default function Footer() {
+export default function Footer({ webdesignFocus = false }: { webdesignFocus?: boolean }) {
+  const links = webdesignFocus ? serviceLinks : [
+    ["/automatisierung", "KI-Automatisierung"],
+    ["/ki-beratung", "KI-Strategie & Beratung"],
+    ["/prozessautomatisierung", "Tools & Systeme vernetzen"],
+    ["/crm-automatisierung", "CRM einrichten & automatisieren"],
+    ["/individuelle-ki-loesungen", "Individuelle KI-Lösungen"],
+    ["/leistungen", "Alle Leistungen"],
+    ["/webdesign", "Webdesign"],
+  ];
   return (
     <footer role="contentinfo" className="border-t border-white/8 bg-[#060a13] text-sm text-slate-400">
-      <div className="container max-w-7xl py-16 md:py-20">
+      <div className="container container--wide py-16 md:py-20">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-[1.2fr_1fr_0.8fr_0.8fr_1.15fr] xl:gap-10 2xl:gap-12">
           <div className="max-w-sm">
             <Image
@@ -43,12 +52,12 @@ export default function Footer() {
               className="h-7 w-auto opacity-95"
             />
             <h3 className="mt-7 text-lg font-semibold tracking-tight text-white">
-              Codavo Webstudio
+              {webdesignFocus ? "Codavo Webstudio" : "Codavo"}
             </h3>
             <p className="mt-4 leading-7 text-slate-400">
-              Codavo entwickelt individuelle Unternehmenswebsites, Landingpages,
-              Funnel und webbasierte Software mit klarer Nutzerführung und einer
-              sauberen technischen Grundlage.
+              {webdesignFocus
+                ? "Codavo entwickelt individuelle Unternehmenswebsites, Landingpages, Funnel und webbasierte Software mit klarer Nutzerführung und einer sauberen technischen Grundlage."
+                : "KI-Automatisierung für den industriellen Mittelstand: Wir verbinden Systeme, reduzieren manuelle Abläufe und entwickeln individuelle KI-Lösungen. Von der Beratung bis zur Umsetzung."}
             </p>
             <SocialLinks size="md" variant="footer" className="mt-7" />
           </div>
@@ -58,7 +67,7 @@ export default function Footer() {
               Leistungen
             </h4>
             <ul className="mt-6 space-y-3.5">
-              {serviceLinks.map(([href, label]) => (
+              {links.map(([href, label]) => (
                 <li key={href}>
                   <Link href={href} className="transition hover:text-white">
                     {label}
@@ -75,6 +84,7 @@ export default function Footer() {
             <ul className="mt-6 space-y-3.5">
               <li><Link href="/" className="transition hover:text-white">Startseite</Link></li>
               <li><Link href="/wissen" className="transition hover:text-white">Wissen</Link></li>
+              <li><Link href="/website-check" className="transition hover:text-white">Website-Check</Link></li>
               <li><Link href="/cases" className="transition hover:text-white">Cases</Link></li>
               <li><Link href="/faq" className="transition hover:text-white">FAQ</Link></li>
               <li>
@@ -154,9 +164,10 @@ export default function Footer() {
 
         <div className="mt-14 flex flex-col gap-4 border-t border-white/8 pt-7 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} Codavo Webstudio. Alle Rechte vorbehalten.</p>
-          <div className="flex gap-5">
+          <div className="flex flex-wrap gap-x-5 gap-y-2">
             <Link href="/impressum" className="transition hover:text-slate-300">Impressum</Link>
             <Link href="/datenschutz" className="transition hover:text-slate-300">Datenschutz</Link>
+            <Link href="/agb" className="transition hover:text-slate-300">AGB</Link>
           </div>
         </div>
       </div>

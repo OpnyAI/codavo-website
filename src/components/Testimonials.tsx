@@ -27,7 +27,7 @@ const storyRows = [
 export default function Testimonials() {
   return (
     <section className="section section--alt section--compact">
-      <div className="container max-w-6xl">
+      <div className="container container--wide">
         <div className="max-w-4xl">
           <p className="eyebrow">Kundenstimmen und Ergebnisse</p>
           <h2 className="section-title mt-5 text-white">

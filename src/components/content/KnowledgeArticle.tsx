@@ -2,7 +2,12 @@ import Link from "next/link";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import Footer from "@/components/Footer";
 import FAQAccordion, { type FAQItem } from "@/components/FAQAccordion";
-import { ORGANIZATION_ID, SEO_CONFIG } from "@/lib/seo";
+import {
+  absoluteUrl,
+  ORGANIZATION_ID,
+  PERSON_ID,
+  SEO_CONFIG,
+} from "@/lib/seo";
 import type { ContentSection } from "@/components/content/ServiceLandingPage";
 import type { KnowledgeLink } from "@/lib/knowledge";
 
@@ -16,7 +21,21 @@ type Props = {
   related: readonly { href: string; label: string }[];
   primaryMoneyPage: KnowledgeLink;
   secondaryLinks: readonly KnowledgeLink[];
+  publishedAt: string;
+  updatedAt: string;
+  sources?: readonly { href: string; label: string }[];
 };
+
+const dateFormatter = new Intl.DateTimeFormat("de-DE", {
+  day: "2-digit",
+  month: "long",
+  year: "numeric",
+  timeZone: "Europe/Berlin",
+});
+
+function formatDate(date: string) {
+  return dateFormatter.format(new Date(`${date}T12:00:00+02:00`));
+}
 
 export default function KnowledgeArticle(props: Props) {
   const url = SEO_CONFIG.domain + props.path;
@@ -26,11 +45,16 @@ export default function KnowledgeArticle(props: Props) {
     headline: props.h1,
     description: props.intro,
     url,
-    datePublished: "2026-07-02",
-    dateModified: "2026-07-02",
-    author: { "@id": ORGANIZATION_ID },
+    mainEntityOfPage: url,
+    image: absoluteUrl(SEO_CONFIG.ogImage.path),
+    datePublished: props.publishedAt,
+    dateModified: props.updatedAt,
+    author: { "@id": PERSON_ID },
     publisher: { "@id": ORGANIZATION_ID },
     inLanguage: "de-DE",
+    ...(props.sources?.length
+      ? { citation: props.sources.map((source) => source.href) }
+      : {}),
   };
   const faqJsonLd = {
     "@context": "https://schema.org",
@@ -64,6 +88,22 @@ export default function KnowledgeArticle(props: Props) {
               <p className="eyebrow mt-12">Codavo Wissen</p>
               <h1 className="display-title mt-5 max-w-5xl text-white">{props.h1}</h1>
               <p className="lede mt-7 max-w-3xl">{props.intro}</p>
+              <div className="mt-7 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-slate-400">
+                <span>
+                  Von{" "}
+                  <Link href="/#about" className="font-medium text-slate-200 transition hover:text-white">
+                    Mehmet Çatalsakal
+                  </Link>
+                </span>
+                <span aria-hidden="true" className="h-1 w-1 rounded-full bg-white/25" />
+                <span>Veröffentlicht am {formatDate(props.publishedAt)}</span>
+                {props.updatedAt !== props.publishedAt ? (
+                  <>
+                    <span aria-hidden="true" className="h-1 w-1 rounded-full bg-white/25" />
+                    <span>Aktualisiert am {formatDate(props.updatedAt)}</span>
+                  </>
+                ) : null}
+              </div>
             </div>
           </header>
 
@@ -109,6 +149,36 @@ export default function KnowledgeArticle(props: Props) {
               </div>
             </div>
           </div>
+
+          {props.sources?.length ? (
+            <section className="section section--quiet">
+              <div className="container max-w-5xl">
+                <div className="grid gap-8 lg:grid-cols-[0.36fr_0.64fr] lg:gap-16">
+                  <div>
+                    <p className="eyebrow">Quellen</p>
+                    <h2 className="mt-5 text-2xl font-semibold tracking-tight text-white">
+                      Weiterführende Primärquellen
+                    </h2>
+                  </div>
+                  <ul className="divide-y divide-white/8 border-y border-white/8">
+                    {props.sources.map((source) => (
+                      <li key={source.href}>
+                        <a
+                          href={source.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group flex items-center justify-between gap-4 py-5 text-slate-300 transition hover:text-white"
+                        >
+                          <span>{source.label}</span>
+                          <ArrowUpRight className="h-4 w-4 shrink-0 text-slate-500 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-indigo-300" aria-hidden />
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </section>
+          ) : null}
 
           <section className="section section--quiet">
             <div className="container max-w-5xl">

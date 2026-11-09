@@ -28,7 +28,7 @@ const steps = [
 export default function FirstConsultation() {
   return (
     <section className="section section--feature" data-mobile-cta-stop>
-      <div className="container max-w-6xl">
+      <div className="container container--wide">
         <div className="overflow-hidden rounded-[2rem] border border-indigo-300/20 bg-indigo-400/[0.07] p-7 shadow-[0_35px_100px_rgba(0,0,0,0.28)] md:p-12 lg:p-14">
           <div className="grid gap-7 lg:grid-cols-[1.1fr_0.9fr] lg:items-end lg:gap-16">
             <div>

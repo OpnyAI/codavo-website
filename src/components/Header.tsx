@@ -8,8 +8,7 @@ import { Menu, X } from "lucide-react";
 
 const navLinks = [
   { href: "/webdesign", label: "Webdesign" },
-  { href: "/softwareloesungen-fuer-kmu", label: "Softwarelösungen" },
-  { href: "/digitale-systeme", label: "Digitale Systeme" },
+  { href: "/automatisierung", label: "KI-Automatisierung" },
   { href: "/leistungen", label: "Leistungen" },
   { href: "/cases", label: "Case Studies" },
   { href: "/wissen", label: "Wissen" },
@@ -20,6 +19,7 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const isWebsiteCheckPage = pathname.startsWith("/website-check");
+  const isPresentationPage = pathname.startsWith("/website-praesentation");
 
   const menuRef = useRef<HTMLDivElement | null>(null);
   const buttonRef = useRef<HTMLButtonElement | null>(null);
@@ -53,14 +53,21 @@ export default function Header() {
       }
     };
 
+    const handleKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") { setOpen(false); buttonRef.current?.focus(); }
+    };
+    document.addEventListener("keydown", handleKey);
     document.addEventListener("mousedown", handleClick);
     document.addEventListener("touchstart", handleClick);
 
     return () => {
+      document.removeEventListener("keydown", handleKey);
       document.removeEventListener("mousedown", handleClick);
       document.removeEventListener("touchstart", handleClick);
     };
   }, [open]);
+
+  if (isPresentationPage) return null;
 
   if (isWebsiteCheckPage) {
     return (
@@ -77,27 +84,38 @@ export default function Header() {
           <Link
             href="/"
             scroll
-            aria-label="Codavo Webstudio - Startseite"
+            aria-label="Codavo - Startseite"
             className="flex items-center gap-2"
           >
             <Image
               src="/images/logo/codavo-logo-light.png"
-              alt="Codavo Webstudio"
+              alt="Codavo"
               width={140}
               height={32}
               priority
               className="h-6 w-auto md:h-7"
             />
-            <span className="sr-only">Codavo Webstudio</span>
+            <span className="sr-only">Codavo</span>
           </Link>
 
           <div className="flex items-center">
-            <Link
-              href="#website-check-form"
-              className="inline-flex rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-sm font-medium text-slate-300 transition hover:bg-white/10 hover:text-white sm:px-4 sm:py-2"
-            >
-              Zum Formular
-            </Link>
+            {isWebsiteCheckPage ? (
+              <Link
+                href="#website-check-form"
+                className="inline-flex rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-sm font-medium text-slate-300 transition hover:bg-white/10 hover:text-white sm:px-4 sm:py-2"
+              >
+                Zum Formular
+              </Link>
+            ) : (
+              <Link
+                href="/kontakt"
+                data-track-event="nav_contact_click"
+                data-track-label="Praesentation Header Erstgespraech"
+                className="inline-flex rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-sm font-medium text-slate-300 transition hover:bg-white/10 hover:text-white sm:px-4 sm:py-2"
+              >
+                Gespräch anfragen
+              </Link>
+            )}
           </div>
         </div>
       </header>
@@ -115,22 +133,22 @@ export default function Header() {
             : "border-transparent bg-gradient-to-b from-[#050816]/88 via-[#050816]/55 to-transparent",
         ].join(" ")}
       >
-        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-6 lg:h-[4.5rem] lg:px-8">
+        <div className="mx-auto flex h-16 max-w-[86rem] items-center justify-between px-5 sm:px-6 lg:h-[4.5rem] lg:px-8">
           <Link
             href="/"
             scroll
-            aria-label="Codavo Webstudio - Startseite"
+            aria-label="Codavo - Startseite"
             className="flex items-center gap-2"
           >
             <Image
               src="/images/logo/codavo-logo-light.png"
-              alt="Codavo Webstudio"
+              alt="Codavo"
               width={140}
               height={32}
               priority
               className="h-6 w-auto lg:h-7"
             />
-            <span className="sr-only">Codavo Webstudio</span>
+            <span className="sr-only">Codavo</span>
           </Link>
 
           <nav className="hidden items-center gap-7 text-[13px] font-medium text-slate-300 xl:flex">
@@ -174,6 +192,8 @@ export default function Header() {
             ref={buttonRef}
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? "Menü schließen" : "Menü öffnen"}
+            aria-expanded={open}
+            aria-controls="mobile-navigation"
             className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-slate-100 transition hover:bg-white/8 xl:hidden"
           >
             {open ? (
@@ -191,9 +211,10 @@ export default function Header() {
 
           <div
             ref={menuRef}
+            id="mobile-navigation"
             className="absolute inset-x-0 top-16 border-b border-white/10 bg-[#060b16]/98 shadow-[0_24px_70px_rgba(0,0,0,0.35)] backdrop-blur-xl lg:top-[4.5rem]"
           >
-            <nav className="mx-auto flex max-w-7xl flex-col gap-1 px-5 pb-6 pt-4 text-sm sm:px-6 lg:px-8">
+            <nav className="mx-auto flex max-w-[86rem] flex-col gap-1 px-5 pb-6 pt-4 text-sm sm:px-6 lg:px-8">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}

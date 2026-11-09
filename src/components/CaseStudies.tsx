@@ -7,7 +7,7 @@ export default function CaseStudies() {
 
   return (
     <section id="cases" className="section section--feature section--compact scroll-mt-24">
-      <div className="container max-w-7xl">
+      <div className="container container--wide">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-indigo-300/80">

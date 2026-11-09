@@ -23,7 +23,7 @@ const services = [
     text: "Nachvollziehbare Nutzerwege von der ersten Botschaft bis zu Formular, Termin oder qualifizierter Anfrage.",
   },
   {
-    href: "/softwareloesungen-fuer-kmu",
+    href: "/individuelle-ki-loesungen",
     title: "Individuelle Software",
     text: "Webbasierte Systeme, Portale und Automatisierungen für Prozesse, die mit Standardsoftware nicht sauber abbildbar sind.",
   },
@@ -316,6 +316,7 @@ export default function LocationLandingPage({ location }: { location: LocationPr
         </section>
       </main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(pageStructuredData) }} />
+      <section className="section section--quiet"><div className="container max-w-5xl"><p className="eyebrow">Auch hinter der Website</p><h2 className="section-title mt-4 text-white">Manuelle Abläufe im Unternehmen reduzieren</h2><p className="lede mt-5">Für den industriellen Mittelstand bietet Codavo außerdem KI-Beratung, Prozessautomatisierung und individuelle KI-Lösungen.</p><Link href="/automatisierung" className="mt-6 inline-block font-medium text-indigo-300 hover:text-white">KI-Automatisierung ansehen →</Link></div></section>
       <Footer />
     </>
   );

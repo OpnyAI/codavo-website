@@ -21,9 +21,10 @@ import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
   path: "/wissen",
-  title: "Wissen für moderne Unternehmenswebsites | Codavo",
+  automationImage: true,
+  title: "Wissen zu KI-Automatisierung und Websites | Codavo",
   description:
-    "Praxisnahes Wissen zu Webdesign, SEO, AEO, LLMO, Landingpages, Funnel, Technik und Website-Betreuung.",
+    "Praxisnahes Wissen von Codavo zu Prozessautomatisierung, KI, Webdesign, SEO, AEO, LLMO, organischer Sichtbarkeit, Landingpages, Funnel, Software und Website-Betreuung.",
 });
 
 const articleIcons = {
@@ -87,6 +88,7 @@ export default function Page() {
   return (
     <>
       <main className="min-h-screen overflow-x-hidden pt-20">
+
         <section className="section section--feature pt-16 md:pt-24">
           <div className="container max-w-6xl">
             <div className="grid min-w-0 gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-end lg:gap-20">
@@ -100,14 +102,16 @@ export default function Page() {
                 </h1>
               </div>
               <p className="lede min-w-0 max-w-2xl break-words lg:pb-2">
-                Leitfäden, Vergleiche, Checklisten und Praxiswissen rund um
-                Unternehmenswebsites, Landingpages, Funnel-Systeme,
-                Softwareentwicklung, Tracking sowie SEO-, AEO- und
-                LLMO-Optimierung.
+                Orientierung zu KI-Automatisierung, Systemvernetzung und dem
+                Einsatz von KI im industriellen Mittelstand. Ergänzend finden Sie
+                Leitfäden zu Unternehmenswebsites, Landingpages, Funnels und
+                der Auffindbarkeit bei Google und in KI-Systemen.
               </p>
             </div>
           </div>
         </section>
+        <section className="section section--quiet"><div className="container max-w-6xl"><p className="eyebrow">KI-Automatisierung verstehen</p><h2 className="section-title mt-4 text-white">Vom ersten Einsatzfall zum verlässlichen Ablauf</h2><p className="lede mt-5 max-w-3xl">Welche Aufgaben eignen sich, welche Daten werden gebraucht und wie bewerten Sie den Nutzen? Unsere Leistungsseiten erklären den Einstieg anhand konkreter Abläufe.</p><div className="mt-8 grid gap-5 md:grid-cols-3">{[{href:"/ki-beratung",title:"Wo lohnt sich KI?",text:"Einsatzfälle und Voraussetzungen bewerten."},{href:"/prozessautomatisierung",title:"Wie verbinden wir unsere Systeme?",text:"Wiederkehrende Übergaben und manuelle Arbeit reduzieren."},{href:"/faq",title:"Was sollten wir vorab klären?",text:"Kosten, Daten, Freigaben und Einführung."}].map(item=><Link href={item.href} key={item.href} className="card"><h3 className="text-xl font-semibold text-white">{item.title}</h3><p className="mt-3 text-slate-300">{item.text}</p><span className="mt-5 inline-block text-sm text-indigo-300">Antworten ansehen →</span></Link>)}</div></div></section>
+
 
         <section className="section section--quiet">
           <div className="container max-w-6xl">
@@ -255,12 +259,12 @@ export default function Page() {
             <div className="relative overflow-hidden rounded-[2rem] border border-indigo-300/20 bg-indigo-400/[0.07] p-7 text-center shadow-[0_35px_100px_rgba(0,0,0,0.25)] md:p-14">
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(650px_280px_at_50%_0%,rgba(129,140,248,0.14),transparent_70%)]" />
               <h2 className="relative text-3xl font-semibold tracking-tight text-white md:text-4xl">
-                Welche Wissenslücke bremst Ihre Website?
+                Wo fehlt Ihnen Klarheit für den nächsten Schritt?
               </h2>
               <p className="lede relative mx-auto mt-5 max-w-2xl text-slate-200">
-                Im kostenlosen Erstgespräch ordnen wir ein, welche
-                Inhalte, technischen Grundlagen und nächsten Schritte für Ihr
-                Unternehmen relevant sind.
+                Im kostenlosen Erstgespräch besprechen wir Ihre manuellen Abläufe,
+                vorhandenen Systeme und offenen Fragen. Sie erhalten eine
+                Einschätzung, wo KI-Automatisierung für Ihr Unternehmen sinnvoll sein kann.
               </p>
               <div className="relative mt-8 flex justify-center">
                 <Link

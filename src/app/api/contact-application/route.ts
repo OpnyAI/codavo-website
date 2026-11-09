@@ -136,11 +136,29 @@ function formatFirstSeen(value: string) {
   }).format(date);
 }
 
+function getApplicantGreeting({
+  salutation,
+  firstName,
+  lastName,
+}: {
+  salutation: string;
+  firstName: string;
+  lastName: string;
+}) {
+  if (salutation === "Frau") return `Guten Tag Frau ${lastName},`;
+  if (salutation === "Herr") return `Guten Tag Herr ${lastName},`;
+  return `Guten Tag ${firstName} ${lastName},`;
+}
+
 export async function POST(request: Request) {
   let body: ContactApplicationPayload;
 
   try {
-    body = (await request.json()) as ContactApplicationPayload;
+    const payload: unknown = await request.json();
+    if (!payload || typeof payload !== "object" || Array.isArray(payload)) {
+      return NextResponse.json({ error: "Ungültige Anfrage." }, { status: 400 });
+    }
+    body = payload as ContactApplicationPayload;
   } catch {
     return NextResponse.json(
       { error: "Ungültige Anfrage." },
@@ -208,17 +226,7 @@ export async function POST(request: Request) {
     !fields.lastName ||
     !fields.companyName ||
     !fields.email ||
-    !fields.phone ||
     !fields.projectType ||
-    !fields.currentSituation ||
-    !fields.primaryGoal ||
-    !fields.biggestProblem ||
-    !fields.marketingChannel ||
-    !fields.paidAdsStatus ||
-    !fields.monthlyRevenue ||
-    !fields.employeeCount ||
-    !fields.budgetRange ||
-    !fields.desiredStart ||
     !fields.qualification
   ) {
     return NextResponse.json(
@@ -313,8 +321,9 @@ export async function POST(request: Request) {
     ["Mitarbeitende", fields.employeeCount],
     ["Budgetrahmen", fields.budgetRange],
     ["Gewünschter Start", fields.desiredStart],
-    ["Qualifizierung für die Zusammenarbeit", fields.qualification],
+    ["Beschreibung des Vorhabens", fields.qualification],
   ];
+  const answeredRows = rows.filter(([, value]) => value);
   const trackingRows: Array<[string, string]> = [
     ["Erkannte Herkunft", getAttributionLabel(tracking)],
     ["Erste Landingpage", tracking.landing_page],
@@ -332,11 +341,11 @@ export async function POST(request: Request) {
     ["TTCLID", tracking.ttclid],
     ["LinkedIn Click ID", tracking.li_fat_id],
   ];
-  const subject = `Neue B2B-Bewerbung: ${fields.companyName}`;
+  const subject = `Neue Projektanfrage: ${fields.companyName}`;
   const text = [
-    "Neue Bewerbung für ein kostenloses Erstgespräch",
+    "Neue Anfrage für ein kostenloses Erstgespräch",
     "",
-    ...rows.map(([label, value]) => `${label}: ${value || "Nicht angegeben"}`),
+    ...answeredRows.map(([label, value]) => `${label}: ${value || "Nicht angegeben"}`),
     "",
     "Tracking / Herkunft",
     "",
@@ -346,14 +355,43 @@ export async function POST(request: Request) {
   ].join("\n");
   const html = `
     <div style="font-family:Arial,sans-serif;line-height:1.6;color:#111827">
-      <h2 style="margin-bottom:16px;">Neue Bewerbung für ein kostenloses Erstgespräch</h2>
+      <h2 style="margin-bottom:16px;">Neue Anfrage für ein kostenloses Erstgespräch</h2>
       <table cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:760px;border-collapse:collapse;">
-        <tbody>${rows.map(([label, value]) => labelValue(label, value)).join("")}</tbody>
+        <tbody>${answeredRows.map(([label, value]) => labelValue(label, value)).join("")}</tbody>
       </table>
       <h3 style="margin:24px 0 8px;">Tracking / Herkunft</h3>
       <table cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:760px;border-collapse:collapse;">
         <tbody>${trackingRows.map(([label, value]) => labelValue(label, value)).join("")}</tbody>
       </table>
+    </div>
+  `;
+  const applicantGreeting = getApplicantGreeting(fields);
+  const confirmationSubject = "Ihre Anfrage bei Codavo ist eingegangen";
+  const confirmationText = [
+    applicantGreeting,
+    "",
+    "vielen Dank für Ihre Anfrage für ein kostenloses Erstgespräch bei Codavo Webstudio.",
+    "",
+    "Wir lesen Ihre Angaben persönlich und melden uns bei Ihnen zum nächsten Schritt.",
+    "",
+    "Falls Sie noch Informationen, Unterlagen oder Links ergänzen möchten, können Sie einfach auf diese E-Mail antworten.",
+    "",
+    "Viele Grüße",
+    "Mehmet Çatalsakal",
+    "Codavo Webstudio",
+    "https://www.codavo-webstudio.de",
+  ].join("\n");
+  const confirmationHtml = `
+    <div style="font-family:Arial,sans-serif;line-height:1.65;color:#111827;max-width:640px;margin:0 auto;">
+      <p>${escapeHtml(applicantGreeting)}</p>
+      <p>vielen Dank für Ihre Anfrage für ein kostenloses Erstgespräch bei Codavo Webstudio.</p>
+      <p>Wir lesen Ihre Angaben persönlich und melden uns bei Ihnen zum nächsten Schritt.</p>
+      <p>Falls Sie noch Informationen, Unterlagen oder Links ergänzen möchten, können Sie einfach auf diese E-Mail antworten.</p>
+      <p style="margin-top:24px;">Viele Grüße<br />
+        Mehmet Çatalsakal<br />
+        Codavo Webstudio<br />
+        <a href="https://www.codavo-webstudio.de" style="color:#4f46e5;">www.codavo-webstudio.de</a>
+      </p>
     </div>
   `;
 
@@ -383,6 +421,39 @@ export async function POST(request: Request) {
             "Die Anfrage konnte gerade nicht verarbeitet werden. Bitte versuchen Sie es erneut.",
         },
         { status: 502 },
+      );
+    }
+
+    try {
+      const confirmationResponse = await fetch(
+        "https://api.resend.com/emails",
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${RESEND_API_KEY}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            from: CONTACT_FROM_EMAIL,
+            to: [fields.email],
+            reply_to: CONTACT_TO_EMAIL,
+            subject: confirmationSubject,
+            text: confirmationText,
+            html: confirmationHtml,
+          }),
+        },
+      );
+
+      if (!confirmationResponse.ok) {
+        console.error(
+          "Contact application confirmation email failed",
+          await confirmationResponse.text(),
+        );
+      }
+    } catch (confirmationError) {
+      console.error(
+        "Contact application confirmation email exception",
+        confirmationError,
       );
     }
 

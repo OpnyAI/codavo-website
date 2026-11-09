@@ -1,105 +1,63 @@
 import type { MetadataRoute } from "next";
 import { locationProfiles } from "@/lib/locations";
-import { knowledgeArticles } from "@/lib/knowledge";
+import {
+  knowledgeArticleDates,
+  knowledgeArticles,
+  type KnowledgeSlug,
+} from "@/lib/knowledge";
 import { SEO_CONFIG } from "@/lib/seo";
+
+const staticPaths = [
+  "/",
+  "/automatisierung",
+  "/prozessautomatisierung",
+  "/crm-automatisierung",
+  "/ki-beratung",
+  "/individuelle-ki-loesungen",
+  "/webdesign",
+  "/web-app-entwicklung",
+  "/leistungen",
+  "/cases",
+  "/faq",
+  "/kontakt",
+  "/website-check",
+  "/landingpage-erstellen-lassen",
+  "/funnel-erstellen-lassen",
+  "/hosting-wartung",
+  "/wissen",
+  "/standorte",
+] as const;
+
+const verifiedStaticUpdates: Partial<Record<(typeof staticPaths)[number], string>> = {
+  "/": "2026-11-09",
+  "/automatisierung": "2026-11-09",
+  "/prozessautomatisierung": "2026-11-06",
+  "/crm-automatisierung": "2026-11-06",
+  "/ki-beratung": "2026-11-06",
+  "/individuelle-ki-loesungen": "2026-11-06",
+  "/cases": "2026-10-07",
+  "/faq": "2026-11-06",
+  "/kontakt": "2026-11-06",
+  "/leistungen": "2026-11-09",
+  "/webdesign": "2026-11-09",
+  "/hosting-wartung": "2026-10-07",
+  "/wissen": "2026-10-07",
+};
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
-    {
-      url: `${SEO_CONFIG.domain}/`,
-      lastModified: "2026-07-02",
-      changeFrequency: "weekly",
-      priority: 1.0,
-    },
-    {
-      url: `${SEO_CONFIG.domain}/digitale-systeme`,
-      lastModified: "2026-07-02",
-      changeFrequency: "weekly",
-      priority: 0.7,
-    },
-    {
-      url: `${SEO_CONFIG.domain}/softwareloesungen-fuer-kmu`,
-      lastModified: "2026-07-02",
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: `${SEO_CONFIG.domain}/webdesign`,
-      lastModified: "2026-07-02",
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${SEO_CONFIG.domain}/web-app-entwicklung`,
-      lastModified: "2026-07-02",
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${SEO_CONFIG.domain}/leistungen`,
-      lastModified: "2026-07-02",
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${SEO_CONFIG.domain}/cases`,
-      lastModified: "2026-07-02",
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${SEO_CONFIG.domain}/faq`,
-      lastModified: "2026-07-03",
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
-    {
-      url: `${SEO_CONFIG.domain}/kontakt`,
-      lastModified: "2026-04-07",
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
-    {
-      url: `${SEO_CONFIG.domain}/landingpage-erstellen-lassen`,
-      lastModified: "2026-07-02",
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${SEO_CONFIG.domain}/funnel-erstellen-lassen`,
-      lastModified: "2026-07-02",
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${SEO_CONFIG.domain}/hosting-wartung`,
-      lastModified: "2026-07-02",
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${SEO_CONFIG.domain}/wissen`,
-      lastModified: "2026-07-02",
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: `${SEO_CONFIG.domain}/standorte`,
-      lastModified: "2026-07-03",
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
+    ...staticPaths.map((path) => ({
+      url: `${SEO_CONFIG.domain}${path}`,
+      ...(verifiedStaticUpdates[path]
+        ? { lastModified: verifiedStaticUpdates[path] }
+        : {}),
+    })),
     ...locationProfiles.map((location) => ({
       url: `${SEO_CONFIG.domain}/standorte/${location.slug}`,
-      lastModified: "2026-07-03",
-      changeFrequency: "monthly" as const,
-      priority: 0.7,
     })),
-    ...Object.keys(knowledgeArticles).map((slug) => ({
+    ...(Object.keys(knowledgeArticles) as KnowledgeSlug[]).map((slug) => ({
       url: `${SEO_CONFIG.domain}/wissen/${slug}`,
-      lastModified: "2026-07-02",
-      changeFrequency: "monthly" as const,
-      priority: 0.7,
+      lastModified: knowledgeArticleDates[slug].updatedAt,
     })),
   ];
 }

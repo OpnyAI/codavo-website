@@ -39,8 +39,8 @@ const services = [
       "Für Unternehmen, die über eine Website hinaus Portale, Dashboards, Buchungssysteme oder interne Tools benötigen.",
     href: "/web-app-entwicklung",
     linkLabel: "Web-App ansehen",
-    secondaryHref: "/softwareloesungen-fuer-kmu",
-    secondaryLabel: "Software für KMU",
+    secondaryHref: "/automatisierung",
+    secondaryLabel: "Automatisierung ansehen",
   },
   {
     icon: ServerCog,
@@ -58,7 +58,7 @@ export default function Services() {
 
   return (
     <section id="leistungen" className="section section--quiet section--compact scroll-mt-24">
-      <div className="container max-w-6xl">
+      <div className="container container--wide">
         <div className="grid items-end gap-6 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
           <div>
             <h2 className="section-title text-white">

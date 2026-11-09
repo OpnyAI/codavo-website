@@ -81,7 +81,11 @@ export async function POST(request: Request) {
   let body: WebsiteCheckPayload;
 
   try {
-    body = (await request.json()) as WebsiteCheckPayload;
+    const payload: unknown = await request.json();
+    if (!payload || typeof payload !== "object" || Array.isArray(payload)) {
+      return NextResponse.json({ error: "Ungültige Anfrage." }, { status: 400 });
+    }
+    body = payload as WebsiteCheckPayload;
   } catch {
     return NextResponse.json(
       { error: "Ungültige Anfrage." },
