@@ -26,7 +26,7 @@ export default function WebsitePraesentationPage() {
     <main className="min-h-screen overflow-hidden bg-white pb-10 text-slate-950 sm:pb-14">
       <section className="relative px-4 pb-10 pt-5 sm:px-6 lg:px-8">
         <div className="mx-auto flex max-w-6xl flex-col items-center text-center">
-          <Link href="/" aria-label="Codavo Webstudio – Startseite">
+          <Link href="/webdesign" aria-label="Codavo – Unternehmenswebsites">
             <Image src="/images/logo/codavo-logo-light.png" alt="Codavo Webstudio" width={140} height={32} priority className="h-7 w-auto brightness-0" />
           </Link>
           <div className="mt-4 w-full">

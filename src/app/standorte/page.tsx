@@ -211,7 +211,7 @@ export default function LocationsPage() {
                 Digitale Systeme verbinden Website, Funnel, Software, Prozesse,
                 Tracking und Automatisierung zu einer durchgängigen Architektur.
               </p>
-              <Link href="/digitale-systeme" className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-indigo-300 transition hover:text-white">
+              <Link href="/automatisierung" className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-indigo-300 transition hover:text-white">
                 Digitale Systeme einordnen <ArrowRight className="h-4 w-4" aria-hidden />
               </Link>
             </aside>

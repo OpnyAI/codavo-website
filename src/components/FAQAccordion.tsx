@@ -13,14 +13,14 @@ export type FAQItem = {
   };
 };
 
-export default function FAQAccordion({ items }: { items: FAQItem[] }) {
+export default function FAQAccordion({ items, idPrefix = "faq" }: { items: FAQItem[]; idPrefix?: string }) {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
     <div className="space-y-4">
       {items.map((item, index) => {
         const isOpen = open === index;
-        const panelId = `faq-panel-${index}`;
+        const panelId = `${idPrefix}-panel-${index}`;
 
         return (
           <div

@@ -1,0 +1,122 @@
+[
+  {
+    "route": "/webdesign",
+    "h1": "Professionelle Websites, die Vertrauen schaffen und neue Kunden gewinnen.",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "route": "/",
+    "h1": "Wir automatisieren manuelle Abläufe im industriellen Mittelstand.",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "route": "/digitale-systeme",
+    "h1": "KI und Automatisierung für den industriellen Mittelstand",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "route": "/prozessautomatisierung",
+    "h1": "Weniger Übertragen. Weniger Nachhalten. Mehr Zeit für das Wesentliche.",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "route": "/crm-automatisierung",
+    "h1": "Ihr Vertrieb soll verkaufen. Das CRM hält den nächsten Schritt fest.",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "route": "/ki-beratung",
+    "h1": "Wo lohnt sich KI in Ihrem Unternehmen wirklich?",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "route": "/individuelle-ki-loesungen",
+    "h1": "KI, die in Ihren Arbeitsablauf passt.",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "route": "/leistungen",
+    "h1": "KI und Automatisierung für Ihren Arbeitsalltag",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "route": "/faq",
+    "h1": "Ihre Fragen zu Codavo",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "route": "/wissen",
+    "h1": "Die Codavo Wissensplattform",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "route": "/standorte/stuttgart",
+    "h1": "Websites, Funnel und Software für Unternehmen in Stuttgart",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "route": "/landingpage-erstellen-lassen",
+    "h1": "Landingpage erstellen lassen für mehr qualifizierte Anfragen",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "route": "/funnel-erstellen-lassen",
+    "h1": "Funnel erstellen lassen für planbare Anfragen und digitale Kundengewinnung",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "route": "/hosting-wartung",
+    "h1": "Hosting, Wartung und Updates für professionelle Websites",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "route": "/web-app-entwicklung",
+    "h1": "Web-App Entwicklung für individuelle digitale Abläufe",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "route": "/softwareloesungen-fuer-kmu",
+    "h1": "Individuelle KI-Lösungen und Software für Ihre Abläufe",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "route": "/cases",
+    "h1": "Unternehmenswebsites aus unserer Arbeit.",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "route": "/kontakt",
+    "h1": "Ihr kostenloses Erstgespräch mit Codavo",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "route": "/website-check",
+    "h1": "Website-Check für Sichtbarkeit, Vertrauen und mehr Anfragen",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "route": "/website-praesentation",
+    "h1": "Wie Ihre Website zum Wachstumshebel wird.",
+    "scrollWidth": 390,
+    "width": 390
+  }
+]

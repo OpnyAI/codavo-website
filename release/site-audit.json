@@ -1,0 +1,658 @@
+{
+  "pages_checked": 93,
+  "assets_checked": 47,
+  "errors": [],
+  "pages": [
+    {
+      "path": "/",
+      "title": "Professionelle Unternehmenswebsites | Codavo Webstudio",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de",
+      "schemas": 3
+    },
+    {
+      "path": "/agb",
+      "title": "AGB | Codavo Webstudio",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/agb",
+      "schemas": 1
+    },
+    {
+      "path": "/automatisierung",
+      "title": "KI-Automatisierung für den industriellen Mittelstand | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/automatisierung",
+      "schemas": 1
+    },
+    {
+      "path": "/cases",
+      "title": "Webdesign Referenzen & Case Studies | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/cases",
+      "schemas": 1
+    },
+    {
+      "path": "/crm-automatisierung",
+      "title": "CRM einrichten & automatisieren für den Mittelstand | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/crm-automatisierung",
+      "schemas": 3
+    },
+    {
+      "path": "/danke",
+      "title": "Vielen Dank für Ihre Anfrage | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/danke",
+      "schemas": 1
+    },
+    {
+      "path": "/datenschutz",
+      "title": "Datenschutz | Codavo Webstudio",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/datenschutz",
+      "schemas": 1
+    },
+    {
+      "path": "/faq",
+      "title": "FAQ zu KI-Automatisierung, Kosten und Umsetzung | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/faq",
+      "schemas": 2
+    },
+    {
+      "path": "/funnel-erstellen-lassen",
+      "title": "Funnel erstellen lassen für digitale Kundengewinnung | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/funnel-erstellen-lassen",
+      "schemas": 4
+    },
+    {
+      "path": "/hosting-wartung",
+      "title": "Hosting, Wartung und Updates für Websites | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/hosting-wartung",
+      "schemas": 4
+    },
+    {
+      "path": "/impressum",
+      "title": "Impressum | Codavo Webstudio",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/impressum",
+      "schemas": 1
+    },
+    {
+      "path": "/individuelle-ki-loesungen",
+      "title": "Individuelle KI-Lösungen für den Mittelstand | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/individuelle-ki-loesungen",
+      "schemas": 3
+    },
+    {
+      "path": "/ki-beratung",
+      "title": "KI-Strategie & Beratung für den Mittelstand | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/ki-beratung",
+      "schemas": 3
+    },
+    {
+      "path": "/kontakt",
+      "title": "Kostenloses Erstgespräch anfragen | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/kontakt",
+      "schemas": 1
+    },
+    {
+      "path": "/landingpage-erstellen-lassen",
+      "title": "Landingpage erstellen lassen für mehr Anfragen | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/landingpage-erstellen-lassen",
+      "schemas": 4
+    },
+    {
+      "path": "/leistungen",
+      "title": "KI-Automatisierung und KI-Beratung für den Mittelstand | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/leistungen",
+      "schemas": 1
+    },
+    {
+      "path": "/prozessautomatisierung",
+      "title": "Tools & Systeme vernetzen für den Mittelstand | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/prozessautomatisierung",
+      "schemas": 3
+    },
+    {
+      "path": "/standorte",
+      "title": "Webdesign, Landingpages & Funnel in Deutschland | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/aachen",
+      "title": "Tech-Webdesign & Websoftware für Aachen | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/aachen",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/augsburg",
+      "title": "Mittelstands-Webdesign für Augsburg | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/augsburg",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/berlin",
+      "title": "Webdesign, Landingpages & Software für Berlin | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/berlin",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/bielefeld",
+      "title": "Mittelstands-Webdesign für Bielefeld | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/bielefeld",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/bochum",
+      "title": "Webdesign & digitale Produkte für Bochum | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/bochum",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/bonn",
+      "title": "Webdesign & Wissensplattformen für Bonn | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/bonn",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/braunschweig",
+      "title": "Tech-Webdesign & Software für Braunschweig | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/braunschweig",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/bremen",
+      "title": "Webdesign & digitale Systeme für Bremen | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/bremen",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/chemnitz",
+      "title": "Industrie-Webdesign & Software für Chemnitz | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/chemnitz",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/dortmund",
+      "title": "Webdesign & Softwareentwicklung für Dortmund | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/dortmund",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/dresden",
+      "title": "Technisches Webdesign & Software für Dresden | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/dresden",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/duesseldorf",
+      "title": "Webdesign & digitale Produkte für Düsseldorf | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/duesseldorf",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/duisburg",
+      "title": "Industrie-Webdesign & Software für Duisburg | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/duisburg",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/erfurt",
+      "title": "Webdesign & Software für Erfurt | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/erfurt",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/erlangen",
+      "title": "Webdesign in Erlangen für Unternehmen | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/erlangen",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/essen",
+      "title": "B2B Webdesign & Websoftware für Essen | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/essen",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/frankfurt",
+      "title": "B2B Webdesign für Frankfurt am Main | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/frankfurt",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/freiburg",
+      "title": "Performantes Webdesign für Freiburg im Breisgau | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/freiburg",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/fuerth",
+      "title": "Webdesign in Fürth für Unternehmen | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/fuerth",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/gelsenkirchen",
+      "title": "Webdesign in Gelsenkirchen für Unternehmen | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/gelsenkirchen",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/halle",
+      "title": "Webdesign in Halle (Saale) für Unternehmen | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/halle",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/hamburg",
+      "title": "Webdesign, Funnel & Software für Hamburg | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/hamburg",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/hannover",
+      "title": "B2B Webdesign & Software für Hannover | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/hannover",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/heidelberg",
+      "title": "Webdesign in Heidelberg für Unternehmen | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/heidelberg",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/heilbronn",
+      "title": "Webdesign & Digitalisierung für Heilbronn | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/heilbronn",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/ingolstadt",
+      "title": "Webdesign in Ingolstadt für Unternehmen | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/ingolstadt",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/jena",
+      "title": "Webdesign in Jena für Unternehmen | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/jena",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/karlsruhe",
+      "title": "Tech-Webdesign & Software für Karlsruhe | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/karlsruhe",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/kassel",
+      "title": "Webdesign & Websoftware für Kassel | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/kassel",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/kiel",
+      "title": "Webdesign & digitale Systeme für Kiel | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/kiel",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/koblenz",
+      "title": "Webdesign in Koblenz für Unternehmen | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/koblenz",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/koeln",
+      "title": "Webdesign, Landingpages & Funnel für Köln | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/koeln",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/krefeld",
+      "title": "B2B Webdesign & Software für Krefeld | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/krefeld",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/leipzig",
+      "title": "Webdesign, Funnel & Software für Leipzig | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/leipzig",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/leverkusen",
+      "title": "Webdesign in Leverkusen für Unternehmen | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/leverkusen",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/luebeck",
+      "title": "Webdesign & digitale Services für Lübeck | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/luebeck",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/magdeburg",
+      "title": "Webdesign & Software für Magdeburg | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/magdeburg",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/mainz",
+      "title": "Webdesign, Content & Funnel für Mainz | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/mainz",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/mannheim",
+      "title": "Industrie-Webdesign & Software für Mannheim | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/mannheim",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/moenchengladbach",
+      "title": "Webdesign & Websoftware für Mönchengladbach | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/moenchengladbach",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/muenchen",
+      "title": "Premium Webdesign & Software für München | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/muenchen",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/muenster",
+      "title": "Webdesign & digitale Services für Münster | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/muenster",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/nuernberg",
+      "title": "Webdesign & Software für Nürnberg | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/nuernberg",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/oberhausen",
+      "title": "Webdesign & digitale Prozesse für Oberhausen | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/oberhausen",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/oldenburg",
+      "title": "Webdesign in Oldenburg für Unternehmen | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/oldenburg",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/osnabrueck",
+      "title": "Webdesign in Osnabrück für Unternehmen | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/osnabrueck",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/paderborn",
+      "title": "Webdesign in Paderborn für Unternehmen | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/paderborn",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/pforzheim",
+      "title": "Webdesign in Pforzheim für Unternehmen | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/pforzheim",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/potsdam",
+      "title": "Webdesign in Potsdam für Unternehmen | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/potsdam",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/regensburg",
+      "title": "Webdesign in Regensburg für Unternehmen | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/regensburg",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/reutlingen",
+      "title": "Webdesign in Reutlingen für Unternehmen | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/reutlingen",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/rostock",
+      "title": "Webdesign & digitale Services für Rostock | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/rostock",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/saarbruecken",
+      "title": "Webdesign in Saarbrücken für Unternehmen | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/saarbruecken",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/stuttgart",
+      "title": "Digitale Lösungen für Unternehmen in Stuttgart | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/stuttgart",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/tuebingen",
+      "title": "Webdesign in Tübingen für Unternehmen | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/tuebingen",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/ulm",
+      "title": "Tech-Webdesign & Software für Ulm | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/ulm",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/wiesbaden",
+      "title": "Webdesign für Beratung & Mittelstand in Wiesbaden | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/wiesbaden",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/wolfsburg",
+      "title": "Webdesign in Wolfsburg für Unternehmen | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/wolfsburg",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/wuerzburg",
+      "title": "Webdesign in Würzburg für Unternehmen | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/wuerzburg",
+      "schemas": 2
+    },
+    {
+      "path": "/standorte/wuppertal",
+      "title": "Webdesign & Mittelstandssoftware für Wuppertal | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/standorte/wuppertal",
+      "schemas": 2
+    },
+    {
+      "path": "/web-app-entwicklung",
+      "title": "Individuelle Web-App Entwicklung | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/web-app-entwicklung",
+      "schemas": 4
+    },
+    {
+      "path": "/webdesign",
+      "title": "Webdesign für professionelle Unternehmenswebsites | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/webdesign",
+      "schemas": 4
+    },
+    {
+      "path": "/website-check",
+      "title": "Website-Check für Sichtbarkeit, Vertrauen und Anfragen | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/website-check",
+      "schemas": 3
+    },
+    {
+      "path": "/website-praesentation",
+      "title": "Präsentation: Website als Wachstumshebel | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/website-praesentation",
+      "schemas": 1
+    },
+    {
+      "path": "/wissen",
+      "title": "Wissen zu KI-Automatisierung und Websites | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/wissen",
+      "schemas": 1
+    },
+    {
+      "path": "/wissen/individuelle-website-vs-baukasten",
+      "title": "Individuelle Website oder Baukasten? Vergleich | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/wissen/individuelle-website-vs-baukasten",
+      "schemas": 4
+    },
+    {
+      "path": "/wissen/ki-systeme-website-verstehen",
+      "title": "Wie KI-Systeme Websites verstehen | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/wissen/ki-systeme-website-verstehen",
+      "schemas": 4
+    },
+    {
+      "path": "/wissen/seo-aeo-llmo",
+      "title": "SEO, AEO & LLMO: Sichtbar bei Google und KI | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/wissen/seo-aeo-llmo",
+      "schemas": 4
+    },
+    {
+      "path": "/wissen/wann-lohnt-sich-ein-website-relaunch",
+      "title": "Wann lohnt sich ein Website-Relaunch? | Codavo Wissen",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/wissen/wann-lohnt-sich-ein-website-relaunch",
+      "schemas": 4
+    },
+    {
+      "path": "/wissen/wann-lohnt-sich-individuelle-software-fuer-kmu",
+      "title": "Wann lohnt sich individuelle Software für KMU? | Codavo Wissen",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/wissen/wann-lohnt-sich-individuelle-software-fuer-kmu",
+      "schemas": 4
+    },
+    {
+      "path": "/wissen/was-gehoert-auf-eine-professionelle-unternehmenswebsite",
+      "title": "Professionelle Unternehmenswebsite: Inhalte | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/wissen/was-gehoert-auf-eine-professionelle-unternehmenswebsite",
+      "schemas": 4
+    },
+    {
+      "path": "/wissen/was-ist-ein-digitales-unternehmenssystem",
+      "title": "Was ist ein digitales Unternehmenssystem? | Codavo Wissen",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/wissen/was-ist-ein-digitales-unternehmenssystem",
+      "schemas": 4
+    },
+    {
+      "path": "/wissen/was-ist-ein-funnel",
+      "title": "Was ist ein Funnel? | Codavo Wissen",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/wissen/was-ist-ein-funnel",
+      "schemas": 4
+    },
+    {
+      "path": "/wissen/was-kostet-eine-website",
+      "title": "Was kostet eine professionelle Website? | Codavo Wissen",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/wissen/was-kostet-eine-website",
+      "schemas": 4
+    },
+    {
+      "path": "/wissen/website-landingpage-funnel",
+      "title": "Website, Landingpage oder Funnel? Entscheidungshilfe | Codavo",
+      "h1_count": 1,
+      "canonical": "https://www.codavo-webstudio.de/wissen/website-landingpage-funnel",
+      "schemas": 4
+    }
+  ]
+}

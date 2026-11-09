@@ -40,7 +40,7 @@ export default function CasesPage() {
               Codavo Referenzen
             </p>
             <h1 className="mt-4 max-w-5xl text-4xl font-semibold tracking-tight text-white md:text-6xl lg:text-7xl">
-              Wir lassen digitale Projekte für sich sprechen.
+              Unternehmenswebsites aus unserer Arbeit.
             </h1>
             <p className="lede mt-6 max-w-3xl">
               Websites für Unternehmen mit unterschiedlichen Zielgruppen und

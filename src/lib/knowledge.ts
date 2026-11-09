@@ -371,8 +371,8 @@ export const knowledgeArticles = {
           "Wenn mehrere Schritte, Tracking und Folgeprozesse zusammenkommen.",
       },
       {
-        href: "/digitale-systeme",
-        label: "Digitale Systeme",
+        href: "/automatisierung",
+        label: "KI-Automatisierung",
         description:
           "Wenn Website, Funnel, Software und Prozesse gemeinsam geplant werden müssen.",
       },
@@ -560,8 +560,8 @@ export const knowledgeArticles = {
           "Grundlagen moderner Sichtbarkeit im Überblick.",
       },
       {
-        href: "/digitale-systeme",
-        label: "Digitale Systeme",
+        href: "/automatisierung",
+        label: "KI-Automatisierung",
         description:
           "Wenn Website, Funnel, Software und Datenlogik zusammengedacht werden.",
       },
@@ -867,8 +867,8 @@ export const knowledgeArticles = {
           "Der fokussierte Einstieg für Angebote und Kampagnen.",
       },
       {
-        href: "/digitale-systeme",
-        label: "Digitale Systeme",
+        href: "/automatisierung",
+        label: "KI-Automatisierung",
         description:
           "Wenn Funnel, CRM, Tracking und interne Prozesse verbunden werden sollen.",
       },
@@ -949,8 +949,8 @@ export const knowledgeArticles = {
       "Individuelle Software lohnt sich für KMU, wenn ein wiederkehrender, geschäftlich relevanter Prozess durch Excel, E-Mail, WhatsApp oder unpassende Standardtools gebremst wird und eine klare Lösung messbaren Steuerungsnutzen im Arbeitsalltag schafft.",
     cluster: "web-apps-software",
     primaryMoneyPage: {
-      href: "/softwareloesungen-fuer-kmu",
-      label: "Softwarelösungen für KMU",
+      href: "/individuelle-ki-loesungen",
+      label: "Individuelle KI-Lösungen",
       description:
         "Individuelle webbasierte Software, Schnittstellen und Automatisierung für mittelständische Unternehmen.",
     },
@@ -962,8 +962,8 @@ export const knowledgeArticles = {
           "Für Portale, Dashboards und browserbasierte Anwendungen.",
       },
       {
-        href: "/digitale-systeme",
-        label: "Digitale Systeme",
+        href: "/automatisierung",
+        label: "KI-Automatisierung",
         description:
           "Wenn Software mit Website, Funnel, Tracking und Prozessen zusammenspielt.",
       },
@@ -1044,15 +1044,15 @@ export const knowledgeArticles = {
       "Ein digitales Unternehmenssystem verbindet Website, Landingpages, Funnel, Leadprozess, Software, Tracking, Automatisierung und KI-Unterstützung zu einer durchgängigen Architektur. Ziel ist, dass Anfragen, Daten und Aufgaben nicht in einzelnen Tools verloren gehen.",
     cluster: "digitalisierung-mittelstand",
     primaryMoneyPage: {
-      href: "/digitale-systeme",
-      label: "Digitale Systeme",
+      href: "/automatisierung",
+      label: "KI-Automatisierung",
       description:
         "Architektur für Website, Funnel, Software, Tracking, Automatisierung und KI.",
     },
     secondaryLinks: [
       {
-        href: "/softwareloesungen-fuer-kmu",
-        label: "Softwarelösungen für KMU",
+        href: "/individuelle-ki-loesungen",
+        label: "Individuelle KI-Lösungen",
         description:
           "Wenn interne Prozesse oder Schnittstellen individuell abgebildet werden müssen.",
       },

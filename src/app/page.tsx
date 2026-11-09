@@ -274,7 +274,7 @@ export default function Home() {
 
         <FirstConsultation />
 
-        <Footer />
+        <Footer webdesignFocus />
       </main>
 
       <script

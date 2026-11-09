@@ -9,8 +9,11 @@ import { SEO_CONFIG } from "@/lib/seo";
 
 const staticPaths = [
   "/",
-  "/digitale-systeme",
-  "/softwareloesungen-fuer-kmu",
+  "/automatisierung",
+  "/prozessautomatisierung",
+  "/crm-automatisierung",
+  "/ki-beratung",
+  "/individuelle-ki-loesungen",
   "/webdesign",
   "/web-app-entwicklung",
   "/leistungen",
@@ -26,11 +29,17 @@ const staticPaths = [
 ] as const;
 
 const verifiedStaticUpdates: Partial<Record<(typeof staticPaths)[number], string>> = {
-  "/": "2026-10-07",
-  "/digitale-systeme": "2026-10-07",
+  "/": "2026-11-09",
+  "/automatisierung": "2026-11-09",
+  "/prozessautomatisierung": "2026-11-06",
+  "/crm-automatisierung": "2026-11-06",
+  "/ki-beratung": "2026-11-06",
+  "/individuelle-ki-loesungen": "2026-11-06",
   "/cases": "2026-10-07",
-  "/faq": "2026-10-07",
-  "/kontakt": "2026-10-07",
+  "/faq": "2026-11-06",
+  "/kontakt": "2026-11-06",
+  "/leistungen": "2026-11-09",
+  "/webdesign": "2026-11-09",
   "/hosting-wartung": "2026-10-07",
   "/wissen": "2026-10-07",
 };

@@ -1,11 +1,13 @@
 import FAQAccordion from "@/components/FAQAccordion";
+import { automationFaqs } from "@/lib/automation-faq";
 import Footer from "@/components/Footer";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
   path: "/faq",
-  title: "FAQ zu Webdesign, Websites & Software | Codavo",
-  description: "Antworten zu Webdesign, Projektablauf, Budget, Technik, SEO, AEO, LLMO, Hosting und Zusammenarbeit mit Codavo Webstudio.",
+  automationImage: true,
+  title: "FAQ zu KI-Automatisierung, Kosten und Umsetzung | Codavo",
+  description: "Antworten zu KI-Beratung, Prozessautomatisierung, Systemanbindung, Datenschutz, Kosten und Website-Projekten mit Codavo.",
 });
 
 const faqs = [
@@ -27,7 +29,7 @@ export default function Page() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: faqs.map((faq) => ({
+    mainEntity: [...automationFaqs, ...faqs].map((faq) => ({
       "@type": "Question",
       name: faq.q,
       acceptedAnswer: { "@type": "Answer", text: faq.a },
@@ -38,9 +40,10 @@ export default function Page() {
     <>
       <main className="min-h-screen pb-20 pt-28 md:pt-32 lg:pt-36">
         <div className="container section mt-10 md:mt-6 lg:mt-4">
-          <h1 className="text-3xl font-semibold tracking-tight text-white md:text-5xl">FAQ Webdesign & Websites – Häufige Fragen</h1>
-          <p className="mt-4 max-w-2xl text-slate-300">Antworten auf häufige Fragen zu Webdesign, Web-Apps, Projektumfang, Ablauf und langfristiger Betreuung.</p>
-          <div className="mt-10"><FAQAccordion items={faqs} /></div>
+          <h1 className="text-3xl font-semibold tracking-tight text-white md:text-5xl">Ihre Fragen zu Codavo</h1>
+          <p className="mt-4 max-w-2xl text-slate-300">Antworten zu KI-Automatisierung im industriellen Mittelstand: Einsatzfälle, Kosten, Daten, Systemanbindung und Zusammenarbeit. Ergänzend beantworten wir Fragen zu Website-Projekten.</p>
+          <section className="mt-12"><h2 className="text-2xl font-semibold text-white">KI-Automatisierung und Umsetzung</h2><div className="mt-6"><FAQAccordion items={automationFaqs} idPrefix="automation" /></div></section>
+          <section className="mt-14"><h2 className="text-2xl font-semibold text-white">Websites und Zusammenarbeit</h2><div className="mt-6"><FAQAccordion items={faqs} idPrefix="websites" /></div></section>
         </div>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </main>

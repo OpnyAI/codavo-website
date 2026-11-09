@@ -4,7 +4,7 @@ import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
   path: "/web-app-entwicklung",
-  title: "Individuelle Web-App Entwicklung | Codavo Webstudio",
+  title: "Individuelle Web-App Entwicklung | Codavo",
   description:
     "Individuelle Web-Apps, Kundenportale, Dashboards und interne Tools für Unternehmen – verständlich geplant, sicher entwickelt und langfristig erweiterbar.",
 });
@@ -39,11 +39,12 @@ export default function WebAppPage() {
         { title: "Iterative Weiterentwicklung", text: "Ein sinnvoll abgegrenzter erster Stand wird geprüft und anschließend anhand realer Nutzung und neuer Prioritäten ausgebaut." },
       ]}
       relatedLinks={[
-        { href: "/softwareloesungen-fuer-kmu", label: "Software für KMU", description: "Individuelle Systeme im Unternehmenskontext." },
+        { href: "/individuelle-ki-loesungen", label: "KI in Ihrer Anwendung", description: "KI-Funktionen mit Daten, Rollen und Freigaben verbinden." },
+        { href: "/individuelle-ki-loesungen", label: "Individuelle KI-Lösungen", description: "Individuelle Systeme im Unternehmenskontext." },
         { href: "/hosting-wartung", label: "Hosting und Wartung", description: "Betrieb und Weiterentwicklung einplanen." },
         { href: "/wissen/website-landingpage-funnel", label: "Website, Landingpage oder Funnel", description: "Die passende digitale Form einordnen." },
       ]}
-      beforeFaq={<section className="section section--quiet"><div className="container max-w-5xl"><p className="eyebrow">Web-App als Baustein</p><h2 className="section-title mt-5 text-white">Wenn aus einer Anwendung ein Systembaustein wird</h2><p className="lede mt-6 max-w-3xl">Eine Web-App ist eine konkrete browserbasierte Anwendung. Sobald sie Daten aus Website, Funnel, CRM oder internen Prozessen übernimmt, wird sie Teil einer größeren Architektur.</p><p className="mt-5 max-w-3xl text-sm leading-7 text-slate-400 md:text-base">In diesem Fall hilft die Betrachtung als <Link href="/digitale-systeme" className="font-medium text-indigo-300 transition hover:text-white">digitales Unternehmenssystem</Link>, bevor einzelne Funktionen geplant werden.</p></div></section>}
+      beforeFaq={<section className="section section--quiet"><div className="container max-w-5xl"><p className="eyebrow">Web-App als Baustein</p><h2 className="section-title mt-5 text-white">Wenn aus einer Anwendung ein Systembaustein wird</h2><p className="lede mt-6 max-w-3xl">Eine Web-App ist eine konkrete browserbasierte Anwendung. Sobald sie Daten aus Website, Funnel, CRM oder internen Prozessen übernimmt, wird sie Teil einer größeren Architektur.</p><p className="mt-5 max-w-3xl text-sm leading-7 text-slate-400 md:text-base">In diesem Fall hilft die Betrachtung als <Link href="/automatisierung" className="font-medium text-indigo-300 transition hover:text-white">digitales Unternehmenssystem</Link>, bevor einzelne Funktionen geplant werden.</p></div></section>}
       faqs={faqs}
       ctaTitle="Sie möchten einen konkreten Prozess digital abbilden?"
       ctaText="Im Erstgespräch klären wir Nutzer, Kernfunktionen und ob eine individuelle Web-App der wirtschaftlich sinnvolle Weg ist."

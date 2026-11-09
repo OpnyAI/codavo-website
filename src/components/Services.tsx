@@ -39,8 +39,8 @@ const services = [
       "Für Unternehmen, die über eine Website hinaus Portale, Dashboards, Buchungssysteme oder interne Tools benötigen.",
     href: "/web-app-entwicklung",
     linkLabel: "Web-App ansehen",
-    secondaryHref: "/softwareloesungen-fuer-kmu",
-    secondaryLabel: "Software für KMU",
+    secondaryHref: "/automatisierung",
+    secondaryLabel: "Automatisierung ansehen",
   },
   {
     icon: ServerCog,

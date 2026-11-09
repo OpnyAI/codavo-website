@@ -2,17 +2,23 @@ import type { Metadata } from "next";
 
 export const SEO_CONFIG = {
   domain: "https://www.codavo-webstudio.de",
-  companyName: "Codavo Webstudio",
+  companyName: "Codavo",
   description:
-    "Codavo entwickelt individuelle Unternehmenswebsites, Landingpages, Funnel und webbasierte Software für professionelle Sichtbarkeit und klare digitale Prozesse.",
+    "Codavo unterstützt den industriellen Mittelstand mit KI-Automatisierung, KI-Beratung, Systemintegration und individuellen KI-Lösungen. Ergänzend entwickelt Codavo Unternehmenswebsites, Landingpages und Funnel.",
   defaultTitle: "Professionelle Unternehmenswebsites | Codavo Webstudio",
   defaultDescription:
-    "Individuelle Unternehmenswebsites, Landingpages und Funnel für Vertrauen, qualifizierte Anfragen und Sichtbarkeit bei Suchmaschinen und KI-Systemen.",
+    "Individuelle Websites, Landingpages und Funnel für Unternehmen, die bei Google und in KI-Systemen organisch sichtbar werden und qualifizierte Anfragen gewinnen.",
   ogImage: {
     path: "/og.jpg",
     width: 886,
     height: 886,
     alt: "Codavo Webstudio",
+  },
+  automationOgImage: {
+    path: "/og-automatisierung.png",
+    width: 1200,
+    height: 630,
+    alt: "Codavo – KI-Beratung, Prozessautomatisierung und individuelle KI-Lösungen für den industriellen Mittelstand",
   },
   logoPath: "/images/logo/codavo-logo-light.png",
   founderImagePath: "/images/hero/mehmet-catalsakal-founder-original.jpg",
@@ -30,7 +36,7 @@ export const SEO_CONFIG = {
   },
   founder: {
     name: "Mehmet Çatalsakal",
-    jobTitle: "Gründer von Codavo Webstudio",
+    jobTitle: "Gründer von Codavo",
     socialLinks: {
       linkedin:
         "https://www.linkedin.com/in/mehmet-catalsakal-43264a15b/?isSelfProfile=true",
@@ -57,6 +63,7 @@ type PageMetadataOptions = {
   description?: string;
   noIndex?: boolean;
   imageAlt?: string;
+  automationImage?: boolean;
 };
 
 export function createPageMetadata({
@@ -64,14 +71,13 @@ export function createPageMetadata({
   title = SEO_CONFIG.defaultTitle,
   description = SEO_CONFIG.defaultDescription,
   noIndex = false,
-  imageAlt = SEO_CONFIG.ogImage.alt,
+  imageAlt,
+  automationImage = false,
 }: PageMetadataOptions = {}): Metadata {
-  const image = {
-    url: SEO_CONFIG.ogImage.path,
-    width: SEO_CONFIG.ogImage.width,
-    height: SEO_CONFIG.ogImage.height,
-    alt: imageAlt,
-  };
+  const { path: imagePath, width, height, alt } = automationImage
+    ? SEO_CONFIG.automationOgImage
+    : SEO_CONFIG.ogImage;
+  const image = { url: imagePath, width, height, alt: imageAlt ?? alt };
 
   return {
     title,
@@ -96,7 +102,7 @@ export function createPageMetadata({
       card: "summary_large_image",
       title,
       description,
-      images: [SEO_CONFIG.ogImage.path],
+      images: [imagePath],
     },
   };
 }
@@ -109,6 +115,7 @@ export const globalStructuredData = {
       "@id": ORGANIZATION_ID,
       name: SEO_CONFIG.companyName,
       url: SEO_CONFIG.domain,
+      alternateName: "Codavo Webstudio",
       description: SEO_CONFIG.description,
       telephone: SEO_CONFIG.telephone,
       email: SEO_CONFIG.email,
@@ -140,19 +147,15 @@ export const globalStructuredData = {
       name: SEO_CONFIG.founder.name,
       jobTitle: SEO_CONFIG.founder.jobTitle,
       description:
-        "Gründer von Codavo Webstudio und M.Sc. Wirtschaftsingenieurwesen mit Fokus auf Website-Strategie, UX/UI und individuelle Webentwicklung.",
+        "Wirtschaftsingenieur und Gründer von Codavo. Rund zehn Jahre bei Bosch, zuletzt in einer Führungsrolle im industriellen Einkauf.",
       url: `${SEO_CONFIG.domain}/#about`,
       image: absoluteUrl(SEO_CONFIG.founderImagePath),
       sameAs: Object.values(SEO_CONFIG.founder.socialLinks),
       worksFor: { "@id": ORGANIZATION_ID },
       knowsAbout: [
-        "Website-Strategie",
-        "Webdesign",
-        "UX/UI",
-        "Webentwicklung",
-        "SEO",
-        "AEO",
-        "LLMO",
+        "Industrieller Einkauf",
+        "Prozessautomatisierung",
+        "Individuelle KI-Lösungen",
       ],
     },
     {

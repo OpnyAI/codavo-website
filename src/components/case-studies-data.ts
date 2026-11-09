@@ -156,7 +156,7 @@ export const caseStudies: CaseStudyItem[] = [
       "Nach dem Launch stieg der Umsatz um 30 Prozent. Aufgrund der gestiegenen Nachfrage stellte Taner Care inzwischen sieben neue Mitarbeiterinnen und Mitarbeiter ein.",
     serviceLinks: [
       { href: "/webdesign", label: "Webdesign" },
-      { href: "/digitale-systeme", label: "Digitale Systeme" },
+      { href: "/automatisierung", label: "KI-Automatisierung" },
     ],
     img: "/cases/2026/taner-care.png",
     alt: "Startseite der Taner Care Gruppe für Pflege und Alltagsbegleitung",
@@ -191,7 +191,7 @@ export const caseStudies: CaseStudyItem[] = [
       "Ein souveräner Industrieauftritt, der technische Breite, Qualitätsanspruch und internationale Zusammenarbeit sichtbar macht.",
     serviceLinks: [
       { href: "/webdesign", label: "Webdesign" },
-      { href: "/digitale-systeme", label: "Digitale Systeme" },
+      { href: "/automatisierung", label: "KI-Automatisierung" },
     ],
     img: "/cases/2026/mag-group.png",
     alt: "Startseite der MAG Group für Metallguss, Engineering und Metallverarbeitung",
@@ -278,7 +278,7 @@ export const caseStudies: CaseStudyItem[] = [
       "Ein seriöser Ingenieurauftritt, der Spezialisierung, Erfahrung und Projektablauf schnell verständlich vermittelt.",
     serviceLinks: [
       { href: "/webdesign", label: "Webdesign" },
-      { href: "/digitale-systeme", label: "Digitale Systeme" },
+      { href: "/automatisierung", label: "KI-Automatisierung" },
     ],
     img: "/cases/2026/ib-bauwerkspruefung.png",
     alt: "Startseite von IB Bauwerksprüfung für Prüfungen nach DIN 1076",
