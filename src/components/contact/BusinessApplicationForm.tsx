@@ -152,10 +152,10 @@ function SelectField({
 }) {
   return (
     <div>
-      <Label htmlFor={id} className="text-sm font-medium text-slate-100">
+      <Label htmlFor={id} className="text-sm font-medium text-slate-900">
         {label}
         {optional ? (
-          <span className="ml-1 font-normal text-slate-500">(optional)</span>
+          <span className="ml-1 font-normal text-slate-600">(optional)</span>
         ) : null}
       </Label>
       <div className="relative mt-2">
@@ -165,7 +165,7 @@ function SelectField({
           onChange={(event) => onChange(event.target.value)}
           aria-invalid={Boolean(error)}
           aria-describedby={error ? `${id}-error` : undefined}
-          className="min-h-12 w-full appearance-none rounded-xl border border-white/10 bg-slate-950/70 px-4 py-3 pr-11 text-sm text-white transition-colors hover:border-white/20 focus:border-indigo-300/70"
+          className="min-h-12 w-full appearance-none rounded-xl border border-slate-300 bg-white px-4 py-3 pr-11 text-sm text-slate-900 transition-colors hover:border-slate-400 focus:border-indigo-600"
         >
           <option value="">{placeholder}</option>
           {options.map((option) => (
@@ -176,11 +176,11 @@ function SelectField({
         </select>
         <ChevronDown
           aria-hidden="true"
-          className="pointer-events-none absolute right-4 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400"
+          className="pointer-events-none absolute right-4 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-600"
         />
       </div>
       {error ? (
-        <p id={`${id}-error`} className="mt-2 text-sm text-rose-300">
+        <p id={`${id}-error`} className="mt-2 text-sm text-rose-700">
           {error}
         </p>
       ) : null}
@@ -466,21 +466,21 @@ export default function BusinessApplicationForm() {
       ref={formRef}
       onSubmit={handleSubmit}
       noValidate
-      className="card overflow-hidden p-0"
-        aria-label="Bewerbung für ein kostenloses Erstgespräch"
+      className="overflow-hidden rounded-2xl border border-slate-200 bg-white p-0 text-slate-900 shadow-[0_24px_80px_rgba(0,0,0,0.25)] [color-scheme:light]"
+      aria-label="Bewerbung für ein kostenloses Erstgespräch"
     >
-      <div className="border-b border-white/10 bg-white/[0.025] px-5 py-5 sm:px-8">
+      <div className="border-b border-slate-300 bg-slate-50 px-5 py-4 sm:px-8">
         <div className="flex items-end justify-between gap-4">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-indigo-300">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-indigo-700">
               Schritt {step + 1} von {steps.length}
             </p>
-            <p className="mt-1 text-sm text-slate-400">{steps[step].hint}</p>
+            <p className="mt-1 text-sm text-slate-600">{steps[step].hint}</p>
           </div>
-          <span className="text-sm font-medium text-slate-300">{progress} %</span>
+          <span className="text-sm font-medium text-slate-700">{progress} %</span>
         </div>
         <div
-          className="mt-4 h-1.5 overflow-hidden rounded-full bg-white/10"
+          className="mt-4 h-1.5 overflow-hidden rounded-full bg-slate-200"
           role="progressbar"
           aria-valuemin={1}
           aria-valuemax={steps.length}
@@ -488,22 +488,22 @@ export default function BusinessApplicationForm() {
           aria-label={`Schritt ${step + 1} von ${steps.length}`}
         >
           <div
-            className="h-full rounded-full bg-gradient-to-r from-indigo-400 to-violet-400 transition-[width] duration-300"
+            className="h-full rounded-full bg-gradient-to-r from-indigo-600 to-violet-600 transition-[width] duration-300"
             style={{ width: `${progress}%` }}
           />
         </div>
       </div>
 
-      <div className="px-5 py-7 sm:px-8 sm:py-9">
+      <div className="px-5 py-5 sm:px-8 sm:py-6">
         <h2
           ref={stepHeadingRef}
           tabIndex={-1}
-          className="text-2xl font-semibold tracking-tight text-white outline-none sm:text-3xl"
+          className="text-2xl font-semibold tracking-tight text-slate-900 outline-none sm:text-3xl"
         >
           {steps[step].title}
         </h2>
 
-        <div className="mt-7">
+        <div className="mt-5">
           {step === 0 ? (
             <div className="grid gap-5 sm:grid-cols-2">
               <SelectField
@@ -697,14 +697,14 @@ export default function BusinessApplicationForm() {
             <div>
               <Label
                 htmlFor="qualification"
-                className="text-sm font-medium text-slate-100"
+                className="text-sm font-medium text-slate-900"
               >
                 Warum sollte ich ausgerechnet mit Ihnen zusammenarbeiten?
               </Label>
-              <p className="mt-2 text-sm leading-6 text-slate-400">
+              <p className="mt-2 text-sm leading-6 text-slate-600">
                 Was unterscheidet Sie von anderen Bewerbern und warum sollte
                 ich Sie kostenlos beraten?{" "}
-                <span className="font-medium text-slate-300">
+                <span className="font-medium text-slate-700">
                   (Ich erhalte viele Anfragen.)
                 </span>
               </p>
@@ -720,23 +720,23 @@ export default function BusinessApplicationForm() {
                 aria-describedby={
                   errors.qualification ? "qualification-error" : undefined
                 }
-                className="mt-3 w-full resize-y rounded-xl border border-white/10 bg-slate-950/70 px-4 py-3 text-sm leading-6 text-white placeholder:text-slate-600 hover:border-white/20 focus:border-indigo-300/70"
+                className="mt-3 w-full resize-y rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm leading-6 text-slate-900 placeholder:text-slate-600 hover:border-slate-400 focus:border-indigo-600"
                 placeholder="Warum ist Ihr Vorhaben für Codavo besonders interessant und warum passen wir gut zusammen?"
               />
               <div className="mt-2 flex justify-between gap-4 text-xs">
                 {errors.qualification ? (
-                  <p id="qualification-error" className="text-rose-300">
+                  <p id="qualification-error" className="text-rose-700">
                     {errors.qualification}
                   </p>
                 ) : (
-                  <span className="text-slate-500">Mindestens 20 Zeichen</span>
+                  <span className="text-slate-600">Mindestens 20 Zeichen</span>
                 )}
-                <span className="shrink-0 text-slate-500">
+                <span className="shrink-0 text-slate-600">
                   {values.qualification.length}/3000
                 </span>
               </div>
 
-              <div className="mt-6 rounded-xl border border-white/10 bg-white/[0.025] p-4">
+              <div className="mt-6 rounded-xl border border-slate-300 bg-slate-50 p-4">
                 <div className="flex items-start gap-3">
                   <input
                     id="privacyAccepted"
@@ -756,7 +756,7 @@ export default function BusinessApplicationForm() {
                   <Label
                     htmlFor="privacyAccepted"
                     id="privacyAccepted-hint"
-                    className="text-sm font-normal leading-6 text-slate-300"
+                    className="block text-sm font-normal leading-6 text-slate-700"
                   >
                     Ich stimme zu, dass Codavo Webstudio meine Kontakt-,
                     Unternehmens-, Umsatz-, Budget- und Projektdaten zur
@@ -765,7 +765,7 @@ export default function BusinessApplicationForm() {
                     <Link
                       href="/datenschutz"
                       target="_blank"
-                      className="text-indigo-300 underline underline-offset-2 hover:text-white"
+                      className="text-indigo-700 underline underline-offset-2 hover:text-slate-900"
                     >
                       Datenschutzerklärung
                     </Link>
@@ -775,7 +775,7 @@ export default function BusinessApplicationForm() {
                 {errors.privacyAccepted ? (
                   <p
                     id="privacyAccepted-error"
-                    className="mt-2 pl-8 text-sm text-rose-300"
+                    className="mt-2 pl-8 text-sm text-rose-700"
                   >
                     {errors.privacyAccepted}
                   </p>
@@ -799,9 +799,9 @@ export default function BusinessApplicationForm() {
         {serverError ? (
           <div
             role="alert"
-            className="mt-6 flex items-start gap-3 rounded-xl border border-rose-400/20 bg-rose-500/10 p-4 text-sm text-rose-100"
+            className="mt-6 flex items-start gap-3 rounded-xl border border-rose-400/20 bg-rose-500/10 p-4 text-sm text-rose-800"
           >
-            <AlertCircle className="mt-0.5 h-5 w-5 shrink-0 text-rose-300" />
+            <AlertCircle className="mt-0.5 h-5 w-5 shrink-0 text-rose-700" />
             <p>
               {serverError} Alternativ erreichen Sie uns unter{" "}
               <a
@@ -820,13 +820,13 @@ export default function BusinessApplicationForm() {
             <button
               type="button"
               onClick={goBack}
-              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-white/10 px-5 py-3 text-sm font-medium text-slate-200 transition-colors hover:border-white/20 hover:bg-white/5 hover:text-white"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-slate-300 px-5 py-3 text-sm font-medium text-slate-700 transition-colors hover:border-slate-400 hover:bg-slate-100 hover:text-slate-900"
             >
               <ChevronLeft className="h-4 w-4" />
               Zurück
             </button>
           ) : (
-            <p className="text-xs leading-5 text-slate-500">
+            <p className="text-xs leading-5 text-slate-600">
               Ihre Bewerbung wird kostenlos und persönlich geprüft.
             </p>
           )}
@@ -834,7 +834,7 @@ export default function BusinessApplicationForm() {
           {step < steps.length - 1 ? (
             <button
               type="submit"
-              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-500 to-violet-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo-950/30 transition hover:brightness-110"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo-950/30 transition hover:brightness-110"
             >
               Weiter
               <ChevronRight className="h-4 w-4" />
@@ -843,7 +843,7 @@ export default function BusinessApplicationForm() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-500 to-violet-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo-950/30 transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo-950/30 transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60"
             >
               {isSubmitting ? (
                 <>
@@ -887,10 +887,10 @@ function TextField({
 }) {
   return (
     <div>
-      <Label htmlFor={id} className="text-sm font-medium text-slate-100">
+      <Label htmlFor={id} className="text-sm font-medium text-slate-900">
         {label}
         {optional ? (
-          <span className="ml-1 font-normal text-slate-500">(optional)</span>
+          <span className="ml-1 font-normal text-slate-600">(optional)</span>
         ) : null}
       </Label>
       <Input
@@ -902,10 +902,10 @@ function TextField({
         placeholder={placeholder}
         aria-invalid={Boolean(error)}
         aria-describedby={error ? `${id}-error` : undefined}
-        className="mt-2 min-h-12 rounded-xl border-white/10 bg-slate-950/70 px-4 text-white placeholder:text-slate-600 hover:border-white/20 focus:border-indigo-300/70"
+        className="mt-2 min-h-12 rounded-xl border-slate-300 bg-white px-4 text-slate-900 placeholder:text-slate-600 hover:border-slate-400 focus:border-indigo-600"
       />
       {error ? (
-        <p id={`${id}-error`} className="mt-2 text-sm text-rose-300">
+        <p id={`${id}-error`} className="mt-2 text-sm text-rose-700">
           {error}
         </p>
       ) : null}
