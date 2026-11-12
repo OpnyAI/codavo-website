@@ -4,7 +4,7 @@ Diese SEO-Strategie definiert die Informationsarchitektur, Rollenverteilung und 
 
 ## 1. Strategisches Ziel
 
-Codavo soll als hochwertiger Anbieter für professionelle Unternehmenswebsites, Landingpages, Funnel-Systeme, individuelle Software, Web-Apps und digitale Unternehmenssysteme wahrgenommen werden.
+Codavo positioniert sich mit KI-Automatisierung, Prozessautomatisierung, Systemintegration, CRM-Automatisierung, KI-Beratung und individuellen KI-Lösungen für den industriellen Mittelstand. Die Startseite bleibt während der laufenden Webdesign-Kampagnen auf Unternehmenswebsites ausgerichtet; bestehende Website-Angebote bleiben erreichbar.
 
 SEO-Ziel:
 
@@ -24,9 +24,13 @@ SEO-Ziel:
 | `/webdesign` | Money Page / Pillar | Professionelle Unternehmenswebsite erstellen lassen |
 | `/landingpage-erstellen-lassen` | Money Page | Landingpage für Angebot, Kampagne oder Dienstleistung erstellen lassen |
 | `/funnel-erstellen-lassen` | Money Page | Funnel-System für Leads, Termine und Anfrageprozesse erstellen lassen |
-| `/softwareloesungen-fuer-kmu` | Money Page | Individuelle Softwarelösung für Prozesse im Mittelstand |
+| `/automatisierung` | KI-Pillar / zentrale Leistungsseite | KI-Automatisierung für den industriellen Mittelstand |
+| `/prozessautomatisierung` | Leistungsseite | Prozessautomatisierung und Systemintegration |
+| `/crm-automatisierung` | Leistungsseite | CRM-Abläufe einrichten und automatisieren |
+| `/ki-beratung` | Leistungsseite | KI-Einsatzfälle, Daten und Wirtschaftlichkeit bewerten |
+| `/individuelle-ki-loesungen` | Leistungsseite | Individuelle KI-Anwendungen für betriebliche Abläufe |
 | `/web-app-entwicklung` | Money Page | Browserbasierte Web-App, Portal, Dashboard oder Tool entwickeln lassen |
-| `/digitale-systeme` | Architektur- und Strategie-Seite | Website, Funnel, Software, Tracking, Automatisierung und KI zusammendenken |
+| `/digitale-systeme`, `/softwareloesungen-fuer-kmu` | 308-Weiterleitungen | Neue KI-Leistungsseiten als Ziele; keine alten Inhalte in der Sitemap |
 | `/hosting-wartung` | Money Page / Retention | Hosting, Wartung und Weiterentwicklung nach Launch |
 | `/website-check` | Lead Magnet | Bestehende Website prüfen und nächsten Schritt einordnen |
 | `/cases` | Proof Page | reale Projekte und Vertrauensbelege |
@@ -262,3 +266,13 @@ Vor Veröffentlichung neuer Inhalte prüfen:
 - Sind Metadaten eindeutig?
 - Bleibt die Seitenrolle erhalten?
 
+
+
+## Prüfung vom 12. November 2026
+
+- Hauptsuchintention auf `/automatisierung` in Title, H1, Kurzantwort, internen Links und verbundenen WebPage-/Service-Daten sichtbar halten.
+- Spezialisierte Unterseiten haben eigene Suchintentionen und verweisen auf die zentrale Seite. Keine künstlichen Keyword-Seiten oder Rankingversprechen.
+- Suchmaschinen- und KI-Crawler benötigen erreichbares HTML, passende robots-Regeln und Indexierbarkeit. Eine zusätzliche llms.txt ist keine Voraussetzung.
+- Lesbare Antworten und korrektes Schema sind Grundlagen, keine Zusage für FAQ-Rich-Results, KI-Zitate oder bestimmte Positionen.
+- Search Console: bestätigte Domain-Property vorhanden, generative KI-Suchfunktionen eingeschlossen. Neue Seiten durch Sitemap und URL-Prüfung anmelden; tatsächliche Indexierung und Ranking anschließend anhand der Google-Daten beurteilen.
+- Webdesign-Startseite und der Baulig-Erstgespräch-Funnel bleiben inhaltlich und funktional unverändert.

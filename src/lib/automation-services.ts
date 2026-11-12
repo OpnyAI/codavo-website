@@ -1,5 +1,6 @@
 export const automationServices = {
   prozessautomatisierung: {
+    seoTitle: "Prozessautomatisierung & Systemintegration | Codavo",
     eyebrow: "Tools & Systeme vernetzen",
     title: "Prozessautomatisierung, die Ihr Team von Routine entlastet.",
     description: "Codavo verbindet bestehende Systeme und automatisiert wiederkehrende Abläufe im industriellen Mittelstand.",
@@ -23,6 +24,7 @@ export const automationServices = {
     ],
   },
   'crm-automatisierung': {
+    seoTitle: "CRM-Automatisierung für den Mittelstand | Codavo",
     eyebrow: "CRM einrichten & automatisieren",
     title: "Ihr Vertrieb soll verkaufen. Das CRM hält den nächsten Schritt fest.",
     description: "CRM-Einrichtung, Systemanbindung und Automatisierung für strukturierte Vertriebsabläufe im Mittelstand.",
@@ -46,6 +48,7 @@ export const automationServices = {
     ],
   },
   'ki-beratung': {
+    seoTitle: "KI-Beratung für den industriellen Mittelstand | Codavo",
     eyebrow: "KI-Strategie & Beratung",
     title: "Wo lohnt sich KI in Ihrem Unternehmen wirklich?",
     description: "KI-Beratung für den industriellen Mittelstand: Einsatzfälle bewerten, Daten prüfen und einen wirtschaftlichen Einstieg planen.",
@@ -69,6 +72,7 @@ export const automationServices = {
     ],
   },
   'individuelle-ki-loesungen': {
+    seoTitle: "Individuelle KI-Lösungen für Unternehmen | Codavo",
     eyebrow: "Individuelle KI-Lösungen",
     title: "Individuelle KI-Lösungen für Ihren Arbeitsablauf.",
     description: "Individuelle KI-Lösungen für Dokumente, Unternehmenswissen und systemübergreifende Abläufe im industriellen Mittelstand.",

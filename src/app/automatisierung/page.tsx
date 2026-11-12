@@ -15,7 +15,8 @@ import Footer from "@/components/Footer";
 import { automationFaqs } from "@/lib/automation-faq";
 import { calculateAutomationScenario, initialScenario, weeksPerYear } from "@/lib/automation-scenario";
 import { automationOffers } from "@/lib/automation";
-import { createPageMetadata, SEO_CONFIG } from "@/lib/seo";
+import { automationPageGraph } from "@/lib/automation-seo";
+import { absoluteUrl, createPageMetadata, SEO_CONFIG } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
   path: "/automatisierung",
@@ -94,6 +95,22 @@ const heroMetrics = [
   { value: percent.format(firstYearImpact / operatingProfit), label: "mehr operativer Gewinn gegenüber dem bisherigen Gewinn im ersten Jahr, nach Umsetzungskosten" },
 ];
 
+const structuredData = automationPageGraph({
+  path: "/automatisierung",
+  title: "KI-Automatisierung für den industriellen Mittelstand | Codavo",
+  serviceName: "KI-Automatisierung für den industriellen Mittelstand",
+  description: "Codavo verbindet ERP, CRM und weitere Anwendungen und automatisiert wiederkehrende Abläufe. KI-Beratung, Systemintegration, CRM-Automatisierung und individuelle KI-Lösungen.",
+  offers: automationOffers,
+});
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Startseite", item: absoluteUrl("/") },
+    { "@type": "ListItem", position: 2, name: "KI-Automatisierung", item: absoluteUrl("/automatisierung") },
+  ],
+};
+
 export default function Home() {
   return (
     <>
@@ -101,9 +118,10 @@ export default function Home() {
         <section className="section section--feature">
           <div className="container container--wide grid items-start gap-10 pt-5 lg:grid-cols-[1.55fr_1fr] lg:gap-14">
             <div>
+              <nav aria-label="Brotkrümelnavigation" className="mb-5 flex gap-2 text-sm text-slate-400"><Link href="/" className="hover:text-white">Startseite</Link><span aria-hidden>/</span><span className="text-slate-200">KI-Automatisierung</span></nav>
               <p className="eyebrow">KI-Beratung · Prozessautomatisierung · Individuelle KI-Lösungen</p>
               <h1 className="display-title mt-5 max-w-4xl text-white">
-                Wir automatisieren manuelle Abläufe im industriellen Mittelstand.
+                KI-Automatisierung für den industriellen Mittelstand.
               </h1>
               <p className="lede mt-6 max-w-2xl">
                 <strong className="font-semibold text-white">Senken Sie den Aufwand und die Kosten wiederkehrender Abläufe.</strong> Wir verbinden ERP, CRM und andere Anwendungen, damit Ihr Team weniger Daten abtippt, Dokumente sucht und Vorgänge von Hand nachhält.
@@ -173,6 +191,20 @@ export default function Home() {
                 {" "}{percent.format(initialScenario.realized / 100)} des Werts der frei werdenden Zeit vermeiden Ausgaben. Angesetzt sind {euro.format(initialScenario.running)} laufende Kosten pro Jahr und {euro.format(initialScenario.implementation)} einmalige Umsetzungskosten. Die Kosteneinsparung bezieht sich auf {euro.format(hoursNow * initialScenario.hourlyCost)} bisherige Arbeitskosten der betrachteten Tätigkeiten und beträgt {euro.format(costReduction)} pro Jahr. Der Mehrgewinn im ersten Jahr beträgt {euro.format(firstYearImpact)}.
               </p>
             </figure>
+          </div>
+        </section>
+
+        <section className="section section--quiet" aria-labelledby="ki-automatisierung-erklaert">
+          <div className="container container--wide grid gap-8 lg:grid-cols-2">
+            <div>
+              <p className="eyebrow">KI-Automatisierung erklärt</p>
+              <h2 id="ki-automatisierung-erklaert" className="section-title mt-4 text-white">Was ist KI-Automatisierung im Unternehmen?</h2>
+              <p className="lede mt-5">KI-Automatisierung verbindet wiederkehrende Arbeitsschritte mit künstlicher Intelligenz. Sie kann etwa E-Mails einordnen, Angaben aus Dokumenten vorbereiten und Informationen an vorhandene Systeme übergeben. Feste Regeln, klare Zugriffsrechte und menschliche Freigaben begrenzen den Ablauf.</p>
+            </div>
+            <div className="space-y-6 text-slate-300">
+              <div><h3 className="text-xl font-semibold text-white">Wann reicht klassische Automatisierung?</h3><p className="mt-3 leading-7">Bei strukturierten Daten und festen Regeln, etwa beim Übertragen eines CRM-Kontakts ins ERP. KI ist sinnvoll, wenn Texte, Dokumente oder wechselnde Formulierungen eingeordnet werden müssen. Die Technik richtet sich nach der Aufgabe.</p></div>
+              <div><h3 className="text-xl font-semibold text-white">Wo starten wir im industriellen Mittelstand?</h3><p className="mt-3 leading-7">Mit einem abgegrenzten Ablauf in Vertrieb, Einkauf, Projektabwicklung oder Qualität. Wir prüfen Zeitaufwand, Datenzugang, Ausnahmen und Kosten, bevor wir die passende Lösung entwickeln.</p></div>
+            </div>
           </div>
         </section>
 
@@ -331,6 +363,8 @@ export default function Home() {
         </section>
       </main>
       <Footer />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
     </>
   );
 }

@@ -4,12 +4,13 @@ import Footer from "@/components/Footer";
 import FAQAccordion from "@/components/FAQAccordion";
 import { automationServices, type AutomationServiceSlug } from "@/lib/automation-services";
 import { automationOffers } from "@/lib/automation";
-import { absoluteUrl, ORGANIZATION_ID } from "@/lib/seo";
+import { automationPageGraph } from "@/lib/automation-seo";
+import { absoluteUrl } from "@/lib/seo";
 
 export default function AutomationServicePage({ slug }: { slug: AutomationServiceSlug }) {
   const service = automationServices[slug];
   const path = `/${slug}`;
-  const schema = { "@context": "https://schema.org", "@type": "Service", "@id": absoluteUrl(`${path}#service`), name: service.eyebrow, description: service.description, url: absoluteUrl(path), provider: { "@id": ORGANIZATION_ID } };
+  const schema = automationPageGraph({ path, title: service.title, description: service.description, serviceName: service.eyebrow });
   const breadcrumb = { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Startseite", item: absoluteUrl("/") }, { "@type": "ListItem", position: 2, name: "KI-Automatisierung", item: absoluteUrl("/automatisierung") }, { "@type": "ListItem", position: 3, name: service.eyebrow, item: absoluteUrl(path) }] };
   return <>
     <main className="overflow-x-hidden pt-20">
@@ -17,7 +18,7 @@ export default function AutomationServicePage({ slug }: { slug: AutomationServic
         <div className="container container--wide">
           <nav aria-label="Brotkrümelnavigation" className="mb-10 flex flex-wrap gap-2 text-sm text-slate-400"><Link href="/">Startseite</Link><span aria-hidden>/</span><Link href="/automatisierung">KI-Automatisierung</Link><span aria-hidden>/</span><span className="text-slate-200">{service.eyebrow}</span></nav>
           <div className="grid items-start gap-12 lg:grid-cols-[1.15fr_0.85fr]">
-            <div><p className="eyebrow">{service.eyebrow}</p><h1 className="display-title mt-5 text-white">{service.title}</h1><p className="lede mt-6 max-w-2xl">{service.intro}</p><Link href="/kontakt" className="cta-primary mt-8" data-track-event="cta_contact_click" data-track-label={service.eyebrow}>Kostenloses Erstgespräch <ArrowRight className="ml-2 size-4" aria-hidden /></Link></div>
+            <div><p className="eyebrow">{service.eyebrow}</p><h1 className="display-title mt-5 text-white">{service.title}</h1><p className="lede mt-6 max-w-2xl">{service.intro}</p><p className="mt-5 text-sm leading-7 text-slate-300">{service.description}</p><Link href="/kontakt" className="cta-primary mt-8" data-track-event="cta_contact_click" data-track-label={service.eyebrow}>Kostenloses Erstgespräch <ArrowRight className="ml-2 size-4" aria-hidden /></Link></div>
             <aside className="rounded-3xl border border-indigo-300/20 bg-indigo-400/[0.07] p-6 sm:p-8"><p className="eyebrow">So wird ein Ablauf daraus</p><ol className="mt-6 divide-y divide-white/10">{service.flow.map((step, index) => <li key={step} className="flex gap-4 py-5"><span className="font-mono text-indigo-300">0{index + 1}</span><span className="text-lg text-white">{step}</span></li>)}</ol></aside>
           </div>
           <ul className="mt-12 grid gap-5 border-y border-white/10 py-7 md:grid-cols-3">{service.outcomes.map((outcome) => <li key={outcome} className="flex gap-3 text-slate-200"><Check className="size-5 shrink-0 text-indigo-300" aria-hidden />{outcome}</li>)}</ul>

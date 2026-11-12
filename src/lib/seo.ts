@@ -88,6 +88,11 @@ export function createPageMetadata({
     robots: {
       index: !noIndex,
       follow: true,
+      ...(!noIndex ? {
+        "max-snippet": -1,
+        "max-image-preview": "large" as const,
+        "max-video-preview": -1,
+      } : {}),
     },
     openGraph: {
       url: path,
